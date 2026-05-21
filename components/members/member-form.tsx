@@ -44,8 +44,8 @@ export function MemberForm({ orgSlug, memberId, initial }: Props) {
     };
 
     const result = memberId
-      ? await updateMember(memberId, payload)
-      : await createMember(payload);
+      ? await updateMember(memberId, payload, orgSlug)
+      : await createMember(payload, orgSlug);
 
     setPending(false);
     if (!result.ok) {

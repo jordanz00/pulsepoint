@@ -1,16 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { exportMembersCsv, importMembersCsv } from "@/app/actions/members";
+import { exportMembersCsv } from "@/app/actions/members";
+import { stageMembersCsvImport } from "@/app/actions/member-import";
 
-export function MemberImportExport() {
+export function MemberImportExport({ orgSlug }: { orgSlug: string }) {
   const router = useRouter();
   const [message, setMessage] = useState<string | null>(null);
 
   async function handleExport() {
-    const result = await exportMembersCsv();
+    const result = await exportMembersCsv(orgSlug);
     if (!result.ok || !result.data) {
       setMessage(!result.ok ? result.error : "Export failed");
       return;
@@ -19,7 +20,7 @@ export function MemberImportExport() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `pulscore-members-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `pulsepoint-members-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
     setMessage("Export downloaded");
@@ -27,12 +28,15 @@ export function MemberImportExport() {
 
   async function handleImport(file: File) {
     const text = await file.text();
-    const result = await importMembersCsv(text);
+    const result = await stageMembersCsvImport(text, orgSlug, file.name);
     if (!result.ok) {
       setMessage(result.error);
       return;
     }
-    setMessage(`Imported ${result.data?.imported ?? 0} members`);
+    setMessage(
+      `Staged ${result.data?.rowCount ?? 0} rows — review before applying to member records.`,
+    );
+    router.push(`/${orgSlug}/members/imports`);
     router.refresh();
   }
 
@@ -43,7 +47,7 @@ export function MemberImportExport() {
       </Button>
       <label className="inline-flex cursor-pointer items-center">
         <span className="rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium hover:bg-zinc-50">
-          Import CSV
+          Stage CSV import
         </span>
         <input
           type="file"
@@ -55,6 +59,13 @@ export function MemberImportExport() {
           }}
         />
       </label>
+      <Button
+        type="button"
+        variant="secondary"
+        onClick={() => router.push(`/${orgSlug}/members/imports`)}
+      >
+        Review imports
+      </Button>
       {message && <span className="text-sm text-zinc-600">{message}</span>}
     </div>
   );

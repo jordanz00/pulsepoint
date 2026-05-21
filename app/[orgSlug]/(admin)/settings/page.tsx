@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import { PageHeader } from "@/components/ui/page-header";
 
 export default async function SettingsPage({
   params,
@@ -12,28 +13,40 @@ export default async function SettingsPage({
 
   return (
     <div className="max-w-2xl space-y-6">
-      <h1 className="text-2xl font-bold">Settings</h1>
-      <dl className="divide-y rounded-xl border bg-white text-sm">
+      <PageHeader title="Settings" subtitle="Organization profile and platform links" />
+
+      <dl className="pc-table-wrap divide-y text-sm">
         <div className="grid grid-cols-3 gap-4 px-4 py-3">
-          <dt className="text-zinc-500">Organization</dt>
-          <dd className="col-span-2 font-medium">{org.name}</dd>
+          <dt className="text-slate-500">Organization</dt>
+          <dd className="col-span-2 font-medium text-slate-900">{org.name}</dd>
         </div>
         <div className="grid grid-cols-3 gap-4 px-4 py-3">
-          <dt className="text-zinc-500">Slug</dt>
-          <dd className="col-span-2 font-mono">{org.slug}</dd>
+          <dt className="text-slate-500">Slug</dt>
+          <dd className="col-span-2 font-mono text-slate-800">{org.slug}</dd>
         </div>
         <div className="grid grid-cols-3 gap-4 px-4 py-3">
-          <dt className="text-zinc-500">Plan</dt>
-          <dd className="col-span-2">{org.plan}</dd>
+          <dt className="text-slate-500">Plan</dt>
+          <dd className="col-span-2 capitalize">{org.plan}</dd>
         </div>
       </dl>
-      <p className="text-sm text-zinc-600">
-        Platform billing (PulseCore subscription) is configured in{" "}
-        <Link href="/platform/billing" className="text-teal-700 underline">
-          platform billing
-        </Link>
-        .
-      </p>
+
+      <section className="pc-card text-sm text-slate-600">
+        <p>
+          <strong className="text-slate-800">PulsePoint Commerce</strong> (dues,
+          storefronts) is on the roadmap — see{" "}
+          <Link href={`/${orgSlug}/commerce`} className="pc-link">
+            PulsePoint Commerce
+          </Link>
+          .
+        </p>
+        <p className="mt-3">
+          Platform subscription placeholder:{" "}
+          <Link href="/platform/billing" className="pc-link">
+            platform billing
+          </Link>
+          .
+        </p>
+      </section>
     </div>
   );
 }

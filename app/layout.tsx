@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { HERO_COPY } from "@/lib/marketing-content";
+import { ORIGIN_STORY } from "@/lib/brand";
+import { DemoBanner } from "@/components/demo-banner";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
-  title: "PulseCore — Association management",
-  description:
-    "Multi-tenant healthcare association management: members, events, and member portal.",
+  title: `PulsePoint — ${HERO_COPY.headline}`,
+  description: `${HERO_COPY.lead} ${ORIGIN_STORY}`,
 };
 
 export default function RootLayout({
@@ -15,8 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className="min-h-screen bg-white text-zinc-900 antialiased">
+      <html lang="en" className={inter.variable}>
+        <body className="min-h-screen font-sans antialiased">
+          <DemoBanner />
           {children}
         </body>
       </html>

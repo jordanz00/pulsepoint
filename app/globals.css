@@ -1,16 +1,89 @@
 @import "tailwindcss";
 
+/* PulsePoint design system — navy + white, Linear/Notion-adjacent */
 :root {
-  --brand: #0f766e;
-  --brand-light: #ccfbf1;
+  --pc-navy: #0b1220;
+  --pc-navy-elevated: #151d2e;
+  --pc-navy-border: #1e293b;
+  --pc-surface: #ffffff;
+  --pc-bg: #f4f6f9;
+  --pc-muted: #64748b;
+  --pc-accent: #38bdf8;
+  --pc-accent-muted: #e0f2fe;
+  --pc-text: #0f172a;
+  --pc-text-on-navy: #f8fafc;
 }
 
 body {
   font-family:
+    "Inter",
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     Roboto,
     sans-serif;
+  color: var(--pc-text);
+  background: var(--pc-surface);
+}
+
+/* Utility classes for marketing + app chrome */
+.pc-btn-primary {
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-[var(--pc-navy)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--pc-navy-elevated)];
+}
+
+.pc-btn-secondary {
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-[var(--pc-navy-border)] bg-white px-5 py-2.5 text-sm font-medium text-[var(--pc-text)] transition hover:bg-[var(--pc-bg)];
+}
+
+.pc-card {
+  @apply rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm;
+}
+
+.pc-section-navy {
+  @apply bg-[var(--pc-navy)] text-[var(--pc-text-on-navy)];
+}
+
+.pc-table-wrap {
+  @apply overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm;
+}
+
+.pc-table {
+  @apply w-full text-left text-sm;
+}
+
+.pc-table thead {
+  @apply bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500;
+}
+
+.pc-table th {
+  @apply px-4 py-3;
+}
+
+.pc-table td {
+  @apply border-t border-slate-100 px-4 py-3;
+}
+
+.pc-table tbody tr:hover {
+  @apply bg-slate-50/50;
+}
+
+.pc-link {
+  @apply font-medium text-sky-700 hover:text-sky-900 hover:underline;
+}
+
+.pc-stat-grid {
+  @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+.pc-stat-card {
+  @apply pc-card transition hover:border-sky-200 hover:shadow-md;
+}
+
+.pc-stat-value {
+  @apply mt-1 text-2xl font-bold text-[var(--pc-navy)];
+}
+
+.pc-stat-label {
+  @apply text-sm text-slate-500;
 }

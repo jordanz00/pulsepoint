@@ -1,11 +1,30 @@
-# PulseCore
+# PulsePoint
 
-**PulseCore** is a multi-tenant association management platform for healthcare associations—starting with **Member CRM** and **Events**, built to reduce reliance on legacy AMS stacks (e.g. Protech on Microsoft Dynamics).
+**The modern AMS built for healthcare associations.**
+
+*Built by an association that got tired of paying millions for outdated software.*
+
+PulsePoint is a multi-tenant AMS for healthcare associations, delivered as a product suite:
+
+| Product | Status |
+|---------|--------|
+| **PulsePoint Work** | Available — staff admin workspace (MemberCore + Events modules live) |
+| **MemberCore** | Available — Membership Management: CRM, tags, CSV import/export |
+| **PulsePoint Events** | Available — registration, payments, check-in |
+| **PulsePoint Commerce** | Coming soon — e-commerce, storefronts, and association payments |
+| **PulsePoint AI** | Coming soon — staff assist and comms drafts |
+| **PulsePoint Insights** | Coming soon — dashboards and board reports |
+
+**Engineering (anti–vibe-code):** [docs/SECURITY-PARANOID.md](docs/SECURITY-PARANOID.md) · [docs/VIBE-CODE-RISKS.md](docs/VIBE-CODE-RISKS.md) · [docs/SYSTEM-DESIGN.md](docs/SYSTEM-DESIGN.md) · [docs/DATA-DICTIONARY.md](docs/DATA-DICTIONARY.md) · [docs/OPERATOR-CHECKLIST.md](docs/OPERATOR-CHECKLIST.md) · [docs/RUNBOOK.md](docs/RUNBOOK.md) · [docs/AI-DATA-POLICY.md](docs/AI-DATA-POLICY.md)
+
+After code changes: `pnpm test` · `pnpm security:audit`
+
+**Feature pillars** (operational): Members, Events, Commerce, Committees, Communications, Insights, AI Tools — see [docs/POSITIONING.md](docs/POSITIONING.md).
 
 | | |
 |---|---|
-| **Brand** | PulseCore |
-| **Package / repo folder** | `pulscore` (`/Users/jordanzabady/Desktop/pulse`) |
+| **Brand** | PulsePoint |
+| **Package / repo folder** | `pulsepoint` (`/Users/jordanzabady/Desktop/pulse`) |
 | **Stack** | Next.js 16 · Postgres · Prisma · Clerk · Stripe · Resend |
 | **MVP data** | PII only (no PHI) |
 
@@ -75,7 +94,7 @@ tests/                  Vitest + Playwright
 
 ## Trademark
 
-See [docs/TRADEMARK.md](docs/TRADEMARK.md). **PulseCore** is used instead of plain “Pulse” to reduce collision with existing healthcare and CRM marks.
+See [docs/TRADEMARK.md](docs/TRADEMARK.md). **PulsePoint** is used instead of plain “Pulse” to reduce collision with existing healthcare and CRM marks.
 
 ## Roadmap (plan)
 

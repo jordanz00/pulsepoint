@@ -1,19 +1,21 @@
 /**
- * Org-scoped database client — PulseCore security cornerstone
+ * Org-scoped database client — PulsePoint security cornerstone
  *
  * WHO: Server actions, route handlers, webhooks (after org is known)
  * WHAT: Wraps Prisma with automatic orgId injection on tenant tables
  * HOW: Use getOrgDb(orgId) — never query Member/Event/etc. via raw prisma in app code
  */
 
-import type { Prisma } from "@/app/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
+import { mergeCreateData, mergeWhere } from "@/lib/db-scope";
 import { isOrgScopedModel } from "@/lib/org-models";
 
 const READ_OPS = new Set([
   "findMany",
   "findFirst",
   "findFirstOrThrow",
+  "findUnique",
+  "findUniqueOrThrow",
   "count",
   "aggregate",
   "groupBy",
@@ -26,41 +28,6 @@ const WRITE_FILTER_OPS = new Set([
   "deleteMany",
   "upsert",
 ]);
-
-function mergeWhere<T extends { where?: unknown }>(
-  args: T,
-  orgId: string,
-): T {
-  const existing = (args.where ?? {}) as Record<string, unknown>;
-  return {
-    ...args,
-    where: { ...existing, orgId },
-  };
-}
-
-function mergeCreateData<T extends { data?: unknown }>(
-  args: T,
-  orgId: string,
-): T {
-  const data = args.data;
-  if (!data || typeof data !== "object") {
-    return args;
-  }
-  if (Array.isArray(data)) {
-    return {
-      ...args,
-      data: data.map((row) =>
-        typeof row === "object" && row !== null
-          ? { ...row, orgId }
-          : row,
-      ),
-    };
-  }
-  return {
-    ...args,
-    data: { ...(data as Record<string, unknown>), orgId },
-  };
-}
 
 /**
  * Returns a Prisma client extension scoped to one organization.

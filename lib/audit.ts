@@ -1,5 +1,5 @@
 /**
- * Audit log writer — PulseCore compliance trail
+ * Audit log writer — PulsePoint compliance trail
  */
 
 import type { Prisma } from "@/app/generated/prisma/client";

@@ -1,4 +1,4 @@
-# Deploy PulseCore (Phase 0)
+# Deploy PulsePoint (Phase 0)
 
 ## Vercel + Neon (recommended)
 
@@ -44,8 +44,8 @@
 cd /Users/jordanzabady/Desktop/pulse
 git init
 git add .
-git commit -m "feat: PulseCore Phase 0–3 scaffold (AMS MVP)"
-gh repo create pulscore --private --source=. --push
+git commit -m "feat: PulsePoint Phase 0–3 scaffold (AMS MVP)"
+gh repo create pulsepoint --private --source=. --push
 ```
 
 (Requires `gh auth login`.)

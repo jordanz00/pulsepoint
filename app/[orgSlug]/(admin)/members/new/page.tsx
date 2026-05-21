@@ -8,7 +8,8 @@ export default async function NewMemberPage({
   const { orgSlug } = await params;
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold">New member</h1>
+      <h1 className="mb-1 text-2xl font-bold">MemberCore</h1>
+      <p className="mb-6 text-sm text-slate-500">Add a new member</p>
       <MemberForm orgSlug={orgSlug} />
     </div>
   );

@@ -3,10 +3,14 @@
 export const ORG_SCOPED_MODELS = [
   "OrgMembership",
   "Member",
+  "MemberNote",
   "MemberTier",
   "Event",
   "EventRegistration",
   "AuditLog",
+  "AutomationException",
+  "MemberImportBatch",
+  "MemberImportRow",
 ] as const;
 
 export type OrgScopedModel = (typeof ORG_SCOPED_MODELS)[number];

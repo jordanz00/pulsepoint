@@ -1,8 +1,8 @@
 {
-  "name": "pulscore",
+  "name": "pulsepoint",
   "version": "0.1.0",
   "private": true,
-  "description": "PulseCore — multi-tenant healthcare association management (Members + Events MVP)",
+  "description": "PulsePoint — The modern AMS built for healthcare associations. Built by an association that got tired of paying millions for outdated software.",
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
@@ -10,6 +10,10 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "security:audit": "bash scripts/security-audit.sh",
+    "leak:checks": "bash scripts/ten-member-leak-checks.sh",
+    "claims:validate": "tsx scripts/validate-marketing-claims.ts",
+    "sensitive:check": "bash scripts/check-sensitive-paths.sh",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "db:generate": "prisma generate",
@@ -17,6 +21,7 @@
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "db:seed": "tsx prisma/seed.ts",
+    "db:seed:demo": "tsx prisma/seed-demo.ts",
     "postinstall": "prisma generate"
   },
   "dependencies": {

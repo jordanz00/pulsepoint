@@ -48,8 +48,8 @@ export function EventForm({ orgSlug, eventId, initial }: Props) {
     };
 
     const result = eventId
-      ? await updateEvent(eventId, payload)
-      : await createEvent(payload);
+      ? await updateEvent(eventId, payload, orgSlug)
+      : await createEvent(payload, orgSlug);
 
     setPending(false);
     if (!result.ok) {

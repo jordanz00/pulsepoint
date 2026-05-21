@@ -82,6 +82,7 @@ export default async function EventDetailPage({
                 </p>
               </div>
               <CheckInButton
+                orgSlug={orgSlug}
                 registrationId={r.id}
                 checkedIn={Boolean(r.checkedInAt)}
               />

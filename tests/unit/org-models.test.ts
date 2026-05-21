@@ -5,6 +5,8 @@ describe("org scoped models", () => {
   it("lists tenant tables", () => {
     expect(ORG_SCOPED_MODELS).toContain("Member");
     expect(ORG_SCOPED_MODELS).toContain("Event");
+    expect(ORG_SCOPED_MODELS).toContain("MemberNote");
+    expect(ORG_SCOPED_MODELS).toContain("AutomationException");
   });
 
   it("rejects global tables", () => {

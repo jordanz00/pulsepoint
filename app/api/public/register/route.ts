@@ -6,9 +6,11 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getOrgDb, prisma } from "@/lib/db";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { checkRegistrationGuards } from "@/lib/register-guards";
 import { publicRegistrationSchema } from "@/lib/validations/event";
 import { writeAuditLog } from "@/lib/audit";
 import { isResendConfigured, getResend, DEFAULT_FROM } from "@/lib/email";
+import { runSoftFailStep } from "@/lib/automation";
 
 const registerBodySchema = publicRegistrationSchema.extend({
   orgSlug: z.string().min(1).max(80),
@@ -17,16 +19,6 @@ const registerBodySchema = publicRegistrationSchema.extend({
 
 export async function POST(request: Request) {
   const ip = getClientIp(request);
-  const limited = checkRateLimit(`register:${ip}`, 10, 60_000);
-  if (!limited.ok) {
-    return NextResponse.json(
-      { error: "Too many requests" },
-      {
-        status: 429,
-        headers: { "Retry-After": String(limited.retryAfterSec) },
-      },
-    );
-  }
 
   let body: unknown;
   try {
@@ -45,6 +37,21 @@ export async function POST(request: Request) {
   const org = await prisma.organization.findUnique({ where: { slug: orgSlug } });
   if (!org) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  const guarded = checkRegistrationGuards({
+    ip,
+    orgId: org.id,
+    guestEmail: parsed.data.guestEmail,
+  });
+  if (!guarded.ok) {
+    return NextResponse.json(
+      { error: "Too many requests" },
+      {
+        status: 429,
+        headers: { "Retry-After": String(guarded.retryAfterSec) },
+      },
+    );
   }
 
   const db = getOrgDb(org.id);
@@ -103,18 +110,27 @@ export async function POST(request: Request) {
     diff: { eventId: event.id, ip },
   });
 
-  if (isResendConfigured()) {
-    try {
-      const resend = getResend();
-      await resend.emails.send({
-        from: DEFAULT_FROM,
-        to: guestEmail,
-        subject: `Registration: ${event.title}`,
-        text: `Hi ${guestName},\n\nYou are registered for ${event.title} on ${event.startsAt.toLocaleString()}.\n\n— PulseCore`,
-      });
-    } catch {
-      /* non-fatal */
-    }
+  const emailSendLimit = checkRateLimit(
+    `register:send:${guestEmail.trim().toLowerCase()}`,
+    3,
+    3_600_000,
+  );
+
+  if (isResendConfigured() && emailSendLimit.ok) {
+    await runSoftFailStep({
+      orgId: org.id,
+      workflow: "registration.confirm_email",
+      step: "resend.send",
+      run: async () => {
+        const resend = getResend();
+        await resend.emails.send({
+          from: DEFAULT_FROM,
+          to: guestEmail,
+          subject: `Registration: ${event.title}`,
+          text: `Hi ${guestName},\n\nYou are registered for ${event.title} on ${event.startsAt.toLocaleString()}.\n\n— PulsePoint`,
+        });
+      },
+    });
   }
 
   return NextResponse.json({

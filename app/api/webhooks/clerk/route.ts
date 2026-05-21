@@ -52,12 +52,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
+  const { type, data } = event;
+
   const svixId = headerStore.get("svix-id");
-  if (svixId && (await claimWebhookEvent(svixId, "clerk"))) {
+  const idempotencyKey =
+    svixId ??
+    (typeof data.id === "string" ? `${type}:${data.id}` : null);
+  if (idempotencyKey && (await claimWebhookEvent(idempotencyKey, "clerk"))) {
     return NextResponse.json({ ok: true, duplicate: true });
   }
-
-  const { type, data } = event;
 
   switch (type) {
     case "user.created":

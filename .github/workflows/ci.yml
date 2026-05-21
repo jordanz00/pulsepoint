@@ -13,9 +13,9 @@ jobs:
       postgres:
         image: postgres:16-alpine
         env:
-          POSTGRES_USER: pulscore
-          POSTGRES_PASSWORD: pulscore
-          POSTGRES_DB: pulscore
+          POSTGRES_USER: pulsepoint
+          POSTGRES_PASSWORD: pulsepoint
+          POSTGRES_DB: pulsepoint
         ports:
           - 5432:5432
         options: >-
@@ -25,7 +25,7 @@ jobs:
           --health-retries 5
 
     env:
-      DATABASE_URL: postgresql://pulscore:pulscore@localhost:5432/pulscore?schema=public
+      DATABASE_URL: postgresql://pulsepoint:pulsepoint@localhost:5432/pulsepoint?schema=public
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
       CLERK_SECRET_KEY: sk_test_ci_placeholder
 
@@ -54,6 +54,7 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm lint
       - run: pnpm test
+      - run: pnpm security:audit
 
       - name: Prisma schema drift check
         run: pnpm exec prisma migrate diff --from-migrations prisma/migrations --to-schema prisma/schema.prisma --exit-code

@@ -1,5 +1,5 @@
 /**
- * Stripe client — PulseCore payments (event registration, future platform billing)
+ * Stripe client — PulsePoint payments (event registration, future PulsePoint Commerce)
  */
 
 import Stripe from "stripe";

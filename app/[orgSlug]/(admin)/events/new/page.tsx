@@ -8,7 +8,10 @@ export default async function NewEventPage({
   const { orgSlug } = await params;
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold">New event</h1>
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold">New event</h1>
+        <p className="text-sm text-slate-500">PulsePoint Events</p>
+      </div>
       <EventForm orgSlug={orgSlug} />
     </div>
   );

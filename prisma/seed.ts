@@ -6,7 +6,7 @@
 import { prisma } from "../lib/prisma";
 
 async function main() {
-  const orgId = "org_dev_pulscore";
+  const orgId = "org_dev_pulsepoint";
   const userId = "user_dev_owner";
 
   await prisma.organization.upsert({

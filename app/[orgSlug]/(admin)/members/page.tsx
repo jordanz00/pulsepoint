@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getOrgDb } from "@/lib/db";
+import { assertAllRowsBelongToOrg } from "@/lib/tenant-guards";
 import { MemberImportExport } from "@/components/members/member-import-export";
+import { PageHeader } from "@/components/ui/page-header";
+import { EmptyState } from "@/components/ui/empty-state";
 
 export default async function MembersPage({
   params,
@@ -34,76 +37,84 @@ export default async function MembersPage({
     orderBy: [{ lastName: "asc" }, { firstName: "asc" }],
     take: 200,
   });
+  assertAllRowsBelongToOrg(members, org.id, "members-page");
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold">Members</h1>
-          <p className="text-sm text-zinc-600">{members.length} shown (max 200)</p>
-        </div>
-        <Link
-          href={`/${orgSlug}/members/new`}
-          className="rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white"
-        >
-          Add member
-        </Link>
-      </div>
+      <PageHeader
+        title="MemberCore"
+        subtitle={`Membership Management · ${members.length} shown (max 200) · staged import with review`}
+        badge="live"
+        actions={
+          <Link href={`/${orgSlug}/members/new`} className="pc-btn-primary text-sm">
+            Add member
+          </Link>
+        }
+      />
 
-      <MemberImportExport />
+      <MemberImportExport orgSlug={orgSlug} />
 
       <form className="flex flex-wrap gap-2" method="get">
         <input
           name="q"
           placeholder="Search name or email"
           defaultValue={q ?? ""}
-          className="min-h-11 flex-1 rounded-lg border border-zinc-300 px-3 text-sm"
+          className="min-h-11 flex-1 rounded-lg border border-slate-200 px-3 text-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-100"
         />
         <select
           name="status"
           defaultValue={status ?? ""}
-          className="min-h-11 rounded-lg border border-zinc-300 px-3 text-sm"
+          className="min-h-11 rounded-lg border border-slate-200 px-3 text-sm"
         >
           <option value="">All statuses</option>
           <option value="ACTIVE">Active</option>
           <option value="INACTIVE">Inactive</option>
           <option value="LAPSED">Lapsed</option>
         </select>
-        <button
-          type="submit"
-          className="rounded-lg bg-zinc-800 px-4 py-2 text-sm font-medium text-white"
-        >
+        <button type="submit" className="pc-btn-secondary text-sm">
           Filter
         </button>
       </form>
 
-      <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-zinc-50 text-zinc-600">
-            <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Email</th>
-              <th className="px-4 py-3">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {members.map((m) => (
-              <tr key={m.id} className="border-t border-zinc-100">
-                <td className="px-4 py-3">
-                  <Link
-                    href={`/${orgSlug}/members/${m.id}`}
-                    className="font-medium text-teal-800 hover:underline"
-                  >
-                    {m.lastName}, {m.firstName}
-                  </Link>
-                </td>
-                <td className="px-4 py-3 text-zinc-600">{m.email ?? "—"}</td>
-                <td className="px-4 py-3">{m.status}</td>
+      {members.length === 0 ? (
+        <EmptyState
+          title="No members yet"
+          description="Add a member manually or stage a CSV import for review."
+          action={
+            <Link href={`/${orgSlug}/members/new`} className="pc-btn-primary text-sm">
+              Add member
+            </Link>
+          }
+        />
+      ) : (
+        <div className="pc-table-wrap">
+          <table className="pc-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {members.map((m) => (
+                <tr key={m.id}>
+                  <td>
+                    <Link
+                      href={`/${orgSlug}/members/${m.id}`}
+                      className="pc-link"
+                    >
+                      {m.lastName}, {m.firstName}
+                    </Link>
+                  </td>
+                  <td className="text-slate-600">{m.email ?? "—"}</td>
+                  <td>{m.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

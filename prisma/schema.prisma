@@ -1,4 +1,4 @@
-// PulseCore — Prisma schema (multi-tenant AMS, Members + Events MVP)
+// PulsePoint — Prisma schema (multi-tenant AMS, Members + Events MVP)
 // https://pris.ly/d/prisma-schema
 
 generator client {
@@ -41,6 +41,24 @@ enum BillingInterval {
   ANNUAL
 }
 
+enum AutomationOutcome {
+  PARTIAL_SUCCESS
+  FAILED
+}
+
+enum MemberImportBatchStatus {
+  PENDING_REVIEW
+  APPLIED
+  REJECTED
+}
+
+enum MemberImportRowStatus {
+  PENDING
+  APPLIED
+  SKIPPED_DUPLICATE
+  REJECTED
+}
+
 model Organization {
   id               String   @id
   slug             String   @unique
@@ -55,7 +73,11 @@ model Organization {
   memberTiers   MemberTier[]
   events        Event[]
   registrations EventRegistration[]
-  auditLogs     AuditLog[]
+  auditLogs            AuditLog[]
+  memberNotes          MemberNote[]
+  automationExceptions AutomationException[]
+  memberImportBatches  MemberImportBatch[]
+  memberImportRows     MemberImportRow[]
 }
 
 model User {
@@ -68,6 +90,8 @@ model User {
 
   memberships OrgMembership[]
   auditLogs   AuditLog[]
+  memberNotes         MemberNote[]
+  memberImportUploads MemberImportBatch[]
 }
 
 model OrgMembership {
@@ -103,10 +127,28 @@ model Member {
 
   organization  Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
   registrations EventRegistration[]
+  notes         MemberNote[]
 
   @@index([orgId])
   @@index([orgId, email])
   @@index([orgId, status])
+}
+
+/// Canonical staff notes — do not store pipeline notes in customFields or ad-hoc spreadsheets.
+model MemberNote {
+  id           String   @id @default(cuid())
+  orgId        String
+  memberId     String
+  authorUserId String?
+  body         String
+  createdAt    DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  member       Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  author       User?        @relation(fields: [authorUserId], references: [id], onDelete: SetNull)
+
+  @@index([orgId, memberId])
+  @@index([orgId, createdAt])
 }
 
 model MemberTier {
@@ -191,4 +233,59 @@ model WebhookIdempotency {
   createdAt DateTime @default(now())
 
   @@index([source, createdAt])
+}
+
+/// Soft-fail automation queue — partial webhook/import failures land here for triage.
+model AutomationException {
+  id         String            @id @default(cuid())
+  orgId      String
+  workflow   String
+  step       String
+  outcome    AutomationOutcome
+  message    String            @default("")
+  context    Json              @default("{}")
+  resolvedAt DateTime?
+  createdAt  DateTime          @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, resolvedAt])
+  @@index([orgId, createdAt])
+}
+
+/// Staging — never write CSV rows directly to Member until batch is applied.
+model MemberImportBatch {
+  id           String                @id @default(cuid())
+  orgId        String
+  uploadedById String?
+  fileName     String                @default("")
+  status       MemberImportBatchStatus @default(PENDING_REVIEW)
+  rowCount     Int                   @default(0)
+  createdAt    DateTime              @default(now())
+  appliedAt    DateTime?
+
+  organization Organization     @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  uploadedBy   User?              @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  rows         MemberImportRow[]
+
+  @@index([orgId, status])
+}
+
+model MemberImportRow {
+  id        String              @id @default(cuid())
+  orgId     String
+  batchId   String
+  rowIndex  Int
+  firstName String
+  lastName  String
+  email     String?
+  status    MemberImportRowStatus @default(PENDING)
+  matchMemberId String?
+  createdAt DateTime            @default(now())
+
+  organization Organization      @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  batch        MemberImportBatch @relation(fields: [batchId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, batchId])
+  @@unique([batchId, rowIndex])
 }

@@ -1,10 +1,11 @@
 "use server";
 
 /**
- * Member portal actions — PulseCore Phase 3
+ * Member portal actions — PulsePoint Phase 3
  */
 
 import { auth } from "@clerk/nextjs/server";
+import { assertPortalOrgAccess } from "@/lib/auth";
 import { getOrgDb, prisma } from "@/lib/db";
 import { memberInputSchema } from "@/lib/validations/member";
 import type { ActionResult } from "@/app/actions/members";
@@ -37,6 +38,12 @@ export async function getPortalProfile(
     where: { slug: orgSlug },
   });
   if (!org) return { ok: false, error: "Organization not found" };
+
+  try {
+    assertPortalOrgAccess(session.orgId, org.id);
+  } catch {
+    return { ok: false, error: "Organization mismatch" };
+  }
 
   const db = getOrgDb(org.id);
   const member = await db.member.findFirst({
@@ -96,6 +103,12 @@ export async function updatePortalProfile(
     where: { slug: orgSlug },
   });
   if (!org) return { ok: false, error: "Organization not found" };
+
+  try {
+    assertPortalOrgAccess(session.orgId, org.id);
+  } catch {
+    return { ok: false, error: "Organization mismatch" };
+  }
 
   const db = getOrgDb(org.id);
   const member = await db.member.findFirst({

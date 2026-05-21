@@ -18,7 +18,7 @@ export function DeleteMemberButton({
       variant="danger"
       onClick={async () => {
         if (!confirm("Delete this member?")) return;
-        const result = await deleteMember(memberId);
+        const result = await deleteMember(memberId, orgSlug);
         if (result.ok) {
           router.push(`/${orgSlug}/members`);
           router.refresh();

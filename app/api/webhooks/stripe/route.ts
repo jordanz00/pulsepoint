@@ -7,7 +7,10 @@ import { NextResponse } from "next/server";
 import { getStripe, isStripeConfigured } from "@/lib/stripe";
 import { getOrgDb } from "@/lib/db";
 import { writeAuditLog } from "@/lib/audit";
+import { recordAutomationException } from "@/lib/automation-exception";
 import { claimWebhookEvent } from "@/lib/webhook-idempotency";
+import { metadataMatchesRegistration } from "@/lib/webhook-trust";
+import { assertRegistrationTransition } from "@/lib/registration-state";
 
 export async function POST(request: Request) {
   if (!isStripeConfigured()) {
@@ -44,26 +47,77 @@ export async function POST(request: Request) {
 
     if (registrationId && orgId) {
       const db = getOrgDb(orgId);
-      await db.eventRegistration.update({
-        where: { id: registrationId },
-        data: {
-          status: "CONFIRMED",
-          paidAt: new Date(),
-          stripePaymentIntentId:
-            typeof session.payment_intent === "string"
-              ? session.payment_intent
-              : session.payment_intent?.id ?? null,
-        },
-      });
+      try {
+        const reg = await db.eventRegistration.findFirst({
+          where: { id: registrationId },
+        });
+        if (!reg) {
+          await recordAutomationException({
+            orgId,
+            workflow: "stripe.checkout.completed",
+            step: "registration.lookup",
+            outcome: "PARTIAL_SUCCESS",
+            message: "Stripe paid but registration row missing",
+            context: { registrationId, sessionId: session.id },
+          });
+          return NextResponse.json({ ok: true, partial: true });
+        }
 
-      await writeAuditLog({
-        orgId,
-        userId: null,
-        action: "registration.paid",
-        entity: "EventRegistration",
-        entityId: registrationId,
-        diff: { sessionId: session.id },
-      });
+        if (
+          !metadataMatchesRegistration(reg, {
+            registrationId,
+            orgId,
+            eventId: session.metadata?.eventId,
+          })
+        ) {
+          await recordAutomationException({
+            orgId: reg.orgId,
+            workflow: "stripe.checkout.completed",
+            step: "metadata.verify",
+            outcome: "FAILED",
+            message: "Stripe metadata does not match registration row",
+            context: {
+              registrationId,
+              sessionId: session.id,
+              metadataOrgId: orgId,
+            },
+          });
+          return NextResponse.json({ error: "Metadata mismatch" }, { status: 400 });
+        }
+
+        assertRegistrationTransition(reg.status, "CONFIRMED");
+
+        await db.eventRegistration.update({
+          where: { id: registrationId },
+          data: {
+            status: "CONFIRMED",
+            paidAt: new Date(),
+            stripePaymentIntentId:
+              typeof session.payment_intent === "string"
+                ? session.payment_intent
+                : session.payment_intent?.id ?? null,
+          },
+        });
+
+        await writeAuditLog({
+          orgId,
+          userId: null,
+          action: "registration.paid",
+          entity: "EventRegistration",
+          entityId: registrationId,
+          diff: { sessionId: session.id },
+        });
+      } catch (err) {
+        await recordAutomationException({
+          orgId,
+          workflow: "stripe.checkout.completed",
+          step: "registration.update",
+          outcome: "FAILED",
+          message: err instanceof Error ? err.message : "Registration update failed",
+          context: { registrationId, sessionId: session.id },
+        });
+        throw err;
+      }
     }
   }
 

@@ -1,4 +1,4 @@
-# Local Postgres for PulseCore development (optional; use Neon in production)
+# Local Postgres for PulsePoint development (optional; use Neon in production)
 services:
   db:
     image: postgres:16-alpine
@@ -6,11 +6,11 @@ services:
     ports:
       - "5433:5432"
     environment:
-      POSTGRES_USER: pulscore
-      POSTGRES_PASSWORD: pulscore
-      POSTGRES_DB: pulscore
+      POSTGRES_USER: pulsepoint
+      POSTGRES_PASSWORD: pulsepoint
+      POSTGRES_DB: pulsepoint
     volumes:
-      - pulscore_pg:/var/lib/postgresql/data
+      - pulsepoint_pg:/var/lib/postgresql/data
 
 volumes:
-  pulscore_pg:
+  pulsepoint_pg:

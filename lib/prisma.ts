@@ -1,5 +1,5 @@
 /**
- * Prisma singleton — PulseCore (Prisma 7 + Postgres adapter)
+ * Prisma singleton — PulsePoint (Prisma 7 + Postgres adapter)
  */
 
 import { PrismaClient } from "@/app/generated/prisma/client";
@@ -13,7 +13,7 @@ const globalForPrisma = globalThis as unknown as {
 function createPrismaClient(): PrismaClient {
   const connectionString =
     process.env.DATABASE_URL ??
-    "postgresql://pulscore:pulscore@localhost:5433/pulscore?schema=public";
+    "postgresql://pulsepoint:pulsepoint@localhost:5433/pulsepoint?schema=public";
   const pool = new pg.Pool({ connectionString });
   const adapter = new PrismaPg(pool);
   return new PrismaClient({ adapter });

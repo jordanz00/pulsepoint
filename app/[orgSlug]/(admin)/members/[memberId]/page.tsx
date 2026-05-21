@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getOrgDb } from "@/lib/db";
 import { MemberForm } from "@/components/members/member-form";
+import { MemberNotes } from "@/components/members/member-notes";
 import { DeleteMemberButton } from "@/components/members/delete-member-button";
 
 export default async function MemberDetailPage({
@@ -16,6 +17,12 @@ export default async function MemberDetailPage({
   const db = getOrgDb(org.id);
   const member = await db.member.findFirst({ where: { id: memberId } });
   if (!member) notFound();
+
+  const notes = await db.memberNote.findMany({
+    where: { memberId },
+    orderBy: { createdAt: "desc" },
+    include: { author: { select: { name: true, email: true } } },
+  });
 
   return (
     <div className="space-y-6">
@@ -36,6 +43,16 @@ export default async function MemberDetailPage({
           status: member.status,
           tags: member.tags,
         }}
+      />
+      <MemberNotes
+        orgSlug={orgSlug}
+        memberId={member.id}
+        initialNotes={notes.map((n) => ({
+          id: n.id,
+          body: n.body,
+          createdAt: n.createdAt,
+          authorName: n.author?.name ?? n.author?.email ?? null,
+        }))}
       />
     </div>
   );

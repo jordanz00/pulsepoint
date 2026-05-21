@@ -1,5 +1,5 @@
 /**
- * Transactional email — Resend (PulseCore)
+ * Transactional email — Resend (PulsePoint)
  */
 
 import { Resend } from "resend";
@@ -22,4 +22,4 @@ export function isResendConfigured(): boolean {
 }
 
 export const DEFAULT_FROM =
-  process.env.RESEND_FROM_EMAIL ?? "PulseCore <onboarding@resend.dev>";
+  process.env.RESEND_FROM_EMAIL ?? "PulsePoint <onboarding@resend.dev>";

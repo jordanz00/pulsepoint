@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { toggleCheckIn } from "@/app/actions/events";
 
 export function CheckInButton({
+  orgSlug,
   registrationId,
   checkedIn,
 }: {
+  orgSlug: string;
   registrationId: string;
   checkedIn: boolean;
 }) {
@@ -16,7 +18,7 @@ export function CheckInButton({
     <Button
       variant={checkedIn ? "secondary" : "primary"}
       onClick={async () => {
-        await toggleCheckIn(registrationId);
+        await toggleCheckIn(registrationId, orgSlug);
         router.refresh();
       }}
     >

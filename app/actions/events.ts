@@ -1,13 +1,14 @@
 "use server";
 
 /**
- * Events server actions — PulseCore Phase 2
+ * Events server actions — PulsePoint Phase 2
  */
 
 import { revalidatePath } from "next/cache";
-import { requireStaffSession } from "@/lib/auth";
+import { requireCapability } from "@/lib/permissions";
 import { getOrgDb, prisma } from "@/lib/db";
 import { writeAuditLog } from "@/lib/audit";
+import { assertEventTransition } from "@/lib/event-state";
 import { getStripe, isStripeConfigured } from "@/lib/stripe";
 import { eventInputSchema } from "@/lib/validations/event";
 import type { ActionResult } from "@/app/actions/members";
@@ -16,7 +17,7 @@ export async function listEvents(): Promise<
   ActionResult<{ events: Awaited<ReturnType<typeof fetchEvents>> }>
 > {
   try {
-    const staff = await requireStaffSession();
+    const staff = await requireCapability("event:read");
     const events = await fetchEvents(staff.orgId);
     return { ok: true, data: { events } };
   } catch {
@@ -38,7 +39,7 @@ export async function getEvent(
   eventId: string,
 ): Promise<ActionResult<{ event: NonNullable<Awaited<ReturnType<typeof fetchOneEvent>>> }>> {
   try {
-    const staff = await requireStaffSession();
+    const staff = await requireCapability("event:read");
     const event = await fetchOneEvent(staff.orgId, eventId);
     if (!event) return { ok: false, error: "Event not found" };
     return { ok: true, data: { event } };
@@ -62,9 +63,10 @@ async function fetchOneEvent(orgId: string, eventId: string) {
 
 export async function createEvent(
   raw: unknown,
+  orgSlug?: string,
 ): Promise<ActionResult<{ eventId: string }>> {
   try {
-    const staff = await requireStaffSession();
+    const staff = await requireCapability("event:write", { orgSlug });
     const parsed = eventInputSchema.safeParse(raw);
     if (!parsed.success) {
       return { ok: false, error: "Invalid event data" };
@@ -111,9 +113,10 @@ export async function createEvent(
 export async function updateEvent(
   eventId: string,
   raw: unknown,
+  orgSlug?: string,
 ): Promise<ActionResult> {
   try {
-    const staff = await requireStaffSession();
+    const staff = await requireCapability("event:write", { orgSlug });
     const parsed = eventInputSchema.safeParse(raw);
     if (!parsed.success) {
       return { ok: false, error: "Invalid event data" };
@@ -133,6 +136,11 @@ export async function updateEvent(
       }
     }
 
+    const nextStatus = input.status ?? existing.status;
+    if (nextStatus !== existing.status) {
+      assertEventTransition(existing.status, nextStatus);
+    }
+
     await db.event.update({
       where: { id: eventId },
       data: {
@@ -142,7 +150,7 @@ export async function updateEvent(
         endsAt: input.endsAt ?? null,
         capacity: input.capacity ?? null,
         priceCents: input.priceCents ?? 0,
-        status: input.status ?? existing.status,
+        status: nextStatus,
         publicSlug: input.publicSlug,
       },
     });
@@ -165,9 +173,10 @@ export async function updateEvent(
 
 export async function toggleCheckIn(
   registrationId: string,
+  orgSlug?: string,
 ): Promise<ActionResult> {
   try {
-    const staff = await requireStaffSession();
+    const staff = await requireCapability("event:checkin", { orgSlug });
     const db = getOrgDb(staff.orgId);
     const reg = await db.eventRegistration.findFirst({
       where: { id: registrationId },
