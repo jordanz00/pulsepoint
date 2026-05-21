@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { AdminNavItem } from "@/lib/nav-config";
 import { Badge } from "@/components/ui/badge";
+import { HapLogo } from "@/components/hap-logo";
 
 function isActive(pathname: string, href: string): boolean {
   if (pathname === href) return true;
@@ -35,9 +36,7 @@ function NavGroup({
               <Link
                 href={item.href}
                 className={`flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition ${
-                  active
-                    ? "bg-sky-500/15 font-semibold text-white"
-                    : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  active ? "pc-sidebar-link-active font-semibold" : "pc-sidebar-link"
                 }`}
               >
                 <span className="truncate">{item.shortLabel}</span>
@@ -71,13 +70,14 @@ export function AppSidebar({
   const system = nav.filter((n) => n.group === "system");
 
   return (
-    <aside className="flex w-56 shrink-0 flex-col border-r border-slate-800/80 bg-[var(--pc-navy)] lg:w-60">
-      <div className="border-b border-slate-800/80 px-4 py-5">
-        <Link href={`/${orgSlug}`} className="block font-semibold text-white">
-          PulsePoint
+    <aside className="pc-sidebar flex w-56 shrink-0 flex-col border-r lg:w-60">
+      <div className="border-b border-white/10 px-4 py-5">
+        <Link href={`/${orgSlug}`} className="flex items-center gap-3">
+          <HapLogo size={36} priority />
+          <span className="font-semibold text-white">PulsePoint</span>
         </Link>
-        <p className="mt-1 truncate text-xs text-slate-400">{orgName}</p>
-        <p className="mt-2 text-[10px] font-medium uppercase tracking-wide text-sky-400/90">
+        <p className="mt-2 truncate text-xs text-white/70">{orgName}</p>
+        <p className="pc-eyebrow-warm mt-2 text-[10px] font-bold uppercase">
           AMS prototype
         </p>
       </div>
@@ -86,7 +86,7 @@ export function AppSidebar({
         <NavGroup title="Products" items={products} pathname={pathname} />
         <NavGroup title="Operations" items={system} pathname={pathname} />
       </nav>
-      <div className="border-t border-slate-800/80 p-3 text-[10px] text-slate-500">
+      <div className="border-t border-white/10 p-3 text-[10px] text-white/50">
         Live: MemberCore · Events · Work
       </div>
     </aside>

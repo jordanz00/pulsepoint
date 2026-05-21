@@ -2,8 +2,9 @@ allowBuilds:
   '@clerk/shared': set this to true or false
   '@prisma/engines': set this to true or false
   '@sentry/cli': set this to true or false
+  better-sqlite3: true
   esbuild: set this to true or false
-  prisma: set this to true or false
+  prisma: true
   sharp: true
   unrs-resolver: true
 ignoredBuiltDependencies:

@@ -1,4 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { DEMO_COOKIE_NAME, isDemoModeEnabled } from "@/lib/demo-mode-gates";
 
 const isPublicRoute = createRouteMatcher([
   "/",
@@ -13,22 +16,50 @@ const isPublicRoute = createRouteMatcher([
   "/:orgSlug/e/:eventSlug",
 ]);
 
-// Edge-safe demo-mode pass-through. The cookie is only loosely checked here
-// (presence + env flags); cryptographic verification happens in lib/auth.ts
-// during the actual server-side session check. A forged cookie can at most
-// skip Clerk's middleware redirect — it cannot pass `requireStaffSession`.
-function isDemoModeAllowed(): boolean {
-  if (process.env.NODE_ENV === "production") return false;
-  if (process.env.DEMO_MODE !== "true") return false;
-  const secret = process.env.DEMO_SESSION_SECRET ?? "";
-  return secret.length >= 32;
+function standaloneMiddleware(request: NextRequest): NextResponse {
+  const path = request.nextUrl.pathname;
+
+  const isPublicEvent = /^\/[^/]+\/e\/[^/]+$/.test(path);
+  if (
+    path === "/" ||
+    path.startsWith("/demo") ||
+    path.startsWith("/api/demo") ||
+    path.startsWith("/api/public") ||
+    path.startsWith("/privacy") ||
+    path.startsWith("/terms") ||
+    path.startsWith("/sign-in") ||
+    path.startsWith("/sign-up") ||
+    isPublicEvent ||
+    path.startsWith("/_next") ||
+    path.includes(".")
+  ) {
+    return NextResponse.next();
+  }
+
+  if (request.cookies.get(DEMO_COOKIE_NAME)?.value) {
+    return NextResponse.next();
+  }
+
+  const url = request.nextUrl.clone();
+  url.pathname = "/demo";
+  url.search = "";
+  return NextResponse.redirect(url);
 }
 
-export default clerkMiddleware(async (auth, request) => {
+const clerkHandler = clerkMiddleware(async (auth, request) => {
   if (isPublicRoute(request)) return;
-  if (isDemoModeAllowed() && request.cookies.get("pp_demo")?.value) return;
   await auth.protect();
 });
+
+export default function middleware(
+  request: NextRequest,
+  event: Parameters<typeof clerkHandler>[1],
+): ReturnType<typeof clerkHandler> {
+  if (isDemoModeEnabled()) {
+    return standaloneMiddleware(request);
+  }
+  return clerkHandler(request, event);
+}
 
 export const config = {
   matcher: [

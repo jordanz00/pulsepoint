@@ -1,7 +1,13 @@
-import { OrganizationList } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 import { ORIGIN_STORY, TAGLINE } from "@/lib/brand";
+import { isStandalonePrototype } from "@/lib/standalone-prototype";
 
 export default function OnboardingPage() {
+  if (isStandalonePrototype()) {
+    redirect("/demo");
+  }
+
+  const { OrganizationList } = require("@clerk/nextjs") as typeof import("@clerk/nextjs");
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[var(--pc-bg)] p-6">
       <div className="max-w-md text-center">

@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { SALES_CTAS } from "@/lib/marketing-catalog";
 
-export function MarketingCtas({ compact }: { compact?: boolean }) {
+export function MarketingCtas({
+  compact,
+  standalone = false,
+}: {
+  compact?: boolean;
+  standalone?: boolean;
+}) {
+  const demoHref = standalone ? "/demo" : undefined;
   const cls = compact
     ? "pc-btn-primary !min-h-9 !px-4 !py-2 !text-sm"
     : "pc-btn-primary";
@@ -19,8 +26,8 @@ export function MarketingCtas({ compact }: { compact?: boolean }) {
       >
         {SALES_CTAS.bookCall.label}
       </a>
-      <Link href={SALES_CTAS.requestDemo.href} className={cls}>
-        {SALES_CTAS.requestDemo.label}
+      <Link href={demoHref ?? SALES_CTAS.requestDemo.href} className={cls}>
+        {standalone ? "Try demo" : SALES_CTAS.requestDemo.label}
       </Link>
     </div>
   );

@@ -6,10 +6,10 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variants: Record<NonNullable<Props["variant"]>, string> = {
   primary:
-    "bg-[var(--pc-navy)] text-white hover:bg-[var(--pc-navy-elevated)] disabled:opacity-50",
+    "bg-[var(--pc-brand)] text-white hover:bg-[var(--pc-brand-hover)] disabled:opacity-50",
   secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
-  ghost: "text-slate-700 hover:bg-slate-100",
+    "border border-[var(--pc-border-strong)] bg-white text-[var(--pc-text)] hover:bg-[var(--pc-bg)]",
+  ghost: "text-[var(--pc-text-secondary)] hover:bg-[var(--pc-bg)]",
   danger: "bg-red-600 text-white hover:bg-red-700",
 };
 

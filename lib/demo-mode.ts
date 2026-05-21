@@ -1,37 +1,33 @@
 /**
  * PulsePoint demo mode — prototype/leadership-only auth bypass.
  *
- * WHO THIS IS FOR: Anyone running the local prototype or a non-production
- * preview where Clerk auth would otherwise block click-through. Demo mode
- * signs you in as the seeded owner of the demo org (`demo-healthcare`).
- *
- * WHAT IT DOES:
- *   1. Refuses to activate when NODE_ENV === "production" (hard fail).
- *   2. Requires DEMO_MODE=true and a DEMO_SESSION_SECRET (>= 32 chars).
- *   3. Issues an HMAC-signed cookie that maps to a fixed staff session:
- *        user_demo_owner / org_demo_pulsepoint / OWNER.
- *   4. Is read by `requireStaffSession` and `requireOrgAccessForSlug` in
- *      `lib/auth.ts` BEFORE Clerk is consulted.
- *
- * SAFETY:
- *   - Triple gate (NODE_ENV check, env flag, signed cookie).
- *   - Cookie is HMAC-SHA256 signed; an attacker on a deployed prototype
- *     cannot forge it without the server secret.
- *   - The "demo user" is the same fixed seed identity for everyone — there
- *     is no way to impersonate a real Clerk user.
- *   - Audit log written on every enter/exit (see app/api/demo/*).
+ * Cookie signing uses node:crypto (Node runtime only). Edge middleware must
+ * import `@/lib/demo-mode-gates` instead of this file.
  */
 
 import crypto from "node:crypto";
 import { cookies } from "next/headers";
 import type { OrgRole } from "@/app/generated/prisma/client";
+import {
+  DEMO_COOKIE_MAX_AGE_SECONDS,
+  DEMO_COOKIE_NAME,
+  DEMO_ORG_ID,
+  DEMO_ORG_SLUG,
+  DEMO_ROLE,
+  DEMO_USER_ID,
+  assertDemoModeNotInProduction,
+  isDemoModeEnabled,
+} from "@/lib/demo-mode-gates";
 
-export const DEMO_USER_ID = "user_demo_owner";
-export const DEMO_ORG_ID = "org_demo_pulsepoint";
-export const DEMO_ORG_SLUG = "demo-healthcare";
-export const DEMO_ROLE: OrgRole = "OWNER";
-export const DEMO_COOKIE_NAME = "pp_demo";
-export const DEMO_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24; // 24h
+export {
+  DEMO_COOKIE_MAX_AGE_SECONDS,
+  DEMO_COOKIE_NAME,
+  DEMO_ORG_ID,
+  DEMO_ORG_SLUG,
+  DEMO_ROLE,
+  DEMO_USER_ID,
+  isDemoModeEnabled,
+};
 
 export type DemoStaffSession = {
   userId: typeof DEMO_USER_ID;
@@ -40,27 +36,6 @@ export type DemoStaffSession = {
   role: OrgRole;
   isDemo: true;
 };
-
-/** Returns true only when demo mode is safe to honor in this environment. */
-export function isDemoModeEnabled(): boolean {
-  if (process.env.NODE_ENV === "production") return false;
-  if (process.env.DEMO_MODE !== "true") return false;
-  const secret = process.env.DEMO_SESSION_SECRET ?? "";
-  if (secret.length < 32) return false;
-  return true;
-}
-
-/**
- * Hard refusal: production with DEMO_MODE=true is a config mistake.
- * Throws synchronously on import-time if mis-set.
- */
-export function assertDemoModeNotInProduction(): void {
-  if (process.env.NODE_ENV === "production" && process.env.DEMO_MODE === "true") {
-    throw new Error(
-      "DEMO_MODE_IN_PRODUCTION: refuse to run. Unset DEMO_MODE before deploying.",
-    );
-  }
-}
 
 assertDemoModeNotInProduction();
 
@@ -89,7 +64,7 @@ function base64urlDecode(s: string): Buffer {
 
 type DemoCookiePayload = {
   v: 1;
-  exp: number; // unix seconds
+  exp: number;
 };
 
 export function signDemoCookie(now = Date.now()): string {
@@ -144,10 +119,6 @@ export function demoStaffSession(): DemoStaffSession {
   };
 }
 
-/**
- * Returns the demo session if (a) demo mode is enabled and (b) the request
- * carries a valid signed cookie. Otherwise null.
- */
 export async function getDemoSession(): Promise<DemoStaffSession | null> {
   if (!isDemoModeEnabled()) return null;
   const jar = await cookies();

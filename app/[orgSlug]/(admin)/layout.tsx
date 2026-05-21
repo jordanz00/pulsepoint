@@ -3,6 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { prisma } from "@/lib/prisma";
 import { requireOrgAccessForSlug } from "@/lib/auth";
 import { buildAdminNav } from "@/lib/nav-config";
+import { authRedirectPath } from "@/lib/standalone-prototype";
 
 export default async function OrgAdminLayout({
   children,
@@ -18,7 +19,7 @@ export default async function OrgAdminLayout({
     staff = await requireOrgAccessForSlug(orgSlug);
   } catch (e) {
     const code = e instanceof Error ? e.message : "";
-    if (code === "UNAUTHORIZED") redirect("/sign-in");
+    if (code === "UNAUTHORIZED") redirect(authRedirectPath());
     if (code === "ORG_NOT_FOUND" || code === "NOT_ORG_MEMBER") redirect("/onboarding");
     throw e;
   }

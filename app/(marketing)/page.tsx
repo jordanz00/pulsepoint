@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
-import { isDemoModeEnabled } from "@/lib/demo-mode";
+import { getDemoSession, isDemoModeEnabled } from "@/lib/demo-mode";
+import { isStandalonePrototype } from "@/lib/standalone-prototype";
 import { BetterExperiencesSection } from "@/components/marketing/better-experiences";
 import { BuilderAdvantageSection } from "@/components/marketing/builder-advantage";
 import { CorePlatformFeaturesSection } from "@/components/marketing/core-platform-features";
@@ -26,19 +26,26 @@ import { VsLegacyStrip } from "@/components/marketing/vs-legacy-strip";
 import { LiveModulesStrip } from "@/components/marketing/live-modules-strip";
 
 export default async function MarketingPage() {
-  const { userId } = await auth();
   const demoOn = isDemoModeEnabled();
+  const standalone = isStandalonePrototype();
+  let resolvedUserId: string | null = null;
+  if (standalone) {
+    resolvedUserId = (await getDemoSession())?.userId ?? null;
+  } else {
+    const { auth } = await import("@clerk/nextjs/server");
+    resolvedUserId = (await auth()).userId ?? null;
+  }
 
   return (
     <div className="min-h-screen bg-[var(--pc-bg)]">
-      <MarketingHeader userId={userId} />
+      <MarketingHeader userId={resolvedUserId} standalone={standalone} />
       {demoOn ? (
-        <div className="bg-amber-50 px-4 py-2 text-center text-xs text-amber-900">
+        <div className="pc-section-warm-accent px-4 py-2 text-center text-xs text-[var(--hap-black)]">
           <strong className="uppercase tracking-wide">Prototype demo</strong>
           <span className="mx-2">·</span>
           <Link
             href="/demo"
-            className="font-semibold underline underline-offset-2 hover:text-amber-700"
+            className="font-semibold text-[var(--hap-blue)] underline underline-offset-2 hover:text-[var(--hap-blue-hover)]"
           >
             Click through PulsePoint as a seeded healthcare association
           </Link>
@@ -46,8 +53,8 @@ export default async function MarketingPage() {
           <span>All data is illustrative.</span>
         </div>
       ) : null}
-      <MarketingHero userId={userId} />
-      <LiveModulesStrip userId={userId} />
+      <MarketingHero userId={resolvedUserId} standalone={standalone} />
+      <LiveModulesStrip userId={resolvedUserId} />
       <VsLegacyStrip />
       <PlatformIntroSection />
 

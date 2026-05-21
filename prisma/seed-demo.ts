@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 /**
  * PulsePoint demo seed — leadership-ready sample data.
  *

@@ -1,8 +1,15 @@
-import { SignUp } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import { isStandalonePrototype } from "@/lib/standalone-prototype";
 
 export default function SignUpPage() {
+  if (isStandalonePrototype()) {
+    redirect("/demo");
+  }
+
+  const { SignUp } = require("@clerk/nextjs") as typeof import("@clerk/nextjs");
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 p-6">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--pc-bg)] p-6">
       <SignUp
         routing="path"
         path="/sign-up"

@@ -28,9 +28,11 @@ export const BUILDER_ADVANTAGE = {
 } as const;
 
 export const DESIGN_DIRECTION = {
-  summary: "Dark navy and white. Clean dashboards. Modern typography. Subtle healthcare accents—not cliché medical imagery.",
-  references: ["Linear", "Notion", "Ramp", "Vanta"] as const,
-  avoid: "Hospital software aesthetics",
+  summary:
+    "HAP corporate brand (April 2025): primary blue #0072bc, warm accent #fbb040, light blue #8ed8f8. Tahoma for UI copy, Montserrat for headlines. Clean association-grade dashboards—not cliché hospital clipart.",
+  source: "HAP-Branding-Guidelines-April-2025-updated.pdf",
+  references: ["HAP 340B dashboards", "Oliver Wyman report surfaces"] as const,
+  avoid: "Off-brand navy/sky palettes; altering the HAP logo artwork",
 } as const;
 
 export const DOMAIN_STRATEGY = {

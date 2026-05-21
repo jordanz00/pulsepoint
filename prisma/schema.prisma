@@ -7,7 +7,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
 }
 
 enum OrgRole {
@@ -119,8 +119,8 @@ model Member {
   phone        String?
   status       MemberStatus @default(ACTIVE)
   joinedAt     DateTime     @default(now())
-  customFields Json         @default("{}")
-  tags         String[]     @default([])
+  customFields Json
+  tags         Json
   clerkUserId  String?
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
@@ -243,7 +243,7 @@ model AutomationException {
   step       String
   outcome    AutomationOutcome
   message    String            @default("")
-  context    Json              @default("{}")
+  context    Json
   resolvedAt DateTime?
   createdAt  DateTime          @default(now())
 

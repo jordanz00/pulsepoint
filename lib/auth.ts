@@ -8,7 +8,6 @@
  * the prototype without Clerk setup. See lib/demo-mode.ts for the gates.
  */
 
-import { auth } from "@clerk/nextjs/server";
 import type { OrgRole } from "@/app/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import {
@@ -16,6 +15,12 @@ import {
   getDemoSession,
   isDemoModeEnabled,
 } from "@/lib/demo-mode";
+import { isStandalonePrototype } from "@/lib/standalone-prototype";
+
+async function clerkAuth() {
+  const { auth } = await import("@clerk/nextjs/server");
+  return auth();
+}
 
 export type StaffSession = {
   userId: string;
@@ -51,9 +56,12 @@ export async function requireStaffSession(): Promise<StaffSession> {
         role: demo.role,
       };
     }
+    if (isStandalonePrototype()) {
+      throw new Error("UNAUTHORIZED");
+    }
   }
 
-  const session = await auth();
+  const session = await clerkAuth();
   const userId = session.userId;
   const orgId = session.orgId;
   const orgSlug = session.orgSlug;
@@ -109,9 +117,12 @@ export async function requireOrgAccessForSlug(orgSlug: string): Promise<StaffSes
         role: demo.role,
       };
     }
+    if (isStandalonePrototype()) {
+      throw new Error("UNAUTHORIZED");
+    }
   }
 
-  const session = await auth();
+  const session = await clerkAuth();
   const userId = session.userId;
   if (!userId) {
     throw new Error("UNAUTHORIZED");

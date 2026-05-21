@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
+import { Montserrat } from "next/font/google";
+import { AppProviders } from "@/components/app-providers";
 import { HERO_COPY } from "@/lib/marketing-content";
 import { ORIGIN_STORY } from "@/lib/brand";
 import { DemoBanner } from "@/components/demo-banner";
 import "./globals.css";
 
-const inter = Inter({
+/** HAP display font (April 2025 guidelines); body stays Tahoma in globals.css */
+const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-montserrat",
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,13 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={inter.variable}>
+    <AppProviders>
+      <html lang="en" className={montserrat.variable}>
         <body className="min-h-screen font-sans antialiased">
           <DemoBanner />
           {children}
         </body>
       </html>
-    </ClerkProvider>
+    </AppProviders>
   );
 }

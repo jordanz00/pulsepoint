@@ -1,51 +1,130 @@
 @import "tailwindcss";
 
-/* PulsePoint design system — navy + white, Linear/Notion-adjacent */
+/**
+ * PulsePoint design system — HAP corporate brand (April 2025).
+ * Source: HAP-Branding-Guidelines-April-2025-updated.pdf
+ *
+ * Primary:   #fbb040 (warm) · #0072bc (blue) · #8ed8f8 (light blue)
+ * Complimentary: #3a8b7f · #6d8b8c · #d3d9d4
+ * Neutral:   #231f20 · #ffffff
+ */
+
 :root {
-  --pc-navy: #0b1220;
-  --pc-navy-elevated: #151d2e;
-  --pc-navy-border: #1e293b;
-  --pc-surface: #ffffff;
-  --pc-bg: #f4f6f9;
-  --pc-muted: #64748b;
-  --pc-accent: #38bdf8;
-  --pc-accent-muted: #e0f2fe;
-  --pc-text: #0f172a;
-  --pc-text-on-navy: #f8fafc;
+  /* HAP primary palette */
+  --hap-warm: #fbb040;
+  --hap-blue: #0072bc;
+  --hap-blue-hover: #005a94;
+  --hap-blue-muted: rgba(0, 114, 188, 0.1);
+  --hap-light-blue: #8ed8f8;
+  --hap-light-blue-muted: rgba(142, 216, 248, 0.35);
+
+  /* HAP complimentary */
+  --hap-teal: #3a8b7f;
+  --hap-gray-teal: #6d8b8c;
+  --hap-light-gray: #d3d9d4;
+
+  /* HAP neutrals */
+  --hap-black: #231f20;
+  --hap-white: #ffffff;
+
+  /* PulsePoint semantic aliases (used across app + marketing) */
+  --pc-brand: var(--hap-blue);
+  --pc-brand-hover: var(--hap-blue-hover);
+  --pc-brand-muted: var(--hap-blue-muted);
+
+  --pc-navy: var(--hap-blue);
+  --pc-navy-elevated: var(--hap-blue-hover);
+  --pc-navy-border: rgba(0, 114, 188, 0.22);
+
+  --pc-accent: var(--hap-light-blue);
+  --pc-accent-muted: var(--hap-light-blue-muted);
+  --pc-warm: var(--hap-warm);
+  --pc-warm-muted: rgba(251, 176, 64, 0.18);
+
+  --pc-surface: var(--hap-white);
+  --pc-bg: #f5f5f7;
+  --pc-bg-subtle: var(--hap-light-gray);
+
+  --pc-muted: var(--hap-gray-teal);
+  --pc-text: var(--hap-black);
+  --pc-text-secondary: #424245;
+  --pc-text-on-brand: var(--hap-white);
+
+  --pc-success: var(--hap-teal);
+  --pc-border: rgba(35, 31, 32, 0.08);
+  --pc-border-strong: rgba(0, 114, 188, 0.18);
+
+  --pc-font-sans: Tahoma, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --pc-font-display: var(--font-montserrat, "Montserrat"), var(--pc-font-sans);
+
+  --pc-radius: 0.75rem;
+  --pc-shadow: 0 1px 2px rgba(35, 31, 32, 0.04), 0 4px 16px rgba(0, 114, 188, 0.06);
 }
 
 body {
-  font-family:
-    "Inter",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--pc-font-sans);
   color: var(--pc-text);
   background: var(--pc-surface);
 }
 
+h1,
+h2,
+h3,
+.pc-display {
+  font-family: var(--pc-font-display);
+}
+
 /* Utility classes for marketing + app chrome */
 .pc-btn-primary {
-  @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-[var(--pc-navy)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--pc-navy-elevated)];
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition;
+  background: var(--pc-brand);
+}
+.pc-btn-primary:hover {
+  background: var(--pc-brand-hover);
+}
+
+.pc-btn-warm {
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition;
+  background: var(--pc-warm);
+  color: var(--hap-black);
+}
+.pc-btn-warm:hover {
+  filter: brightness(0.96);
 }
 
 .pc-btn-secondary {
-  @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-[var(--pc-navy-border)] bg-white px-5 py-2.5 text-sm font-medium text-[var(--pc-text)] transition hover:bg-[var(--pc-bg)];
+  @apply inline-flex min-h-11 items-center justify-center rounded-lg border bg-white px-5 py-2.5 text-sm font-medium transition;
+  border-color: var(--pc-border-strong);
+  color: var(--pc-text);
+}
+.pc-btn-secondary:hover {
+  background: var(--pc-bg);
 }
 
 .pc-card {
-  @apply rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm;
+  @apply rounded-xl border bg-white p-5 shadow-sm;
+  border-color: var(--pc-border);
+  box-shadow: var(--pc-shadow);
 }
 
 .pc-section-navy {
-  @apply bg-[var(--pc-navy)] text-[var(--pc-text-on-navy)];
+  background: linear-gradient(
+    165deg,
+    var(--hap-blue-hover) 0%,
+    var(--hap-blue) 45%,
+    #004a7a 100%
+  );
+  color: var(--pc-text-on-brand);
+}
+
+.pc-section-warm-accent {
+  background: var(--pc-warm-muted);
+  border-top: 3px solid var(--hap-warm);
 }
 
 .pc-table-wrap {
-  @apply overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm;
+  @apply overflow-hidden rounded-xl border bg-white shadow-sm;
+  border-color: var(--pc-border);
 }
 
 .pc-table {
@@ -53,7 +132,9 @@ body {
 }
 
 .pc-table thead {
-  @apply bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500;
+  @apply text-xs font-semibold uppercase tracking-wide;
+  background: var(--pc-bg);
+  color: var(--pc-muted);
 }
 
 .pc-table th {
@@ -61,15 +142,20 @@ body {
 }
 
 .pc-table td {
-  @apply border-t border-slate-100 px-4 py-3;
+  @apply border-t px-4 py-3;
+  border-color: var(--pc-border);
 }
 
 .pc-table tbody tr:hover {
-  @apply bg-slate-50/50;
+  background: var(--hap-blue-muted);
 }
 
 .pc-link {
-  @apply font-medium text-sky-700 hover:text-sky-900 hover:underline;
+  @apply font-medium hover:underline;
+  color: var(--pc-brand);
+}
+.pc-link:hover {
+  color: var(--pc-brand-hover);
 }
 
 .pc-stat-grid {
@@ -77,13 +163,52 @@ body {
 }
 
 .pc-stat-card {
-  @apply pc-card transition hover:border-sky-200 hover:shadow-md;
+  @apply rounded-xl border bg-white p-5 shadow-sm transition;
+  border-color: var(--pc-border);
+  box-shadow: var(--pc-shadow);
+}
+.pc-stat-card:hover {
+  border-color: var(--hap-light-blue);
+  box-shadow: 0 4px 20px rgba(0, 114, 188, 0.08);
 }
 
 .pc-stat-value {
-  @apply mt-1 text-2xl font-bold text-[var(--pc-navy)];
+  @apply mt-1 text-2xl font-bold;
+  color: var(--pc-brand);
+  font-family: var(--pc-font-display);
 }
 
 .pc-stat-label {
-  @apply text-sm text-slate-500;
+  @apply text-sm;
+  color: var(--pc-muted);
+}
+
+/* Sidebar / admin chrome */
+.pc-sidebar {
+  background: linear-gradient(180deg, var(--hap-blue-hover) 0%, var(--hap-blue) 100%);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pc-sidebar-link-active {
+  background: rgba(255, 255, 255, 0.14);
+  border-left: 3px solid var(--hap-warm);
+  color: var(--hap-white);
+}
+
+.pc-sidebar-link {
+  color: rgba(255, 255, 255, 0.82);
+}
+.pc-sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--hap-white);
+}
+
+.pc-eyebrow-warm {
+  color: var(--hap-warm);
+  letter-spacing: 0.12em;
+}
+
+.pc-eyebrow-light {
+  color: var(--hap-light-blue);
+  letter-spacing: 0.12em;
 }

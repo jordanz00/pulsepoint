@@ -51,7 +51,9 @@ touching the Clerk dashboard. It exists because:
 | `POST /api/demo/enter` | Sets an HMAC-signed cookie (`pp_demo`) valid for 24h. Writes `demo.entered` audit log. |
 | `POST /api/demo/exit` | Clears the cookie. Writes `demo.exited` audit log. |
 | `lib/auth.ts` | `requireStaffSession` and `requireOrgAccessForSlug` check the demo cookie **before** calling Clerk. If valid, you are the seeded demo owner. |
-| Middleware | Skips `auth.protect()` only when (a) demo mode is enabled and (b) the cookie is present. |
+| Middleware | When `DEMO_MODE=true`, **Clerk middleware is not used**. Unauthenticated visitors are sent to `/demo`; with a valid `pp_demo` cookie, admin routes load normally. |
+| `AppProviders` | **No `ClerkProvider`** in standalone demo — no Clerk sign-in UI or keyless prompts. |
+| `/sign-in`, `/sign-up` | Redirect to `/demo` when demo mode is on. |
 | Root layout | Renders `<DemoBanner />` whenever demo mode + valid cookie are present. |
 
 The demo identity is fixed and tied to the seed:

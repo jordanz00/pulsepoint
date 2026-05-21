@@ -20,6 +20,10 @@
 # production
 /build
 
+# local SQLite demo database
+/prisma/demo.db
+/prisma/demo.db-journal
+
 # misc
 .DS_Store
 *.pem
@@ -42,3 +46,6 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+# clerk configuration (can include secrets)
+/.clerk/
