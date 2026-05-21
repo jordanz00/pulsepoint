@@ -1,0 +1,194 @@
+// PulseCore — Prisma schema (multi-tenant AMS, Members + Events MVP)
+// https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrgRole {
+  OWNER
+  ADMIN
+  STAFF
+}
+
+enum MemberStatus {
+  ACTIVE
+  INACTIVE
+  LAPSED
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+  COMPLETED
+}
+
+enum RegistrationStatus {
+  PENDING
+  CONFIRMED
+  WAITLIST
+  CANCELLED
+}
+
+enum BillingInterval {
+  MONTHLY
+  ANNUAL
+}
+
+model Organization {
+  id               String   @id
+  slug             String   @unique
+  name             String
+  plan             String   @default("trial")
+  stripeCustomerId String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  memberships   OrgMembership[]
+  members       Member[]
+  memberTiers   MemberTier[]
+  events        Event[]
+  registrations EventRegistration[]
+  auditLogs     AuditLog[]
+}
+
+model User {
+  id        String   @id
+  email     String   @unique
+  name      String?
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  memberships OrgMembership[]
+  auditLogs   AuditLog[]
+}
+
+model OrgMembership {
+  id        String   @id @default(cuid())
+  orgId     String
+  userId    String
+  role      OrgRole  @default(STAFF)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([orgId, userId])
+  @@index([orgId])
+  @@index([userId])
+}
+
+model Member {
+  id           String       @id @default(cuid())
+  orgId        String
+  firstName    String
+  lastName     String
+  email        String?
+  phone        String?
+  status       MemberStatus @default(ACTIVE)
+  joinedAt     DateTime     @default(now())
+  customFields Json         @default("{}")
+  tags         String[]     @default([])
+  clerkUserId  String?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  organization  Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  registrations EventRegistration[]
+
+  @@index([orgId])
+  @@index([orgId, email])
+  @@index([orgId, status])
+}
+
+model MemberTier {
+  id              String          @id @default(cuid())
+  orgId           String
+  name            String
+  priceCents      Int             @default(0)
+  billingInterval BillingInterval @default(ANNUAL)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+}
+
+model Event {
+  id          String      @id @default(cuid())
+  orgId       String
+  title       String
+  description String      @default("")
+  startsAt    DateTime
+  endsAt      DateTime?
+  capacity    Int?
+  priceCents  Int         @default(0)
+  status      EventStatus @default(DRAFT)
+  publicSlug  String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  organization  Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  registrations EventRegistration[]
+
+  @@unique([orgId, publicSlug])
+  @@index([orgId])
+  @@index([orgId, status])
+}
+
+model EventRegistration {
+  id                    String             @id @default(cuid())
+  orgId                 String
+  eventId               String
+  memberId              String?
+  guestEmail            String?
+  guestName             String?
+  status                RegistrationStatus @default(PENDING)
+  stripePaymentIntentId String?
+  paidAt                DateTime?
+  checkedInAt           DateTime?
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event          Event          @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  member         Member?        @relation(fields: [memberId], references: [id], onDelete: SetNull)
+
+  @@index([orgId])
+  @@index([eventId])
+  @@index([orgId, eventId])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  orgId     String
+  userId    String?
+  action    String
+  entity    String
+  entityId  String?
+  diff      Json?
+  createdAt DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  user         User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([orgId])
+  @@index([orgId, createdAt])
+}
+
+model WebhookIdempotency {
+  id        String   @id
+  source    String
+  createdAt DateTime @default(now())
+
+  @@index([source, createdAt])
+}

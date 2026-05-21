@@ -1,0 +1,31 @@
+import type { ButtonHTMLAttributes } from "react";
+
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: "primary" | "secondary" | "ghost" | "danger";
+};
+
+const variants: Record<NonNullable<Props["variant"]>, string> = {
+  primary:
+    "bg-teal-700 text-white hover:bg-teal-800 disabled:opacity-50",
+  secondary:
+    "border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50",
+  ghost: "text-zinc-700 hover:bg-zinc-100",
+  danger: "bg-red-600 text-white hover:bg-red-700",
+};
+
+export function Button({
+  variant = "primary",
+  className = "",
+  children,
+  ...props
+}: Props) {
+  return (
+    <button
+      type="button"
+      className={`inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors ${variants[variant]} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
