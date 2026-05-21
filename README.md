@@ -28,6 +28,20 @@ After code changes: `pnpm test` · `pnpm security:audit`
 | **Stack** | Next.js 16 · Postgres · Prisma · Clerk · Stripe · Resend |
 | **MVP data** | PII only (no PHI) |
 
+## Live demo on GitHub (no Vercel)
+
+Static marketing + click-through admin preview — deployed from `gh-pages-site/` via GitHub Actions.
+
+| Link | Purpose |
+|------|---------|
+| [Landing](https://jordanz00.github.io/pulsepoint/) | Marketing homepage |
+| [Enter demo](https://jordanz00.github.io/pulsepoint/demo/) | One-click demo (browser session) |
+| [Admin preview](https://jordanz00.github.io/pulsepoint/demo-healthcare/) | Sterling Healthcare sample dashboard |
+
+**Setup:** Repo **Settings → Pages → Source: GitHub Actions**. Public repo required for free Pages on private accounts. See [docs/GITHUB-PAGES.md](docs/GITHUB-PAGES.md).
+
+For the **full** database-backed app (imports, Stripe, SQLite): local quick start below.
+
 ## Quick start (local)
 
 ### 1. Prerequisites

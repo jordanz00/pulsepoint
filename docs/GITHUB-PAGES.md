@@ -1,20 +1,41 @@
 # GitHub Pages and PulsePoint
 
-## The short answer
+## Live static demo (no Vercel)
 
-**GitHub Pages hosts static files only** (HTML, CSS, JS). It does not run Node.js, Postgres, or Next.js server features.
+The repo ships a **static** marketing + demo site in `gh-pages-site/`, deployed by `.github/workflows/github-pages.yml`.
 
-| PulsePoint feature | Works on GitHub Pages? |
+| URL (public repo) | What you get |
 | --- | --- |
-| Marketing homepage (static) | Partially — only with `output: 'export'` and no server-only code |
-| `/demo` one-click sign-in | **No** — needs `POST /api/demo/enter` |
-| Admin (`/demo-healthcare`, members, events) | **No** — Server Components + Prisma + auth |
-| Clerk sign-in | **No** — server middleware + secrets |
-| Stripe / webhooks | **No** |
+| **https://jordanz00.github.io/pulsepoint/** | Marketing landing |
+| **https://jordanz00.github.io/pulsepoint/demo/** | Enter demo (session storage) |
+| **https://jordanz00.github.io/pulsepoint/demo-healthcare/** | Admin preview (illustrative data) |
 
-**For the full clickable prototype**, deploy to **Vercel** (or similar). See [Deploy on Vercel](#recommended-full-prototype-vercel) below.
+**Enable once:** GitHub → **Settings** → **Pages** → Build source: **GitHub Actions**.
 
-**For a read-only marketing preview** on GitHub Pages, see [Static export (limited)](#option-a-static-export-limited-github-pages).
+**Private repo:** GitHub Pages on private repos requires a paid plan; make the repo **public** for free Pages, or use local `pnpm dev` for the full app.
+
+### Static vs full Next.js app
+
+| Feature | GitHub Pages (`gh-pages-site`) | Local / Node host (`pnpm dev`) |
+| --- | --- | --- |
+| Marketing homepage | Yes | Yes |
+| One-click demo | Yes (browser session) | Yes (signed cookie + SQLite) |
+| Real DB, imports, Stripe | No | Yes |
+| Clerk | No | Optional |
+
+---
+
+## Technical note (why two demos exist)
+
+**GitHub Pages hosts static files only** — no Node.js, Postgres, or Next.js API routes.
+
+| PulsePoint feature | Full Next.js app | Static `gh-pages-site` |
+| --- | --- | --- |
+| `/api/demo/enter` | Yes | N/A — `sessionStorage` instead |
+| Prisma / admin CRUD | Yes | Preview tables only |
+| Stripe / webhooks | Yes | No |
+
+**For the database-backed prototype**, run locally: `pnpm demo:setup && pnpm dev` → http://localhost:3000/demo
 
 ---
 
@@ -199,8 +220,7 @@ If the goal is “something on github.io” without fighting Next.js:
 
 ## What we recommend for PulsePoint
 
-1. **Leadership demo URL** → Vercel preview + `DEMO_MODE=true` → `/demo`
-2. **Source of truth** → https://github.com/jordanz00/pulsepoint
-3. **GitHub Pages** → skip for the full app; optional later for a static brochure page only
-
-If you want, we can add a `marketing-export` sub-build or a `gh-pages` branch that deploys only the homepage — that is a separate, scoped task.
+1. **Share with supervisors (no install)** → GitHub Pages URLs above
+2. **Hands-on engineering demo** → `pnpm demo:setup && pnpm dev` → `/demo`
+3. **Production pilot** → Vercel or org host + Postgres (see [DEPLOY.md](./DEPLOY.md))
+4. **Source of truth** → https://github.com/jordanz00/pulsepoint

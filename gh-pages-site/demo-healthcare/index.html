@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="pp-base" content="/pulsepoint/" />
+  <title>Sterling Healthcare — PulsePoint Admin (demo)</title>
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" />
+  <script src="../assets/site.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (!window.PulsePointSite.requireDemo()) return;
+    });
+  </script>
+</head>
+<body>
+  <div class="pc-demo-banner">
+    Demo mode — static GitHub Pages preview · illustrative data only ·
+    <a href="#" data-pp-exit-demo>Exit demo</a>
+  </div>
+
+  <div class="pc-admin-layout">
+    <nav class="pc-sidebar" aria-label="Admin navigation">
+      <div style="padding:0 1.25rem 1rem;font-weight:700;font-size:0.95rem;">Sterling Healthcare</div>
+      <a class="active" href="#">Work</a>
+      <a href="#members">Members</a>
+      <a href="#events">Events</a>
+      <a href="#" style="opacity:0.55;">Learn <small>(roadmap)</small></a>
+      <a href="#" style="opacity:0.55;">Commerce <small>(roadmap)</small></a>
+      <a href="#" style="opacity:0.55;">Insights <small>(roadmap)</small></a>
+      <a data-pp-href="demo/" style="margin-top:1rem;">← Demo home</a>
+    </nav>
+
+    <div class="pc-main">
+      <div class="pc-topbar">
+        <span style="font-size:0.875rem;color:var(--pc-muted);">Signed in as <strong>Demo Owner</strong></span>
+        <button type="button" class="pc-btn-ghost" data-pp-exit-demo>Exit demo</button>
+      </div>
+
+      <h1 style="font-family:var(--font-display);margin:0 0 0.25rem;color:var(--hap-blue);">PulsePoint Work</h1>
+      <p style="color:var(--pc-muted);margin:0 0 1.5rem;">Staff workspace — MemberCore and Events modules (live in full app).</p>
+
+      <div class="pc-grid-3">
+        <div class="pc-stat"><strong>1,248</strong> Active members</div>
+        <div class="pc-stat"><strong>3</strong> Upcoming events</div>
+        <div class="pc-stat"><strong>0</strong> Open exceptions</div>
+      </div>
+
+      <section id="members" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">MemberCore — directory preview</h2>
+        <table class="pc-table">
+          <thead>
+            <tr><th>Name</th><th>Email</th><th>Status</th><th>Tags</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dr. Elena Vasquez</td><td>e.vasquez@example.org</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>Board, CME</td></tr>
+            <tr><td>James Okonkwo</td><td>j.okonkwo@hospital.demo</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>Hospital</td></tr>
+            <tr><td>Maria Chen</td><td>maria.chen@example.org</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>Allied</td></tr>
+            <tr><td>Robert Singh</td><td>r.singh@example.org</td><td><span class="pc-badge pc-badge-roadmap">Lapsed</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="events" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">PulsePoint Events — upcoming</h2>
+        <table class="pc-table">
+          <thead>
+            <tr><th>Event</th><th>Date</th><th>Registered</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Annual Leadership Summit</td><td>Jun 12, 2026</td><td>186 / 200</td><td><span class="pc-badge pc-badge-live">Published</span></td></tr>
+            <tr><td>340B Policy Briefing</td><td>Jul 8, 2026</td><td>42 / 75</td><td><span class="pc-badge pc-badge-live">Published</span></td></tr>
+            <tr><td>New Member Orientation</td><td>Aug 1, 2026</td><td>12 / 50</td><td><span class="pc-badge pc-badge-roadmap">Draft</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <p class="pc-note">
+        <strong>Full prototype:</strong> Clone <a href="https://github.com/jordanz00/pulsepoint">github.com/jordanz00/pulsepoint</a>,
+        set <code>DEMO_MODE=true</code> in <code>.env.local</code>, run <code>pnpm demo:setup &amp;&amp; pnpm dev</code> for database-backed demo at localhost:3000.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
