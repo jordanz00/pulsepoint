@@ -10,7 +10,7 @@ Non-negotiable controls for PulsePoint. Update when code changes.
 | **Public registration abuse** | IP + email + org rate limits; confirmation email cap | 🟢 |
 | **CSV exfiltration** | `member:export` ADMIN; `member.exported` audit | 🟢 |
 | **CSV pollution** | `member:import` ADMIN; dedup email; 500 row cap | 🟢 |
-| **Secrets & AI** | `docs/AI-DATA-POLICY.md`; `security-audit.sh` secret grep | 🟢 Policy |
+| **Secrets** | `security-audit.sh` secret grep | 🟢 Policy |
 | **Session/org confusion** | Layout org check; `assertOrgSlugForStaff` on actions; portal `assertPortalOrgAccess` | 🟢 |
 | **Supply chain** | `.npmrc` `only-built-dependencies`; lockfile in CI | 🟢 |
 | **Deletion & retention** | Block delete if registrations exist; audit snapshot on delete | 🟢 |

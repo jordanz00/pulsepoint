@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T12:15:58.938Z",
+  "entries": [
+    {
+      "id": "msg-mq3qwzwx-yehiag",
+      "category": "messages",
+      "title": "QA tests ready: Hospital associations need better PAC management.",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T12:15:58.929Z",
+      "path": "quake-os/memory/messages/msg-mq3qwzwx-yehiag.json"
+    },
+    {
+      "id": "audit-mq3qwzwy-xob14o",
+      "category": "audits",
+      "title": "Auditor critique: Hospital associations need better PAC management.",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T12:15:58.930Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "res-mq3qwzx1-sn565o",
+      "category": "research",
+      "title": "Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-07T12:15:58.933Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "hospital_association",
+        "pipeline"
+      ]
+    },
+    

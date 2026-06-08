@@ -69,12 +69,27 @@ export async function addMemberNote(
     const member = await db.member.findFirst({ where: { id: memberId } });
     if (!member) return { ok: false, error: "Member not found" };
 
+    const followUp = parsed.data.nextFollowUpAt
+      ? new Date(parsed.data.nextFollowUpAt)
+      : null;
+
     const note = await db.memberNote.create({
       data: {
         orgId: staff.orgId,
         memberId,
         authorUserId: staff.userId,
         body: parsed.data.body,
+        noteType: parsed.data.noteType ?? "GENERAL",
+        channel: parsed.data.channel || null,
+        nextFollowUpAt: followUp,
+      },
+    });
+
+    await db.member.update({
+      where: { id: memberId },
+      data: {
+        lastTouchAt: new Date(),
+        ...(followUp ? { nextFollowUpAt: followUp } : {}),
       },
     });
 

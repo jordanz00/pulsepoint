@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4hog22-3yknje",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Healthcare CE and education",
+  "body": "knowledge/requirements.db#req-mq4hn8ks-zt5n3k: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4hcfo2-2h1bgj: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4hat4d-ucmz7o: gap: Enterprise health system governance | knowledge/requirements.db#req-mq43j44f-cmb7ts: gap: Enterprise health system governance | lib/association/modules.ts: summary: \"CE credits, courses, events; LMS integration roadmap.\",",
+  "refs": [
+    "task-mq4hog1z-zycauu"
+  ],
+  "createdAt": "2026-06-08T00:45:09.578Z"
+}

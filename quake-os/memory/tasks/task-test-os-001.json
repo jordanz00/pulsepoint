@@ -1,0 +1,17 @@
+{
+  "title": "OS test task",
+  "description": "Test",
+  "priority": "P3",
+  "businessImpact": "low",
+  "technicalComplexity": "low",
+  "dependencies": [],
+  "ownerAgent": "qa-agent",
+  "researchSources": [],
+  "acceptanceCriteria": [
+    "pass"
+  ],
+  "id": "task-test-os-001",
+  "status": "pending",
+  "createdAt": "2026-06-06T01:25:38.475Z",
+  "updatedAt": "2026-06-06T01:25:38.475Z"
+}

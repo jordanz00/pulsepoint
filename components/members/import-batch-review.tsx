@@ -14,6 +14,13 @@ type Row = {
   firstName: string;
   lastName: string;
   email: string | null;
+  phone: string | null;
+  company: string | null;
+  jobTitle: string | null;
+  memberStatus: string | null;
+  tierName: string | null;
+  renewalDueAt: Date | null;
+  organizationName: string | null;
   status: string;
 };
 
@@ -38,7 +45,7 @@ export function ImportBatchReview({
   const dupRows = batch.rows.filter((r) => r.status === "SKIPPED_DUPLICATE");
 
   return (
-    <section className="rounded-xl border border-zinc-200 bg-white p-6">
+    <section className="pc-glass-panel rounded-xl p-6">
       <h2 className="text-lg font-semibold">
         {batch.fileName || "Import"} · {batch.rowCount} rows
       </h2>
@@ -47,13 +54,16 @@ export function ImportBatchReview({
         {dupRows.length} duplicate emails flagged
       </p>
 
-      <div className="mt-4 max-h-64 overflow-auto rounded border border-zinc-100">
+      <div className="mt-4 max-h-80 overflow-auto rounded border border-zinc-100">
         <table className="w-full text-left text-sm">
-          <thead className="bg-zinc-50 text-xs uppercase text-zinc-500">
+          <thead className="sticky top-0 bg-zinc-50 text-xs uppercase text-zinc-500">
             <tr>
               <th className="px-3 py-2">#</th>
               <th className="px-3 py-2">Name</th>
               <th className="px-3 py-2">Email</th>
+              <th className="px-3 py-2">Tier</th>
+              <th className="px-3 py-2">Hospital</th>
+              <th className="px-3 py-2">Renewal</th>
               <th className="px-3 py-2">Status</th>
             </tr>
           </thead>
@@ -63,8 +73,16 @@ export function ImportBatchReview({
                 <td className="px-3 py-2">{r.rowIndex + 1}</td>
                 <td className="px-3 py-2">
                   {r.firstName} {r.lastName}
+                  {r.jobTitle ? (
+                    <span className="block text-xs text-zinc-500">{r.jobTitle}</span>
+                  ) : null}
                 </td>
                 <td className="px-3 py-2">{r.email ?? "—"}</td>
+                <td className="px-3 py-2 text-xs">{r.tierName ?? "—"}</td>
+                <td className="px-3 py-2 text-xs">{r.organizationName ?? "—"}</td>
+                <td className="px-3 py-2 text-xs">
+                  {r.renewalDueAt ? r.renewalDueAt.toLocaleDateString() : "—"}
+                </td>
                 <td className="px-3 py-2 text-xs">{r.status}</td>
               </tr>
             ))}

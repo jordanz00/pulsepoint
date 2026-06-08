@@ -1,9 +1,14 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getOrgDb } from "@/lib/db";
-import { PublicRegistrationForm } from "@/components/events/public-registration-form";
-import { BRAND_NAME } from "@/lib/brand";
+import {
+  EventPublicMicrosite,
+  type MicrositeConfig,
+} from "@/components/events/event-public-microsite";
+import {
+  careerFairDisclaimer as fairDisclaimer,
+  resolveCareerFairBooths,
+} from "@/lib/events/career-fair-booths";
 
 export default async function PublicEventPage({
   params,
@@ -24,71 +29,56 @@ export default async function PublicEventPage({
   });
   if (!event) notFound();
 
-  const priceLabel =
-    event.priceCents > 0
-      ? `$${(event.priceCents / 100).toFixed(2)}`
-      : "Free";
+  const [speakers, sponsors, sessions, tickets] = await Promise.all([
+    db.eventSpeaker.findMany({ where: { eventId: event.id }, orderBy: { sortOrder: "asc" } }),
+    db.eventSponsor.findMany({ where: { eventId: event.id }, orderBy: { sortOrder: "asc" } }),
+    db.eventSession.findMany({ where: { eventId: event.id }, orderBy: { startsAt: "asc" } }),
+    db.eventTicketType.findMany({
+      where: { eventId: event.id, active: true },
+      orderBy: { sortOrder: "asc" },
+    }),
+  ]);
+
+  const booths = resolveCareerFairBooths(event.micrositeConfig, sponsors);
 
   return (
-    <div className="min-h-screen bg-[var(--pc-bg)]">
-      <header className="border-b border-slate-200 bg-[var(--pc-navy)] px-4 py-4">
-        <div className="mx-auto flex max-w-lg items-center justify-between">
-          <span className="font-semibold text-white">{BRAND_NAME}</span>
-          <span className="text-xs text-slate-400">Event registration</span>
-        </div>
-      </header>
-
-      <div className="mx-auto max-w-lg px-4 py-10">
-        <p className="text-sm font-medium text-sky-700">{org.name}</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[var(--pc-navy)]">
-          {event.title}
-        </h1>
-        <dl className="mt-4 grid gap-2 text-sm text-slate-600">
-          <div className="flex justify-between gap-4">
-            <dt className="font-medium text-slate-500">When</dt>
-            <dd>{event.startsAt.toLocaleString()}</dd>
-          </div>
-          <div className="flex justify-between gap-4">
-            <dt className="font-medium text-slate-500">Fee</dt>
-            <dd>{priceLabel}</dd>
-          </div>
-        </dl>
-        {event.description && (
-          <p className="mt-6 whitespace-pre-wrap text-sm leading-relaxed text-slate-700">
-            {event.description}
-          </p>
-        )}
-
-        {query.registered === "1" && (
-          <p className="mt-6 rounded-lg border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-900">
-            Thank you — your registration is confirmed.
-          </p>
-        )}
-        {query.cancelled === "1" && (
-          <p className="mt-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-            Payment was cancelled. You can register again below.
-          </p>
-        )}
-
-        <div className="pc-card mt-8">
-          <h2 className="text-lg font-semibold text-[var(--pc-navy)]">Register</h2>
-          <div className="mt-4">
-            <PublicRegistrationForm
-              orgSlug={orgSlug}
-              eventSlug={eventSlug}
-              priceCents={event.priceCents}
-            />
-          </div>
-        </div>
-
-        <p className="mt-10 text-center text-xs text-slate-400">
-          Powered by{" "}
-          <Link href="/" className="text-sky-600 hover:underline">
-            {BRAND_NAME}
-          </Link>
-          · Modern AMS for healthcare associations
-        </p>
-      </div>
-    </div>
+    <EventPublicMicrosite
+      org={{ name: org.name, slug: org.slug }}
+      event={{
+        title: event.title,
+        description: event.description,
+        startsAt: event.startsAt,
+        publicSlug: event.publicSlug,
+        priceCents: event.priceCents,
+      }}
+      micrositeConfig={(event.micrositeConfig as MicrositeConfig | null) ?? null}
+      eventKind={event.eventKind}
+      careerFairBooths={booths}
+      careerFairDisclaimer={fairDisclaimer(event.micrositeConfig)}
+      speakers={speakers.map((s) => ({
+        id: s.id,
+        name: s.name,
+        title: s.title,
+        role: s.role,
+        organizationName: s.organizationName,
+      }))}
+      sponsors={sponsors.map((s) => ({
+        id: s.id,
+        name: s.name,
+        tier: s.tier,
+        boothNumber: s.boothNumber,
+        logoUrl: s.logoUrl,
+        websiteUrl: s.websiteUrl,
+      }))}
+      sessions={sessions.map((s) => ({
+        id: s.id,
+        title: s.title,
+        startsAt: s.startsAt,
+        room: s.room,
+        track: s.track,
+      }))}
+      tickets={tickets.map((t) => ({ id: t.id, name: t.name, priceCents: t.priceCents }))}
+      query={query}
+    />
   );
 }

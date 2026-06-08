@@ -13,6 +13,32 @@
 | `EventRegistration` | Attendee row (member or guest) | `orgId` |
 | `AuditLog` | Who changed what | `orgId` |
 | `AutomationException` | Soft-fail partial automation | `orgId` |
+| `AdvocacyIssue` | Priority policy issue | `orgId` + optional `publicSlug` |
+| `AdvocacyCampaign` | Take-action / grassroots campaign | `orgId` |
+| `LearnVideoPlaylist` | CE/workforce video group (alpha) | `orgId` |
+| `LearnWorkforceProgram` | Pipeline / mentorship / scholarship program (alpha) | `orgId` |
+| `LearnProgramEnrollment` | Member enrolled in workforce program | `orgId` |
+
+## Advocacy issue (alpha)
+
+| Field | Type | Rules |
+|-------|------|-------|
+| `issueArea` | enum | ACCESS_TO_CARE, MATERNAL_HEALTH, WORKPLACE_VIOLENCE, BEHAVIORAL_HEALTH, SUBSTANCE_USE, SDOH_FOOD_ACCESS, PHYSICIAN_ACCESS, NURSING_WORKFORCE, GENERAL |
+| `publicSlug` | string? | Unique per org; drives `/advocacy/issues/[slug]` |
+| `contentMeta` | JSON | Include `validationStatus: illustrative_only` until SME review |
+| `summary` | string | No unverified legal claims in production without SME |
+
+## Member workforce persona (alpha)
+
+| Field | Type | Rules |
+|-------|------|-------|
+| `workforcePersona` | enum | NONE, STUDENT, NEW_GRAD, CAREER_CHANGER, EXPERIENCED, EMPLOYER_PARTNER |
+
+## Event career fair (alpha)
+
+| Field | Type | Rules |
+|-------|------|-------|
+| `eventKind` | enum | STANDARD (default), VIRTUAL_CAREER_FAIR |
 
 ## Member fields
 

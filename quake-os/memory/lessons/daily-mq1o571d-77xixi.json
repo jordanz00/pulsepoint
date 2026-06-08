@@ -1,0 +1,333 @@
+{
+  "id": "daily-mq1o571d-77xixi",
+  "startedAt": "2026-06-06T01:22:50.201Z",
+  "completedAt": "2026-06-06T01:22:50.209Z",
+  "research": {
+    "agentId": "research-agent",
+    "research": [
+      {
+        "id": "res-mq1o002c-3zzkwb",
+        "topic": "AMS competitor landscape — Fonteva, iMIS, Protech, Nimble",
+        "category": "competitor",
+        "summary": "Hospital associations evaluate AMS on advocacy depth, hospital roster modeling, dues automation, and Microsoft 365 integration. PulsePoint differentiates on modern stack + healthcare packaging.",
+        "sources": [
+          "data/quake-os/competitive-intel.json",
+          "docs/PROTECH-FEATURE-MAP.md"
+        ],
+        "recommendations": [
+          "Maintain honest Live/Alpha/Roadmap labels per docs/PRODUCT-CLAIMS.md",
+          "Prioritize advocacy take-action + hospital participation KPIs"
+        ],
+        "authorAgent": "research-agent",
+        "createdAt": "2026-06-06T01:18:47.892Z"
+      },
+      {
+        "id": "res-mq1o002e-yi540s",
+        "topic": "State hospital association advocacy workflows",
+        "category": "hospital_association",
+        "summary": "Associations need issue tracking, legislator targeting, hospital participation rates, and grassroots email. PAC linkage is separate compliance track.",
+        "sources": [
+          "docs/PRODUCT-CLAIMS.md",
+          "lib/advocacy-dashboard.ts"
+        ],
+        "recommendations": [
+          "Ship public take-action form with validation",
+          "Add legislative tracker stub (BL-005)"
+        ],
+        "authorAgent": "hospital-association-agent",
+        "createdAt": "2026-06-06T01:18:47.894Z"
+      },
+      {
+        "id": "res-mq1o002f-ixlccp",
+        "topic": "Healthcare association CE and credentialing",
+        "category": "healthcare_association",
+        "summary": "Professional societies need CE credits, certification paths, and roster by credential. Pulse learning module is roadmap — document gaps honestly.",
+        "sources": [
+          "lib/association/modules.ts",
+          "docs/ROADMAP-MODULES.md"
+        ],
+        "recommendations": [
+          "Define CE credit schema in requirements registry",
+          "Alpha badge on learning surfaces"
+        ],
+        "authorAgent": "healthcare-association-agent",
+        "createdAt": "2026-06-06T01:18:47.895Z"
+      },
+      {
+        "id": "res-mq1o002j-ic10bf",
+        "topic": "Multi-hospital enterprise governance",
+        "category": "health_system",
+        "summary": "Health systems need parent/child org accounts, delegated admins, and consolidated reporting. OrganizationAccount model supports hospital roster today.",
+        "sources": [
+          "prisma/schema.prisma",
+          "enterprise/organizations"
+        ],
+        "recommendations": [
+          "Bulk member→hospital assignment (BL-006)",
+          "Enterprise rollup dashboards"
+        ],
+        "authorAgent": "health-system-agent",
+        "createdAt": "2026-06-06T01:18:47.899Z"
+      },
+      {
+        "id": "res-mq1o002o-lbi00z",
+        "topic": "Nonprofit fundraising and donor trends",
+        "category": "nonprofit",
+        "summary": "Associations blend dues + PAC + foundation giving. Donor CRM and pledge tracking remain roadmap; PAC preview is illustrative only.",
+        "sources": [
+          "lib/pac-marketing-preview.ts",
+          "docs/PRODUCT-CLAIMS.md"
+        ],
+        "recommendations": [
+          "Keep PAC marketing labeled illustrative",
+          "Connect giving module to real Stripe when pilot ready"
+        ],
+        "authorAgent": "nonprofit-agent",
+        "createdAt": "2026-06-06T01:18:47.904Z"
+      },
+      {
+        "id": "res-mq1o002w-skoyom",
+        "topic": "AI copilot opportunities for association staff",
+        "category": "ai_trends",
+        "summary": "Executive brief copilot and member 360 narratives are in-repo. Next: advocacy issue summarization offline-safe.",
+        "sources": [
+          "lib/copilot/executive-brief.ts",
+          "modules/ai-helpers patterns"
+        ],
+        "recommendations": [
+          "Extend AI helpers modularly",
+          "No fabricated stats in narratives"
+        ],
+        "authorAgent": "innovation-agent",
+        "createdAt": "2026-06-06T01:18:47.912Z"
+      }
+    ],
+    "tasksCreated": [],
+    "recommendations": [],
+    "completedAt": "2026-06-06T01:22:50.203Z"
+  },
+  "architecture": {
+    "agentId": "architecture-agent",
+    "researchIds": [
+      "res-mq1o002c-3zzkwb",
+      "res-mq1o002e-yi540s",
+      "res-mq1o002f-ixlccp",
+      "res-mq1o002j-ic10bf",
+      "res-mq1o002o-lbi00z",
+      "res-mq1o002w-skoyom"
+    ],
+    "findings": [
+      {
+        "module": "tenant",
+        "level": "pass",
+        "note": "getOrgDb(orgId) — no cross-org prisma"
+      },
+      {
+        "module": "scale",
+        "level": "pass",
+        "note": "lib/query-limits.ts caps list/export rows"
+      },
+      {
+        "module": "memory",
+        "level": "pass",
+        "note": "Quake OS file-backed memory operational"
+      }
+    ],
+    "recommendations": [
+      "Maintain honest Live/Alpha/Roadmap labels per docs/PRODUCT-CLAIMS.md",
+      "Prioritize advocacy take-action + hospital participation KPIs",
+      "Ship public take-action form with validation",
+      "Add legislative tracker stub (BL-005)",
+      "Define CE credit schema in requirements registry",
+      "Alpha badge on learning surfaces",
+      "Bulk member→hospital assignment (BL-006)",
+      "Enterprise rollup dashboards",
+      "Keep PAC marketing labeled illustrative",
+      "Connect giving module to real Stripe when pilot ready",
+      "Extend AI helpers modularly",
+      "No fabricated stats in narratives"
+    ],
+    "approved": true,
+    "completedAt": "2026-06-06T01:22:50.204Z"
+  },
+  "product": {
+    "agentId": "product-agent",
+    "taskIds": [
+      "BL-001",
+      "BL-002",
+      "BL-004"
+    ],
+    "tasks": [
+      {
+        "id": "BL-001",
+        "title": "Public take-action form + response capture",
+        "description": "Staff +1 response shipped; need member-facing form with validation",
+        "priority": "P1",
+        "businessImpact": "high",
+        "technicalComplexity": "medium",
+        "dependencies": [],
+        "ownerAgent": "quake-os-backend",
+        "status": "in_progress",
+        "researchSources": [],
+        "acceptanceCriteria": [],
+        "createdAt": "2026-06-06T01:18:47.879Z",
+        "updatedAt": "2026-06-06T01:20:04.232Z",
+        "division": "backend",
+        "tags": [
+          "quake-os-backend",
+          "quake-os-hospital-association",
+          "quake-os-security"
+        ]
+      },
+      {
+        "id": "BL-002",
+        "title": "Cursor pagination on member directory beyond 500",
+        "description": "",
+        "priority": "P1",
+        "businessImpact": "high",
+        "technicalComplexity": "medium",
+        "dependencies": [],
+        "ownerAgent": "quake-os-scale",
+        "status": "in_progress",
+        "researchSources": [],
+        "acceptanceCriteria": [],
+        "createdAt": "2026-06-06T01:18:47.879Z",
+        "updatedAt": "2026-06-06T01:20:04.233Z",
+        "division": "scale",
+        "tags": [
+          "quake-os-scale",
+          "quake-os-database",
+          "quake-os-frontend"
+        ]
+      },
+      {
+        "id": "BL-004",
+        "title": "Marketing + admin design parity (module showcases)",
+        "description": "",
+        "priority": "P2",
+        "businessImpact": "medium",
+        "technicalComplexity": "medium",
+        "dependencies": [],
+        "ownerAgent": "quake-os-designer",
+        "status": "in_progress",
+        "researchSources": [],
+        "acceptanceCriteria": [],
+        "createdAt": "2026-06-06T01:18:47.879Z",
+        "updatedAt": "2026-06-06T01:18:47.879Z",
+        "division": "design",
+        "tags": [
+          "quake-os-designer",
+          "pulse-glass-ui",
+          "quake-os-ux"
+        ]
+      }
+    ],
+    "completedAt": "2026-06-06T01:22:50.206Z"
+  },
+  "developer": {
+    "agentId": "backend-engineer-agent",
+    "taskIds": [
+      "BL-001",
+      "BL-002",
+      "BL-004"
+    ],
+    "buildPlans": [
+      {
+        "taskId": "BL-001",
+        "summary": "Implement: Public take-action form + response capture. AC: TBD",
+        "ownerAgent": "quake-os-backend"
+      },
+      {
+        "taskId": "BL-002",
+        "summary": "Implement: Cursor pagination on member directory beyond 500. AC: TBD",
+        "ownerAgent": "quake-os-scale"
+      },
+      {
+        "taskId": "BL-004",
+        "summary": "Implement: Marketing + admin design parity (module showcases). AC: TBD",
+        "ownerAgent": "frontend-engineer-agent"
+      }
+    ],
+    "status": "dispatched",
+    "completedAt": "2026-06-06T01:22:50.207Z"
+  },
+  "qa": {
+    "agentId": "qa-agent",
+    "taskIds": [
+      "BL-001",
+      "BL-002",
+      "BL-004"
+    ],
+    "checklist": [
+      {
+        "item": "pnpm test — unit tests",
+        "status": "pending"
+      },
+      {
+        "item": "pnpm leak:checks — tenant isolation",
+        "status": "pending"
+      },
+      {
+        "item": "pnpm claims:validate — honest marketing",
+        "status": "pending"
+      },
+      {
+        "item": "Acceptance criteria documented per task",
+        "status": "pass"
+      }
+    ],
+    "gateCommand": "pnpm quake:gates",
+    "completedAt": "2026-06-06T01:22:50.208Z"
+  },
+  "audit": {
+    "id": "audit-mq1o571c-jjzp7x",
+    "subject": "Daily cycle QA — 3 tasks",
+    "subjectType": "feature",
+    "reviewer": "auditor-agent",
+    "verdict": "NEEDS_REVISION",
+    "findings": [
+      {
+        "level": "pass",
+        "module": "tenant",
+        "note": "getOrgDb(orgId) required for org data"
+      },
+      {
+        "level": "pass",
+        "module": "capabilities",
+        "note": "requireCapability on mutations"
+      },
+      {
+        "level": "pass",
+        "module": "query-caps",
+        "note": "clampTake / MAX_MEMBER_LIST_ROWS on lists"
+      },
+      {
+        "level": "pass",
+        "module": "secrets",
+        "note": "No credentials in source"
+      },
+      {
+        "level": "pass",
+        "module": "dom",
+        "note": "No innerHTML with user input"
+      },
+      {
+        "level": "warn",
+        "module": "qa",
+        "note": "Pending: pnpm test — unit tests"
+      },
+      {
+        "level": "warn",
+        "module": "qa",
+        "note": "Pending: pnpm leak:checks — tenant isolation"
+      },
+      {
+        "level": "warn",
+        "module": "qa",
+        "note": "Pending: pnpm claims:validate — honest marketing"
+      }
+    ],
+    "recommendations": [],
+    "createdAt": "2026-06-06T01:22:50.208Z"
+  }
+}

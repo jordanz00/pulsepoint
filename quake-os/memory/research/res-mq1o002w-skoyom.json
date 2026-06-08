@@ -1,0 +1,16 @@
+{
+  "id": "res-mq1o002w-skoyom",
+  "topic": "AI copilot opportunities for association staff",
+  "category": "ai_trends",
+  "summary": "Executive brief copilot and member 360 narratives are in-repo. Next: advocacy issue summarization offline-safe.",
+  "sources": [
+    "lib/copilot/executive-brief.ts",
+    "modules/ai-helpers patterns"
+  ],
+  "recommendations": [
+    "Extend AI helpers modularly",
+    "No fabricated stats in narratives"
+  ],
+  "authorAgent": "innovation-agent",
+  "createdAt": "2026-06-06T01:18:47.912Z"
+}

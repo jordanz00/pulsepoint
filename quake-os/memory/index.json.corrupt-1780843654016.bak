@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T14:47:34.015Z",
+  "entries": [
+    {
+      "id": "task-mq3wbxpp-02b3xg",
+      "category": "tasks",
+      "title": "[gap] gap signals for AMS competitor landscape (high confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T14:47:33.997Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "task-mq3wbxpr-hh6u63",
+      "category": "tasks",
+      "title": "[opportunity] opportunity signals for AMS competitor landscape (high confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T14:47:33.999Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq3wbxq2-rb37j8",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T14:47:34.010Z",
+      "path": "quake-os/memory/messages/msg-mq3wbxq2-rb37j8.json"
+    },
+    {
+      "id": "msg-mq3wbxq2-t1qrya",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:47:34.010Z",
+      "path": "quake-os/memory/messages/msg-mq3wbxq2-t1qrya.json"
+    },
+    {
+      "id": "frc-mq3wbxpz-sgtm8e",
+      "category": "lessons",
+      "title": "Review chain: Audit gate test",
+      "createdAt": "2026-06-07T14:47:34.015Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "feature-review-chain"
+      ]
+    },
+    {
+      "id": "req-mq3wbxq6-pipkdh",
+      "category": "requirements",
+      "title": "risk: Hospital association advocacy",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T14:47:34.014Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "msg-mq3wbxq7-xml9dz",
+      "category": "messages",
+      "title": "CEO REVISE: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T14:47:34.015Z",
+      "path": "quake-os/memory/messages/msg-mq3wbxq7-xml9dz.json"
+    }
+  ]
+}

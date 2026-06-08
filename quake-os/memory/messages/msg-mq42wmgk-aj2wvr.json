@@ -1,0 +1,16 @@
+{
+  "id": "msg-mq42wmgk-aj2wvr",
+  "from": "architecture-agent",
+  "to": "product-agent",
+  "subject": "Architecture review complete",
+  "body": "Approved for task generation.",
+  "refs": [
+    "res-mq42wmfj-0i6d9y",
+    "res-mq42wmfm-ufgb20",
+    "res-mq42wmfp-2xjp5c",
+    "res-mq42wmft-z82eh9",
+    "res-mq42wmge-18teiz",
+    "res-mq42wmgh-def58b"
+  ],
+  "createdAt": "2026-06-07T17:51:36.884Z"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "BL-008",
+  "title": "Power BI export path for membership analytics",
+  "description": "",
+  "priority": "P3",
+  "businessImpact": "medium",
+  "technicalComplexity": "medium",
+  "dependencies": [],
+  "ownerAgent": "quake-os-analytics",
+  "status": "done",
+  "researchSources": [],
+  "acceptanceCriteria": [],
+  "createdAt": "2026-06-06T01:18:47.879Z",
+  "updatedAt": "2026-06-07T13:42:24.530Z",
+  "division": "analytics",
+  "tags": [
+    "quake-os-analytics",
+    "pulse-exec-copilot"
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-08T00:44:13.081Z",
+  "entries": [
+    {
+      "id": "msg-mq4hn8fw-cueyze",
+      "category": "messages",
+      "title": "CEO REVISE: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-08T00:44:13.052Z",
+      "path": "quake-os/memory/messages/msg-mq4hn8fw-cueyze.json"
+    },
+    {
+      "id": "task-audit-test-001",
+      "category": "tasks",
+      "title": "Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T00:44:13.017Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "frc-mq4hn8g1-npnvfl",
+      "category": "audits",
+      "title": "Feature review: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-08T00:44:13.058Z",
+      "path": "knowledge/audits.db",
+      "tags": [
+        "feature-review-chain",
+        "revise"
+      ]
+    },
+    {
+      "id": "frc-mq4hn8g1-npnvfl",
+      "category": "lessons",
+      "title": "Review chain: Audit gate test",
+      "createdAt": "2026-06-08T00:44:13.062Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "feature-review-chain"
+      ]
+    },
+    {
+      "id": "msg-mq4hn8g6-7w3asy",
+      "category": "messages",
+      "title": "CEO REVISE: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-08T00:44:13.062Z",
+      "path": "quake-os/memory/messages/msg-mq4hn8g6-7w3asy.json"
+    },
+    {
+      "id": "req-mq4hn8g7-7fc1mk",
+      "category": "requirements",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T00:44:13.063Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "requirements",
+        "discovery"
+      ]
+    },
+    {
+      "id": "BL-026",
+      "category": "tasks",
+      "title": "Wave 2 — virtual career fair booths + hosted video",
+      "createdAt": "2026-06-07T15:42:28.595Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-frontend",
+        "quake-os-ams-specialist"
+      ]
+    },
+    {
+      "id": "task-mq4hn8fs-m1tja2",
+      "category": "tasks",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T00:44:13.048Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "req-mq4hn8gb-9bdtgn",
+      "category": "requirements",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T00:44:13.067Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "feature-review"
+      ]
+    },
+    {
+      "id": "msg-mq4hn8gd-dpknuq",
+      "category": "messages",
+      "title": "Feature built: Hospital associations need better PAC management.",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T00:44:13.069Z",
+      "path": "quake-os/memory/messages/msg-mq4hn8gd-dpknuq.json"
+    },
+    {
+      "id": "msg-mq4hn8ge-kppqxx",
+      "category": "messages",
+      "title": "QA tests ready: Hospital associations need better PAC management.",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-08T00:44:13.070Z",
+      "path": "quake-os/memory/messages/msg-mq4hn8ge-kppqxx.json"
+    },
+    {
+      "id": "BL-009",
+      "category": "tasks",
+      "title": "Hospital association full AMS — executive data + liquid glass",
+      "createdAt": "2026-06-08T00:44:13.062Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-hospital-association",
+        "pulse-glass-ui",
+        "quake-os-frontend",
+        "pulse-exec-copilot"
+      ]
+    },
+    {
+      "id": "BL-010",
+      "category": "tasks",
+      "title": "All modules polish — P1 UI + global liquid glass Pass 4",
+      "createdAt": "2026-06-08T00:44:13.062Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "pulse-glass-ui",
+        "quake-os-frontend",
+        "quake-os-ux"
+      ]
+    },
+    {
+      "id": "BL-012",
+      "category": "tasks",
+      "title": "Protech 1k import stress fixture",
+      "createdAt": "2026-06-08T00:44:13.062Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-ams-specialist",
+        "quake-os-scale"
+      ]
+    },
+    {
+      "id": "audit-mq4hn8gf-xvyrp1",
+      "category": "audits",
+      "title": "Auditor critique: Hospital associations need better PAC management.",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-08T00:44:13.071Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq4hn8gn-cqr5ch",
+      "category": "messages",
+      "title": "Auditor critique: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-08T00:44:13.079Z",
+      "path": "quake-os/memory/messages/msg-mq4hn8gn-cqr5ch.json"
+    },
+    {
+      "id": "BL-013",
+      "category": "tasks",
+      "title": "Staging preflight script (Sprint A prep)",
+      "createdAt": "2026-06-08T00:44:13.062Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-coo",
+        "pulse-pilot-ops"
+      ]
+    }
+  ]
+}

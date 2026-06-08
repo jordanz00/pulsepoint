@@ -1,11 +1,11 @@
 # Vibe-coded CRM risks — and how PulsePoint addresses them
 
-Leadership may mandate custom build + AI velocity. This doc maps common **vibe-code failure modes** to **concrete mitigations** in this repo (not generic advice).
+Leadership may mandate custom build + fast iteration velocity. This doc maps common **vibe-code failure modes** to **concrete mitigations** in this repo (not generic advice).
 
 | Risk | Symptom | PulsePoint mitigation |
 |------|---------|----------------------|
 | Speed over structure | Notes in spreadsheets, random fields | **`MemberNote`** model + UI; `docs/DATA-DICTIONARY.md` — where data lives |
-| Technical debt | New devs can’t maintain AI output | Module headers, `lib/permissions.ts`, tests in `tests/unit/`, docs suite |
+| Technical debt | New devs can’t maintain rushed output | Module headers, `lib/permissions.ts`, tests in `tests/unit/`, docs suite |
 | Fragile data architecture | Siloed inconsistent data | Prisma schema + Zod validation; import dedup; email normalization |
 | Security / compliance gaps | UI-only roles, GDPR afterthought | `requireCapability()`; `docs/SUBPROCESSORS.md` + privacy page |
 | Import cutover disaster | Blind CSV → production | **Staging** `MemberImportBatch` → `/{orgSlug}/members/imports` → apply |

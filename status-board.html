@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PulsePoint AMS · Mission Control</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #070b14;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 28px 32px 40px;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59,130,246,.18), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(16,185,129,.08), transparent);
+  }
+  .shell { max-width: 1280px; margin: 0 auto; }
+  header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 28px; padding-bottom: 20px;
+    border-bottom: 1px solid rgba(148,163,184,.12);
+  }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #64748b; font-weight: 600; }
+  h1 { font-size: 28px; font-weight: 700; margin: 6px 0 4px; background: linear-gradient(135deg,#f8fafc,#94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .sub { color: #94a3b8; font-size: 14px; }
+  .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .badge { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(148,163,184,.2); color: #cbd5e1; background: rgba(15,23,42,.6); }
+  .badge.live { border-color: rgba(16,185,129,.4); color: #6ee7b7; }
+  .meta { text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #64748b; line-height: 1.7; }
+  .meta strong { color: #94a3b8; }
+  .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .card {
+    background: rgba(15,23,42,.55);
+    border: 1px solid rgba(148,163,184,.12);
+    border-radius: 14px;
+    padding: 20px 22px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(0,0,0,.25);
+  }
+  .card h2 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #64748b; margin-bottom: 14px; font-weight: 600; }
+  .span-12 { grid-column: span 12; }
+  .span-8 { grid-column: span 8; }
+  .span-6 { grid-column: span 6; }
+  .span-4 { grid-column: span 4; }
+  .span-3 { grid-column: span 3; }
+  @media (max-width: 900px) { .span-8,.span-6,.span-4,.span-3 { grid-column: span 12; } }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 700px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  .kpi { text-align: center; padding: 16px 8px; background: rgba(30,41,59,.4); border-radius: 10px; border: 1px solid rgba(148,163,184,.08); }
+  .kpi-val { font-size: 32px; font-weight: 700; font-family: 'IBM Plex Mono', monospace; color: #f1f5f9; line-height: 1; }
+  .kpi-val.accent { color: #60a5fa; }
+  .kpi-val.green { color: #34d399; }
+  .kpi-label { font-size: 11px; color: #64748b; margin-top: 6px; text-transform: uppercase; letter-spacing: .06em; }
+  .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .svc { padding: 14px; background: rgba(30,41,59,.35); border-radius: 10px; border-left: 3px solid #3b82f6; }
+  .svc.worker { border-left-color: #a855f7; }
+  .svc.web { border-left-color: #10b981; }
+  .svc.shared { border-left-color: #f59e0b; }
+  .svc-name { font-weight: 600; font-size: 13px; }
+  .svc-detail { font-size: 11px; color: #64748b; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; }
+  ul.impl { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+  @media (max-width: 700px) { ul.impl { grid-template-columns: 1fr; } }
+  ul.impl li { font-size: 13px; color: #cbd5e1; padding-left: 16px; position: relative; line-height: 1.45; }
+  ul.impl li::before { content: '▸'; position: absolute; left: 0; color: #10b981; font-size: 10px; top: 2px; }
+  .arch {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.55;
+    color: #94a3b8; background: rgba(0,0,0,.35); padding: 16px; border-radius: 10px;
+    white-space: pre; overflow-x: auto;
+  }
+  .phase-block { margin-bottom: 14px; }
+  .phase-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .phase-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #60a5fa; font-weight: 600; }
+  .phase-name { font-weight: 600; font-size: 13px; flex: 1; }
+  .phase-status { font-size: 10px; letter-spacing: .08em; color: #64748b; font-weight: 600; }
+  .phase-desc { font-size: 12px; color: #64748b; margin-bottom: 6px; padding-left: 32px; }
+  .bar-track { height: 4px; background: rgba(51,65,85,.8); border-radius: 2px; overflow: hidden; margin-left: 32px; }
+  .bar-fill { height: 100%; border-radius: 2px; transition: width .6s ease; }
+  .commit { display: flex; gap: 10px; font-size: 12px; padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,.06); }
+  .commit-hash { font-family: 'IBM Plex Mono', monospace; color: #60a5fa; flex-shrink: 0; }
+  .edge { font-size: 13px; line-height: 1.6; color: #cbd5e1; }
+  .edge strong { color: #f1f5f9; }
+  .footer { margin-top: 24px; text-align: center; font-size: 11px; color: #475569; font-family: 'IBM Plex Mono', monospace; }
+  .pulse { display: inline-block; width: 8px; height: 8px; background: #10b981; border-radius: 50%; margin-right: 6px; animation: pulse 2s infinite; vertical-align: middle; }
+  @keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16,185,129,.5); } 50% { opacity: .7; box-shadow: 0 0 0 6px rgba(16,185,129,0); } }
+  .muted { color: #64748b; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div>
+      <div class="eyebrow"><span class="pulse"></span>Mission Control · Solo Build</div>
+      <h1>PulsePoint</h1>
+      <p class="sub">Healthcare Association AMS · Pilot-ready wedge · Microsoft Entra + glass executive UX</p>
+      <div class="badge-row">
+        <span class="badge live">v0.1 ACTIVE DEV</span>
+        <span class="badge">Entra-Ready</span>
+        <span class="badge">HIPAA-Aligned Docs</span>
+        <span class="badge">Azure Target</span>
+        <span class="badge">4-Service Monorepo</span>
+      </div>
+    </div>
+    <div class="meta">
+      <strong>2026-06-08 00:50 UTC</strong><br/>
+      git 0bbda2d · main<br/>
+      681 files in working tree
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="card span-12">
+      <h2>Build Pulse</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-val accent">809</div><div class="kpi-label">TS Modules</div></div>
+        <div class="kpi"><div class="kpi-val">76,128</div><div class="kpi-label">Lines of Code</div></div>
+        <div class="kpi"><div class="kpi-val green">76</div><div class="kpi-label">Data Models</div></div>
+        <div class="kpi"><div class="kpi-val">10</div><div class="kpi-label">Core Engines</div></div>
+      </div>
+    </div>
+
+    <div class="card span-4">
+      <h2>Service Mesh</h2>
+      <div class="services">
+        <div class="svc"><div class="svc-name">API</div><div class="svc-detail">Fastify 5 · 21 modules</div></div>
+        <div class="svc worker"><div class="svc-name">Worker</div><div class="svc-detail">BullMQ · 9 modules</div></div>
+        <div class="svc web"><div class="svc-name">Web</div><div class="svc-detail">Next.js 15 · 0 modules</div></div>
+        <div class="svc shared"><div class="svc-name">Shared</div><div class="svc-detail">Kernel · 7 modules</div></div>
+      </div>
+    </div>
+
+    <div class="card span-8">
+      <h2>Architecture Topology</h2>
+      <pre class="arch">Operator ──▶ Next.js Web (:3001)
+                    │
+                    ▼ HTTP + JWT (target: Microsoft Entra ID)
+              Fastify API (:4000) ──Prisma──▶ PostgreSQL 16
+                    │                              ▲
+                    ├── enqueue ──▶ Redis 7 ──▶ BullMQ Worker
+                    │                              │
+                    └──────────────────────────────┼──▶ PulsePoint DSP (stub → prod)
+                                                   │
+              Azure target: Container Apps · Key Vault · Front Door WAF</pre>
+    </div>
+
+    <div class="card span-6">
+      <h2>Shipped · Verified v0.1</h2>
+      <ul class="impl"><li>Canonical ID mapping — immutable amsUuid + IdMapping after sync</li><li>Reconciliation engine — AMS vs PulsePoint spend delta explainability</li><li>Sync queue — BullMQ jobs, retries, runbook-linked errors</li><li>NPI validation — Luhn checksum, duplicates, pre-flight gate</li><li>Approval workflow — campaign + creative state machines</li><li>Audit logging — immutable before/after (PHI-free)</li><li>Metric registry — normalized reporting definitions</li><li>Pacing alerts — threshold + flight-curve checks</li><li>Error codes + runbooks — AMS_SYNC_001, AMS_VAL_002, …</li><li>Onboarding checklists — in-app + API</li></ul>
+    </div>
+
+    <div class="card span-6">
+      <h2>Hardening Roadmap · 2/9 Complete</h2>
+      
+        <div>
+          <div class="phase-head"><span class="phase-num">P0</span><span class="phase-name">Repo lockdown</span><span class="phase-status">COMPLETE</span></div>
+          <div class="phase-desc">Security docs, CODEOWNERS, PR template</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:#10b981"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P1</span><span class="phase-name">Hardening</span><span class="phase-status">IN FLIGHT</span></div>
+          <div class="phase-desc">Helmet, rate limit, Zod env, Pino redaction, Docker</div>
+          <div class="bar-track"><div class="bar-fill" style="width:12%;background:#3b82f6"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P2</span><span class="phase-name">Identity</span><span class="phase-status">COMPLETE</span></div>
+          <div class="phase-desc">Microsoft Entra ID OIDC + PKCE on Web</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:#10b981"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P3</span><span class="phase-name">PulsePoint safety</span><span class="phase-status">QUEUED</span></div>
+          <div class="phase-desc">URL allowlist, idempotency, circuit breaker</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:#334155"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P4</span><span class="phase-name">Observability</span><span class="phase-status">QUEUED</span></div>
+          <div class="phase-desc">OpenTelemetry → App Insights, correlation IDs</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:#334155"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P5</span><span class="phase-name">CI/CD</span><span class="phase-status">QUEUED</span></div>
+          <div class="phase-desc">Vitest, Playwright, Semgrep, Trivy, GH OIDC → Azure</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:#334155"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P6</span><span class="phase-name">IaC</span><span class="phase-status">QUEUED</span></div>
+          <div class="phase-desc">Bicep: Container Apps, Postgres Flex, Redis, Key Vault</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:#334155"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P7</span><span class="phase-name">Tests</span><span class="phase-status">QUEUED</span></div>
+          <div class="phase-desc">Unit + E2E critical paths</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:#334155"></div></div>
+        </div>
+        <div>
+          <div class="phase-head"><span class="phase-num">P8</span><span class="phase-name">Compliance pack</span><span class="phase-status">QUEUED</span></div>
+          <div class="phase-desc">Incident response, audit export endpoint</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:#334155"></div></div>
+        </div>
+    </div>
+
+    <div class="card span-4">
+      <h2>Recent Commits</h2>
+      <div class="commit"><span class="commit-hash">0bbda2d</span><span>feat: deploy static landing and demo on GitHub Pages</span></div><div class="commit"><span class="commit-hash">d7bcb3b</span><span>feat: HAP landing page and standalone demo for GitHub prototype</span></div><div class="commit"><span class="commit-hash">8625ea9</span><span>docs: add AGENTS.md SQL rules and CI injection guards</span></div><div class="commit"><span class="commit-hash">f13802c</span><span>feat: PulsePoint prototype — anti-vibe foundation, demo mode, full UI</span></div><div class="commit"><span class="commit-hash">7020330</span><span>feat: PulseCore AMS MVP — members, events, multi-tenant scaffold</span></div>
+    </div>
+
+    <div class="card span-4">
+      <h2>Compliance Pack</h2>
+      <div class="kpi" style="margin-bottom:12px"><div class="kpi-val green">70</div><div class="kpi-label">Governance Docs</div></div>
+      <p class="edge" style="font-size:12px;color:#94a3b8;line-height:1.55">
+        ARCHITECTURE · THREAT-MODEL · DATA-CLASSIFICATION · COMPLIANCE-HIPAA · IT-HANDOFF · SECURITY.md
+      </p>
+    </div>
+
+    <div class="card span-4">
+      <h2>Competitive Edge</h2>
+      <p class="edge">
+        <strong>System of record owns truth.</strong> PulsePoint owns execution.<br/><br/>
+        Built to Microsoft enterprise bar: Entra SSO, Azure Container Apps, Key Vault, Bicep IaC, OpenTelemetry.<br/><br/>
+        <strong>Beat incumbents on trust, accuracy, and fewer handoffs</strong> — not feature sprawl.
+      </p>
+    </div>
+  </div>
+
+  <p class="footer">Generated by ams-status-publisher · pulsepoint-ams/scripts/generate-status-board.py · All metrics from live repo scan</p>
+</div>
+</body>
+</html>

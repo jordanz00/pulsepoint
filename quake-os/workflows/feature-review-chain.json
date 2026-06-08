@@ -1,0 +1,14 @@
+{
+  "id": "feature-review-chain",
+  "name": "Feature Review Chain",
+  "description": "Developer builds → QA tests → Auditor critiques → Architecture critiques → Healthcare SME critiques → CEO approves.",
+  "schedule": "on_feature_complete",
+  "steps": [
+    { "id": "fr1", "agentId": "developer-agent", "action": "buildFeature()", "required": true },
+    { "id": "fr2", "agentId": "qa-agent", "action": "testFeature()", "required": true },
+    { "id": "fr3", "agentId": "auditor-agent", "action": "critiqueFeature()", "required": true },
+    { "id": "fr4", "agentId": "architecture-agent", "action": "critiqueFeature()", "required": true },
+    { "id": "fr5", "agentId": "healthcare-sme-agent", "action": "critiqueFeature()", "required": true },
+    { "id": "fr6", "agentId": "ceo-agent", "action": "approveFeature()", "required": true }
+  ]
+}

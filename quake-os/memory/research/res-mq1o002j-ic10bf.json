@@ -1,0 +1,16 @@
+{
+  "id": "res-mq1o002j-ic10bf",
+  "topic": "Multi-hospital enterprise governance",
+  "category": "health_system",
+  "summary": "Health systems need parent/child org accounts, delegated admins, and consolidated reporting. OrganizationAccount model supports hospital roster today.",
+  "sources": [
+    "prisma/schema.prisma",
+    "enterprise/organizations"
+  ],
+  "recommendations": [
+    "Bulk member→hospital assignment (BL-006)",
+    "Enterprise rollup dashboards"
+  ],
+  "authorAgent": "health-system-agent",
+  "createdAt": "2026-06-06T01:18:47.899Z"
+}

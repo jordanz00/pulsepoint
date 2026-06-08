@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "owner": "quake-os-product-manager",
+    "source": "Quake OS Healthcare AMS World-Class Wave 1",
+    "lastUpdated": "2026-06-07",
+    "lastWave": "data/quake-os/waves/2026-06-07-week1-learn-video-library.md",
+    "validationStatus": "living_document"
+  },
+  "epics": [
+    {
+      "id": "EPIC-MEMBERSHIP-CORE",
+      "title": "Membership core — roster, dues, renewals",
+      "segment": ["hospital_association", "healthcare_nonprofit"],
+      "status": "in_progress",
+      "priority": "P1",
+      "waveVerdict": "demo_wedge_ship",
+      "acceptanceCriteria": [
+        "Tenant-scoped member queries via getOrgDb",
+        "Renewal workflow visible in admin console",
+        "Honest Live label per PRODUCT-CLAIMS.md",
+        "Import and MemberPulse badges match claims (alpha/demo preview)"
+      ],
+      "linkedDocs": ["docs/ROADMAP-MODULES.md", "docs/DATA-DICTIONARY.md"]
+    },
+    {
+      "id": "EPIC-ADVOCACY-ISSUE-HUB",
+      "title": "Healthcare advocacy issue hub (Wave 1)",
+      "segment": ["state_hospital_association", "advocacy"],
+      "status": "shipped_alpha",
+      "priority": "P0",
+      "waveVerdict": "ship_wave_1",
+      "userStories": [
+        "As advocacy staff, I can add issues from healthcare topic templates",
+        "As a member, I can view a public issue landing with SME disclaimer when illustrative",
+        "As admin, I can activate/remove issues with requireCapability advocacy:write"
+      ],
+      "acceptanceCriteria": [
+        "8 topic templates in lib/advocacy/issue-templates.ts",
+        "Admin CRUD at /enterprise/advocacy/issues",
+        "Public pages at /advocacy/issues/[slug]",
+        "contentMeta validationStatus illustrative_only on seeded copy",
+        "getOrgDb on all reads/writes"
+      ],
+      "linkedDocs": ["docs/PRODUCT-CLAIMS.md", "docs/PROTECH-FEATURE-MAP.md"]
+    },
+    {
+      "id": "EPIC-LEARN-WORKFORCE",
+      "title": "Learn workforce & virtual career fair shell (Wave 1)",
+      "segment": ["hospital_association", "workforce"],
+      "status": "shipped_alpha",
+      "priority": "P0",
+      "waveVerdict": "ship_wave_1",
+      "userStories": [
+        "As workforce staff, I can create a virtual career fair draft event",
+        "As staff, I can manage video playlists and pipeline program enrollments",
+        "As staff, I can set member workforcePersona for segmentation"
+      ],
+      "acceptanceCriteria": [
+        "EventKind VIRTUAL_CAREER_FAIR on Event model",
+        "LearnVideoPlaylist + LearnWorkforceProgram + LearnProgramEnrollment models",
+        "Admin UI at /learn/workforce",
+        "requireCapability learn:manage / event:write on mutations",
+        "Alpha badge; no hosted video or booth claims"
+      ],
+      "linkedDocs": ["docs/ROADMAP-MODULES.md", "docs/DATA-DICTIONARY.md"]
+    },
+    {
+      "id": "EPIC-COMPARE-PROTECH",
+      "title": "Honest Protech competitive positioning page",
+      "segment": ["marketing", "sales"],
+      "status": "shipped",
+      "priority": "P1",
+      "waveVerdict": "ship_wave_1",
+      "acceptanceCriteria": [
+        "Route /compare-protech with Live/Alpha/Roadmap per row",
+        "No false parity or market share claims",
+        "Linked from wave report and PROTECH-FEATURE-MAP"
+      ],
+      "linkedDocs": ["docs/DEMO-GUIDE.md", "lib/marketing/compare-protech.ts"]
+    },
+    {
+      "id": "EPIC-ADVOCACY-PAC",
+      "title": "Advocacy and PAC workflows",
+      "segment": ["state_hospital_association", "advocacy"],
+      "status": "in_progress",
+      "priority": "P2",
+      "waveVerdict": "alpha_mvp_shipped",
+      "acceptanceCriteria": [
+        "Legislative tracking UX matches module showcase quality",
+        "PAC surfaces use executive glass pattern",
+        "Take-action campaign launch wired to Engage",
+        "PRODUCT-CLAIMS and PageHeader alpha badge",
+        "No FEC filing UI without compliance review"
+      ],
+      "completedCriteria": [
+        "Take-action campaign launch wired to Engage",
+        "PRODUCT-CLAIMS and PageHeader alpha badge",
+        "Issue hub Wave 1 shipped"
+      ],
+      "linkedDocs": ["docs/PRODUCT-CLAIMS.md"]
+    },
+    {
+      "id": "EPIC-ENTERPRISE-INTEGRATIONS",
+      "title": "Microsoft 365, Stripe, Power BI export",
+      "segment": ["enterprise_health_system", "large_nonprofit"],
+      "status": "pilot",
+      "priority": "P0",
+      "waveVerdict": "human_gates_open",
+      "acceptanceCriteria": [
+        "M365 adapter behind org config",
+        "Stripe pilot drill documented",
+        "No secrets in repo",
+        "Staging live + Entra users + named owners",
+        "pnpm leak:checks and claims:validate green"
+      ],
+      "linkedDocs": ["docs/MICROSOFT-365-INTEGRATION.md", "docs/STRIPE-PILOT-DRILL.md"]
+    }
+  ],
+  "protechGapPlan": {
+    "P0_wedge": ["MemberCore", "EventCore", "Import staging", "Advocacy issue hub", "Compare page"],
+    "P1_pilot": ["Learn workforce alpha", "Engage take-action", "Commerce dues", "M365 adapter"],
+    "P2_post_pilot": ["Legislative feed", "Virtual fair booths GA", "GL sync", "Power BI embed", "PAC compliance"]
+  }
+}

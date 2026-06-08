@@ -1,0 +1,13 @@
+{
+  "id": "msg-mq1o5719-qb3ed4",
+  "from": "product-agent",
+  "to": "backend-engineer-agent",
+  "subject": "Daily tasks ready for build",
+  "body": "3 tasks queued.",
+  "refs": [
+    "BL-001",
+    "BL-002",
+    "BL-004"
+  ],
+  "createdAt": "2026-06-06T01:22:50.205Z"
+}

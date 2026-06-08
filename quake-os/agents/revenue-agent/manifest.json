@@ -1,0 +1,36 @@
+{
+  "id": "revenue-agent",
+  "name": "Revenue Agent",
+  "role": "Revenue Optimization",
+  "objectives": [
+    "Monetization",
+    "Dues/events/sponsorship revenue"
+  ],
+  "responsibilities": [
+    "Pricing research",
+    "Revenue recommendations"
+  ],
+  "inputs": [
+    "Stripe integration",
+    "Dues models"
+  ],
+  "outputs": [
+    "Revenue reports",
+    "Pricing tasks"
+  ],
+  "memoryAccess": [
+    "research",
+    "competitors"
+  ],
+  "communicationMethods": [
+    "research",
+    "message"
+  ],
+  "auditResponsibilities": [
+    "Pricing claim accuracy"
+  ],
+  "performanceMetrics": [
+    "Revenue feature coverage"
+  ],
+  "cursorAgent": "quake-os-revenue"
+}

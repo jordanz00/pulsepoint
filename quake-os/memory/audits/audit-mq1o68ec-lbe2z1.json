@@ -1,0 +1,39 @@
+{
+  "id": "audit-mq1o68ec-lbe2z1",
+  "subject": "Wave: test-wave",
+  "subjectType": "architecture",
+  "reviewer": "auditor-agent",
+  "verdict": "APPROVED",
+  "findings": [
+    {
+      "level": "pass",
+      "module": "tenant",
+      "note": "getOrgDb(orgId) required for org data"
+    },
+    {
+      "level": "pass",
+      "module": "capabilities",
+      "note": "requireCapability on mutations"
+    },
+    {
+      "level": "pass",
+      "module": "query-caps",
+      "note": "clampTake / MAX_MEMBER_LIST_ROWS on lists"
+    },
+    {
+      "level": "pass",
+      "module": "secrets",
+      "note": "No credentials in source"
+    },
+    {
+      "level": "pass",
+      "module": "dom",
+      "note": "No innerHTML with user input"
+    }
+  ],
+  "recommendations": [
+    "Proceed to documentation sync",
+    "Run pnpm quake:gates"
+  ],
+  "createdAt": "2026-06-06T01:23:38.628Z"
+}

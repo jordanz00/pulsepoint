@@ -1,0 +1,25 @@
+/**
+ * HAP enterprise theme — NOT loaded in demo profile.
+ *
+ * When INTEGRATION_PROFILE=hap-azure is approved, import this file from
+ * app/globals.css after counsel + brand review.
+ *
+ * Source: HAP-Branding-Guidelines-April-2025-updated.pdf
+ */
+
+:root[data-theme="hap-enterprise"] {
+  --hap-warm: #fbb040;
+  --hap-blue: #0072bc;
+  --hap-blue-hover: #005a94;
+  --hap-light-blue: #8ed8f8;
+  --hap-teal: #3a8b7f;
+  --hap-gray-teal: #6d8b8c;
+  --hap-light-gray: #d3d9d4;
+  --hap-black: #231f20;
+
+  --pc-brand: var(--hap-blue);
+  --pc-brand-hover: var(--hap-blue-hover);
+  --pc-navy: var(--hap-blue);
+  --pc-warm: var(--hap-warm);
+  --pc-text: var(--hap-black);
+}

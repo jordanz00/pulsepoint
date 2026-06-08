@@ -1,0 +1,50 @@
+---
+description: Quake OS automation workflow — THE standard path for gates, backlog, waves, CI, and Cursor. Always follow before shipping AMS work.
+alwaysApply: true
+globs:
+  - "**/*"
+---
+
+# Quake OS automation workflow
+
+**Canonical repo:** `/Users/jordanzabady/Desktop/pulse`  
+**Master doc:** `docs/QUAKE-AUTOMATION-WORKFLOW.md`
+
+## One command (local + CI)
+
+```bash
+pnpm quake:automation:run    # gates → backlog → wave → report
+pnpm quake:gates             # before every PR
+pnpm quake:automation:check  # preflight
+```
+
+## When user asks to run Quake OS / continuous / automation
+
+1. Run `pnpm quake:automation:run` (or `pnpm quake:gates` if gates-only).
+2. Read `data/quake-os/waves/` latest report.
+3. Pick **code-ready** backlog items (skip `human: true`).
+4. Implement with `@quake-os-orchestrator` Phase 3–4 only if gates passed.
+5. Re-run `pnpm quake:gates` before PR.
+
+## Layers (all wired — no manual Cursor Automations required)
+
+| Layer | Trigger | Entry |
+|-------|---------|-------|
+| **Pipeline CLI** | You / CI | `pnpm quake:automation:run` |
+| **Gates** | Every PR | `pnpm quake:gates` + `quake-gates.yml` |
+| **Weekly CI** | Mon 09:00 UTC | `quake-os-automation.yml` |
+| **PR audit comment** | PR open/update | `quake-pr-audit.yml` |
+| **Cursor hooks** | Session start/stop | `.cursor/hooks.json` |
+| **Cursor Automations** | Optional cloud | `data/quake-os/automation-prompts/*.workflow.json` |
+
+## Non-negotiables
+
+1. `getOrgDb(orgId)` — `pnpm leak:checks`
+2. `requireCapability()` on mutations
+3. `pnpm claims:validate`
+4. No invented stats — `docs/PRODUCT-CLAIMS.md`
+5. Audit before executive SHIP
+
+## Output
+
+Every automation run writes `data/quake-os/waves/YYYY-MM-DD-automation-*.md` with backlog picks, gate results, and Cursor handoff prompt.

@@ -1,0 +1,51 @@
+{
+  "id": "audit-mq1o571c-jjzp7x",
+  "subject": "Daily cycle QA — 3 tasks",
+  "subjectType": "feature",
+  "reviewer": "auditor-agent",
+  "verdict": "NEEDS_REVISION",
+  "findings": [
+    {
+      "level": "pass",
+      "module": "tenant",
+      "note": "getOrgDb(orgId) required for org data"
+    },
+    {
+      "level": "pass",
+      "module": "capabilities",
+      "note": "requireCapability on mutations"
+    },
+    {
+      "level": "pass",
+      "module": "query-caps",
+      "note": "clampTake / MAX_MEMBER_LIST_ROWS on lists"
+    },
+    {
+      "level": "pass",
+      "module": "secrets",
+      "note": "No credentials in source"
+    },
+    {
+      "level": "pass",
+      "module": "dom",
+      "note": "No innerHTML with user input"
+    },
+    {
+      "level": "warn",
+      "module": "qa",
+      "note": "Pending: pnpm test — unit tests"
+    },
+    {
+      "level": "warn",
+      "module": "qa",
+      "note": "Pending: pnpm leak:checks — tenant isolation"
+    },
+    {
+      "level": "warn",
+      "module": "qa",
+      "note": "Pending: pnpm claims:validate — honest marketing"
+    }
+  ],
+  "recommendations": [],
+  "createdAt": "2026-06-06T01:22:50.208Z"
+}

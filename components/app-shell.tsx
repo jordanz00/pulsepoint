@@ -1,44 +1,57 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import { AdminTopBar } from "@/components/admin-top-bar";
+"use client";
+
+import { LiquidSidebar } from "@/components/admin/liquid-sidebar";
+import { LiquidMobileNav } from "@/components/admin/liquid-mobile-nav";
+import { LiquidTopbar } from "@/components/admin/liquid-topbar";
+import { NavPreferencesProvider } from "@/components/navigation/nav-preferences-provider";
+import { RecentTracker } from "@/components/navigation/recent-tracker";
+import { SkipToMain } from "@/components/skip-to-main";
+import type { AdminNavCounts } from "@/lib/admin-nav-counts";
 import type { AdminNavItem } from "@/lib/nav-config";
-import { isStandalonePrototype } from "@/lib/standalone-prototype";
 
 export function AppShell({
   orgSlug,
   orgName,
   nav,
+  navCounts,
+  standalone = false,
+  exceptionPreview = [],
   children,
 }: {
   orgSlug: string;
   orgName: string;
+  orgLogoUrl?: string | null;
   nav: AdminNavItem[];
+  navCounts: AdminNavCounts;
+  standalone?: boolean;
+  exceptionPreview?: Array<{ id: string; message: string; createdAt: string }>;
   children: React.ReactNode;
 }) {
-  const standalone = isStandalonePrototype();
-
   return (
-    <div className="flex min-h-screen bg-[var(--pc-bg)]">
-      <AppSidebar orgSlug={orgSlug} orgName={orgName} nav={nav} />
-      <div className="flex min-w-0 flex-1 flex-col">
-        {standalone ? (
-          <AdminTopBar orgName={orgName} />
-        ) : (
-          <ClerkAdminTopBar />
-        )}
-        <main className="flex-1 px-4 py-6 lg:px-8 lg:py-8">{children}</main>
+    <NavPreferencesProvider orgSlug={orgSlug}>
+      <RecentTracker orgSlug={orgSlug} nav={nav} />
+      <div className="pp-liquid-shell pp-canvas ds-app">
+        <SkipToMain />
+        <LiquidTopbar
+          orgSlug={orgSlug}
+          orgName={orgName}
+          nav={nav}
+          standalone={standalone}
+          exceptionPreview={exceptionPreview}
+        />
+        <div className="pp-liquid-body">
+          <LiquidSidebar
+            orgSlug={orgSlug}
+            orgName={orgName}
+            nav={nav}
+            counts={navCounts}
+          />
+          <main id="main-content" className="pp-liquid-main">
+            {children}
+          </main>
+        </div>
+        <LiquidMobileNav orgSlug={orgSlug} nav={nav} />
       </div>
-    </div>
-  );
-}
-
-function ClerkAdminTopBar() {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { OrganizationSwitcher, UserButton } =
-    require("@clerk/nextjs") as typeof import("@clerk/nextjs");
-  return (
-    <header className="flex items-center justify-end gap-3 border-b border-slate-200 bg-white px-4 py-3 lg:px-6">
-      <OrganizationSwitcher hidePersonal />
-      <UserButton />
-    </header>
+    </NavPreferencesProvider>
   );
 }

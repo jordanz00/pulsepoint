@@ -23,7 +23,14 @@ import {
 
 export const dynamic = "force-dynamic";
 
-export async function POST(): Promise<Response> {
+function redirectPathForMode(mode: string | null): string {
+  const base = `/${DEMO_ORG_SLUG}`;
+  if (mode === "walkthrough") return `${base}/walkthrough?step=0`;
+  if (mode === "suite") return `${base}/suite`;
+  return base;
+}
+
+export async function POST(request: Request): Promise<Response> {
   if (!isDemoModeEnabled()) {
     return NextResponse.json(
       { ok: false, code: "DEMO_MODE_DISABLED" },
@@ -54,10 +61,20 @@ export async function POST(): Promise<Response> {
     diff: { source: "/api/demo/enter" },
   });
 
+  let mode: string | null = null;
+  try {
+    const form = await request.formData();
+    const raw = form.get("mode");
+    mode = typeof raw === "string" ? raw : null;
+  } catch {
+    mode = null;
+  }
+
   const cookieValue = signDemoCookie();
-  const res = NextResponse.redirect(new URL(`/${DEMO_ORG_SLUG}`, getOrigin()), {
-    status: 303,
-  });
+  const res = NextResponse.redirect(
+    new URL(redirectPathForMode(mode), getOrigin()),
+    { status: 303 },
+  );
   res.cookies.set({
     name: DEMO_COOKIE_NAME,
     value: cookieValue,

@@ -1,5 +1,7 @@
 # Deploy PulsePoint (Phase 0)
 
+**Hosted one-click demo (Preview):** [DEPLOY-HOSTED-DEMO.md](./DEPLOY-HOSTED-DEMO.md) — `HOSTED_DEMO=true` on Vercel Preview only. Do **not** put `DEMO_MODE=true` on Vercel Production.
+
 ## Vercel + Neon (recommended)
 
 1. **Neon** — Create a Postgres project; copy `DATABASE_URL`.

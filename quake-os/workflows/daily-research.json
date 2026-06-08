@@ -1,0 +1,15 @@
+{
+  "id": "daily-research",
+  "name": "Daily Research Cycle",
+  "description": "Research competitors, healthcare associations, hospital associations, AI trends, AMS market, nonprofit trends. Auto-generate backlog items.",
+  "schedule": "daily",
+  "steps": [
+    { "id": "r1", "agentId": "research-agent", "action": "Run competitor landscape research", "required": true },
+    { "id": "r2", "agentId": "hospital-association-agent", "action": "Review advocacy workflow gaps", "required": true },
+    { "id": "r3", "agentId": "healthcare-association-agent", "action": "Review CE/credentialing gaps", "required": true },
+    { "id": "r4", "agentId": "health-system-agent", "action": "Review enterprise scale gaps", "required": true },
+    { "id": "r5", "agentId": "nonprofit-agent", "action": "Review fundraising surfaces", "required": true },
+    { "id": "r6", "agentId": "innovation-agent", "action": "Scan AI opportunities", "required": true },
+    { "id": "r7", "agentId": "product-agent", "action": "Triage auto-generated tasks", "required": true }
+  ]
+}

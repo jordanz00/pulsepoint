@@ -1,0 +1,37 @@
+{
+  "id": "analytics-agent",
+  "name": "Analytics Agent",
+  "role": "Business Intelligence",
+  "objectives": [
+    "KPI systems",
+    "Reporting",
+    "Dashboards"
+  ],
+  "responsibilities": [
+    "Executive metrics",
+    "Membership analytics"
+  ],
+  "inputs": [
+    "Executive dashboard",
+    "Warehouse plan"
+  ],
+  "outputs": [
+    "KPI definitions",
+    "Report specs"
+  ],
+  "memoryAccess": [
+    "requirements",
+    "research"
+  ],
+  "communicationMethods": [
+    "research",
+    "task"
+  ],
+  "auditResponsibilities": [
+    "No invented metrics"
+  ],
+  "performanceMetrics": [
+    "MetricKey registry coverage"
+  ],
+  "cursorAgent": "quake-os-analytics"
+}

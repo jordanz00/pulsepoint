@@ -1,89 +1,88 @@
-import Link from "next/link";
-import { getDemoSession, isDemoModeEnabled } from "@/lib/demo-mode";
+import type { Metadata } from "next";
+import { getDemoSession } from "@/lib/demo-mode";
 import { isStandalonePrototype } from "@/lib/standalone-prototype";
-import { BetterExperiencesSection } from "@/components/marketing/better-experiences";
-import { BuilderAdvantageSection } from "@/components/marketing/builder-advantage";
-import { CorePlatformFeaturesSection } from "@/components/marketing/core-platform-features";
-import { DifferentiatorsSection } from "@/components/marketing/differentiators";
-import { FaqSection } from "@/components/marketing/faq-section";
-import { MarketingHero } from "@/components/marketing/hero";
+import { MARKETING_HERO } from "@/lib/marketing-home";
+import { MarketingHeroTourVideo } from "@/components/marketing/marketing-hero-tour-video";
 import { MarketingHeader } from "@/components/marketing/marketing-header";
-import { EventsSpotlightSection } from "@/components/marketing/events-spotlight";
-import { CommerceSpotlightSection } from "@/components/marketing/commerce-spotlight";
-import { EngageSpotlightSection } from "@/components/marketing/engage-spotlight";
-import { InsightsSpotlightSection } from "@/components/marketing/insights-spotlight";
-import { WorkSpotlightSection } from "@/components/marketing/work-spotlight";
-import { GivingSpotlightSection } from "@/components/marketing/giving-spotlight";
-import { LearnSpotlightSection } from "@/components/marketing/learn-spotlight";
-import { MembershipSpotlightSection } from "@/components/marketing/membership-spotlight";
-import { PlatformIntroSection } from "@/components/marketing/platform-intro";
-import { QuickTourSection } from "@/components/marketing/quick-tour";
-import { SocialProofStrip } from "@/components/marketing/social-proof";
-import { FeaturesCatalogSection } from "@/components/marketing/features-catalog";
-import { PersonasSection } from "@/components/marketing/personas-section";
-import { AdvanceAssociationSection } from "@/components/marketing/advance-section";
-import { VsLegacyStrip } from "@/components/marketing/vs-legacy-strip";
-import { LiveModulesStrip } from "@/components/marketing/live-modules-strip";
+import { MarketingHeroPremium } from "@/components/marketing/marketing-hero-premium";
+import { MarketingJumpNav } from "@/components/marketing/marketing-jump-nav";
+import { TrustStripPremium } from "@/components/marketing/trust-strip-premium";
+import { WhatIsPulsePointSection } from "@/components/marketing/what-is-pulsepoint-section";
+import { EnterpriseHealthcareSection } from "@/components/marketing/enterprise-healthcare-section";
+import { AnalyticsShowcaseLive } from "@/components/marketing/analytics-showcase-live";
+import { SuiteReadinessBand } from "@/components/marketing/suite-readiness-band";
+import { FeatureMatrixSection } from "@/components/marketing/feature-matrix-section";
+import { AmsCrmBand } from "@/components/marketing/ams-crm-band";
+import { MemberCoreShowcaseSection } from "@/components/marketing/membercore-showcase-section";
+import { EventsShowcaseSection } from "@/components/marketing/events-showcase-section";
+import { LearnWorkforceShowcaseSection } from "@/components/marketing/learn-workforce-showcase-section";
+import { AdvocacyShowcaseSection } from "@/components/marketing/advocacy-showcase-section";
+import { PacShowcaseSection } from "@/components/marketing/pac-showcase-section";
+import { EnterpriseIntegrationsShowcaseSection } from "@/components/marketing/enterprise-integrations-showcase-section";
+import { VsLegacyPremiumSection } from "@/components/marketing/vs-legacy-premium";
+import { SecurityPlatformSection } from "@/components/marketing/security-platform-section";
+import { AtAGlancePremiumSection } from "@/components/marketing/at-a-glance-premium-section";
+import { FaqAccordion } from "@/components/marketing/faq-accordion";
+import { DemoCtaPremium } from "@/components/marketing/demo-cta-premium";
+import { MarketingFooterPremium } from "@/components/marketing/marketing-footer-premium";
+import { SkipToMain } from "@/components/skip-to-main";
+
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: `PulsePoint — ${MARKETING_HERO.headline}`,
+  description: `${MARKETING_HERO.subhead} Microsoft 365, EasyDNN, and board-ready KPIs for hospital associations.`,
+  openGraph: {
+    title: `PulsePoint — ${MARKETING_HERO.headline}`,
+    description: MARKETING_HERO.subhead,
+    type: "website",
+  },
+};
 
 export default async function MarketingPage() {
-  const demoOn = isDemoModeEnabled();
   const standalone = isStandalonePrototype();
   let resolvedUserId: string | null = null;
-  if (standalone) {
-    resolvedUserId = (await getDemoSession())?.userId ?? null;
-  } else {
-    const { auth } = await import("@clerk/nextjs/server");
-    resolvedUserId = (await auth()).userId ?? null;
+  try {
+    if (standalone) {
+      resolvedUserId = (await getDemoSession())?.userId ?? null;
+    } else {
+      const { auth } = await import("@clerk/nextjs/server");
+      resolvedUserId = (await auth()).userId ?? null;
+    }
+  } catch {
+    // Never blank the marketing homepage if auth/session lookup fails locally.
+    resolvedUserId = null;
   }
 
   return (
-    <div className="min-h-screen bg-[var(--pc-bg)]">
+    <div className="pp-canvas pp-marketing-canvas min-h-screen">
+      <SkipToMain />
       <MarketingHeader userId={resolvedUserId} standalone={standalone} />
-      {demoOn ? (
-        <div className="pc-section-warm-accent px-4 py-2 text-center text-xs text-[var(--hap-black)]">
-          <strong className="uppercase tracking-wide">Prototype demo</strong>
-          <span className="mx-2">·</span>
-          <Link
-            href="/demo"
-            className="font-semibold text-[var(--hap-blue)] underline underline-offset-2 hover:text-[var(--hap-blue-hover)]"
-          >
-            Click through PulsePoint as a seeded healthcare association
-          </Link>
-          <span className="mx-2">·</span>
-          <span>All data is illustrative.</span>
-        </div>
-      ) : null}
-      <MarketingHero userId={resolvedUserId} standalone={standalone} />
-      <LiveModulesStrip userId={resolvedUserId} />
-      <VsLegacyStrip />
-      <PlatformIntroSection />
 
-      <main className="mx-auto max-w-6xl px-6">
-        <AdvanceAssociationSection />
-        <PersonasSection />
-        <FeaturesCatalogSection />
-        <CorePlatformFeaturesSection />
-        <MembershipSpotlightSection />
-        <EventsSpotlightSection />
-        <LearnSpotlightSection />
-        <GivingSpotlightSection />
-        <CommerceSpotlightSection />
-        <EngageSpotlightSection />
-        <InsightsSpotlightSection />
-        <WorkSpotlightSection />
-        <BetterExperiencesSection />
-        <DifferentiatorsSection />
-        <FaqSection />
-        <SocialProofStrip />
-        <QuickTourSection />
-        <div className="pb-20">
-          <BuilderAdvantageSection />
-        </div>
+      <main id="main-content" className="pp-marketing-main">
+        <MarketingHeroPremium userId={resolvedUserId} standalone={standalone} />
+        <MarketingJumpNav />
+        <VsLegacyPremiumSection />
+        <MarketingHeroTourVideo />
+        <TrustStripPremium />
+        <WhatIsPulsePointSection />
+        <EnterpriseHealthcareSection />
+        <AnalyticsShowcaseLive standalone={standalone} />
+        <SuiteReadinessBand />
+        <FeatureMatrixSection />
+        <AmsCrmBand />
+        <MemberCoreShowcaseSection />
+        <EventsShowcaseSection />
+        <LearnWorkforceShowcaseSection />
+        <AdvocacyShowcaseSection />
+        <PacShowcaseSection />
+        <EnterpriseIntegrationsShowcaseSection />
+        <SecurityPlatformSection />
+        <AtAGlancePremiumSection />
+        <FaqAccordion />
+        <DemoCtaPremium standalone={standalone} />
       </main>
-
-      <footer className="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
-        <p>PulsePoint · Association Management Software for healthcare associations</p>
-      </footer>
+      <MarketingFooterPremium />
     </div>
   );
 }

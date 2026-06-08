@@ -95,6 +95,48 @@ SELECT_FIXED=$(rg -c 'findMany\(\{[\s\S]*?select\s*:' --multiline \
   | awk -F: '{s+=$2} END{print s+0}')
 echo "INFO: Prisma reads w/ explicit select: ${SELECT_FIXED} of ${SELECT_DEBT} (see docs/SELECT-STAR-DEBT.md)"
 
+# 9. Prompt / LLM injection guardrails — no raw OpenAI calls without boundary module
+if rg 'openai|@ai-sdk|anthropic|generateText|chat\.completions' \
+  --glob '*.{ts,tsx}' -g '!node_modules/**' -g '!lib/security/**' -g '!docs/**' 2>/dev/null; then
+  echo "FAIL: LLM SDK usage found outside lib/security — must use llm-boundary.ts"
+  FAIL=1
+else
+  echo "OK: No unguarded LLM SDK imports in app code"
+fi
+
+# 10. Phantom security helpers (must have real implementations)
+if rg '_normalize|_sanitize|_validate' --glob '*.{ts,tsx}' \
+  -g '!node_modules/**' -g '!lib/security/**' -g '!docs/**' 2>/dev/null; then
+  echo "WARN: _normalize/_sanitize/_validate symbols — verify implementations exist"
+fi
+
+# 11. lib/security module present
+for f in lib/security/audit-redact.ts lib/security/llm-boundary.ts lib/security/production-guards.ts; do
+  if [ ! -f "$f" ]; then
+    echo "FAIL: Missing $f"
+    FAIL=1
+  fi
+done
+echo "OK: Core security fail-safe modules present"
+
+# 12. Advocacy public paths — semgrep when available (BL-007)
+ADVOCACY_SCAN_LOG="data/quake-os/semgrep-advocacy-$(date +%Y%m%d).log"
+mkdir -p data/quake-os
+if command -v semgrep >/dev/null 2>&1; then
+  if semgrep scan --config auto --quiet \
+    app/api/public/advocacy \
+    app/actions/advocacy.ts \
+    lib/advocacy/submit-take-action-response.ts \
+    lib/validations/advocacy-take-action.ts \
+    >"$ADVOCACY_SCAN_LOG" 2>&1; then
+    echo "OK: Semgrep advocacy paths clean (log: $ADVOCACY_SCAN_LOG)"
+  else
+    echo "WARN: Semgrep findings on advocacy paths — see $ADVOCACY_SCAN_LOG"
+  fi
+else
+  echo "INFO: semgrep not installed — advocacy scan skipped (install for BL-007)"
+fi
+
 bash scripts/check-sensitive-paths.sh || true
 pnpm claims:validate 2>/dev/null || npx tsx scripts/validate-marketing-claims.ts
 

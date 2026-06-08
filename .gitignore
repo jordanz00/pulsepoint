@@ -24,6 +24,12 @@
 /prisma/demo.db
 /prisma/demo.db-journal
 
+# Quake OS knowledge stores (local persistent memory)
+/knowledge/*.db
+/knowledge/*.db-journal
+/knowledge/*.db-wal
+/knowledge/*.db-shm
+
 # misc
 .DS_Store
 *.pem
@@ -34,9 +40,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# continuity backups (local / CI artifacts)
+/backups/
+
 # env files (can opt-in for committing if needed)
 .env*
 !.env.local.example
+!.env.standby.example
 
 # vercel
 .vercel

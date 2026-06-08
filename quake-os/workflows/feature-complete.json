@@ -1,0 +1,16 @@
+{
+  "id": "feature-complete",
+  "name": "Feature Completion Review",
+  "description": "Every completed feature triggers research, architecture, QA, security, audit, optimization, documentation, and analytics reviews.",
+  "schedule": "on_feature_complete",
+  "steps": [
+    { "id": "fc1", "agentId": "research-agent", "action": "Research review", "required": false },
+    { "id": "fc2", "agentId": "architecture-agent", "action": "Architecture review", "required": true },
+    { "id": "fc3", "agentId": "qa-agent", "action": "QA review", "required": true },
+    { "id": "fc4", "agentId": "security-agent", "action": "Security review", "required": true },
+    { "id": "fc5", "agentId": "auditor-agent", "action": "Audit review", "required": true },
+    { "id": "fc6", "agentId": "cto-agent", "action": "Optimization review", "required": false },
+    { "id": "fc7", "agentId": "documentation-agent", "action": "Documentation update", "required": true },
+    { "id": "fc8", "agentId": "analytics-agent", "action": "Analytics review", "required": false }
+  ]
+}

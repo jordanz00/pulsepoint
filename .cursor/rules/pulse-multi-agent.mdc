@@ -1,0 +1,41 @@
+---
+description: PulsePoint multi-agent orchestration — activate specialist agents per change type
+alwaysApply: false
+globs:
+  - "**/*"
+---
+
+# PulsePoint multi-agent orchestration
+
+Repo: `/Users/jordanzabady/Desktop/pulse`. Master prompt: `docs/ENTERPRISE-AMS-OPTIMIZED-PROMPT.md`.
+
+**Full business agency:** **Quake OS** — 26+ specialists, six-phase waves, audit culture. See `docs/QUAKE-OS.md` and `.cursor/rules/quake-os-orchestrator.mdc`. Invoke `@quake-os-orchestrator` for parallel industry + engineering + compliance work.
+
+## Activation matrix
+
+| Change type | Required agents |
+|-------------|-----------------|
+| Any feature PR | `pulse-supervisor`, `pulse-glass-ui`, `pulse-pilot-ops` |
+| Microsoft / Entra / Graph / Azure | + `pulse-microsoft` |
+| Pitch / competitor / Protech copy | + `pulse-research` |
+| Executive KPIs / copilot / insights | + `pulse-exec-copilot` |
+| Status / portfolio / LinkedIn | `ams-status-publisher` |
+
+## Non-negotiables (all agents)
+
+1. `getOrgDb(orgId)` — no cross-tenant reads
+2. `requireCapability()` on mutations
+3. `pnpm continuity:backup` before schema migrations
+4. No invented stats — KPIs from DB or flagged SME review
+5. Honest Live / Alpha / Roadmap — `pnpm claims:validate`
+6. No secrets in source
+
+## Supervisor output format
+
+```
+✔ [module]: one line
+⚠ [module]: one line → action
+❌ [module]: one line → must fix
+VERDICT: APPROVED | NEEDS REVISION | REJECTED
+Sources: [file paths]
+```

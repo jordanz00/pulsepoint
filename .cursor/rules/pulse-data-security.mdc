@@ -1,0 +1,40 @@
+---
+description: PulsePoint data security — SQL injection, prompt injection, tenant isolation fail-safes for all AI-generated code
+globs:
+  - "app/**"
+  - "lib/**"
+  - "packages/**"
+  - "prisma/**"
+  - "scripts/**"
+alwaysApply: false
+---
+
+# PulsePoint data security (AI-coded fail-safes)
+
+Repo: `/Users/jordanzabady/Desktop/pulse`. Read `docs/DATA-SECURITY-PLAN.md` and `SECURE-FORCE.md` before touching auth, APIs, Prisma, copilot, or integrations.
+
+## Non-negotiables
+
+1. **SQL:** Prisma only — no `$queryRawUnsafe`, no template-literal SQL in `.query()`/`.execute()`.
+2. **Tenant:** Use `getOrgDb(orgId)` — never `prisma.member` / `prisma.event` in app code.
+3. **Mutations:** `requireCapability()` on server actions — not `requireStaffSession()` alone.
+4. **Public routes:** Zod + `enforceRateLimit()` + `rejectOversizeJson()` from `lib/security/api-guard.ts`.
+5. **Audit:** `writeAuditLog()` only — `diff` is auto-redacted via `lib/security/audit-redact.ts`.
+6. **Outbound fetch:** `isAllowedEndpoint()` (`packages/shared/src/url-allowlist.ts`).
+7. **LLM / copilot:** No OpenAI/AI SDK without `lib/security/llm-boundary.ts`. Template copilot must use DB metrics only — sanitize output with `sanitizeCopilotBriefOutput()`.
+8. **Secrets:** Env vars only — never commit keys.
+9. **DOM:** No `innerHTML` with user data — `textContent` / `escapeHtml()` only.
+10. **Production:** `CRON_SECRET` required; use `isCronAuthorized()` on cron routes.
+
+## After every security-sensitive change
+
+```bash
+pnpm security:audit
+pnpm test tests/unit/security-*.test.ts
+```
+
+## Blast radius
+
+- `lib/audit.ts` + `lib/security/*` → all audited mutations
+- `middleware.ts` → all routes
+- `lib/db.ts` → all tenant data

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PulsePoint — Supervisor Summary — May 21, 2026</title>
+  <style>
+    @page { margin: 0.75in; size: letter; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 11pt;
+      line-height: 1.45;
+      color: #1a1a1a;
+      max-width: 7.5in;
+      margin: 0 auto;
+      padding: 0.5in 0;
+    }
+    h1 {
+      font-size: 22pt;
+      color: #0072bc;
+      margin: 0 0 0.15em;
+      font-weight: 700;
+    }
+    .subtitle { font-size: 13pt; color: #444; margin: 0 0 1.2em; }
+    .meta {
+      font-size: 9.5pt;
+      color: #666;
+      border-bottom: 2px solid #0072bc;
+      padding-bottom: 0.75em;
+      margin-bottom: 1.25em;
+    }
+    h2 {
+      font-size: 13pt;
+      color: #0072bc;
+      margin: 1.4em 0 0.5em;
+      border-bottom: 1px solid #8ed8f8;
+      padding-bottom: 0.2em;
+    }
+    h3 { font-size: 11.5pt; margin: 1em 0 0.4em; color: #333; }
+    p { margin: 0.5em 0; }
+    ul { margin: 0.4em 0 0.8em; padding-left: 1.4em; }
+    li { margin: 0.25em 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6em 0 1em;
+      font-size: 10pt;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.45em 0.55em;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #e8f4fc; color: #003d66; font-weight: 600; }
+    .status-green { color: #0d6b0d; font-weight: 600; }
+    .status-yellow { color: #9a6b00; font-weight: 600; }
+    .status-red { color: #a00; font-weight: 600; }
+    .callout {
+      background: #f5f9fc;
+      border-left: 4px solid #0072bc;
+      padding: 0.75em 1em;
+      margin: 1em 0;
+      font-size: 10.5pt;
+    }
+    .callout strong { color: #0072bc; }
+    .footer {
+      margin-top: 2em;
+      padding-top: 0.75em;
+      border-top: 1px solid #ccc;
+      font-size: 9pt;
+      color: #666;
+    }
+    .page-break { page-break-before: always; }
+  </style>
+</head>
+<body>
+
+<h1>PulsePoint</h1>
+<p class="subtitle">Association Management System — Progress Summary for Leadership</p>
+
+<div class="meta">
+  <strong>Prepared for:</strong> Supervisors and executive stakeholders &nbsp;|&nbsp;
+  <strong>Date:</strong> May 21, 2026 &nbsp;|&nbsp;
+  <strong>Author:</strong> Jordan Zabady &nbsp;|&nbsp;
+  <strong>Repository:</strong> Private GitHub — pulsepoint (local: Desktop/pulse)
+</div>
+
+<h2>Executive summary</h2>
+<p>
+  Today’s work established <strong>PulsePoint</strong>, a modern, modular <strong>association management system (AMS)</strong>
+  aimed at healthcare member-based organizations. The project is positioned as a long-term alternative to legacy AMS products
+  (e.g., Protech-scale cost and implementation timelines), with a deliberate <strong>foundation-first</strong> approach:
+  multi-tenant data isolation, audited actions, controlled data migration, and honest public positioning of what is live versus on the roadmap.
+</p>
+<div class="callout">
+  <strong>One sentence for boards and grants:</strong>
+  PulsePoint ships <strong>MemberCore</strong> (membership management) and <strong>PulsePoint Events</strong> (registration and check-in) as the live wedge;
+  additional modules (Learn, Commerce, Insights, Giving, Engage) are labeled <strong>Alpha / Roadmap</strong> until they pass formal go-live gates—not implied by marketing alone.
+</div>
+<p>
+  This is <strong>not</strong> a superficial demo site. It is a working prototype with association-grade plumbing (tenant scoping, permissions, payment webhooks, import review workflows, and CI quality gates). The platform is designed for <strong>PII only</strong> (member contact and event data)—not clinical PHI—so the organization does not accidentally become a HIPAA-regulated health data platform.
+</p>
+
+<h2>Strategic intent (what we set out to build)</h2>
+<ul>
+  <li><strong>Problem:</strong> Legacy AMS contracts are expensive, slow to change, and bundle modules many associations never fully use.</li>
+  <li><strong>Solution:</strong> A modular platform the organization can own and extend—starting with the highest daily-use capabilities: <strong>members + events</strong>.</li>
+  <li><strong>Delivery model:</strong> Multi-tenant SaaS architecture from day one (each association’s data isolated by organization ID).</li>
+  <li><strong>Scope discipline:</strong> We are <em>not</em> cloning twenty years of legacy edge cases in one release; expansion is gated module-by-module.</li>
+  <li><strong>Competitive reference:</strong> Product structure aligns with familiar AMS categories (membership, meetings/events, education, fundraising, commerce, marketing, analytics) while marketing honestly labels Live vs Roadmap status.</li>
+</ul>
+
+<h2>Accomplishments — May 21, 2026 (today’s session)</h2>
+
+<h3>1. Product foundation and repository</h3>
+<ul>
+  <li>Created and scaffolded the <strong>PulsePoint</strong> application (Next.js 16, TypeScript, Prisma, Tailwind) in a dedicated repository, pushed to private GitHub.</li>
+  <li>Defined product suite naming: PulsePoint Work, MemberCore, PulsePoint Events, plus alpha modules (Learn, Giving, Commerce, Engage, Insights).</li>
+  <li>Built a Protech-style marketing site with persona sections (Members, Leaders, Staff) and an honest feature catalog (Live vs Roadmap).</li>
+  <li>Applied <strong>HAP brand guidelines</strong> (April 2025 palette and typography) and official logo assets for credible stakeholder previews.</li>
+</ul>
+
+<h3>2. Live modules (functional today)</h3>
+<table>
+  <thead>
+    <tr><th>Module</th><th>Capabilities delivered</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>MemberCore</strong></td>
+      <td>Member directory; tags; canonical staff notes; ADMIN-gated CSV export; <strong>staged import</strong> (upload → review → apply) for safe legacy cutover.</td>
+    </tr>
+    <tr>
+      <td><strong>PulsePoint Events</strong></td>
+      <td>Event setup; public registration pages; capacity and waitlist; check-in; registration status rules; Stripe checkout path when configured.</td>
+    </tr>
+    <tr>
+      <td><strong>PulsePoint Work</strong></td>
+      <td>Per-organization admin shell; role-based navigation; automation <strong>exceptions queue</strong> for staff triage when email or other steps fail.</td>
+    </tr>
+    <tr>
+      <td><strong>Demo mode</strong></td>
+      <td>One-click prototype access at <code>/demo</code> without paid Clerk accounts—signed session cookie, seeded sample org (Sterling Healthcare Association).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>3. Engineering and risk controls (anti–“vibe code”)</h3>
+<ul>
+  <li><strong>Multi-tenant isolation:</strong> All member and event data scoped per organization; automated leak checks and tests.</li>
+  <li><strong>Server-side permissions:</strong> Sensitive actions (export, import apply, delete, money paths) require real capabilities—not UI-only checks.</li>
+  <li><strong>State machines:</strong> Event registration and payment transitions enforced in code.</li>
+  <li><strong>Webhooks:</strong> Stripe (and Clerk when used) with signature verification and idempotency to prevent double charges.</li>
+  <li><strong>Audit logging:</strong> Imports, exports, deletes, registrations, and payment-related actions recorded.</li>
+  <li><strong>Security:</strong> Rate limits on public registration; security audit script in CI; documented contributor rules for auth and payment code.</li>
+  <li><strong>Claims validation:</strong> CI checks marketing copy against a product-claims registry so decks cannot drift ahead of shipped code.</li>
+</ul>
+
+<h3>4. Documentation for leadership, IT, and operations</h3>
+<ul>
+  <li>Project brief, scope wedge, operator checklist (red/yellow/green), runbooks, subprocessors table, deploy guide, free-stack and demo-mode guides.</li>
+  <li>Clear positioning: what may be said publicly today versus what remains roadmap.</li>
+</ul>
+
+<h3>5. Local prototype ergonomics (today’s refinements)</h3>
+<ul>
+  <li><strong>Standalone demo:</strong> Removed dependency on paid Clerk for local leadership walkthroughs when <code>DEMO_MODE=true</code>.</li>
+  <li><strong>SQLite local database:</strong> No Docker required for prototype—<code>pnpm demo:setup</code> seeds a file-based database.</li>
+  <li>Fixed middleware, branding, and routing issues so <code>/demo</code> → Enter demo → <code>/demo-healthcare</code> works without username/password prompts.</li>
+</ul>
+
+<h2 class="page-break">Product status at a glance</h2>
+
+<table>
+  <thead>
+    <tr><th>Area</th><th>Status</th><th>Meaning for the organization</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Multi-tenant data isolation</td><td class="status-green">Ready</td><td>One association cannot see another’s members or events by design.</td></tr>
+    <tr><td>Member directory &amp; staff notes</td><td class="status-green">Ready</td><td>Single member record; notes not trapped in spreadsheets.</td></tr>
+    <tr><td>Member import / cutover</td><td class="status-green">Ready</td><td>CSV staged and reviewed before production apply.</td></tr>
+    <tr><td>Events &amp; registration (free)</td><td class="status-green">Ready</td><td>Publish, register, waitlist, check-in.</td></tr>
+    <tr><td>Paid events (Stripe)</td><td class="status-yellow">In progress</td><td>Code paths built; needs live Stripe drill and named runbook owner.</td></tr>
+    <tr><td>Marketing vs reality</td><td class="status-green">Ready</td><td>Live/Roadmap labels enforced; roadmap modules not claimed as shipped.</td></tr>
+    <tr><td>Alpha modules (Learn, Commerce, Insights, etc.)</td><td class="status-yellow">Alpha</td><td>Admin UIs exist; do not claim GA in grants yet.</td></tr>
+    <tr><td>Privacy policy (counsel-approved)</td><td class="status-red">Not ready</td><td>Subprocessor documentation exists; final legal text needed before public launch.</td></tr>
+    <tr><td>Production deploy</td><td class="status-yellow">In progress</td><td>Deploy guide written; org-specific production smoke test pending.</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Overall assessment:</strong> <span class="status-yellow">Controlled pilot</span> — foundation is in place; finish operations ownership and production validation before broad go-live or grant claims beyond MemberCore + Events.</p>
+
+<h2>What leadership can accurately say today</h2>
+<ul>
+  <li>We are building <strong>PulsePoint</strong>, our own modular AMS—<strong>MemberCore</strong> and <strong>PulsePoint Events</strong> are the live wedge.</li>
+  <li>Data is <strong>multi-tenant by design</strong>; exports and imports are <strong>controlled and audited</strong>.</li>
+  <li><strong>Learn, Commerce, Insights, Giving, and Engage</strong> are <strong>alpha</strong> today—labeled honestly—we are not claiming them as fully shipped in grants.</li>
+  <li><strong>Permissions, payments, and migration</strong> are engineered with human review on sensitive paths.</li>
+</ul>
+
+<h2>Organizational value (why this investment matters)</h2>
+<table>
+  <thead>
+    <tr><th>Need</th><th>How PulsePoint addresses it</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Cost of legacy AMS</td><td>Own the core wedge without million-dollar lock-in for every module upfront.</td></tr>
+    <tr><td>Staff productivity</td><td>One directory, staff notes, events, and check-in in a modern admin experience.</td></tr>
+    <tr><td>Member trust</td><td>Tenant isolation; role-gated exports and deletes.</td></tr>
+    <tr><td>Revenue integrity</td><td>Paid registration tied to Stripe with idempotent webhooks and documented replay procedures.</td></tr>
+    <tr><td>Cutover risk</td><td>Imports are staged and human-reviewed—not blind bulk upload.</td></tr>
+    <tr><td>Grant and board credibility</td><td>Public story matches shipped code; CI reduces “oversell” in decks.</td></tr>
+  </tbody>
+</table>
+
+<h2>Timeline expectations (realistic)</h2>
+<ul>
+  <li><strong>Today:</strong> Working prototype suitable for leadership walkthrough via demo mode and local install.</li>
+  <li><strong>Next 2–4 weeks (part-time focus):</strong> Pilot-ready MemberCore + Events—production deploy, Stripe end-to-end test, named runbook owners, privacy counsel review.</li>
+  <li><strong>Additional modules (Learn, Commerce, Insights, etc.):</strong> Each requires roughly weeks to months per module at the same quality bar—not a one-week “add everything” effort.</li>
+  <li><strong>Full Protech parity:</strong> Explicitly out of scope for v0.1; would be a multi-year product program, not a single sprint.</li>
+</ul>
+
+<h2>Recommended next steps (30-day operator priorities)</h2>
+<ol>
+  <li>Name <strong>runbook owners</strong> for payment drift and import cutover scenarios.</li>
+  <li>Run <strong>one production Stripe registration</strong> end-to-end; resolve any item in the exceptions queue.</li>
+  <li>Route privacy content to <strong>legal counsel</strong>; keep the subprocessors table current for IT questionnaires.</li>
+  <li>Complete the <strong>production deploy smoke checklist</strong> on the live URL.</li>
+  <li>Train a data steward on the <strong>imports review</strong> workflow before legacy AMS CSV cutover.</li>
+  <li>Align grant decks and board materials with <strong>Live vs Roadmap</strong> claims only.</li>
+</ol>
+
+<h2>How supervisors can support the project</h2>
+<ul>
+  <li><strong>Approve wedge-first scope</strong> (MemberCore + Events + honest migration)—not full legacy parity in one phase.</li>
+  <li><strong>Tie go-live dates to checklists</strong>, not homepage polish alone.</li>
+  <li><strong>Assign executive sponsor</strong> and engineering/operations contacts for runbooks and production.</li>
+  <li><strong>Protect accurate external claims</strong>—roadmap modules stay labeled Roadmap until go-live gates pass.</li>
+</ul>
+
+<div class="footer">
+  <p>
+    <strong>PulsePoint</strong> — Association Management System prototype &nbsp;|&nbsp;
+    Document generated May 21, 2026 &nbsp;|&nbsp;
+    Technical detail: <code>docs/PROJECT-BRIEF.md</code>, <code>docs/OPERATOR-CHECKLIST.md</code> in project repository.
+  </p>
+  <p>Confidential — intended for internal leadership review. Demonstration URL (local): http://localhost:3000/demo</p>
+</div>
+
+</body>
+</html>

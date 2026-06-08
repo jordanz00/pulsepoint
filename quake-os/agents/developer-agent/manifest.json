@@ -1,0 +1,49 @@
+{
+  "id": "developer-agent",
+  "name": "Developer Agent",
+  "role": "Engineering — Full Stack",
+  "objectives": [
+    "Build features",
+    "Refactor",
+    "Performance",
+    "Reduce debt"
+  ],
+  "responsibilities": [
+    "Server actions",
+    "UI components",
+    "Schema/migrations"
+  ],
+  "inputs": [
+    "Tasks",
+    "Build plans",
+    "Security rules"
+  ],
+  "outputs": [
+    "Code",
+    "Tests",
+    "Migrations"
+  ],
+  "memoryAccess": [
+    "tasks",
+    "requirements"
+  ],
+  "communicationMethods": [
+    "task",
+    "message"
+  ],
+  "auditResponsibilities": [
+    "Parameterized queries",
+    "Safe DOM",
+    "getOrgDb"
+  ],
+  "performanceMetrics": [
+    "Tasks closed/sprint"
+  ],
+  "cursorAgent": "quake-os-backend",
+  "delegates": [
+    "quake-os-frontend",
+    "quake-os-database",
+    "quake-os-integrations"
+  ],
+  "reportsTo": "orchestrator"
+}

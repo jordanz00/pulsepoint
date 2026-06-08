@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T14:47:33.459Z",
+  "entries": [
+    {
+      "id": "BL-017",
+      "category": "tasks",
+      "title": "Stripe webhook local replay doc",
+      "createdAt": "2026-06-07T14:47:33.437Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-backend",
+        "pulse-pilot-ops"
+      ]
+    },
+    {
+      "id": "BL-018",
+      "category": "tasks",
+      "title": "E2E required CI check documentation",
+      "createdAt": "2026-06-07T14:47:33.437Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-016",
+      "category": "tasks",
+      "title": "Supportability gate rows — Commerce, Giving, Engage",
+      "createdAt": "2026-06-07T14:47:33.437Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-coo",
+        "pulse-pilot-ops"
+      ]
+    },
+    {
+      "id": "BL-019",
+      "category": "tasks",
+      "title": "Quake OS KG + research stale task cleanup",
+      "createdAt": "2026-06-07T14:47:33.437Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-continuous-runner"
+      ]
+    },
+    {
+      "id": "BL-020",
+      "category": "tasks",
+      "title": "Learn enrollment + CE transcript export",
+      "createdAt": "2026-06-07T14:47:33.438Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-ams-specialist",
+        "quake-os-backend"
+      ]
+    }
+  ]
+}

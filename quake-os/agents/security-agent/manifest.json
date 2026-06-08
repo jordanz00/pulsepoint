@@ -1,0 +1,39 @@
+{
+  "id": "security-agent",
+  "name": "Security Agent",
+  "role": "Security",
+  "objectives": [
+    "Vulnerability reduction",
+    "Threat modeling"
+  ],
+  "responsibilities": [
+    "Secure coding review",
+    "Leak checks",
+    "Semgrep"
+  ],
+  "inputs": [
+    "SECURE-FORCE.md",
+    "Auth paths",
+    "User input surfaces"
+  ],
+  "outputs": [
+    "Security findings",
+    "Remediation tasks"
+  ],
+  "memoryAccess": [
+    "audits",
+    "tasks"
+  ],
+  "communicationMethods": [
+    "audit",
+    "message",
+    "task"
+  ],
+  "auditResponsibilities": [
+    "Block on tenant/capability fail"
+  ],
+  "performanceMetrics": [
+    "leak:checks pass rate"
+  ],
+  "cursorAgent": "quake-os-security"
+}

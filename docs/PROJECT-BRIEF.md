@@ -1,7 +1,7 @@
 # PulsePoint — Project brief for leadership
 
 **Audience:** Executive staff, board, grants, IT partners  
-**Purpose:** State what this project is building, how it helps the organization, and what “done” means—without overselling AI or roadmap modules.
+**Purpose:** State what this project is building, how it helps the organization, and what “done” means—without overselling roadmap modules.
 
 ---
 
@@ -10,6 +10,8 @@
 **PulsePoint** is a modern **association management system (AMS)** built for **healthcare member-based organizations**. It replaces reliance on legacy AMS contracts (e.g. Protech-scale cost and timelines) with a **modular platform** the organization owns and operates.
 
 This is **not** a weekend CRM or a demo homepage. It is a **foundation-first** product: multi-tenant by design, audited actions, controlled exports, staged data migration, and honest public positioning (Live vs Roadmap).
+
+**What we sell:** not “Members” or “Events” as boxes—the product is **operational trust**: predictable behavior under association workflows (imports, money, permissions, exceptions, audit). See [REALIZATION-PLAN.md](./REALIZATION-PLAN.md).
 
 **PII only — not a PHI platform.** Member contact data, event registration, and payments are in scope. Clinical or HIPAA workloads are explicitly out of scope so the association does not accidentally become a regulated health data platform.
 
@@ -46,7 +48,7 @@ We are **not** rebuilding twenty years of legacy AMS edge cases in one release. 
 
 ### Roadmap (intentionally not claimed as shipped)
 
-PulsePoint Learn, Giving, Commerce, Engage, Insights, and AI appear in **product narrative and marketing** with **Roadmap** labels until code, admin routes, and claims registry say otherwise. Automated renewals, full SSO, Power BI embed, and full GDPR automation are **not** v0.1.
+PulsePoint Learn, Giving, Commerce, Engage, and Insights appear in **product narrative and marketing** with honest **Live / Roadmap** labels until each module reaches GA. Automated renewals, full SSO, Power BI embed, and full GDPR automation are **not** v0.1.
 
 **One sentence for grants and boards:**
 
@@ -56,7 +58,7 @@ PulsePoint Learn, Giving, Commerce, Engage, Insights, and AI appear in **product
 
 ## What you’re already doing right (use this politically)
 
-This build is **not** vibe-coding blind. The following are in place **from day one**—uncommon in fast “AI-built” CRM experiments:
+This build is **not** vibe-coding blind. The following are in place **from day one**—uncommon in fast prototype CRM experiments:
 
 | Foundation | Why it matters to the org |
 |------------|---------------------------|
@@ -103,18 +105,6 @@ Leadership often measures progress by **screens and dates**. Engineering progres
 
 ---
 
-## AI in this project (power tool, not architect)
-
-| Leadership hears | Project reality |
-|------------------|-----------------|
-| “AI will build it fast” | AI accelerates UI, tests, and boilerplate. **We own** migration, permissions, money, and audit. |
-| “Why isn’t it done?” | Correctness (tenant isolation, payments, controlled export) takes longer than screenshots. |
-| “Go live Q3” | Go live **a module** when the checklist is green—not when marketing is polished. |
-
-Sensitive paths (permissions, webhooks, public registration, bulk import apply) require **human review** per `CONTRIBUTING.md`—not unattended AI merge.
-
----
-
 ## How to support the project (concrete asks)
 
 1. **Scope:** Approve wedge-first (MemberCore + Events + honest migration), not Protech parity in one phase.  
@@ -130,6 +120,9 @@ Sensitive paths (permissions, webhooks, public registration, bulk import apply) 
 | Document | Contents |
 |----------|----------|
 | **`docs/OPERATOR-CHECKLIST.md`** | **One-page Red/Yellow/Green for leadership and IT** |
+| **`docs/REALIZATION-PLAN.md`** | **Operational trust, 18-month blocks, Option A pilot path** |
+| `docs/UI-QUALITY-BAR.md` | Enforceable admin UI standards |
+| `docs/SUPPORTABILITY-GATES.md` | Module GA operability gates |
 | `docs/SCOPE.md` | Wedge vs legacy parity; expansion gates |
 | `docs/PRODUCT-CLAIMS.md` | What may be said publicly vs roadmap |
 | `docs/RUNBOOK.md` | Incident response and replay |

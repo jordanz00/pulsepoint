@@ -1,0 +1,58 @@
+# Required status check name for branch protection: "E2E (demo wedge) / playwright"
+# See docs/E2E-CI.md
+name: E2E (demo wedge)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: pulsepoint
+          POSTGRES_PASSWORD: pulsepoint
+          POSTGRES_DB: pulsepoint
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgresql://pulsepoint:pulsepoint@localhost:5432/pulsepoint?schema=public
+      DEMO_MODE: "true"
+      DEMO_SESSION_SECRET: ci-e2e-demo-secret-must-be-32-chars-minimum
+      PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec prisma generate
+      - run: pnpm exec prisma migrate deploy
+      - run: pnpm db:seed:demo
+      - run: pnpm exec playwright install chromium --with-deps
+      - name: Start dev server (demo mode requires non-production NODE_ENV)
+        run: |
+          pnpm dev &
+          for i in $(seq 1 90); do
+            curl -sf http://127.0.0.1:3000/api/health && exit 0
+            sleep 2
+          done
+          echo "Server did not become healthy"
+          exit 1
+      - run: pnpm test:e2e

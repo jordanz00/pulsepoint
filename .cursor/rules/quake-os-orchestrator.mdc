@@ -1,0 +1,108 @@
+---
+description: Quake OS — parallel multi-agent AMS org for PulsePoint. Invoke for full-business waves, audits, and healthcare association work.
+alwaysApply: false
+globs:
+  - "**/*"
+---
+
+# Quake OS orchestrator
+
+**Agency:** Quake OS Multi-Agent AMS Development Organization  
+**Product:** PulsePoint AMS at `/Users/jordanzabady/Desktop/pulse`  
+**Master docs:** `docs/QUAKE-OS.md`, `docs/QUAKE-OS-KNOWLEDGE.md`
+
+## When to activate
+
+User says **Quake OS**, **quake agency**, **full agency wave**, or requests parallel industry + engineering + audit on AMS work.
+
+## Core org chart (`quake-os/docs/ORG-CHART.md`)
+
+```
+Quake OS → CEO · CTO · Product · Research · Healthcare SME · Hospital Association
+         → Compliance · Architecture · Developer · QA · Auditor · Documentation
+         → Orchestrator
+```
+
+| Core agent | Cursor invoke |
+|------------|---------------|
+| CEO | `@quake-os-ceo` |
+| CTO | `@quake-os-cto` |
+| Product | `@quake-os-product-manager` |
+| Research | `@quake-os-market-research` |
+| Healthcare SME | `@quake-os-healthcare-sme` |
+| Hospital Association | `@quake-os-hospital-association` |
+| Compliance | `@quake-os-healthcare-compliance` |
+| Architecture | `@quake-os-solution-architect` |
+| Developer | `@quake-os-backend` |
+| QA | `@quake-os-qa` |
+| Auditor | `@quake-os-audit` |
+| Documentation | `@quake-os-technical-writer` |
+| **Orchestrator** | `@quake-os-orchestrator` |
+
+**Delegates** (optional): UX, frontend, database, security, designer, scale — under core agents per `registry.json` `_aliases`.
+
+**Continuous mode:** `docs/QUAKE-OS-CONTINUOUS.md` · `pnpm quake:gates` · `pnpm quake:os:daily` · `.github/workflows/quake-gates.yml`
+
+**Legacy Pulse agents** (still required on merges): `pulse-supervisor`, `pulse-glass-ui`, `pulse-pilot-ops`; add `pulse-microsoft`, `pulse-research`, `pulse-exec-copilot` per `pulse-multi-agent.mdc`.
+
+## Six-phase parallel matrix
+
+| Phase | Launch in parallel |
+|-------|-------------------|
+| 1 Research | research-agent + hospital-association + healthcare-sme |
+| 2 Planning | product-manager + solution-architect + ux + customer-journey + revenue |
+| 3 Build | backend + frontend + database + integrations (+ pulse-microsoft if M365) |
+| 4 Audit | qa + audit + healthcare-compliance + risk |
+| 5 Optimize | analytics + membership-growth + innovation + technical-writer |
+| 6 Executive | ceo → coo synthesizes → cto technical sign-off |
+
+**Audit Agent** reviews ALL prior phase outputs before Phase 6.
+
+## Non-negotiables
+
+1. `getOrgDb(orgId)` — no cross-tenant reads (`pnpm leak:checks`)
+2. `requireCapability()` on mutations
+3. `pnpm claims:validate` — honest Live / Alpha / Roadmap
+4. No invented stats — DB or SME-flagged
+5. Healthcare association context — not generic chapter AMS
+6. Challenge assumptions — cite paths; weak work gets sent back
+
+## Output formats
+
+**Per-agent (default):**
+```
+Agent: [id]
+Phase: [1-6]
+Finding: [one line]
+Recommendation: [action]
+Sources: [paths]
+Risk: low|medium|high
+```
+
+**Audit Agent (Phase 4):**
+```
+✔ [module]: one line
+⚠ [module]: one line → action
+❌ [module]: one line → must fix
+VERDICT: APPROVED | NEEDS REVISION | REJECTED
+Sources: [paths]
+```
+
+**Executive (Phase 6):**
+```
+CEO Decision: SHIP | DEFER | REVISE
+COO Next sprint: [assignments]
+CTO Architecture note: [one line]
+KPIs impacted: [list]
+```
+
+## Knowledge updates
+
+After shipping, update registries per `docs/QUAKE-OS-KNOWLEDGE.md` and append `data/quake-os/lessons-learned.md`.
+
+## Verify commands
+
+```bash
+cd /Users/jordanzabady/Desktop/pulse
+pnpm typecheck && pnpm test && pnpm leak:checks && pnpm claims:validate
+```

@@ -10,7 +10,10 @@ SENSITIVE=(
   lib/webhook-idempotency.ts
   app/api/webhooks/stripe/route.ts
   app/api/public/register/route.ts
+  app/api/public/advocacy
   app/actions/member-import.ts
+  app/actions/advocacy.ts
+  lib/advocacy/submit-take-action-response.ts
 )
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then

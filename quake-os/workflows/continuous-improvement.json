@@ -1,0 +1,14 @@
+{
+  "id": "continuous-improvement",
+  "name": "Weekly Continuous Improvement",
+  "description": "Run gates, pick top backlog items, build plans, QA checklist, audit, executive verdict.",
+  "schedule": "weekly",
+  "steps": [
+    { "id": "ci1", "agentId": "orchestrator", "action": "Run quake:gates", "required": true },
+    { "id": "ci2", "agentId": "product-agent", "action": "Pick top 3 backlog tasks", "required": true },
+    { "id": "ci3", "agentId": "backend-engineer-agent", "action": "DeveloperAgent.build()", "required": true },
+    { "id": "ci4", "agentId": "qa-agent", "action": "QAAgent.test()", "required": true },
+    { "id": "ci5", "agentId": "auditor-agent", "action": "AuditorAgent.audit()", "required": true },
+    { "id": "ci6", "agentId": "ceo-agent", "action": "Executive verdict", "required": true }
+  ]
+}

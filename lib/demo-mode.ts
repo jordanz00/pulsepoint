@@ -2,7 +2,8 @@
  * PulsePoint demo mode — prototype/leadership-only auth bypass.
  *
  * Cookie signing uses node:crypto (Node runtime only). Edge middleware must
- * import `@/lib/demo-mode-gates` instead of this file.
+ * import `@/lib/demo-mode-gates` instead of this file (required for Client
+ * Components, middleware, and any code that must not pull in `next/headers`).
  */
 
 import crypto from "node:crypto";
@@ -37,7 +38,12 @@ export type DemoStaffSession = {
   isDemo: true;
 };
 
-assertDemoModeNotInProduction();
+// Assertion runs at request time inside `getDemoSession()` instead of at
+// module import. Module-level fail breaks `next build` page-data collection
+// (which always runs in NODE_ENV=production) when developers leave
+// DEMO_MODE=true in `.env.local`. Demo cookies are only minted/served via
+// `getDemoSession()` and the `/api/demo/*` routes, so request-time assertion
+// is the right enforcement point.
 
 function getSecret(): string {
   const s = process.env.DEMO_SESSION_SECRET;
@@ -68,6 +74,10 @@ type DemoCookiePayload = {
 };
 
 export function signDemoCookie(now = Date.now()): string {
+  // Hard fail when minting a real demo cookie in production — there is no safe
+  // case for this. (Reading is gated by isDemoModeEnabled() returning false in
+  // production, so passive page rendering can never trip this.)
+  assertDemoModeNotInProduction();
   const payload: DemoCookiePayload = {
     v: 1,
     exp: Math.floor(now / 1000) + DEMO_COOKIE_MAX_AGE_SECONDS,
@@ -120,6 +130,11 @@ export function demoStaffSession(): DemoStaffSession {
 }
 
 export async function getDemoSession(): Promise<DemoStaffSession | null> {
+  // Read path is gate-protected: isDemoModeEnabled() returns false in
+  // production, so passive page rendering (DemoBanner, marketing page,
+  // _not-found prerender) silently drops the demo session instead of
+  // crashing. Mutation paths (signDemoCookie, /api/demo/start) call
+  // assertDemoModeNotInProduction() themselves.
   if (!isDemoModeEnabled()) return null;
   const jar = await cookies();
   const raw = jar.get(DEMO_COOKIE_NAME)?.value;

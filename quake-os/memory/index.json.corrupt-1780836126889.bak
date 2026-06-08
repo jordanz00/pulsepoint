@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T12:42:06.890Z",
+  "entries": [
+    {
+      "id": "msg-mq3rulqs-fn6x4f",
+      "category": "messages",
+      "title": "SME critique: NEEDS_REVISION",
+      "agentId": "healthcare-sme-agent",
+      "createdAt": "2026-06-07T12:42:06.868Z",
+      "path": "quake-os/memory/messages/msg-mq3rulqs-fn6x4f.json"
+    },
+    {
+      "id": "res-mq3rulr9-usvgkj",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T12:42:06.885Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "audit-mq3rulr5-7qeths",
+      "category": "audits",
+      "title": "Architecture critique: Hospital advocacy take-action form",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T12:42:06.881Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3rulra-kuxxgf",
+      "category": "messages",
+      "title": "Architecture critique: APPROVED",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T12:42:06.886Z",
+      "path": "quake-os/memory/messages/msg-mq3rulra-kuxxgf.json"
+    },
+    {
+      "id": "audit-mq3rulrb-47wfb2",
+      "category": "audits",
+      "title": "Healthcare SME critique: Hospital advocacy take-action form",
+      "agentId": "healthcare-sme-agent",
+      "createdAt": "2026-06-07T12:42:06.887Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3rulrb-fl1p4o",
+      "category": "messages",
+      "title": "SME critique: APPROVED",
+      "agentId": "healthcare-sme-agent",
+      "createdAt": "2026-06-07T12:42:06.887Z",
+      "path": "quake-os/memory/messages/msg-mq3rulrb-fl1p4o.json"
+    },
+    {
+      "id": "dec-mq3rulr6-dmpd1e",
+      "category": "decisions",
+      "title": "CEO REVISE: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T12:42:06.882Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "res-mq3rulrb-e41jtn",
+      "category": "research",
+      "title": "Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T12:42:06.887Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "membership",
+        "pipeline"
+      ]
+    },
+    

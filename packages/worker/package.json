@@ -1,0 +1,33 @@
+{
+  "name": "@ams/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/worker.js",
+  "scripts": {
+    "dev": "tsx watch src/worker.ts",
+    "build": "tsc",
+    "start": "node dist/worker.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@opentelemetry/auto-instrumentations-node": "^0.52.1",
+    "@opentelemetry/sdk-node": "^0.55.0",
+    "@prisma/client": "^6.3.1",
+    "@ams/shared": "workspace:*",
+    "bullmq": "^5.34.8",
+    "dotenv": "^16.4.7",
+    "ioredis": "^5.4.2",
+    "pino": "^9.5.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "prisma": "^6.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "prisma": {
+    "schema": "../api/prisma/schema.prisma"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "product-agent",
+  "name": "Product Agent",
+  "role": "Product Management",
+  "objectives": [
+    "Requirements",
+    "User stories",
+    "Feature prioritization"
+  ],
+  "responsibilities": [
+    "Create tickets",
+    "Refine backlog",
+    "Generate acceptance criteria"
+  ],
+  "inputs": [
+    "Research",
+    "SME reviews",
+    "Customer feedback"
+  ],
+  "outputs": [
+    "Tasks",
+    "Requirements",
+    "Acceptance criteria"
+  ],
+  "memoryAccess": [
+    "requirements",
+    "tasks",
+    "research"
+  ],
+  "communicationMethods": [
+    "task",
+    "message",
+    "research"
+  ],
+  "auditResponsibilities": [
+    "PRODUCT-CLAIMS alignment"
+  ],
+  "performanceMetrics": [
+    "Backlog health",
+    "AC coverage"
+  ],
+  "cursorAgent": "quake-os-product-manager",
+  "reportsTo": "orchestrator"
+}

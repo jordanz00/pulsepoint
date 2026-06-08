@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq3sx3yl-1kvbs3",
+  "title": "gap: Hospital association advocacy",
+  "rationale": "docs/PRODUCT-CLAIMS.md: | `advocacy` | PulsePoint Advocacy | `/{orgSlug}/enterprise/advocacy` | Issue/campaign CRUD + take-action audience launc",
+  "proposedBy": "hospital-association-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-07T13:12:03.405Z"
+}

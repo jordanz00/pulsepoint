@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3r2o41-53iber",
+  "from": "qa-agent",
+  "to": "auditor-agent",
+  "subject": "QA tests ready: Audit gate test",
+  "body": "Gate: pnpm quake:gates",
+  "refs": [
+    "task-audit-test-001"
+  ],
+  "createdAt": "2026-06-07T12:20:23.569Z"
+}

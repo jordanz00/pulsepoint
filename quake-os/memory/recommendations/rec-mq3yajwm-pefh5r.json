@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq3yajwm-pefh5r",
+  "title": "gap: Healthcare CE and education",
+  "rationale": "knowledge/requirements.db#req-mq3wbx9x-kkejx9: gap: Fundraising and nonprofit surfaces | knowledge/requirements.db#req-mq3wbx9v-7ty22h: gap: Enterprise health system governance | knowledge/requirements.db#req-mq3w3clz-h99u4q: gap: Fundraising and nonprofit surfaces | knowledge/requirements.db#req-mq3w3clw-ac0h9u: gap: Enterprise health system governance | knowledge/requirements.db#req-mq3vs5ek-5j5bp6: [gap] gap signals for Hospital association advocacy (low confidence)",
+  "proposedBy": "healthcare-association-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-07T15:42:28.678Z"
+}

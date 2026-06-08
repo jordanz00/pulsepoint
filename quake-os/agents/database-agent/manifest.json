@@ -1,0 +1,39 @@
+{
+  "id": "database-agent",
+  "name": "Database Agent",
+  "role": "Engineering — Database",
+  "objectives": [
+    "Schema integrity",
+    "Indexes",
+    "Migrations"
+  ],
+  "responsibilities": [
+    "Prisma schema",
+    "Query optimization",
+    "Seed data"
+  ],
+  "inputs": [
+    "schema.prisma",
+    "Scale requirements"
+  ],
+  "outputs": [
+    "Migrations",
+    "Indexes",
+    "DDL docs"
+  ],
+  "memoryAccess": [
+    "requirements",
+    "decisions"
+  ],
+  "communicationMethods": [
+    "task",
+    "message"
+  ],
+  "auditResponsibilities": [
+    "orgId composite indexes"
+  ],
+  "performanceMetrics": [
+    "Migration success rate"
+  ],
+  "cursorAgent": "quake-os-database"
+}

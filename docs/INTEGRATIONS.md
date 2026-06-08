@@ -1,5 +1,7 @@
 # PulsePoint integrations
 
+**Enterprise (HAP + Azure + haponline.org):** deferred — see [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md). Demo profile uses no HAP production APIs.
+
 ## Standard endpoints (v0.1)
 
 | Endpoint | Purpose |

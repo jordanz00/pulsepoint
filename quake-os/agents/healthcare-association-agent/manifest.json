@@ -1,0 +1,36 @@
+{
+  "id": "healthcare-association-agent",
+  "name": "Healthcare Association Agent",
+  "role": "Industry — Healthcare Associations",
+  "objectives": [
+    "CE/credentialing",
+    "Professional society workflows"
+  ],
+  "responsibilities": [
+    "Identify missing CE capabilities",
+    "Education module review"
+  ],
+  "inputs": [
+    "Learning module",
+    "Certification roadmap"
+  ],
+  "outputs": [
+    "CE requirements",
+    "Gap reports"
+  ],
+  "memoryAccess": [
+    "research",
+    "requirements"
+  ],
+  "communicationMethods": [
+    "research",
+    "message"
+  ],
+  "auditResponsibilities": [
+    "CE claims accuracy"
+  ],
+  "performanceMetrics": [
+    "CE schema defined"
+  ],
+  "cursorAgent": "quake-os-healthcare-association"
+}

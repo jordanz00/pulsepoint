@@ -7,6 +7,7 @@ export default function OnboardingPage() {
     redirect("/demo");
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { OrganizationList } = require("@clerk/nextjs") as typeof import("@clerk/nextjs");
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[var(--pc-bg)] p-6">

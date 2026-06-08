@@ -1,0 +1,211 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  VIEWER
+  TRAFFICKER
+  MLR_REVIEWER
+  OPS_LEAD
+  ADMIN
+}
+
+enum CampaignState {
+  DRAFT
+  QA
+  APPROVED
+  READY_TO_TRAFFIC
+  SYNCED
+  LIVE
+  OPTIMIZING
+  COMPLETED
+  ARCHIVED
+}
+
+enum CreativeState {
+  DRAFT
+  SUBMITTED
+  MLR_APPROVED
+  LOCKED
+  TRAFFICKED
+  LIVE
+  RETIRED
+}
+
+enum SyncJobStatus {
+  PENDING
+  PROCESSING
+  SUCCEEDED
+  FAILED
+  DEAD
+}
+
+enum FieldOwner {
+  AMS
+  PULSEPOINT
+  BOTH
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  role      UserRole @default(VIEWER)
+  createdAt DateTime @default(now())
+  audits    AuditLog[]
+}
+
+model Campaign {
+  id                 String        @id @default(uuid())
+  amsUuid            String        @unique @default(uuid())
+  name               String
+  clientName         String
+  state              CampaignState @default(DRAFT)
+  budgetUsd          Decimal       @db.Decimal(14, 2)
+  flightStart        DateTime      @db.Date
+  flightEnd          DateTime      @db.Date
+  pulsepointId       String?
+  audienceQaAt       DateTime?
+  budgetQaAt         DateTime?
+  creativeQaAt       DateTime?
+  timezone           String        @default("America/New_York")
+  pacingAlertPct     Int           @default(85)
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+  creatives          Creative[]
+  audienceLists      AudienceList[]
+  syncJobs           SyncJob[]
+  idMappings         IdMapping[]
+  reconciliations    ReconciliationRun[]
+  reportingSnapshots ReportingSnapshot[]
+  pacingAlerts       PacingAlert[]
+}
+
+model Creative {
+  id              String        @id @default(uuid())
+  campaignId      String
+  campaign        Campaign      @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  name            String
+  state           CreativeState @default(DRAFT)
+  version         Int           @default(1)
+  contentHash     String?
+  mlrApprovedAt   DateTime?
+  mlrApprovedBy   String?
+  lockedAt        DateTime?
+  pulsepointTagId String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model AudienceList {
+  id                 String   @id @default(uuid())
+  campaignId         String
+  campaign           Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  version            Int      @default(1)
+  filename           String
+  rowCount           Int      @default(0)
+  valid              Boolean  @default(false)
+  validationReport   Json?
+  suppressionVersion String?
+  validatedAt        DateTime?
+  createdAt          DateTime @default(now())
+}
+
+model IdMapping {
+  id             String     @id @default(uuid())
+  campaignId     String
+  campaign       Campaign   @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  amsField       String
+  pulsepointField String
+  owner          FieldOwner
+  amsValue       String?
+  pulsepointValue String?
+  lastSyncedAt   DateTime?
+}
+
+model SyncJob {
+  id           String        @id @default(uuid())
+  campaignId   String
+  campaign     Campaign      @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  status       SyncJobStatus @default(PENDING)
+  attempt      Int           @default(0)
+  maxAttempts  Int           @default(5)
+  errorCode    String?
+  errorDetail  String?
+  payload      Json?
+  createdAt    DateTime      @default(now())
+  startedAt    DateTime?
+  finishedAt   DateTime?
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  entityType String
+  entityId   String
+  action     String
+  actorId    String?
+  actor      User?    @relation(fields: [actorId], references: [id])
+  before     Json?
+  after      Json?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model ReconciliationRun {
+  id              String   @id @default(uuid())
+  campaignId      String
+  campaign        Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  metricKey       String
+  amsValue        Decimal? @db.Decimal(14, 4)
+  pulsepointValue Decimal? @db.Decimal(14, 4)
+  delta           Decimal? @db.Decimal(14, 4)
+  deltaExplain    String?
+  withinTolerance Boolean  @default(false)
+  createdAt       DateTime @default(now())
+}
+
+model ReportingSnapshot {
+  id         String   @id @default(uuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  metricKey  String
+  value      Decimal  @db.Decimal(14, 4)
+  source     String
+  asOf       DateTime
+  createdAt  DateTime @default(now())
+}
+
+model PacingAlert {
+  id          String   @id @default(uuid())
+  campaignId  String
+  campaign    Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  pacingPct   Decimal  @db.Decimal(5, 2)
+  daysLeft    Int?
+  message     String
+  acknowledged Boolean @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model MetricDefinition {
+  key             String  @id
+  label           String
+  owner           String
+  timezone        String
+  includesFees    Boolean @default(false)
+  pulsepointField String?
+  description     String
+}
+
+model ErrorRunbook {
+  code        String @id
+  title       String
+  message     String
+  steps       Json
+}

@@ -1,0 +1,20 @@
+{
+  "id": "BL-006",
+  "title": "Bulk member→hospital assignment",
+  "description": "",
+  "priority": "P2",
+  "businessImpact": "medium",
+  "technicalComplexity": "medium",
+  "dependencies": [],
+  "ownerAgent": "quake-os-ams-specialist",
+  "status": "done",
+  "researchSources": [],
+  "acceptanceCriteria": [],
+  "createdAt": "2026-06-06T01:18:47.879Z",
+  "updatedAt": "2026-06-07T13:42:24.403Z",
+  "division": "membership",
+  "tags": [
+    "quake-os-ams-specialist",
+    "quake-os-backend"
+  ]
+}

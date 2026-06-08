@@ -2,55 +2,105 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { AdminNavItem } from "@/lib/nav-config";
-import { Badge } from "@/components/ui/badge";
-import { HapLogo } from "@/components/hap-logo";
+import {
+  NAV_GROUP_LABELS,
+  NAV_GROUP_ORDER,
+  type AdminNavGroup,
+  type AdminNavItem,
+} from "@/lib/nav-config";
+import type { AdminNavCounts } from "@/lib/admin-nav-counts";
+import { adminNavIcon } from "@/lib/admin-nav-icons";
 
 function isActive(pathname: string, href: string): boolean {
-  if (pathname === href) return true;
-  const hrefDepth = href.split("/").filter(Boolean).length;
-  if (hrefDepth <= 1) return false;
-  return pathname.startsWith(`${href}/`);
+  const path = href.split("?")[0]!;
+  if (pathname === path) return true;
+  const segments = path.split("/").filter(Boolean);
+  if (segments.length <= 2) return pathname === path;
+  return pathname === path || pathname.startsWith(`${path}/`);
 }
 
-function NavGroup({
-  title,
+function NavBadge({
+  item,
+  counts,
+}: {
+  item: AdminNavItem;
+  counts: AdminNavCounts;
+}) {
+  if (item.status === "alpha" || item.status === "roadmap") {
+    return (
+      <span
+        className="nav-alpha-dot"
+        title="Preview module"
+        aria-label="Alpha module"
+      />
+    );
+  }
+  if (item.id === "members" && counts.members > 0) {
+    return <span className="nav-badge-count">{counts.members}</span>;
+  }
+  if (item.id === "events" && counts.events > 0) {
+    return <span className="nav-badge-count">{counts.events}</span>;
+  }
+  if (item.id === "exceptions" && counts.exceptions > 0) {
+    return (
+      <span className="nav-badge-count nav-badge-count--danger">
+        {counts.exceptions}
+      </span>
+    );
+  }
+  return null;
+}
+
+function NavSection({
+  group,
   items,
   pathname,
+  counts,
 }: {
-  title: string;
+  group: AdminNavGroup;
   items: AdminNavItem[];
   pathname: string;
+  counts: AdminNavCounts;
 }) {
   if (items.length === 0) return null;
   return (
-    <div className="mt-6 first:mt-0">
-      <p className="px-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-        {title}
-      </p>
-      <ul className="mt-2 space-y-0.5">
+    <div>
+      <p className="pp-sidebar-section">{NAV_GROUP_LABELS[group]}</p>
+      <nav aria-label={NAV_GROUP_LABELS[group]}>
         {items.map((item) => {
-          const active = isActive(pathname, item.href);
-          return (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition ${
-                  active ? "pc-sidebar-link-active font-semibold" : "pc-sidebar-link"
-                }`}
+          if (item.status === "roadmap") {
+            return (
+              <span
+                key={item.id}
+                className="nav-item"
+                style={{ opacity: 0.5, cursor: "not-allowed" }}
+                title="Coming soon"
+                aria-disabled
               >
-                <span className="truncate">{item.shortLabel}</span>
-                {item.status === "live" && !active && (
-                  <Badge variant="live">Live</Badge>
-                )}
-                {item.status === "roadmap" && (
-                  <Badge variant="roadmap">Soon</Badge>
-                )}
-              </Link>
-            </li>
+                {(() => {
+                  const Icon = adminNavIcon(item.iconId);
+                  return <Icon size={16} aria-hidden />;
+                })()}
+                <span className="min-w-0 flex-1 truncate">{item.name}</span>
+              </span>
+            );
+          }
+          const active = isActive(pathname, item.href);
+          const Icon = adminNavIcon(item.iconId);
+          return (
+            <Link
+              key={item.id}
+              href={item.href}
+              className={`nav-item${active ? " active" : ""}`}
+              aria-current={active ? "page" : undefined}
+            >
+              <Icon size={16} aria-hidden />
+              <span className="min-w-0 flex-1 truncate">{item.name}</span>
+              <NavBadge item={item} counts={counts} />
+            </Link>
           );
         })}
-      </ul>
+      </nav>
     </div>
   );
 }
@@ -58,37 +108,62 @@ function NavGroup({
 export function AppSidebar({
   orgSlug,
   orgName,
+  orgLogoUrl,
   nav,
+  counts,
 }: {
   orgSlug: string;
   orgName: string;
+  orgLogoUrl?: string | null;
   nav: AdminNavItem[];
+  counts: AdminNavCounts;
 }) {
   const pathname = usePathname();
-  const home = nav.filter((n) => n.group === "home");
-  const products = nav.filter((n) => n.group === "products");
-  const system = nav.filter((n) => n.group === "system");
+  const initials = orgName
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? "")
+    .join("");
+
+  const groups: AdminNavGroup[] = NAV_GROUP_ORDER;
 
   return (
-    <aside className="pc-sidebar flex w-56 shrink-0 flex-col border-r lg:w-60">
-      <div className="border-b border-white/10 px-4 py-5">
-        <Link href={`/${orgSlug}`} className="flex items-center gap-3">
-          <HapLogo size={36} priority />
-          <span className="font-semibold text-white">PulsePoint</span>
-        </Link>
-        <p className="mt-2 truncate text-xs text-white/70">{orgName}</p>
-        <p className="pc-eyebrow-warm mt-2 text-[10px] font-bold uppercase">
-          AMS prototype
-        </p>
+    <aside className="pp-sidebar glass" aria-label="Main navigation">
+      <div className="pp-sidebar-org">
+        {orgLogoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={orgLogoUrl}
+            alt=""
+            width={24}
+            height={24}
+            className="pp-sidebar-org-mark"
+            style={{ objectFit: "cover" }}
+          />
+        ) : (
+          <span className="pp-sidebar-org-mark" aria-hidden>
+            {initials || "PP"}
+          </span>
+        )}
+        <span
+          className="min-w-0 truncate text-[12px] font-semibold"
+          style={{ color: "var(--text-primary)" }}
+        >
+          {orgName}
+        </span>
       </div>
-      <nav className="flex-1 overflow-y-auto px-2 py-4">
-        <NavGroup title="Home" items={home} pathname={pathname} />
-        <NavGroup title="Products" items={products} pathname={pathname} />
-        <NavGroup title="Operations" items={system} pathname={pathname} />
-      </nav>
-      <div className="border-t border-white/10 p-3 text-[10px] text-white/50">
-        Live: MemberCore · Events · Work
-      </div>
+
+      {groups.map((group) => (
+        <NavSection
+          key={group}
+          group={group}
+          items={nav.filter((n) => n.group === group)}
+          pathname={pathname}
+          counts={counts}
+        />
+      ))}
+
+      <p className="pp-sidebar-foot">PulsePoint v0.1</p>
     </aside>
   );
 }

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4irrk1-bi63c1",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Enterprise health system governance",
+  "body": "knowledge/requirements.db#req-mq4ir7an-sfga4w: gap: Enterprise health system governance",
+  "refs": [
+    "task-mq4irrjw-w4r5gu"
+  ],
+  "createdAt": "2026-06-08T01:15:44.065Z"
+}

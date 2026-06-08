@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq3ui5zb-1e8gxl",
+  "title": "gap: AMS competitor landscape",
+  "rationale": "docs/PROTECH-FEATURE-MAP.md: > “PulsePoint replaces the **daily staff wedge** Protech charges millions for—members, events, imports, payments, and op | docs/PROTECH-FEATURE-MAP.md: **Explicitly not Protech parity yet** (say “roadmap,” do not demo as shipped): exhibit halls, complex sponsorship tiers, | docs/PRODUCT-CLAIMS.md: See also `lib/platform-capabilities.ts` for Fonteva-class scope vs Live/Alpha/Demo preview/Roadmap labels.",
+  "proposedBy": "research-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-07T13:56:25.415Z"
+}

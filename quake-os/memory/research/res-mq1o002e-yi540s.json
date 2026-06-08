@@ -1,0 +1,16 @@
+{
+  "id": "res-mq1o002e-yi540s",
+  "topic": "State hospital association advocacy workflows",
+  "category": "hospital_association",
+  "summary": "Associations need issue tracking, legislator targeting, hospital participation rates, and grassroots email. PAC linkage is separate compliance track.",
+  "sources": [
+    "docs/PRODUCT-CLAIMS.md",
+    "lib/advocacy-dashboard.ts"
+  ],
+  "recommendations": [
+    "Ship public take-action form with validation",
+    "Add legislative tracker stub (BL-005)"
+  ],
+  "authorAgent": "hospital-association-agent",
+  "createdAt": "2026-06-06T01:18:47.894Z"
+}

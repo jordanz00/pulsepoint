@@ -1,10 +1,20 @@
 import type { LabelHTMLAttributes } from "react";
 
-export function Label({ className = "", ...props }: LabelHTMLAttributes<HTMLLabelElement>) {
+export function Label({
+  className = "",
+  required,
+  children,
+  ...props
+}: LabelHTMLAttributes<HTMLLabelElement> & { required?: boolean }) {
   return (
-    <label
-      className={`mb-1 block text-sm font-medium text-zinc-700 ${className}`}
-      {...props}
-    />
+    <label className={`ds-label ${className}`.trim()} {...props}>
+      {children}
+      {required ? (
+        <span className="text-[var(--ds-fg-muted)]" aria-hidden>
+          {" "}
+          *
+        </span>
+      ) : null}
+    </label>
   );
 }

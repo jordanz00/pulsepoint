@@ -92,14 +92,16 @@ mode shares the same seeded identity.
 
 ## Pre-deploy checklist
 
-Before deploying any preview or production environment:
+| Environment | `DEMO_MODE` | `HOSTED_DEMO` |
+|-------------|-------------|---------------|
+| **Vercel Preview** (stakeholder demo) | `true` | `true` |
+| **Vercel Production** (real pilot) | **unset** | **unset** |
+| **Local** | `true` in `.env.local` only | not needed |
 
-- [ ] Hosting env does not set `DEMO_MODE=true`. (Vercel / Render / Fly etc.)
-- [ ] `DEMO_SESSION_SECRET` is unset (or explicitly empty) in the hosting env.
-- [ ] CI runs `pnpm security:audit` (which calls
-      `scripts/security-audit.sh` and fails on tracked `DEMO_MODE=true`).
-- [ ] If you really need a hosted prototype preview with demo mode on, run
-      it under `NODE_ENV=development` or `NODE_ENV=test`, never `production`.
+- [ ] Production never sets `DEMO_MODE` or `HOSTED_DEMO`.
+- [ ] `DEMO_SESSION_SECRET` is 32+ chars on Preview only; unset on Production.
+- [ ] CI runs `pnpm security:audit` (fails on tracked `DEMO_MODE=true` in source files).
+- [ ] Hosted demo steps: [DEPLOY-HOSTED-DEMO.md](./DEPLOY-HOSTED-DEMO.md).
 
 ---
 

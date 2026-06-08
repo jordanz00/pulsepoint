@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T17:56:06.299Z",
+  "entries": [
+    {
+      "id": "wf-mq432ec9-qudykh",
+      "category": "lessons",
+      "title": "Workflow: Daily Agent Cycle",
+      "createdAt": "2026-06-07T17:56:06.299Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "workflow",
+        "daily-cycle",
+        "completed"
+      ]
+    }
+  ]
+}  "id": "rec-mq432ebk-phwci1",
+      "category": "recommendations",
+      "title": "opportunity: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T17:56:06.272Z",
+      "path": "quake-os/memory/recommendations/rec-mq432ebk-phwci1.json"
+    },
+    {
+      "id": "msg-mq432ebm-262g9j",
+      "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T17:56:06.274Z",
+      "path": "quake-os/memory/messages/msg-mq432ebm-262g9j.json"
+    },
+    {
+      "id": "BL-026",
+      "category": "tasks",
+      "title": "Wave 2 — virtual career fair booths + hosted video",
+      "createdAt": "2026-06-07T17:56:06.198Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-frontend",
+        "quake-os-ams-specialist"
+      ]
+    },
+    {
+      "id": "msg-mq432ebn-ulvt10",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T17:56:06.275Z",
+      "path": "quake-os/memory/messages/msg-mq432ebn-ulvt10.json"
+    },
+    {
+      "id": "msg-mq432ebo-de1hzi",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ResearchAgent.run()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.276Z",
+      "path": "quake-os/memory/messages/msg-mq432ebo-de1hzi.json"
+    },
+    {
+      "id": "msg-mq432ebo-z2sgrr",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.276Z",
+      "path": "quake-os/memory/messages/msg-mq432ebo-z2sgrr.json"
+    },
+    {
+      "id": "dec-mq432ebo-zrh11p",
+      "category": "decisions",
+      "title": "Daily architecture review",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T17:56:06.276Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq432ebp-ej76f3",
+      "category": "messages",
+      "title": "Architecture review complete",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T17:56:06.277Z",
+      "path": "quake-os/memory/messages/msg-mq432ebp-ej76f3.json"
+    },
+    {
+      "id": "req-mq432ebo-ce9too",
+      "category": "requirements",
+      "title": "Wave 2 — virtual career fair booths + hosted video",
+      "agentId": "quake-os-frontend",
+      "createdAt": "2026-06-07T17:56:06.276Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq432ebq-bsh9jm",
+      "category": "requirements",
+      "title": "gap: Enterprise health system governance",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T17:56:06.278Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq432ebr-24ijbn",
+      "category": "requirements",
+      "title": "risk: Pipeline test",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T17:56:06.279Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "msg-mq432ebr-u1pzkb",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T17:56:06.279Z",
+      "path": "quake-os/memory/messages/msg-mq432ebr-u1pzkb.json"
+    },
+    {
+      "id": "msg-mq432ebs-iggahy",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.280Z",
+      "path": "quake-os/memory/messages/msg-mq432ebs-iggahy.json"
+    },
+    {
+      "id": "BL-021",
+      "category": "tasks",
+      "title": "Engage audience tag filter + send failure exceptions",
+      "createdAt": "2026-06-07T17:56:06.198Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-backend",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "msg-mq432ebt-hyrkr9",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T17:56:06.281Z",
+      "path": "quake-os/memory/messages/msg-mq432ebt-hyrkr9.json"
+    },
+    {
+      "id": "msg-mq432ebu-ccmb5e",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T17:56:06.282Z",
+      "path": "quake-os/memory/messages/msg-mq432ebu-ccmb5e.json"
+    },
+    {
+      "id": "BL-022",
+      "category": "tasks",
+      "title": "Commerce finance CSV export parity tests",
+      "createdAt": "2026-06-07T17:56:06.198Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-qa",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "msg-mq432ebv-p8tc1y",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.283Z",
+      "path": "quake-os/memory/messages/msg-mq432ebv-p8tc1y.json"
+    },
+    {
+      "id": "req-mq432ebx-gtkrk5",
+      "category": "requirements",
+      "title": "Wave 2 — virtual career fair booths + hosted video",
+      "agentId": "quake-os-frontend",
+      "createdAt": "2026-06-07T17:56:06.285Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq432eby-ylvxhv",
+      "category": "requirements",
+      "title": "gap: Enterprise health system governance",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T17:56:06.286Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq432ebz-cnbw74",
+      "category": "requirements",
+      "title": "risk: Pipeline test",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T17:56:06.287Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "BL-023",
+      "category": "tasks",
+      "title": "Insights snapshot metric parity guard",
+      "createdAt": "2026-06-07T17:56:06.198Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-analytics",
+        "pulse-exec-copilot"
+      ]
+    },
+    {
+      "id": "msg-mq432ebz-ofzdfv",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T17:56:06.287Z",
+      "path": "quake-os/memory/messages/msg-mq432ebz-ofzdfv.json"
+    },
+    {
+      "id": "msg-mq432ec0-t973zp",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.288Z",
+      "path": "quake-os/memory/messages/msg-mq432ec0-t973zp.json"
+    },
+    {
+      "id": "msg-mq432ec1-857sep",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T17:56:06.289Z",
+      "path": "quake-os/memory/messages/msg-mq432ec1-857sep.json"
+    },
+    {
+      "id": "msg-mq432ec1-oploif",
+      "category": "messages",
+      "title": "Daily Agent Cycle: QAAgent.test()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.289Z",
+      "path": "quake-os/memory/messages/msg-mq432ec1-oploif.json"
+    },
+    {
+      "id": "BL-025",
+      "category": "tasks",
+      "title": "Healthcare AMS Wave 1 — advocacy issue hub + learn workforce",
+      "createdAt": "2026-06-07T17:56:06.198Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-orchestrator",
+        "quake-os-hospital-association",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "audit-mq432ec7-bkoo5q",
+      "category": "audits",
+      "title": "Daily cycle QA — 3 tasks",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T17:56:06.295Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "BL-027",
+      "category": "tasks",
+      "title": "Wave 3 — legislative feed + Protech GL parity slice",
+      "createdAt": "2026-06-07T17:56:06.198Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-integrations",
+        "quake-os-revenue"
+      ]
+    },
+    {
+      "id": "msg-mq432ec8-7n3bln",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T17:56:06.296Z",
+      "path": "quake-os/memory/messages/msg-mq432ec8-7n3bln.json"
+    },
+    {
+      "id": "msg-mq432ec1-03d3f6",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T17:56:06.289Z",
+      "path": "quake-os/memory/messages/msg-mq432ec1-03d3f6.json"
+    },
+    {
+      "id": "msg-mq432ec9-90ckts",
+      "category": "messages",
+      "title": "Daily Agent Cycle: AuditorAgent.audit()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.297Z",
+      "path": "quake-os/memory/messages/msg-mq432ec9-90ckts.json"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3ui5up-zri3zt",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: opportunity: Fundraising and nonprofit surfaces",
+  "body": "docs/PRODUCT-CLAIMS.md: | Member 360° timeline | `/{orgSlug}/members/[id]` | Unified staff view of events, orders, giving, CE, notes | Automated",
+  "refs": [
+    "task-mq3ui5uo-3zf0rd"
+  ],
+  "createdAt": "2026-06-07T13:56:25.249Z"
+}

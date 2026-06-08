@@ -1,0 +1,30 @@
+{
+  "name": "Quake OS — Full wave on demand",
+  "description": "Manual or webhook-triggered full Phase 1–6 Quake OS orchestrator wave.",
+  "workflow": {
+    "triggers": [
+      {
+        "webhook": {}
+      }
+    ],
+    "actions": [
+      {
+        "gitPr": {}
+      }
+    ],
+    "prompts": [
+      {
+        "prompt": "Act as Quake OS Orchestrator for PulsePoint AMS.\n\nMUST READ FIRST:\n- .cursor/agents/quake-os-orchestrator.md\n- .cursor/rules/quake-os-orchestrator.mdc\n- docs/QUAKE-OS.md\n\nRun full Phase 1–6 for the initiative named in the trigger payload.\nIf the payload is empty, use the top P0 item from data/quake-os/improvement-backlog.json.\n\nParallel phases per quake-os-orchestrator.mdc.\nAudit Agent must run before Executive review.\n\nOutput: data/quake-os/waves/YYYY-MM-DD-[initiative].md\n\nOn UI changes, follow pulse-glass-ui and pulse-supervisor patterns.\n\nOpen a PR when VERDICT is APPROVED or NEEDS REVISION with a clear fix list.\nRun `pnpm quake:gates` before opening the PR.\n\nNever invent KPIs. Cite file paths. Small diffs only."
+      }
+    ],
+    "model": "",
+    "gitConfig": {
+      "repo": "jordanz00/pulsepoint",
+      "branch": "main"
+    },
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true
+  }
+}

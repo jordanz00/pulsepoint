@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T12:42:06.908Z",
+  "entries": [
+    {
+      "id": "frc-mq3rulrl-myf0yw",
+      "category": "audits",
+      "title": "Feature review: Hospital advocacy take-action form",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T12:42:06.904Z",
+      "path": "knowledge/audits.db",
+      "tags": [
+        "feature-review-chain",
+        "revise"
+      ]
+    },
+    {
+      "id": "req-mq3rulrt-r4bmib",
+      "category": "requirements",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T12:42:06.905Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    }
+  ]
+}

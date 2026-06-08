@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-08T01:17:22.890Z",
+  "entries": [
+    {
+      "id": "sprint-mq4itvs8-ipovgo",
+      "category": "roadmaps",
+      "title": "test-wave",
+      "createdAt": "2026-06-08T01:17:22.856Z",
+      "path": "knowledge/roadmap.db",
+      "tags": [
+        "sprint",
+        "phase-2"
+      ]
+    },
+    {
+      "id": "task-mq4itvqc-t30s54",
+      "category": "tasks",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-08T01:17:22.788Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq4itvs7-e46ky2",
+      "category": "messages",
+      "title": "New task: gap: AMS competitor landscape",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.855Z",
+      "path": "quake-os/memory/messages/msg-mq4itvs7-e46ky2.json"
+    },
+    {
+      "id": "task-mq4itvse-w6a9rv",
+      "category": "tasks",
+      "title": "opportunity: AMS competitor landscape",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:22.862Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4ituka-uaxjyy"
+      ]
+    },
+    {
+      "id": "msg-mq4itvsf-yo309u",
+      "category": "messages",
+      "title": "New task: opportunity: AMS competitor landscape",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.863Z",
+      "path": "quake-os/memory/messages/msg-mq4itvsf-yo309u.json"
+    },
+    {
+      "id": "task-mq4itvsf-ixwvpm",
+      "category": "tasks",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.863Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4itukh-qdf4do"
+      ]
+    },
+    {
+      "id": "msg-mq4itvsf-xyzlsw",
+      "category": "messages",
+      "title": "New task: gap: Hospital association advocacy",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.863Z",
+      "path": "quake-os/memory/messages/msg-mq4itvsf-xyzlsw.json"
+    },
+    {
+      "id": "res-mq4itvsb-opvkf1",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-08T01:17:22.859Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "task-mq4itv7o-s2r6tq",
+      "category": "tasks",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.116Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "rec-mq4itvsj-vmd4do",
+      "category": "recommendations",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-08T01:17:22.867Z",
+      "path": "quake-os/memory/recommendations/rec-mq4itvsj-vmd4do.json"
+    },
+    {
+      "id": "audit-mq4itvsm-uvlawn",
+      "category": "audits",
+      "title": "Wave: test-wave",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-08T01:17:22.870Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "task-mq4itvsk-m6d1xd",
+      "category": "tasks",
+      "title": "risk: Hospital association advocacy",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.868Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4ituki-xat95a"
+      ]
+    },
+    {
+      "id": "sprint-mq4itvse-9p6lp4",
+      "category": "roadmaps",
+      "title": "test-wave",
+      "createdAt": "2026-06-08T01:17:22.862Z",
+      "path": "knowledge/roadmap.db",
+      "tags": [
+        "sprint",
+        "phase-2"
+      ]
+    },
+    {
+      "id": "task-mq4itv2e-zxpxrp",
+      "category": "tasks",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:21.926Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq4itvsp-olbnz9",
+      "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:22.873Z",
+      "path": "quake-os/memory/messages/msg-mq4itvsp-olbnz9.json"
+    },
+    {
+      "id": "task-mq4itvmv-191x0n",
+      "category": "tasks",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-08T01:17:22.663Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "task-mq4itva2-w13vuf",
+      "category": "tasks",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.202Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "audit-mq4itvsr-9qjlbz",
+      "category": "audits",
+      "title": "Wave: test-wave",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-08T01:17:22.875Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "audit-mq4itvsz-9u7i0b",
+      "category": "audits",
+      "title": "Wave: test-wave",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-08T01:17:22.883Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq4itvso-byd4e6",
+      "category": "messages",
+      "title": "New task: risk: Hospital association advocacy",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.872Z",
+      "path": "quake-os/memory/messages/msg-mq4itvso-byd4e6.json"
+    }
+  ]
+}

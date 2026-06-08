@@ -1,0 +1,32 @@
+{
+  "name": "Quake OS — Weekly continuous",
+  "description": "Weekly Quake OS continuous improvement on PulsePoint AMS. Runs gates, picks top backlog items, opens PR.",
+  "workflow": {
+    "triggers": [
+      {
+        "cron": {
+          "cron": "0 9 * * 1"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "gitPr": {}
+      }
+    ],
+    "prompts": [
+      {
+        "prompt": "You are the Quake OS Continuous Runner for PulsePoint AMS.\n\nMUST READ FIRST:\n- .cursor/agents/quake-os-continuous-runner.md\n- .cursor/rules/quake-os-orchestrator.mdc\n- docs/QUAKE-OS-CONTINUOUS.md\n- data/quake-os/improvement-backlog.json\n\nWorkflow:\n1. Run `pnpm quake:gates`. If gates fail, stop and open a PR that documents failures only — do not ship broken code.\n2. Pick top 3 pending or in_progress backlog items (P0 first).\n3. For each item, follow the six-phase matrix in quake-os-orchestrator.mdc:\n   - Parallel research/planning agents as needed\n   - Implement minimal diffs only\n   - Use quake-os-audit review pattern before merge-ready work\n4. Enforce non-negotiables: getOrgDb(orgId), requireCapability(), pnpm claims:validate, no invented stats.\n5. Update backlog status and write data/quake-os/waves/YYYY-MM-DD-continuous.md.\n6. Open a PR with summary, files touched, gate results, and audit verdict.\n\nNever invent KPIs. Cite file paths. Small diffs only."
+      }
+    ],
+    "model": "",
+    "gitConfig": {
+      "repo": "jordanz00/pulsepoint",
+      "branch": "main"
+    },
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true
+  }
+}

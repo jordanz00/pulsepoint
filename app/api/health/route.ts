@@ -1,13 +1,18 @@
+/**
+ * Fast liveness probe — no DB, no auth. Use to detect hung dev servers.
+ */
+
 import { NextResponse } from "next/server";
 
-/**
- * Standard health check for monitoring / load balancers (integration contract v1).
- */
+export const dynamic = "force-dynamic";
+
 export async function GET() {
-  return NextResponse.json({
-    ok: true,
-    service: "pulsepoint",
-    version: process.env.npm_package_version ?? "0.1.0",
-    timestamp: new Date().toISOString(),
-  });
+  return NextResponse.json(
+    {
+      ok: true,
+      service: "pulsepoint-web",
+      ts: new Date().toISOString(),
+    },
+    { status: 200 },
+  );
 }

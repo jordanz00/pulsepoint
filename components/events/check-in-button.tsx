@@ -16,6 +16,7 @@ export function CheckInButton({
   const router = useRouter();
   return (
     <Button
+      className="ec-check-in-btn min-h-11 min-w-[7.5rem]"
       variant={checkedIn ? "secondary" : "primary"}
       onClick={async () => {
         await toggleCheckIn(registrationId, orgSlug);

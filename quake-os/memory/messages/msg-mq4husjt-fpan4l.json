@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4husjt-fpan4l",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Enterprise health system governance",
+  "body": "knowledge/requirements.db#req-mq3vs5ek-5j5bp6: [gap] gap signals for Hospital association advocacy (low confidence) | knowledge/requirements.db#req-mq4hs9bh-apij16: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4hs0r4-vncoit: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4hs02e-2t6n82: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4hs007-8wzdd3: gap: Enterprise health system governance",
+  "refs": [
+    "task-mq4husjr-js89u5"
+  ],
+  "createdAt": "2026-06-08T00:50:05.705Z"
+}

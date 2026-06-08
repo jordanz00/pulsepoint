@@ -26,7 +26,30 @@ export type Capability =
   | "event:delete"
   | "event:checkin"
   | "org:settings"
-  | "automation:resolve";
+  | "automation:resolve"
+  | "advocacy:read"
+  | "advocacy:write"
+  | "education:read"
+  | "education:write"
+  | "emergency:read"
+  | "emergency:write"
+  | "communications:read"
+  | "communications:write"
+  | "analytics:read"
+  | "finance:read"
+  | "deals:read"
+  | "deals:write"
+  | "integrations:manage"
+  | "committee:read"
+  | "committee:write"
+  | "learn:manage"
+  | "commerce:manage"
+  | "commerce:export"
+  | "giving:read"
+  | "giving:manage"
+  | "engage:manage"
+  | "engage:send"
+  | "insights:export";
 
 /** Minimum role per capability — documented in docs/DATA-DICTIONARY.md */
 export const CAPABILITY_MIN_ROLE: Record<Capability, OrgRole> = {
@@ -42,6 +65,29 @@ export const CAPABILITY_MIN_ROLE: Record<Capability, OrgRole> = {
   "event:delete": "ADMIN",
   "org:settings": "ADMIN",
   "automation:resolve": "ADMIN",
+  "advocacy:read": "STAFF",
+  "advocacy:write": "STAFF",
+  "education:read": "STAFF",
+  "education:write": "STAFF",
+  "emergency:read": "STAFF",
+  "emergency:write": "ADMIN",
+  "communications:read": "STAFF",
+  "communications:write": "STAFF",
+  "analytics:read": "STAFF",
+  "finance:read": "ADMIN",
+  "deals:read": "STAFF",
+  "deals:write": "STAFF",
+  "integrations:manage": "ADMIN",
+  "committee:read": "STAFF",
+  "committee:write": "ADMIN",
+  "learn:manage": "STAFF",
+  "commerce:manage": "ADMIN",
+  "commerce:export": "ADMIN",
+  "giving:read": "STAFF",
+  "giving:manage": "ADMIN",
+  "engage:manage": "STAFF",
+  "engage:send": "ADMIN",
+  "insights:export": "ADMIN",
 };
 
 export function roleAllows(capability: Capability, role: OrgRole): boolean {

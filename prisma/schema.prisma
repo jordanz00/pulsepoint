@@ -22,6 +22,32 @@ enum MemberStatus {
   LAPSED
 }
 
+/// Seniority band — used to flag C-suite and executive contacts.
+enum LeadershipLevel {
+  C_SUITE
+  SENIOR_EXECUTIVE
+  DIRECTOR
+  MANAGER
+  PROFESSIONAL
+  OTHER
+}
+
+/// Whether the role is with this association or an external org (e.g. board at another nonprofit).
+enum MemberRoleScope {
+  THIS_ASSOCIATION
+  EXTERNAL_ORGANIZATION
+}
+
+/// Role category for filtering and display.
+enum MemberRoleCategory {
+  EXECUTIVE
+  BOARD
+  COMMITTEE
+  CHAPTER
+  STAFF
+  OTHER
+}
+
 enum EventStatus {
   DRAFT
   PUBLISHED
@@ -34,6 +60,51 @@ enum RegistrationStatus {
   CONFIRMED
   WAITLIST
   CANCELLED
+}
+
+enum EventFormat {
+  IN_PERSON
+  VIRTUAL
+  HYBRID
+}
+
+/// Event program type — virtual career fair is Alpha (Wave 1 healthcare AMS).
+enum EventKind {
+  STANDARD
+  VIRTUAL_CAREER_FAIR
+}
+
+/// Member workforce / pipeline persona for Learn + career fair (alpha).
+enum WorkforcePersona {
+  NONE
+  STUDENT
+  NEW_GRAD
+  CAREER_CHANGER
+  EXPERIENCED
+  EMPLOYER_PARTNER
+}
+
+enum RefundStatus {
+  NONE
+  REQUESTED
+  APPROVED
+  COMPLETED
+  DENIED
+}
+
+enum EventAssetKind {
+  LOGO
+  BANNER
+  SPONSOR
+  BADGE
+  GENERAL
+}
+
+enum EventScheduledEmailStatus {
+  SCHEDULED
+  SENT
+  CANCELLED
+  FAILED
 }
 
 enum BillingInterval {
@@ -59,17 +130,104 @@ enum MemberImportRowStatus {
   REJECTED
 }
 
+/// Relationship health — people-first CRM (not deal pipeline).
+enum RelationshipHealth {
+  STRONG
+  STEADY
+  COOLING
+  AT_RISK
+}
+
+enum MemberNoteType {
+  RELATIONSHIP
+  FOLLOW_UP
+  GENERAL
+}
+
+enum ContactSourceKind {
+  MANUAL
+  CSV_IMPORT
+  EMAIL_CAPTURE
+  WEB_CAPTURE
+  LINKEDIN
+  DIRECTORY
+}
+
+enum MemberRelationType {
+  COLLEAGUE
+  REFERRAL
+  MENTOR
+  MENTEE
+  BOARD_PEER
+  SPOUSE
+  OTHER
+}
+
+enum CrmWorkflowKind {
+  ONBOARD_MEMBER
+  RE_ENGAGE
+  BOARD_OUTREACH
+  HIRING
+  INFLUENCER_PR
+  FUNDRAISING
+  NETWORKING
+  ACCOUNTS_RECEIVABLE
+  CUSTOM
+}
+
+enum CrmWorkflowRunStatus {
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum DealStage {
+  LEAD
+  QUALIFIED
+  PROPOSAL
+  NEGOTIATION
+  WON
+  LOST
+}
+
+enum DealReportVisibility {
+  PRIVATE
+  TEAM
+  ORG
+}
+
+enum DealReportType {
+  LOST_BY_STAGE
+  WON_OVER_TIME
+  LOST_BY_REASON
+  REVENUE_FORECAST
+  DEAL_CONVERSION
+  DEAL_PROGRESS
+  TEAM_LEADERBOARD
+}
+
+enum DealChartType {
+  BAR
+  DONUT
+  TABLE
+}
+
 model Organization {
   id               String   @id
   slug             String   @unique
   name             String
   plan             String   @default("trial")
   stripeCustomerId String?
+  /// Public directory settings — fields, visibility, layout.
+  directoryConfig Json?
+  /// Enabled payment gateway ids from lib/payment-gateway-registry.
+  paymentGatewayConfig Json?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
   memberships   OrgMembership[]
   members       Member[]
+  memberRoles   MemberRole[]
   memberTiers   MemberTier[]
   events        Event[]
   registrations EventRegistration[]
@@ -78,6 +236,77 @@ model Organization {
   automationExceptions AutomationException[]
   memberImportBatches  MemberImportBatch[]
   memberImportRows     MemberImportRow[]
+
+  // Roadmap modules (alpha — schema first, full features in coming releases)
+  ceCreditTypes      CECreditType[]
+  ceCreditAwards     CECreditAward[]
+  courses            Course[]
+  courseEnrollments  CourseEnrollment[]
+  learnVideoPlaylists     LearnVideoPlaylist[]
+  learnVideoItems         LearnVideoItem[]
+  learnWorkforcePrograms  LearnWorkforceProgram[]
+  learnProgramEnrollments LearnProgramEnrollment[]
+  commerceProducts   CommerceProduct[]
+  commerceOrders     CommerceOrder[]
+  commerceOrderItems CommerceOrderItem[]
+  campaigns          Campaign[]
+  donations          Donation[]
+  emailTemplates     EmailTemplate[]
+  emailCampaigns     EmailCampaign[]
+  emailAudiences     EmailAudience[]
+  emailSendLogs      EmailSendLog[]
+  insightsSnapshots  InsightsSnapshot[]
+
+  // CRM & platform extensions (alpha)
+  memberBadges         MemberBadge[]
+  renewalWorkflows     RenewalWorkflow[]
+  eventSpeakers        EventSpeaker[]
+  eventSponsors        EventSponsor[]
+  eventSessions        EventSession[]
+  communitySpaces      CommunitySpace[]
+  communityMemberships CommunityMembership[]
+  reportSchedules      ReportSchedule[]
+  eventTicketTypes     EventTicketType[]
+  eventPromoCodes      EventPromoCode[]
+  eventAssets          EventAsset[]
+  eventSurveys         EventSurvey[]
+  eventSurveyResponses EventSurveyResponse[]
+  eventSessionRegs     EventSessionRegistration[]
+  eventScheduledEmails EventScheduledEmail[]
+  memberSubscriptions  MemberSubscription[]
+  dashboardLayouts     DashboardLayout[]
+  communityPosts       CommunityPost[]
+  communityDocuments   CommunityDocument[]
+
+  // PulsePoint CRM (Nimble-inspired — relationship-first)
+  memberRelationships MemberRelationship[]
+  contactSources      ContactSource[]
+  crmWorkflows        CrmWorkflow[]
+  crmWorkflowRuns     CrmWorkflowRun[]
+  webCaptureKeys       WebCaptureKey[]
+
+  dealPipelines        DealPipeline[]
+  deals                Deal[]
+  dealLossReasons      DealLossReason[]
+  dealReportDashboards DealReportDashboard[]
+
+  emailSequences           EmailSequence[]
+  emailSequenceSteps       EmailSequenceStep[]
+  emailSequenceEnrollments EmailSequenceEnrollment[]
+  webForms                 WebForm[]
+  webFormSubmissions       WebFormSubmission[]
+
+  // Enterprise association structure
+  memberOrganizations      MemberOrganization[]
+  committees               Committee[]
+  committeeMemberships     CommitteeMembership[]
+  committeeMeetings        CommitteeMeeting[]
+  advocacyIssues              AdvocacyIssue[]
+  advocacyCampaigns           AdvocacyCampaign[]
+  advocacyCampaignResponses   AdvocacyCampaignResponse[]
+  emergencyContacts        EmergencyContact[]
+  emergencyReadinessReports EmergencyReadinessReport[]
+  integrationConnections   IntegrationConnection[]
 }
 
 model User {
@@ -111,27 +340,104 @@ model OrgMembership {
 }
 
 model Member {
-  id           String       @id @default(cuid())
-  orgId        String
-  firstName    String
-  lastName     String
-  email        String?
-  phone        String?
-  status       MemberStatus @default(ACTIVE)
-  joinedAt     DateTime     @default(now())
-  customFields Json
-  tags         Json
-  clerkUserId  String?
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
+  id            String       @id @default(cuid())
+  orgId         String
+  firstName     String
+  lastName      String
+  email         String?
+  phone         String?
+  status        MemberStatus @default(ACTIVE)
+  joinedAt      DateTime     @default(now())
+  /// When this membership next requires renewal. Used by members.renewal.sweep job.
+  renewalDueAt  DateTime?
+  /// Cached engagement score (0–100). Synced from MemberPulse overall score.
+  engagementScore Int @default(0)
+  /// active | moderate | at_risk | inactive
+  engagementTier  String @default("inactive")
+  /// MemberPulse dimensional snapshot — lib/member-pulse/compute.ts
+  memberPulseData Json?
+  /// Optional dues tier for renewal workflows.
+  tierId          String?
+  customFields  Json
+  tags          Json
+  clerkUserId   String?
+  /// Professional context — enriched profile (CRM).
+  company       String?
+  jobTitle      String?
+  linkedInUrl   String?
+  websiteUrl    String?
+  /// Firmographics + ICP from Prospector (demo rule-based; production = IT APIs).
+  enrichmentData Json?
+  /// People-first relationship signal (not pipeline stage).
+  relationshipHealth RelationshipHealth @default(STEADY)
+  lastTouchAt        DateTime?
+  nextFollowUpAt     DateTime?
+  /// Learn / workforce pipeline persona (alpha).
+  workforcePersona   WorkforcePersona @default(NONE)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
 
   organization  Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  tier          MemberTier?         @relation(fields: [tierId], references: [id], onDelete: SetNull)
+  /// Hospital / health system organizational account (parent-child hierarchy).
+  organizationAccountId String?
+  organizationAccount   MemberOrganization? @relation(fields: [organizationAccountId], references: [id], onDelete: SetNull)
   registrations EventRegistration[]
   notes         MemberNote[]
+  roles         MemberRole[]
+  badges        MemberBadge[]
+
+  // Roadmap module relations
+  ceCreditAwards    CECreditAward[]
+  courseEnrollments CourseEnrollment[]
+  learnProgramEnrollments LearnProgramEnrollment[]
+  commerceOrders    CommerceOrder[]
+  donations         Donation[]
+  communityMemberships CommunityMembership[]
+  subscriptions        MemberSubscription[]
+  relationshipsFrom    MemberRelationship[] @relation("MemberRelFrom")
+  relationshipsTo      MemberRelationship[] @relation("MemberRelTo")
+  contactSources       ContactSource[]
+  crmWorkflowRuns      CrmWorkflowRun[]
+  committeeMemberships CommitteeMembership[]
+  emergencyContacts    EmergencyContact[]
 
   @@index([orgId])
+  @@index([orgId, organizationAccountId])
   @@index([orgId, email])
   @@index([orgId, status])
+  @@index([orgId, createdAt])
+  @@index([orgId, lastName, firstName])
+  @@index([orgId, nextFollowUpAt])
+  @@index([orgId, relationshipHealth])
+}
+
+/// Leadership and governance roles — C-suite, board seats (this org or external), committees.
+model MemberRole {
+  id                 String             @id @default(cuid())
+  orgId              String
+  memberId           String
+  category           MemberRoleCategory
+  scope              MemberRoleScope
+  leadershipLevel    LeadershipLevel?
+  /// Display title: CEO, Board Chair, Trustee, Committee Chair, etc.
+  title              String
+  /// External org name when scope = EXTERNAL_ORGANIZATION; optional label when internal (e.g. chapter).
+  organizationName   String?
+  isCurrent          Boolean            @default(true)
+  startDate          DateTime?
+  endDate            DateTime?
+  notes              String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  member       Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, memberId])
+  @@index([orgId, category])
+  @@index([orgId, leadershipLevel])
+  @@index([orgId, scope])
 }
 
 /// Canonical staff notes — do not store pipeline notes in customFields or ad-hoc spreadsheets.
@@ -141,6 +447,10 @@ model MemberNote {
   memberId     String
   authorUserId String?
   body         String
+  noteType     MemberNoteType @default(GENERAL)
+  /// email | call | meeting | linkedin | in_person | other
+  channel      String?
+  nextFollowUpAt DateTime?
   createdAt    DateTime @default(now())
 
   organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
@@ -157,10 +467,15 @@ model MemberTier {
   name            String
   priceCents      Int             @default(0)
   billingInterval BillingInterval @default(ANNUAL)
+  /** Linked CommerceProduct for dues checkout (eStore). */
+  productId       String?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
 
-  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  organization Organization     @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  product      CommerceProduct? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  members      Member[]
+  subscriptions MemberSubscription[]
 
   @@index([orgId])
 }
@@ -176,11 +491,35 @@ model Event {
   priceCents  Int         @default(0)
   status      EventStatus @default(DRAFT)
   publicSlug  String
+  venueName   String      @default("")
+  venueAddress String     @default("")
+  timezone    String      @default("America/New_York")
+  format      EventFormat @default(IN_PERSON)
+  eventKind   EventKind   @default(STANDARD)
+  registrationOpensAt  DateTime?
+  registrationClosesAt DateTime?
+  waitlistEnabled      Boolean @default(true)
+  /// Planner checklist, budget notes, internal tags — JSON.
+  plannerConfig Json?
+  /// Branded microsite settings (theme, hero copy) — JSON.
+  micrositeConfig Json?
+  /// EasyDNN / CMS export metadata — JSON.
+  websiteExportConfig Json?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 
   organization  Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
   registrations EventRegistration[]
+  speakers      EventSpeaker[]
+  sponsors      EventSponsor[]
+  sessions      EventSession[]
+  ticketTypes   EventTicketType[]
+  promoCodes    EventPromoCode[]
+  assets        EventAsset[]
+  survey        EventSurvey?
+  scheduledEmails EventScheduledEmail[]
+  sessionRegistrations EventSessionRegistration[]
+  learnWorkforcePrograms LearnWorkforceProgram[]
 
   @@unique([orgId, publicSlug])
   @@index([orgId])
@@ -192,21 +531,152 @@ model EventRegistration {
   orgId                 String
   eventId               String
   memberId              String?
+  ticketTypeId          String?
   guestEmail            String?
   guestName             String?
   status                RegistrationStatus @default(PENDING)
   stripePaymentIntentId String?
   paidAt                DateTime?
   checkedInAt           DateTime?
+  cancelledAt           DateTime?
+  waitlistPosition      Int?
+  staffNotes            String             @default("")
+  promoCodeUsed         String?
+  badgeCode             String?
+  refundStatus          RefundStatus       @default(NONE)
+  refundAmountCents     Int?
+  refundNotes           String             @default("")
+  refundedAt            DateTime?
   createdAt             DateTime           @default(now())
   updatedAt             DateTime           @updatedAt
 
   organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
   event          Event          @relation(fields: [eventId], references: [id], onDelete: Cascade)
   member         Member?        @relation(fields: [memberId], references: [id], onDelete: SetNull)
+  ticketType     EventTicketType? @relation(fields: [ticketTypeId], references: [id], onDelete: SetNull)
+  sessionRegistrations EventSessionRegistration[]
+  surveyResponses      EventSurveyResponse[]
 
   @@index([orgId])
   @@index([eventId])
+  @@index([orgId, eventId])
+  @@index([orgId, memberId])
+  @@index([orgId, status])
+  @@index([orgId, createdAt])
+  @@index([eventId, status])
+  @@index([eventId, badgeCode])
+}
+
+model EventAsset {
+  id        String         @id @default(cuid())
+  orgId     String
+  eventId   String
+  kind      EventAssetKind @default(GENERAL)
+  label     String         @default("")
+  url       String
+  altText   String         @default("")
+  sortOrder Int            @default(0)
+  createdAt DateTime       @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event          Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, eventId])
+}
+
+model EventSurvey {
+  id        String   @id @default(cuid())
+  orgId     String
+  eventId   String   @unique
+  title     String   @default("Post-event feedback")
+  active    Boolean  @default(false)
+  /// JSON array: { id, label, type: text|rating|choice, options?: string[] }
+  questions Json
+  opensAt   DateTime?
+  closesAt  DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event          Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  responses      EventSurveyResponse[]
+
+  @@index([orgId])
+}
+
+model EventSurveyResponse {
+  id             String   @id @default(cuid())
+  orgId          String
+  surveyId       String
+  registrationId String?
+  guestEmail     String?
+  answers        Json
+  submittedAt    DateTime @default(now())
+
+  organization Organization      @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  survey         EventSurvey       @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+  registration   EventRegistration? @relation(fields: [registrationId], references: [id], onDelete: SetNull)
+
+  @@index([surveyId])
+  @@index([orgId, surveyId])
+}
+
+model EventSessionRegistration {
+  id             String   @id @default(cuid())
+  orgId          String
+  eventId        String
+  sessionId      String
+  registrationId String
+  createdAt      DateTime @default(now())
+
+  organization Organization      @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event          Event               @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  session        EventSession        @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  registration   EventRegistration   @relation(fields: [registrationId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, registrationId])
+  @@index([eventId])
+  @@index([registrationId])
+}
+
+model EventScheduledEmail {
+  id        String                    @id @default(cuid())
+  orgId     String
+  eventId   String
+  name      String
+  /// EventCorrespondenceSegment id
+  segment   String
+  subject   String
+  bodyText  String
+  sendAt    DateTime
+  status    EventScheduledEmailStatus @default(SCHEDULED)
+  sentAt    DateTime?
+  createdAt DateTime                  @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event          Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, eventId])
+  @@index([status, sendAt])
+}
+
+model EventPromoCode {
+  id              String   @id @default(cuid())
+  orgId           String
+  eventId         String
+  code            String
+  label           String   @default("")
+  discountPercent Int?
+  discountCents   Int?
+  maxUses         Int?
+  usedCount       Int      @default(0)
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event          Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, code])
   @@index([orgId, eventId])
 }
 
@@ -225,6 +695,7 @@ model AuditLog {
 
   @@index([orgId])
   @@index([orgId, createdAt])
+  @@index([orgId, entityId])
 }
 
 model WebhookIdempotency {
@@ -279,6 +750,16 @@ model MemberImportRow {
   firstName String
   lastName  String
   email     String?
+  phone     String?
+  company   String?
+  jobTitle  String?
+  /// ACTIVE | INACTIVE | LAPSED when provided in CSV
+  memberStatus String?
+  /// Resolved at apply time from tier name in CSV
+  tierName  String?
+  renewalDueAt DateTime?
+  /// Resolved at apply time from hospital account name in CSV
+  organizationName String?
   status    MemberImportRowStatus @default(PENDING)
   matchMemberId String?
   createdAt DateTime            @default(now())
@@ -288,4 +769,1313 @@ model MemberImportRow {
 
   @@index([orgId, batchId])
   @@unique([batchId, rowIndex])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PulsePoint Learn (alpha) — CE credits, courses, transcript
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum EnrollmentStatus {
+  ENROLLED
+  COMPLETED
+  WITHDRAWN
+}
+
+model CECreditType {
+  id          String   @id @default(cuid())
+  orgId       String
+  code        String
+  name        String
+  description String   @default("")
+  createdAt   DateTime @default(now())
+
+  organization Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  awards       CECreditAward[]
+  courses      Course[]
+
+  @@unique([orgId, code])
+  @@index([orgId])
+}
+
+model Course {
+  id           String       @id @default(cuid())
+  orgId        String
+  title        String
+  description  String       @default("")
+  creditTypeId String?
+  creditAmount Int          @default(0)
+  status       CourseStatus @default(DRAFT)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  organization Organization      @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  creditType   CECreditType?     @relation(fields: [creditTypeId], references: [id], onDelete: SetNull)
+  enrollments  CourseEnrollment[]
+
+  @@index([orgId, status])
+}
+
+model CourseEnrollment {
+  id           String           @id @default(cuid())
+  orgId        String
+  courseId     String
+  memberId     String
+  status       EnrollmentStatus @default(ENROLLED)
+  enrolledAt   DateTime         @default(now())
+  completedAt  DateTime?
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  course       Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  member       Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, memberId])
+  @@index([orgId, status])
+}
+
+model CECreditAward {
+  id           String   @id @default(cuid())
+  orgId        String
+  memberId     String
+  creditTypeId String
+  amount       Int
+  source       String   @default("manual") // manual | course | event
+  sourceRef    String?
+  awardedAt    DateTime @default(now())
+  note         String   @default("")
+
+  organization Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  member       Member        @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  creditType   CECreditType  @relation(fields: [creditTypeId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, memberId])
+  @@index([orgId, awardedAt])
+}
+
+/// Video playlist for Learn workforce tracks (alpha — no hosted video yet).
+model LearnVideoPlaylist {
+  id          String   @id @default(cuid())
+  orgId       String
+  title       String
+  description String   @default("")
+  trackSlug   String   @default("general")
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  organization Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  items        LearnVideoItem[]
+
+  @@index([orgId])
+}
+
+model LearnVideoItem {
+  id          String  @id @default(cuid())
+  orgId       String
+  playlistId  String
+  title       String
+  videoUrl    String  @default("")
+  durationMin Int     @default(0)
+  ceEligible  Boolean @default(false)
+  sortOrder   Int     @default(0)
+
+  organization Organization     @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  playlist     LearnVideoPlaylist @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, playlistId])
+}
+
+/// Workforce pipeline program — scholarships, mentorship, career fair tie-in (alpha).
+model LearnWorkforceProgram {
+  id          String       @id @default(cuid())
+  orgId       String
+  title       String
+  description String       @default("")
+  programType String       @default("pipeline")
+  status      CourseStatus @default(DRAFT)
+  eventId     String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  organization Organization             @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event        Event?                   @relation(fields: [eventId], references: [id], onDelete: SetNull)
+  enrollments  LearnProgramEnrollment[]
+
+  @@index([orgId, status])
+}
+
+model LearnProgramEnrollment {
+  id         String           @id @default(cuid())
+  orgId      String
+  programId  String
+  memberId   String
+  status     EnrollmentStatus @default(ENROLLED)
+  enrolledAt DateTime         @default(now())
+
+  organization Organization          @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  program      LearnWorkforceProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  member       Member                @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([programId, memberId])
+  @@index([orgId, status])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PulsePoint Commerce (alpha) — products, orders, dues
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum CommerceProductKind {
+  DUES
+  MERCHANDISE
+  SPONSORSHIP
+  OTHER
+}
+
+enum CommerceOrderStatus {
+  PENDING
+  PAID
+  REFUNDED
+  CANCELLED
+}
+
+model CommerceProduct {
+  id          String              @id @default(cuid())
+  orgId       String
+  sku         String
+  name        String
+  description String              @default("")
+  kind        CommerceProductKind @default(OTHER)
+  priceCents  Int                 @default(0)
+  currency    String              @default("usd")
+  glCode      String?
+  active      Boolean             @default(true)
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  organization Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  orderItems   CommerceOrderItem[]
+  subscriptions MemberSubscription[]
+  memberTiers  MemberTier[]
+
+  @@unique([orgId, sku])
+  @@index([orgId, kind])
+}
+
+model CommerceOrder {
+  id            String              @id @default(cuid())
+  orgId         String
+  memberId      String?
+  status        CommerceOrderStatus @default(PENDING)
+  totalCents    Int                 @default(0)
+  currency      String              @default("usd")
+  paidAt        DateTime?
+  /** Adapter id from lib/adapters/payments/* — stripe | manual | future. */
+  paymentAdapterId String?
+  /** Provider checkout / intent id (Stripe cs_..., manual_..., etc.). */
+  providerCheckoutId String?
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+
+  organization Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  member       Member?             @relation(fields: [memberId], references: [id], onDelete: SetNull)
+  items        CommerceOrderItem[]
+
+  @@index([orgId, status])
+  @@index([orgId, createdAt])
+}
+
+model CommerceOrderItem {
+  id         String   @id @default(cuid())
+  orgId      String
+  orderId    String
+  productId  String
+  quantity   Int      @default(1)
+  priceCents Int      @default(0)
+
+  organization Organization     @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  order        CommerceOrder    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product      CommerceProduct  @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  @@index([orgId, orderId])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PulsePoint Giving (alpha) — campaigns, donations
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum CampaignStatus {
+  DRAFT
+  ACTIVE
+  CLOSED
+}
+
+model Campaign {
+  id          String         @id @default(cuid())
+  orgId       String
+  name        String
+  description String         @default("")
+  goalCents   Int            @default(0)
+  status      CampaignStatus @default(DRAFT)
+  startsAt    DateTime?
+  endsAt      DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  donations    Donation[]
+
+  @@index([orgId, status])
+}
+
+model Donation {
+  id            String   @id @default(cuid())
+  orgId         String
+  campaignId    String
+  memberId      String?
+  donorName     String
+  donorEmail    String?
+  amountCents   Int
+  currency      String   @default("usd")
+  recurring     Boolean  @default(false)
+  paidAt        DateTime?
+  /** Adapter id (stripe | manual). */
+  paymentAdapterId   String?
+  providerCheckoutId String?
+  createdAt     DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  campaign     Campaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  member       Member?      @relation(fields: [memberId], references: [id], onDelete: SetNull)
+
+  @@index([orgId, campaignId])
+  @@index([orgId, createdAt])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PulsePoint Engage (alpha) — segments, templates, campaigns
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum EmailCampaignStatus {
+  DRAFT
+  SCHEDULED
+  SENDING
+  SENT
+  CANCELLED
+}
+
+model EmailTemplate {
+  id        String   @id @default(cuid())
+  orgId     String
+  name      String
+  subject   String
+  bodyText  String
+  bodyHtml  String   @default("")
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  campaigns    EmailCampaign[]
+
+  @@unique([orgId, name])
+  @@index([orgId])
+}
+
+model EmailAudience {
+  id          String   @id @default(cuid())
+  orgId       String
+  name        String
+  description String   @default("")
+  /** JSON filter (tags, status). Evaluated at send time. */
+  filter      Json
+  createdAt   DateTime @default(now())
+
+  organization      Organization       @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  campaigns         EmailCampaign[]
+  advocacyCampaigns AdvocacyCampaign[]
+
+  @@index([orgId])
+}
+
+model EmailCampaign {
+  id          String              @id @default(cuid())
+  orgId       String
+  templateId  String
+  audienceId  String
+  status      EmailCampaignStatus @default(DRAFT)
+  scheduledAt DateTime?
+  sentAt      DateTime?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  organization Organization   @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  template     EmailTemplate  @relation(fields: [templateId], references: [id], onDelete: Restrict)
+  audience     EmailAudience  @relation(fields: [audienceId], references: [id], onDelete: Restrict)
+  sends        EmailSendLog[]
+
+  @@index([orgId, status])
+}
+
+model EmailSendLog {
+  id           String   @id @default(cuid())
+  orgId        String
+  campaignId   String?
+  recipient    String
+  subject      String
+  /** Adapter id from lib/adapters/email/*. */
+  adapterId    String
+  /** sent | queued | skipped (matches EmailSendResult.status). */
+  result       String
+  /** Provider message id when known. */
+  providerId   String?
+  createdAt    DateTime @default(now())
+
+  organization Organization   @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  campaign     EmailCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+
+  @@index([orgId, createdAt])
+  @@index([orgId, campaignId])
+}
+
+enum EmailSequenceStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+}
+
+enum EmailSequenceEnrollmentStatus {
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+model EmailSequence {
+  id           String              @id @default(cuid())
+  orgId        String
+  name         String
+  description  String              @default("")
+  status       EmailSequenceStatus @default(DRAFT)
+  fromTemplate String?
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+
+  organization Organization              @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  steps        EmailSequenceStep[]
+  enrollments  EmailSequenceEnrollment[]
+
+  @@unique([orgId, name])
+  @@index([orgId, status])
+}
+
+model EmailSequenceStep {
+  id         String   @id @default(cuid())
+  orgId      String
+  sequenceId String
+  stepOrder  Int
+  delayDays  Int      @default(0)
+  subject    String
+  bodyText   String
+  bodyHtml   String   @default("")
+
+  organization Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  sequence     EmailSequence @relation(fields: [sequenceId], references: [id], onDelete: Cascade)
+
+  @@unique([sequenceId, stepOrder])
+  @@index([orgId])
+}
+
+model EmailSequenceEnrollment {
+  id          String                        @id @default(cuid())
+  orgId       String
+  sequenceId  String
+  memberId    String
+  currentStep Int                           @default(0)
+  status      EmailSequenceEnrollmentStatus @default(ACTIVE)
+  nextSendAt  DateTime?
+  lastSentAt  DateTime?
+  enrolledAt  DateTime                      @default(now())
+  updatedAt   DateTime                      @updatedAt
+
+  organization Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  sequence     EmailSequence @relation(fields: [sequenceId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, sequenceId, status])
+  @@index([orgId, memberId])
+  @@index([nextSendAt])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PulsePoint Insights (alpha) — KPI snapshots
+// ─────────────────────────────────────────────────────────────────────────────
+
+model InsightsSnapshot {
+  id        String   @id @default(cuid())
+  orgId     String
+  /** MetricKey from semantic layer (members.active, events.published, revenue.dues, ...). */
+  metricKey String
+  /** Numeric value at snapshot time. */
+  value     Float
+  unit      String   @default("")
+  /** Optional dimension value (event id, campaign id) for filtered metrics. */
+  dimension String?
+  takenAt   DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, metricKey, takenAt])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Member CRM extensions (alpha) — 360 profiles, engagement, renewals
+// ─────────────────────────────────────────────────────────────────────────────
+
+model MemberBadge {
+  id        String   @id @default(cuid())
+  orgId     String
+  memberId  String
+  code      String
+  label     String
+  earnedAt  DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  member       Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([orgId, memberId, code])
+  @@index([orgId, memberId])
+}
+
+/// Ordered renewal/join workflow steps — staff-configurable (preview: reorder in UI).
+model RenewalWorkflow {
+  id          String   @id @default(cuid())
+  orgId       String
+  name        String
+  description String   @default("")
+  tierId      String?
+  active      Boolean  @default(true)
+  /** JSON array: { id, order, type, label, config } */
+  steps       Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, active])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Event conference extensions (alpha) — speakers, sponsors, sessions
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum EventPartnerRole {
+  KEYNOTE
+  SPEAKER
+  PANELIST
+  MODERATOR
+}
+
+model EventSpeaker {
+  id          String           @id @default(cuid())
+  orgId       String
+  eventId     String
+  name        String
+  title        String           @default("")
+  organizationName String        @default("")
+  bio         String           @default("")
+  role        EventPartnerRole @default(SPEAKER)
+  memberId    String?
+  sortOrder   Int              @default(0)
+  createdAt   DateTime         @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event        Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, eventId])
+}
+
+model EventSponsor {
+  id           String   @id @default(cuid())
+  orgId        String
+  eventId      String
+  name         String
+  tier         String   @default("Gold")
+  boothNumber  String   @default("")
+  logoUrl      String   @default("")
+  websiteUrl   String   @default("")
+  amountCents  Int      @default(0)
+  memberId     String?
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event        Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, eventId])
+}
+
+model EventSession {
+  id          String   @id @default(cuid())
+  orgId       String
+  eventId     String
+  title       String
+  description String   @default("")
+  startsAt    DateTime
+  endsAt      DateTime?
+  room        String   @default("")
+  track       String   @default("")
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event        Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  sessionRegistrations EventSessionRegistration[]
+
+  @@index([orgId, eventId])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Communities & portals (alpha)
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum CommunityVisibility {
+  PRIVATE
+  MEMBERS_ONLY
+  PUBLIC
+}
+
+enum CommunityMemberRole {
+  MEMBER
+  MODERATOR
+  ADMIN
+}
+
+model CommunitySpace {
+  id          String              @id @default(cuid())
+  orgId       String
+  name        String
+  slug        String
+  description String              @default("")
+  visibility  CommunityVisibility @default(PRIVATE)
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  organization Organization          @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  memberships  CommunityMembership[]
+  posts        CommunityPost[]
+  documents    CommunityDocument[]
+
+  @@unique([orgId, slug])
+  @@index([orgId])
+}
+
+model CommunityMembership {
+  id        String              @id @default(cuid())
+  orgId     String
+  spaceId   String
+  memberId  String
+  role      CommunityMemberRole @default(MEMBER)
+  joinedAt  DateTime            @default(now())
+
+  organization Organization   @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  space        CommunitySpace @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+  member       Member         @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([spaceId, memberId])
+  @@index([orgId, spaceId])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Reporting — scheduled delivery (alpha)
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum ReportCadence {
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+}
+
+model ReportSchedule {
+  id          String        @id @default(cuid())
+  orgId       String
+  name        String
+  /** JSON string[] of metricKeys */
+  metricKeys  Json
+  cadence     ReportCadence @default(MONTHLY)
+  /** JSON string[] of email recipients */
+  recipients  Json
+  active      Boolean       @default(true)
+  nextRunAt   DateTime?
+  lastRunAt   DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, active])
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAUSED
+  PAST_DUE
+  CANCELLED
+}
+
+model EventTicketType {
+  id          String   @id @default(cuid())
+  orgId       String
+  eventId     String
+  name        String
+  description String   @default("")
+  priceCents  Int      @default(0)
+  capacity    Int?
+  sortOrder   Int      @default(0)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  organization  Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  event         Event               @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  registrations EventRegistration[]
+
+  @@index([orgId, eventId])
+}
+
+model MemberSubscription {
+  id               String             @id @default(cuid())
+  orgId            String
+  memberId         String
+  tierId           String?
+  productId        String?
+  status           SubscriptionStatus @default(ACTIVE)
+  billingInterval  BillingInterval    @default(ANNUAL)
+  nextBillAt       DateTime
+  lastBillAt       DateTime?
+  paymentAdapterId String             @default("stripe")
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  organization Organization     @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  member       Member           @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  tier         MemberTier?      @relation(fields: [tierId], references: [id], onDelete: SetNull)
+  product      CommerceProduct? @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@index([orgId, status])
+  @@index([orgId, nextBillAt])
+}
+
+model DashboardLayout {
+  id        String   @id @default(cuid())
+  orgId     String
+  name      String
+  isDefault Boolean  @default(false)
+  /** JSON: { id, metricKey, title, x, y, w, h }[] */
+  widgets   Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, isDefault])
+}
+
+model CommunityPost {
+  id             String   @id @default(cuid())
+  orgId          String
+  spaceId        String
+  authorMemberId String?
+  authorUserId   String?
+  title          String
+  body           String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization   @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  space          CommunitySpace @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, spaceId])
+}
+
+model CommunityDocument {
+  id               String   @id @default(cuid())
+  orgId            String
+  spaceId          String
+  title            String
+  url              String
+  uploadedByUserId String?
+  createdAt        DateTime @default(now())
+
+  organization Organization   @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  space          CommunitySpace @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, spaceId])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PulsePoint CRM — relationship-first (Nimble-inspired)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Person-to-person link — nurture relationships, not just transactions.
+model MemberRelationship {
+  id             String             @id @default(cuid())
+  orgId          String
+  fromMemberId   String
+  toMemberId     String
+  relationType   MemberRelationType @default(COLLEAGUE)
+  strength       Int                @default(3)
+  notes          String             @default("")
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  fromMember   Member         @relation("MemberRelFrom", fields: [fromMemberId], references: [id], onDelete: Cascade)
+  toMember     Member         @relation("MemberRelTo", fields: [toMemberId], references: [id], onDelete: Cascade)
+
+  @@unique([orgId, fromMemberId, toMemberId, relationType])
+  @@index([orgId, fromMemberId])
+  @@index([orgId, toMemberId])
+}
+
+/// Where a contact record originated — unified contact graph.
+model ContactSource {
+  id          String            @id @default(cuid())
+  orgId       String
+  memberId    String
+  sourceKind  ContactSourceKind
+  label       String            @default("")
+  externalId  String?
+  capturedAt  DateTime          @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  member       Member         @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, memberId])
+  @@index([orgId, sourceKind])
+}
+
+/// People-process workflows — Nimble-style boards across departments.
+model CrmWorkflow {
+  id          String          @id @default(cuid())
+  orgId       String
+  name        String
+  kind        CrmWorkflowKind @default(CUSTOM)
+  description String          @default("")
+  /// Department label — Membership, Fundraising, HR, etc.
+  department  String          @default("")
+  active      Boolean         @default(true)
+  /** Legacy linear steps — kept for compatibility */
+  steps       Json
+  /** Kanban stages: { id, order, label, instructions? } */
+  stages      Json?
+  /** Card fields: { id, label, type: text|date|select, options? } */
+  fields      Json?
+  /** Template key when created from a preset */
+  fromTemplate String?
+  /** Stage automations: [{ stageId, action, subject?, bodyText?, taskSubject? }] */
+  stageAutomations Json @default("[]")
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  organization Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  runs         CrmWorkflowRun[]
+
+  @@index([orgId, active])
+  @@index([orgId, kind])
+}
+
+model CrmWorkflowRun {
+  id           String               @id @default(cuid())
+  orgId        String
+  workflowId   String
+  memberId     String
+  status       CrmWorkflowRunStatus @default(ACTIVE)
+  currentStep  Int                  @default(0)
+  /// Current Kanban stage id
+  stageId      String               @default("")
+  /** Per-card custom field values keyed by field id */
+  fieldValues  Json?
+  sortOrder    Int                  @default(0)
+  dueAt        DateTime?
+  completedAt  DateTime?
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  workflow     CrmWorkflow  @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  member       Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, status])
+  @@index([orgId, memberId])
+  @@index([orgId, workflowId, stageId])
+  @@index([orgId, dueAt])
+}
+
+/// Org-scoped token for browser capture / extension (hashed at rest).
+model WebCaptureKey {
+  id        String   @id @default(cuid())
+  orgId     String
+  label     String   @default("Default")
+  keyHash   String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, active])
+}
+
+model WebForm {
+  id                  String   @id @default(cuid())
+  orgId               String
+  slug                String
+  name                String
+  description         String   @default("")
+  fields              Json
+  published           Boolean  @default(false)
+  confirmEmailSubject String?
+  confirmEmailBody    String?
+  enrollSequenceId    String?
+  addToWorkflowId     String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  organization Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  submissions  WebFormSubmission[]
+
+  @@unique([orgId, slug])
+  @@index([orgId, published])
+}
+
+model WebFormSubmission {
+  id        String   @id @default(cuid())
+  orgId     String
+  formId    String
+  memberId  String?
+  payload   Json
+  createdAt DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  form         WebForm        @relation(fields: [formId], references: [id], onDelete: Cascade)
+
+  @@index([formId, createdAt])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PulsePoint Deals + Reports (Nimble-inspired pipeline analytics)
+// ─────────────────────────────────────────────────────────────────────────────
+
+model DealPipeline {
+  id        String   @id @default(cuid())
+  orgId     String
+  name      String
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  deals        Deal[]
+
+  @@index([orgId])
+}
+
+model DealLossReason {
+  id        String   @id @default(cuid())
+  orgId     String
+  label     String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  deals        Deal[]
+
+  @@index([orgId])
+}
+
+model Deal {
+  id              String     @id @default(cuid())
+  orgId           String
+  pipelineId      String
+  title           String
+  amountCents     Int        @default(0)
+  stage           DealStage  @default(LEAD)
+  lostAtStage     DealStage?
+  lossReasonId    String?
+  assigneeId      String?
+  assigneeName    String     @default("")
+  memberId        String?
+  expectedCloseAt DateTime?
+  closedAt        DateTime?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  organization Organization   @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  pipeline     DealPipeline   @relation(fields: [pipelineId], references: [id], onDelete: Cascade)
+  lossReason   DealLossReason? @relation(fields: [lossReasonId], references: [id], onDelete: SetNull)
+
+  @@index([orgId, pipelineId, stage])
+  @@index([orgId, assigneeId])
+  @@index([orgId, closedAt])
+}
+
+model DealReportDashboard {
+  id          String               @id @default(cuid())
+  orgId       String
+  name        String
+  description String               @default("")
+  visibility  DealReportVisibility @default(TEAM)
+  isDefault   Boolean              @default(false)
+  filters     Json
+  createdBy   String               @default("")
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+
+  organization Organization     @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  widgets      DealReportWidget[]
+
+  @@index([orgId])
+}
+
+model DealReportWidget {
+  id          String         @id @default(cuid())
+  orgId       String
+  dashboardId String
+  reportType  DealReportType
+  chartType   DealChartType  @default(BAR)
+  title       String         @default("")
+  sortOrder   Int            @default(0)
+  filters     Json
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  dashboard DealReportDashboard @relation(fields: [dashboardId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, dashboardId])
+}
+
+// ── Enterprise association (statewide hospital association) ──
+
+enum MemberOrganizationType {
+  HEALTH_NETWORK
+  HEALTH_SYSTEM
+  HOSPITAL
+  CRITICAL_ACCESS
+  CANCER_CENTER
+  PSYCHIATRIC_CENTER
+  PSYCHIATRIC_INSTITUTE
+  BEHAVIORAL_HEALTH_CENTER
+  REHABILITATION_CENTER
+  SPECIALTY
+  PARTNER
+  VENDOR
+  OTHER
+}
+
+enum MemberOwnershipType {
+  NONPROFIT
+  FOR_PROFIT
+  GOVERNMENT
+  OTHER
+}
+
+/// Hospital / health system account — supports parent-child org hierarchy.
+model MemberOrganization {
+  id                 String                  @id @default(cuid())
+  orgId              String
+  parentId           String?
+  name               String
+  type               MemberOrganizationType  @default(HOSPITAL)
+  region             String?
+  bedCount           Int?
+  ownership          MemberOwnershipType?
+  membershipLevel    String?
+  participationLevel String?
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+
+  organization Organization          @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  parent       MemberOrganization?   @relation("OrgHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children     MemberOrganization[]  @relation("OrgHierarchy")
+  members               Member[]
+  emergencyContacts     EmergencyContact[]
+  advocacyResponses     AdvocacyCampaignResponse[]
+
+  @@index([orgId, parentId])
+  @@index([orgId, type])
+}
+
+enum CommitteeKind {
+  STANDING
+  ADVISORY
+  TASK_FORCE
+  COUNCIL
+}
+
+enum CommitteeOfficerRole {
+  CHAIR
+  VICE_CHAIR
+  SECRETARY
+  TREASURER
+  MEMBER_AT_LARGE
+  MEMBER
+}
+
+enum CommitteeMeetingStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+}
+
+model Committee {
+  id           String        @id @default(cuid())
+  orgId        String
+  name         String
+  kind         CommitteeKind @default(STANDING)
+  /// Association department slug — lib/association/departments.ts
+  departmentId String        @default("member_services")
+  description  String        @default("")
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  organization Organization           @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  memberships  CommitteeMembership[]
+  meetings     CommitteeMeeting[]
+
+  @@index([orgId, departmentId])
+}
+
+model CommitteeMembership {
+  id          String               @id @default(cuid())
+  orgId       String
+  committeeId String
+  memberId    String
+  title       String               @default("Member")
+  officerRole CommitteeOfficerRole @default(MEMBER)
+  termStart   DateTime?
+  termEnd     DateTime?
+  isCurrent   Boolean              @default(true)
+  createdAt   DateTime             @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  committee    Committee    @relation(fields: [committeeId], references: [id], onDelete: Cascade)
+  member       Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([committeeId, memberId])
+  @@index([orgId, memberId])
+  @@index([committeeId, officerRole])
+}
+
+model CommitteeMeeting {
+  id          String                 @id @default(cuid())
+  orgId       String
+  committeeId String
+  title       String                 @default("")
+  startsAt    DateTime
+  endsAt      DateTime?
+  location    String                 @default("")
+  virtualUrl  String                 @default("")
+  agenda      String                 @default("")
+  status      CommitteeMeetingStatus @default(SCHEDULED)
+  createdAt   DateTime               @default(now())
+  updatedAt   DateTime               @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  committee    Committee    @relation(fields: [committeeId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, committeeId])
+  @@index([committeeId, startsAt])
+  @@index([committeeId, status])
+}
+
+enum AdvocacyJurisdiction {
+  STATE
+  FEDERAL
+  BOTH
+}
+
+enum AdvocacyIssueStatus {
+  TRACKING
+  ACTIVE
+  WON
+  LOST
+  CLOSED
+}
+
+/// Healthcare advocacy topic area — drives issue templates and member hub (alpha).
+enum AdvocacyIssueArea {
+  ACCESS_TO_CARE
+  MATERNAL_HEALTH
+  WORKPLACE_VIOLENCE
+  BEHAVIORAL_HEALTH
+  SUBSTANCE_USE
+  SDOH_FOOD_ACCESS
+  PHYSICIAN_ACCESS
+  NURSING_WORKFORCE
+  GENERAL
+}
+
+model AdvocacyIssue {
+  id            String               @id @default(cuid())
+  orgId         String
+  title         String
+  summary       String               @default("")
+  jurisdiction  AdvocacyJurisdiction @default(STATE)
+  status        AdvocacyIssueStatus  @default(TRACKING)
+  billNumber    String?
+  departmentId  String               @default("policy")
+  issueArea     AdvocacyIssueArea    @default(GENERAL)
+  /// Public member-facing slug — unique per org when set.
+  publicSlug    String?
+  /// SME validation + KPI hints — e.g. { validationStatus: "illustrative_only" }
+  contentMeta   Json?
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+
+  organization Organization      @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  campaigns    AdvocacyCampaign[]
+
+  @@unique([orgId, publicSlug])
+  @@index([orgId, status])
+  @@index([orgId, issueArea])
+}
+
+model AdvocacyCampaign {
+  id            String   @id @default(cuid())
+  orgId         String
+  issueId       String?
+  name          String
+  startsAt      DateTime?
+  endsAt        DateTime?
+  isActive      Boolean  @default(true)
+  /** Engage audience created when take-action launches. */
+  audienceId    String?
+  /** Hospital participation target (typically member org count). */
+  targetCount   Int      @default(0)
+  /** Recorded responses — manual or future form capture. */
+  responseCount Int      @default(0)
+  createdAt     DateTime @default(now())
+
+  organization Organization                @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  issue        AdvocacyIssue?              @relation(fields: [issueId], references: [id], onDelete: SetNull)
+  audience     EmailAudience?              @relation(fields: [audienceId], references: [id], onDelete: SetNull)
+  responses    AdvocacyCampaignResponse[]
+
+  @@index([orgId, isActive])
+  @@index([orgId, audienceId])
+}
+
+enum AdvocacyResponsePosition {
+  SUPPORT
+  OPPOSE
+  NEUTRAL
+}
+
+model AdvocacyCampaignResponse {
+  id                   String                    @id @default(cuid())
+  orgId                String
+  campaignId           String
+  memberOrganizationId String?
+  hospitalName         String
+  responderName        String
+  responderEmail       String
+  responderTitle       String?
+  position             AdvocacyResponsePosition  @default(SUPPORT)
+  createdAt            DateTime                  @default(now())
+
+  organization       Organization        @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  campaign           AdvocacyCampaign    @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  memberOrganization MemberOrganization? @relation(fields: [memberOrganizationId], references: [id], onDelete: SetNull)
+
+  @@unique([campaignId, responderEmail])
+  @@index([orgId, campaignId])
+  @@index([campaignId, memberOrganizationId])
+}
+
+enum EmergencyContactSpecialty {
+  GENERAL
+  CLINICAL
+  CYBER
+  OPERATIONS
+  EXECUTIVE
+}
+
+model EmergencyContact {
+  id                   String                   @id @default(cuid())
+  orgId                String
+  memberOrganizationId String?
+  memberId             String?
+  roleTitle            String
+  phone                String
+  email                String?
+  isPrimary            Boolean                  @default(false)
+  region               String?
+  specialty            EmergencyContactSpecialty @default(GENERAL)
+  createdAt            DateTime                 @default(now())
+
+  organization         Organization          @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  memberOrganization   MemberOrganization?   @relation(fields: [memberOrganizationId], references: [id], onDelete: SetNull)
+  member               Member?               @relation(fields: [memberId], references: [id], onDelete: SetNull)
+
+  @@index([orgId, region])
+}
+
+model EmergencyReadinessReport {
+  id                   String   @id @default(cuid())
+  orgId                String
+  memberOrganizationId String?
+  reportDate           DateTime @default(now())
+  readinessScore       Int      @default(0)
+  notes                String   @default("")
+  submittedBy          String   @default("")
+  createdAt            DateTime @default(now())
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, reportDate])
+}
+
+enum IntegrationVendor {
+  MICROSOFT_365
+  MICROSOFT_TEAMS
+  MICROSOFT_ENTRA
+  EASYDNN
+  POWER_BI
+  SALESFORCE
+  HUBSPOT
+  NETSUITE
+  QUICKBOOKS
+  STRIPE
+  ZOOM
+  LMS
+  LEGISLATIVE_TRACKER
+  RESEND
+  CLERK
+  OTHER
+}
+
+enum IntegrationConnectionStatus {
+  DISABLED
+  PENDING
+  CONFIGURED
+  ERROR
+}
+
+/// Integration registry row — secrets live in Key Vault / env, not in config JSON.
+model IntegrationConnection {
+  id         String                      @id @default(cuid())
+  orgId      String
+  vendor     IntegrationVendor
+  status     IntegrationConnectionStatus @default(PENDING)
+  config     Json
+  lastSyncAt DateTime?
+  createdAt  DateTime                    @default(now())
+  updatedAt  DateTime                    @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@unique([orgId, vendor])
+  @@index([orgId, status])
 }

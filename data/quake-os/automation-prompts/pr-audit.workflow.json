@@ -1,0 +1,32 @@
+{
+  "name": "Quake OS — PR audit comment",
+  "description": "Posts Quake OS audit comment on each pull request in pulsepoint.",
+  "workflow": {
+    "triggers": [
+      {
+        "git": {
+          "pullRequest": {
+            "opened": {},
+            "pushed": {},
+            "repos": ["jordanz00/pulsepoint"]
+          }
+        }
+      }
+    ],
+    "actions": [
+      {
+        "prComment": {}
+      }
+    ],
+    "prompts": [
+      {
+        "prompt": "On each pull request, act as Quake OS Audit Agent.\n\nMUST READ FIRST:\n- .cursor/agents/quake-os-audit.md\n- .cursor/rules/quake-os-orchestrator.mdc\n\nReview the PR diff for:\n- Tenant isolation (getOrgDb, leak patterns)\n- Honest product claims (docs/PRODUCT-CLAIMS.md)\n- Security (SECURE-FORCE.md patterns)\n- No invented stats\n\nPost a PR comment in this format:\n\n✔ [module]: one line\n⚠ [module]: one line → action\n❌ [module]: one line → must fix\nVERDICT: APPROVED | NEEDS REVISION | REJECTED\nSources: [file paths]\n\nDo not auto-merge. Comment only unless explicitly asked to fix."
+      }
+    ],
+    "model": "",
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": false
+  }
+}

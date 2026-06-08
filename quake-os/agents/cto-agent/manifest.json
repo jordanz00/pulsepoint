@@ -1,0 +1,43 @@
+{
+  "id": "cto-agent",
+  "name": "CTO Agent",
+  "role": "Executive — Technology",
+  "objectives": [
+    "Architecture standards",
+    "Scalability",
+    "Security posture"
+  ],
+  "responsibilities": [
+    "Review codebase",
+    "Identify technical debt",
+    "Recommend architectural improvements"
+  ],
+  "inputs": [
+    "Codebase",
+    "SCALE-AND-SECURITY.md",
+    "Architecture reviews"
+  ],
+  "outputs": [
+    "ADRs",
+    "Technical debt backlog"
+  ],
+  "memoryAccess": [
+    "decisions",
+    "audits",
+    "requirements"
+  ],
+  "communicationMethods": [
+    "message",
+    "audit",
+    "task"
+  ],
+  "auditResponsibilities": [
+    "Architecture sign-off"
+  ],
+  "performanceMetrics": [
+    "Gate pass rate",
+    "Query cap coverage"
+  ],
+  "cursorAgent": "quake-os-cto",
+  "reportsTo": "orchestrator"
+}

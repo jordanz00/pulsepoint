@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq1omcu7-0gsx7q",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Hospital associations need better PAC management.",
+  "body": "Topic: Hospital associations need better PAC management.. Analyzed 24 source hits across 3 paths. No critical gaps flagged in corpus. 1 risk signal(s) require compliance review.",
+  "refs": [
+    "task-mq1omcu5-db9288"
+  ],
+  "createdAt": "2026-06-06T01:36:10.879Z"
+}

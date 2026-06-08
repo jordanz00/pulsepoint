@@ -15,10 +15,29 @@ import {
   capMemberListRows,
 } from "@/lib/tenant-guards";
 import { countBlockingRegistrations } from "@/lib/member-deletion";
+import { memberTagsArray, memberTagsJson } from "@/lib/member-tags";
+import {
+  memberHasCSuite,
+  memberHasExternalBoard,
+  summarizeMemberRoles,
+} from "@/lib/member-roles";
 import {
   memberInputSchema,
   memberSearchSchema,
 } from "@/lib/validations/member";
+import { buildMemberSearchFilter } from "@/lib/member-search";
+import {
+  EXPORT_BATCH_SIZE,
+  PAGE_SIZE,
+  buildCursorQuery,
+  paginateSlice,
+} from "@/lib/pagination";
+
+function parseRenewalDate(raw: string | undefined): Date | null {
+  if (!raw?.trim()) return null;
+  const d = new Date(raw.trim());
+  return Number.isNaN(d.getTime()) ? null : d;
+}
 
 export type ActionResult<T = void> =
   | { ok: true; data?: T }
@@ -51,15 +70,7 @@ async function fetchMembers(
   const rows = await db.member.findMany({
     where: {
       ...(filters.status ? { status: filters.status } : {}),
-      ...(q
-        ? {
-            OR: [
-              { firstName: { contains: q, mode: "insensitive" } },
-              { lastName: { contains: q, mode: "insensitive" } },
-              { email: { contains: q, mode: "insensitive" } },
-            ],
-          }
-        : {}),
+      ...(buildMemberSearchFilter(q) ?? {}),
     },
     orderBy: [{ lastName: "asc" }, { firstName: "asc" }],
     take: 200,
@@ -120,8 +131,26 @@ export async function createMember(
         email,
         phone: input.phone || null,
         status: input.status ?? "ACTIVE",
-        tags: input.tags ?? [],
+        company: input.company || null,
+        jobTitle: input.jobTitle || null,
+        linkedInUrl: input.linkedInUrl || null,
+        websiteUrl: input.websiteUrl || null,
+        relationshipHealth: input.relationshipHealth ?? "STEADY",
+        nextFollowUpAt: input.nextFollowUpAt ? new Date(input.nextFollowUpAt) : null,
+        tierId: input.tierId || null,
+        renewalDueAt: parseRenewalDate(input.renewalDueAt),
+        organizationAccountId: input.organizationAccountId || null,
+        tags: memberTagsJson(input.tags) as Prisma.InputJsonValue,
         customFields: (input.customFields ?? {}) as Prisma.InputJsonValue,
+      },
+    });
+
+    await db.contactSource.create({
+      data: {
+        orgId: staff.orgId,
+        memberId: member.id,
+        sourceKind: "MANUAL",
+        label: "Staff created",
       },
     });
 
@@ -175,7 +204,26 @@ export async function updateMember(
         email,
         phone: input.phone || null,
         status: input.status ?? existing.status,
-        tags: input.tags ?? existing.tags,
+        company: input.company ?? existing.company,
+        jobTitle: input.jobTitle ?? existing.jobTitle,
+        linkedInUrl: input.linkedInUrl ?? existing.linkedInUrl,
+        websiteUrl: input.websiteUrl ?? existing.websiteUrl,
+        relationshipHealth: input.relationshipHealth ?? existing.relationshipHealth,
+        nextFollowUpAt: input.nextFollowUpAt
+          ? new Date(input.nextFollowUpAt)
+          : existing.nextFollowUpAt,
+        tierId: input.tierId !== undefined ? input.tierId || null : existing.tierId,
+        renewalDueAt:
+          input.renewalDueAt !== undefined
+            ? parseRenewalDate(input.renewalDueAt)
+            : existing.renewalDueAt,
+        organizationAccountId:
+          input.organizationAccountId !== undefined
+            ? input.organizationAccountId || null
+            : existing.organizationAccountId,
+        tags: memberTagsJson(
+          input.tags ?? memberTagsArray(existing.tags),
+        ) as Prisma.InputJsonValue,
         customFields: (input.customFields ??
           existing.customFields) as Prisma.InputJsonValue,
       },
@@ -248,32 +296,64 @@ function normalizeEmail(raw: string | undefined): string | null {
 
 export async function exportMembersCsv(
   orgSlug?: string,
-): Promise<ActionResult<{ csv: string }>> {
+): Promise<ActionResult<{ csv: string; count: number }>> {
   try {
     const staff = await requireCapability("member:export", { orgSlug });
-    const members = await fetchMembers(staff.orgId, {});
-    const header = "id,firstName,lastName,email,phone,status,joinedAt,tags";
-    const rows = members.map((m) =>
-      [
-        m.id,
-        escapeCsv(m.firstName),
-        escapeCsv(m.lastName),
-        escapeCsv(m.email ?? ""),
-        escapeCsv(m.phone ?? ""),
-        m.status,
-        m.joinedAt.toISOString(),
-        escapeCsv(m.tags.join("|")),
-      ].join(","),
-    );
+    const db = getOrgDb(staff.orgId);
+
+    const header =
+      "id,firstName,lastName,email,phone,status,company,jobTitle,tierName,renewalDueAt,organizationName,joinedAt,tags,rolesSummary";
+    const lines: string[] = [header];
+    let cursor: string | undefined;
+    let count = 0;
+
+    while (true) {
+      const batch = await db.member.findMany({
+        orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+        take: EXPORT_BATCH_SIZE,
+        ...buildCursorQuery(cursor),
+        include: {
+          roles: true,
+          tier: { select: { name: true } },
+          organizationAccount: { select: { name: true } },
+        },
+      });
+      if (batch.length === 0) break;
+      assertAllRowsBelongToOrg(batch, staff.orgId, "exportMembersCsv");
+      for (const m of batch) {
+        lines.push(
+          [
+            m.id,
+            escapeCsv(m.firstName),
+            escapeCsv(m.lastName),
+            escapeCsv(m.email ?? ""),
+            escapeCsv(m.phone ?? ""),
+            m.status,
+            escapeCsv(m.company ?? ""),
+            escapeCsv(m.jobTitle ?? ""),
+            escapeCsv(m.tier?.name ?? ""),
+            m.renewalDueAt ? m.renewalDueAt.toISOString().slice(0, 10) : "",
+            escapeCsv(m.organizationAccount?.name ?? ""),
+            m.joinedAt.toISOString().slice(0, 10),
+            escapeCsv(memberTagsArray(m.tags).join("|")),
+            escapeCsv(summarizeMemberRoles(m.roles)),
+          ].join(","),
+        );
+        count += 1;
+      }
+      cursor = batch[batch.length - 1]?.id;
+      if (batch.length < EXPORT_BATCH_SIZE) break;
+    }
+
     await writeAuditLog({
       orgId: staff.orgId,
       userId: staff.userId,
       action: "member.exported",
       entity: "Member",
-      diff: { count: members.length },
+      diff: { count },
     });
 
-    return { ok: true, data: { csv: [header, ...rows].join("\n") } };
+    return { ok: true, data: { csv: lines.join("\n"), count } };
   } catch (e) {
     return { ok: false, error: messageFromActionError(e) };
   }
@@ -284,5 +364,100 @@ function escapeCsv(value: string): string {
     return `"${value.replace(/"/g, '""')}"`;
   }
   return value;
+}
+
+export type MemberListRow = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string | null;
+  status: string;
+  tags: unknown;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type GetMembersInput = {
+  cursor?: string;
+  take?: number;
+  q?: string;
+  status?: "ACTIVE" | "INACTIVE" | "LAPSED";
+  statuses?: Array<"ACTIVE" | "INACTIVE" | "LAPSED">;
+  orderBy?: "name" | "status" | "joinDate";
+  orderDir?: "asc" | "desc";
+};
+
+/** Cursor-based member directory — scales to large orgs. */
+export async function getMembers(
+  raw: GetMembersInput,
+  orgSlug?: string,
+): Promise<
+  ActionResult<{
+    members: MemberListRow[];
+    nextCursor: string | null;
+    totalCount: number;
+  }>
+> {
+  try {
+    const staff = await requireCapability("member:read", { orgSlug });
+    const take = Math.min(Math.max(raw.take ?? PAGE_SIZE, 1), 100);
+    const db = getOrgDb(staff.orgId);
+
+    const statusFilter =
+      raw.statuses && raw.statuses.length > 0
+        ? { status: { in: raw.statuses } }
+        : raw.status
+          ? { status: raw.status }
+          : {};
+
+    const searchFilter = buildMemberSearchFilter(raw.q);
+    const where = {
+      ...statusFilter,
+      ...(searchFilter ?? {}),
+    };
+
+    const orderDir: Prisma.SortOrder = raw.orderDir === "desc" ? "desc" : "asc";
+    const orderBy: Prisma.MemberOrderByWithRelationInput[] =
+      raw.orderBy === "status"
+        ? [{ status: orderDir }, { id: "asc" }]
+        : raw.orderBy === "joinDate"
+          ? [{ createdAt: orderDir }, { id: "asc" }]
+          : [{ lastName: orderDir }, { firstName: orderDir }, { id: "asc" }];
+
+    const [totalCount, rows] = await Promise.all([
+      db.member.count({ where }),
+      db.member.findMany({
+        where,
+        take: take + 1,
+        ...buildCursorQuery(raw.cursor),
+        orderBy,
+        select: {
+          id: true,
+          orgId: true,
+          firstName: true,
+          lastName: true,
+          email: true,
+          status: true,
+          tags: true,
+          createdAt: true,
+          updatedAt: true,
+        },
+      }),
+    ]);
+
+    assertAllRowsBelongToOrg(rows, staff.orgId, "getMembers");
+    const { items, nextCursor } = paginateSlice(rows, take);
+
+    return {
+      ok: true,
+      data: {
+        members: items,
+        nextCursor,
+        totalCount,
+      },
+    };
+  } catch (e) {
+    return { ok: false, error: messageFromActionError(e) };
+  }
 }
 

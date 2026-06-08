@@ -27,9 +27,11 @@ PulsePoint stores **PII** (member names, emails, phones). It is **not** designed
 - Sentry configured with `sendDefaultPii: false`
 - Secrets only in environment variables (`.env.local`, Vercel)
 
-See `docs/SECURITY-PARANOID.md`, `docs/VIBE-CODE-RISKS.md`, `docs/SYSTEM-DESIGN.md`, `docs/RUNBOOK.md`, `docs/AI-DATA-POLICY.md`.
+See `docs/DATA-SECURITY-PLAN.md` (master plan), `SECURE-FORCE.md` (AI session checklist), `docs/SECURITY-PARANOID.md`, `docs/VIBE-CODE-RISKS.md`, `docs/SYSTEM-DESIGN.md`, `docs/INCIDENT-RESPONSE.md`.
 
-Run after changes: `pnpm security:audit`
+**Fail-safes (v0.2):** `lib/security/` — audit redaction, prompt sanitization, production cron guards, LLM boundary contract.
+
+Run after changes: `pnpm security:audit` and `pnpm test tests/unit/security-*.test.ts`
 
 ## Deployment checklist
 

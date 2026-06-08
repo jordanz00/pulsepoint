@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq42y2b1-ea3xu0",
+  "title": "gap: Healthcare CE and education",
+  "rationale": "knowledge/requirements.db#req-mq42wmmf-thueyz: gap: Enterprise health system governance | knowledge/requirements.db#req-mq42wmcq-ap8rfr: gap: Enterprise health system governance | knowledge/requirements.db#req-mq42sahz-r3gjey: gap: Enterprise health system governance | knowledge/requirements.db#req-mq42sag5-24heds: gap: Enterprise health system governance | knowledge/requirements.db#req-mq3z9gs9-6fs0oy: gap: Enterprise health system governance",
+  "proposedBy": "healthcare-association-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-07T17:52:44.077Z"
+}

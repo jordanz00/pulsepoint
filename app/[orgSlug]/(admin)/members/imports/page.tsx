@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getOrgDb } from "@/lib/db";
+import { AdminPage } from "@/components/admin/admin-page";
 import { ImportBatchReview } from "@/components/members/import-batch-review";
+import { MemberImportUpload } from "@/components/members/member-import-upload";
 import { PageHeader } from "@/components/ui/page-header";
-import { EmptyState } from "@/components/ui/empty-state";
+import { ADMIN_PAGES } from "@/lib/admin-page-copy";
+import { requirePageCapability } from "@/lib/admin-page-guard";
 
 export default async function MemberImportsPage({
   params,
@@ -11,6 +14,7 @@ export default async function MemberImportsPage({
   params: Promise<{ orgSlug: string }>;
 }) {
   const { orgSlug } = await params;
+  await requirePageCapability(orgSlug, "member:import", `/${orgSlug}/members`);
   const org = await prisma.organization.findUnique({ where: { slug: orgSlug } });
   if (!org) return null;
 
@@ -18,33 +22,34 @@ export default async function MemberImportsPage({
   const batches = await db.memberImportBatch.findMany({
     where: { status: "PENDING_REVIEW" },
     orderBy: { createdAt: "desc" },
+    take: 5,
     include: {
-      rows: { orderBy: { rowIndex: "asc" }, take: 200 },
+      rows: { orderBy: { rowIndex: "asc" } },
     },
   });
 
   return (
-    <div className="space-y-6">
+    <AdminPage orgSlug={orgSlug}>
       <PageHeader
-        title="Import review"
-        subtitle="CSV rows are staged first. Apply creates member records; reject discards the batch. Never blind-insert from upload."
-        badge="live"
+        title="Member import"
+        subtitle="Stage a CSV, review duplicates, then apply — never blind insert."
+        badge="alpha"
         backHref={`/${orgSlug}/members`}
-        backLabel="MemberCore"
+        backLabel={ADMIN_PAGES.members.title}
       />
 
+      <MemberImportUpload orgSlug={orgSlug} />
+
       {batches.length === 0 ? (
-        <EmptyState
-          title="No pending import batches"
-          description="Stage a CSV from MemberCore to review rows before they become production members."
-          action={
-            <Link href={`/${orgSlug}/members`} className="pc-btn-primary text-sm">
-              Go to MemberCore
-            </Link>
-          }
-        />
+        <p className="mt-8 text-sm text-[var(--pc-text-secondary)]">
+          No pending import batches. Upload a CSV above or{" "}
+          <Link href={`/${orgSlug}/members`} className="pc-link">
+            return to the directory
+          </Link>
+          .
+        </p>
       ) : (
-        <div className="space-y-6">
+        <div className="mt-8 space-y-6">
           {batches.map((batch) => (
             <ImportBatchReview
               key={batch.id}
@@ -60,6 +65,13 @@ export default async function MemberImportsPage({
                   firstName: r.firstName,
                   lastName: r.lastName,
                   email: r.email,
+                  phone: r.phone,
+                  company: r.company,
+                  jobTitle: r.jobTitle,
+                  memberStatus: r.memberStatus,
+                  tierName: r.tierName,
+                  renewalDueAt: r.renewalDueAt,
+                  organizationName: r.organizationName,
                   status: r.status,
                 })),
               }}
@@ -67,6 +79,6 @@ export default async function MemberImportsPage({
           ))}
         </div>
       )}
-    </div>
+    </AdminPage>
   );
 }

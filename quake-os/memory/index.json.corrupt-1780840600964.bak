@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T13:56:40.964Z",
+  "entries": [
+    {
+      "id": "task-audit-test-001",
+      "category": "tasks",
+      "title": "Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:56:40.943Z",
+      "path": "knowledge/tasks.db"
+    },
+    

@@ -28,10 +28,23 @@
         return false;
       }
     },
-    enterDemo() {
+    enterDemo(mode) {
       try {
         sessionStorage.setItem("pp_demo", "1");
+        if (mode) sessionStorage.setItem("pp_demo_mode", mode);
       } catch (_) {}
+      var m = mode;
+      try {
+        if (!m) m = sessionStorage.getItem("pp_demo_mode");
+      } catch (_) {}
+      if (m === "walkthrough") {
+        location.href = this.path("demo-healthcare/walkthrough/");
+        return;
+      }
+      if (m === "suite") {
+        location.href = this.path("demo-healthcare/suite/");
+        return;
+      }
       location.href = this.path("demo-healthcare/");
     },
     exitDemo() {
@@ -59,7 +72,8 @@
       document.querySelectorAll("[data-pp-enter-demo]").forEach((el) => {
         el.addEventListener("click", (e) => {
           e.preventDefault();
-          this.enterDemo();
+          var mode = el.getAttribute("data-pp-enter-demo");
+          this.enterDemo(mode && mode !== "" ? mode : undefined);
         });
       });
     },

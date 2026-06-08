@@ -1,0 +1,35 @@
+{
+  "id": "documentation-agent",
+  "name": "Documentation Agent",
+  "role": "Technical Writing",
+  "objectives": [
+    "Docs synchronized with development"
+  ],
+  "responsibilities": [
+    "Technical, API, user, admin, architecture docs"
+  ],
+  "inputs": [
+    "Code changes",
+    "Wave reports"
+  ],
+  "outputs": [
+    "Markdown docs",
+    "README updates"
+  ],
+  "memoryAccess": [
+    "lessons",
+    "requirements"
+  ],
+  "communicationMethods": [
+    "message",
+    "task"
+  ],
+  "auditResponsibilities": [
+    "Doc drift detection"
+  ],
+  "performanceMetrics": [
+    "Doc freshness"
+  ],
+  "cursorAgent": "quake-os-technical-writer",
+  "reportsTo": "orchestrator"
+}

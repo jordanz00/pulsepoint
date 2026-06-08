@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T14:07:57.280Z",
+  "entries": [
+    {
+      "id": "BL-021",
+      "category": "tasks",
+      "title": "Engage audience tag filter + send failure exceptions",
+      "createdAt": "2026-06-07T14:07:57.152Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-backend",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "res-mq3uwzsy-ozaahe",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T14:07:57.250Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "BL-022",
+      "category": "tasks",
+      "title": "Commerce finance CSV export parity tests",
+      "createdAt": "2026-06-07T14:07:57.152Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-qa",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "rec-mq3uwzt0-gpqoda",
+      "category": "recommendations",
+      "title": "opportunity: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T14:07:57.252Z",
+      "path": "quake-os/memory/recommendations/rec-mq3uwzt0-gpqoda.json"
+    },
+    {
+      "id": "BL-023",
+      "category": "tasks",
+      "title": "Insights snapshot metric parity guard",
+      "createdAt": "2026-06-07T14:07:57.152Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-analytics",
+        "pulse-exec-copilot"
+      ]
+    },
+    {
+      "id": "msg-mq3uwzt2-oosw9z",
+      "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T14:07:57.254Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzt2-oosw9z.json"
+    },
+    {
+      "id": "BL-024",
+      "category": "tasks",
+      "title": "Supportability gates — Learn, Insights, Advocacy",
+      "createdAt": "2026-06-07T14:07:57.152Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-coo",
+        "pulse-pilot-ops"
+      ]
+    },
+    {
+      "id": "msg-mq3uwzt3-rpx4lr",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ResearchAgent.run()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:07:57.255Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzt3-rpx4lr.json"
+    },
+    {
+      "id": "dec-mq3uwzt6-nd5u2a",
+      "category": "decisions",
+      "title": "Daily architecture review",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T14:07:57.258Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq3uwzt6-i58lvs",
+      "category": "messages",
+      "title": "Architecture review complete",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T14:07:57.258Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzt6-i58lvs.json"
+    },
+    {
+      "id": "msg-mq3uwzt8-9nuszi",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ArchitectureAgent.review()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:07:57.260Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzt8-9nuszi.json"
+    },
+    {
+      "id": "msg-mq3uwztl-3y6aun",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T14:07:57.273Z",
+      "path": "quake-os/memory/messages/msg-mq3uwztl-3y6aun.json"
+    },
+    {
+      "id": "msg-mq3uwzto-0ry0et",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:07:57.276Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzto-0ry0et.json"
+    },
+    {
+      "id": "dec-mq3uwztr-rqwvp9",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T14:07:57.279Z",
+      "path": "knowledge/decisions.db"
+    }
+  ]
+}

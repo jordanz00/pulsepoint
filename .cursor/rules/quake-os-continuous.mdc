@@ -1,0 +1,37 @@
+---
+description: Quake OS continuous improvement — weekly parallel waves, backlog-driven, security and scale gates.
+alwaysApply: false
+globs:
+  - "**/*"
+---
+
+# Quake OS continuous improvement
+
+Activate when user says **run quake os**, **continuous improvement**, **keep improving AMS**, or **parallel agents**.
+
+## Runner
+
+`@quake-os-continuous-runner` — reads `data/quake-os/improvement-backlog.json`, runs `pnpm quake:gates`, launches parallel specialists.
+
+## Extended specialists
+
+| Agent | Role |
+|-------|------|
+| `quake-os-designer` | Visual system, marketing, glass admin |
+| `quake-os-ams-specialist` | AMS module depth vs competitors |
+| `quake-os-security` | Tenant, caps, audit, SECURE-FORCE |
+| `quake-os-scale` | Large data, pagination, indexes |
+
+Plus full roster in `quake-os-orchestrator.mdc`.
+
+## Each wave
+
+1. Gates (`scripts/quake-os-gates.sh`)
+2. Pick 1–3 backlog items
+3. Parallel build (design + security review in parallel with feature)
+4. `quake-os-audit` + `pulse-supervisor`
+5. Update backlog + `data/quake-os/waves/`
+
+## Docs
+
+`docs/QUAKE-OS-CONTINUOUS.md` · `docs/SCALE-AND-SECURITY.md`

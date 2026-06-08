@@ -23,12 +23,17 @@
   <div class="pc-admin-layout">
     <nav class="pc-sidebar" aria-label="Admin navigation">
       <div style="padding:0 1.25rem 1rem;font-weight:700;font-size:0.95rem;">Sterling Healthcare</div>
-      <a class="active" href="#">Work</a>
-      <a href="#members">Members</a>
-      <a href="#events">Events</a>
-      <a href="#" style="opacity:0.55;">Learn <small>(roadmap)</small></a>
-      <a href="#" style="opacity:0.55;">Commerce <small>(roadmap)</small></a>
-      <a href="#" style="opacity:0.55;">Insights <small>(roadmap)</small></a>
+      <a data-pp-href="demo-healthcare/walkthrough/">Walkthrough</a>
+      <a data-pp-href="demo-healthcare/suite/">Full suite</a>
+      <a class="active" href="#">Overview</a>
+      <a href="#members">MemberCore <small class="pc-badge pc-badge-live">Live</small></a>
+      <a href="#events">Events <small class="pc-badge pc-badge-live">Live</small></a>
+      <a href="#learn">Learn <small class="pc-badge pc-badge-alpha">Alpha</small></a>
+      <a href="#giving">Giving <small class="pc-badge pc-badge-alpha">Alpha</small></a>
+      <a href="#commerce">Commerce <small class="pc-badge pc-badge-alpha">Alpha</small></a>
+      <a href="#engage">Engage <small class="pc-badge pc-badge-alpha">Alpha</small></a>
+      <a href="#insights">Insights <small class="pc-badge pc-badge-alpha">Alpha</small></a>
+      <a href="#committees">Committees <small class="pc-badge pc-badge-roadmap">Preview</small></a>
       <a data-pp-href="demo/" style="margin-top:1rem;">← Demo home</a>
     </nav>
 
@@ -38,47 +43,77 @@
         <button type="button" class="pc-btn-ghost" data-pp-exit-demo>Exit demo</button>
       </div>
 
-      <h1 style="font-family:var(--font-display);margin:0 0 0.25rem;color:var(--hap-blue);">PulsePoint Work</h1>
-      <p style="color:var(--pc-muted);margin:0 0 1.5rem;">Staff workspace — MemberCore and Events modules (live in full app).</p>
+      <h1 style="font-family:var(--font-display);margin:0 0 0.25rem;color:var(--hap-blue);">Sterling Healthcare — full suite preview</h1>
+      <p style="color:var(--pc-muted);margin:0 0 1.5rem;">
+        Protech-style AMS categories with honest <strong>Live</strong> / <strong>Alpha</strong> labels.
+        Database-backed tour: <code>pnpm demo:setup &amp;&amp; pnpm dev</code> → localhost:3000/demo
+      </p>
 
       <div class="pc-grid-3">
-        <div class="pc-stat"><strong>1,248</strong> Active members</div>
-        <div class="pc-stat"><strong>3</strong> Upcoming events</div>
-        <div class="pc-stat"><strong>0</strong> Open exceptions</div>
+        <div class="pc-stat"><strong>50</strong> Members</div>
+        <div class="pc-stat"><strong>4</strong> Events</div>
+        <div class="pc-stat"><strong>2</strong> Open exceptions</div>
       </div>
 
       <section id="members" style="margin-top:2rem;">
-        <h2 style="font-size:1.15rem;">MemberCore — directory preview</h2>
+        <h2 style="font-size:1.15rem;">MemberCore <span class="pc-badge pc-badge-live">Live</span></h2>
         <table class="pc-table">
-          <thead>
-            <tr><th>Name</th><th>Email</th><th>Status</th><th>Tags</th></tr>
-          </thead>
+          <thead><tr><th>Name</th><th>Email</th><th>Status</th><th>Tags</th></tr></thead>
           <tbody>
-            <tr><td>Dr. Elena Vasquez</td><td>e.vasquez@example.org</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>Board, CME</td></tr>
-            <tr><td>James Okonkwo</td><td>j.okonkwo@hospital.demo</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>Hospital</td></tr>
-            <tr><td>Maria Chen</td><td>maria.chen@example.org</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>Allied</td></tr>
-            <tr><td>Robert Singh</td><td>r.singh@example.org</td><td><span class="pc-badge pc-badge-roadmap">Lapsed</span></td><td>—</td></tr>
+            <tr><td>Avery Reyes</td><td>avery.reyes0@demo-healthcare.example</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>board</td></tr>
+            <tr><td>Brooke Patel</td><td>brooke.patel1@demo-healthcare.example</td><td><span class="pc-badge pc-badge-live">Active</span></td><td>chapter:northeast</td></tr>
+            <tr><td>Camille Chen</td><td>camille.chen2@demo-healthcare.example</td><td><span class="pc-badge pc-badge-roadmap">Lapsed</span></td><td>renewal-due</td></tr>
           </tbody>
         </table>
       </section>
 
       <section id="events" style="margin-top:2rem;">
-        <h2 style="font-size:1.15rem;">PulsePoint Events — upcoming</h2>
+        <h2 style="font-size:1.15rem;">PulsePoint Events <span class="pc-badge pc-badge-live">Live</span></h2>
         <table class="pc-table">
-          <thead>
-            <tr><th>Event</th><th>Date</th><th>Registered</th><th>Status</th></tr>
-          </thead>
+          <thead><tr><th>Event</th><th>Date</th><th>Registered</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>Annual Leadership Summit</td><td>Jun 12, 2026</td><td>186 / 200</td><td><span class="pc-badge pc-badge-live">Published</span></td></tr>
-            <tr><td>340B Policy Briefing</td><td>Jul 8, 2026</td><td>42 / 75</td><td><span class="pc-badge pc-badge-live">Published</span></td></tr>
-            <tr><td>New Member Orientation</td><td>Aug 1, 2026</td><td>12 / 50</td><td><span class="pc-badge pc-badge-roadmap">Draft</span></td></tr>
+            <tr><td>Spring Advocacy Briefing</td><td>+14 days</td><td>22 / 300</td><td><span class="pc-badge pc-badge-live">Published</span></td></tr>
+            <tr><td>Clinical Leadership Summit</td><td>+42 days</td><td>12 paid</td><td><span class="pc-badge pc-badge-live">Published</span></td></tr>
+            <tr><td>Fall Chapter Mixer</td><td>+90 days</td><td>—</td><td><span class="pc-badge pc-badge-roadmap">Draft</span></td></tr>
           </tbody>
         </table>
       </section>
 
+      <section id="learn" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">PulsePoint Learn <span class="pc-badge pc-badge-alpha">Alpha</span></h2>
+        <p style="color:var(--pc-muted);font-size:0.9rem;">CME / CNE / CEU credit types · 3 courses · 6 awards (demo seed).</p>
+      </section>
+
+      <section id="giving" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">PulsePoint Giving <span class="pc-badge pc-badge-alpha">Alpha</span></h2>
+        <p style="color:var(--pc-muted);font-size:0.9rem;">Annual fund + scholarship campaigns · 7 sample gifts.</p>
+      </section>
+
+      <section id="commerce" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">PulsePoint Commerce <span class="pc-badge pc-badge-alpha">Alpha</span></h2>
+        <p style="color:var(--pc-muted);font-size:0.9rem;">Dues, merch, gold sponsorship SKUs · orders PAID/PENDING.</p>
+      </section>
+
+      <section id="engage" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">PulsePoint Engage <span class="pc-badge pc-badge-alpha">Alpha</span></h2>
+        <p style="color:var(--pc-muted);font-size:0.9rem;">Welcome + renewal templates · audiences · sent campaign log.</p>
+      </section>
+
+      <section id="insights" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">PulsePoint Insights <span class="pc-badge pc-badge-alpha">Alpha</span></h2>
+        <p style="color:var(--pc-muted);font-size:0.9rem;">Member, event, revenue, and ops KPI snapshots.</p>
+      </section>
+
+      <section id="committees" style="margin-top:2rem;">
+        <h2 style="font-size:1.15rem;">Committees <span class="pc-badge pc-badge-roadmap">Preview</span></h2>
+        <p style="color:var(--pc-muted);font-size:0.9rem;">Board &amp; committee roles on member profiles — full voting module roadmap.</p>
+      </section>
+
       <p class="pc-note">
-        <strong>Full prototype:</strong> Clone <a href="https://github.com/jordanz00/pulsepoint">github.com/jordanz00/pulsepoint</a>,
-        set <code>DEMO_MODE=true</code> in <code>.env.local</code>, run <code>pnpm demo:setup &amp;&amp; pnpm dev</code> for database-backed demo at localhost:3000.
+        <strong>Full app:</strong> Clone
+        <a href="https://github.com/jordanz00/pulsepoint">github.com/jordanz00/pulsepoint</a>,
+        <code>DEMO_MODE=true</code>, <code>pnpm demo:setup &amp;&amp; pnpm dev</code>.
+        Tour: <code>docs/DEMO-GUIDE.md</code> · Protech map: <code>docs/PROTECH-FEATURE-MAP.md</code>
       </p>
     </div>
   </div>

@@ -1,0 +1,605 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T13:01:06.183Z",
+  "entries": [
+    {
+      "id": "msg-mq3sj0pi-n2qwwq",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T13:01:06.006Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0pi-n2qwwq.json"
+    },
+    {
+      "id": "msg-mq3sj0pj-2v50zz",
+      "category": "messages",
+      "title": "Daily Agent Cycle: AuditorAgent.audit()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.007Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0pj-2v50zz.json"
+    },
+    {
+      "id": "wf-mq3sj0pj-i2kmjr",
+      "category": "lessons",
+      "title": "Workflow: Daily Agent Cycle",
+      "createdAt": "2026-06-07T13:01:06.008Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "workflow",
+        "daily-cycle",
+        "completed"
+      ]
+    },
+    {
+      "id": "res-mq3sj0pn-8qkzss",
+      "category": "research",
+      "title": "Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T13:01:06.011Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "healthcare_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0pq-hxlbk5",
+      "category": "recommendations",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T13:01:06.015Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0pq-hxlbk5.json"
+    },
+    {
+      "id": "rec-mq3sj0ps-ko9c4l",
+      "category": "recommendations",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T13:01:06.016Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0ps-ko9c4l.json"
+    },
+    {
+      "id": "res-mq3sj0q2-13st2c",
+      "category": "research",
+      "title": "Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-07T13:01:06.026Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "health_system",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0q3-s9t0dj",
+      "category": "recommendations",
+      "title": "opportunity: Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-07T13:01:06.027Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0q3-s9t0dj.json"
+    },
+    {
+      "id": "res-mq3sj0q6-zfye4o",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T13:01:06.030Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0q7-4ibmc8",
+      "category": "recommendations",
+      "title": "opportunity: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T13:01:06.031Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0q7-4ibmc8.json"
+    },
+    {
+      "id": "msg-mq3sj0q8-bfvz2b",
+      "category": "messages",
+      "title": "Test message",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T13:01:06.032Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0q8-bfvz2b.json"
+    },
+    {
+      "id": "dec-mq3sj0qg-ku1xtw",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T13:01:06.040Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "sprint-mq3sj0qj-ozzjzt",
+      "category": "roadmaps",
+      "title": "test-wave",
+      "createdAt": "2026-06-07T13:01:06.043Z",
+      "path": "knowledge/roadmap.db",
+      "tags": [
+        "sprint",
+        "phase-2"
+      ]
+    },
+    {
+      "id": "task-mq1qsaig-3c6rna",
+      "category": "tasks",
+      "title": "risk: Pipeline test",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-06T02:36:47.032Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "task-mq1obv4z-7yafiv",
+      "category": "tasks",
+      "title": "gap: Fundraising and nonprofit surfaces",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-06T01:28:01.379Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "audit-mq3sj0qn-acpghj",
+      "category": "audits",
+      "title": "Wave: test-wave",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T13:01:06.047Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "wave-mq3sj0qo-jdr2xs",
+      "category": "lessons",
+      "title": "test-wave",
+      "createdAt": "2026-06-07T13:01:06.049Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "wave"
+      ]
+    },
+    {
+      "id": "backlog-mq3sj0rh-4zbyz7",
+      "category": "lessons",
+      "title": "Backlog refresh: 0 new tasks",
+      "createdAt": "2026-06-07T13:01:06.078Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "backlog",
+        "auto-generated"
+      ]
+    },
+    {
+      "id": "res-mq3sj0rp-c6t4yb",
+      "category": "research",
+      "title": "AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T13:01:06.085Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "competitor",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0rr-h2chld",
+      "category": "recommendations",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T13:01:06.087Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0rr-h2chld.json"
+    },
+    {
+      "id": "rec-mq3sj0rs-3eirqb",
+      "category": "recommendations",
+      "title": "opportunity: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T13:01:06.088Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0rs-3eirqb.json"
+    },
+    {
+      "id": "res-mq3sj0rv-fjmg9f",
+      "category": "research",
+      "title": "Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-07T13:01:06.091Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "hospital_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0rw-zgwnhl",
+      "category": "recommendations",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-07T13:01:06.092Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0rw-zgwnhl.json"
+    },
+    {
+      "id": "res-mq3sj0s3-6gnkqw",
+      "category": "research",
+      "title": "Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T13:01:06.099Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "membership",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0s7-cuc6jy",
+      "category": "recommendations",
+      "title": "risk: Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T13:01:06.103Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0s7-cuc6jy.json"
+    },
+    {
+      "id": "res-mq3sj0sc-z470lq",
+      "category": "research",
+      "title": "Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T13:01:06.108Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "healthcare_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0sd-ym0ya0",
+      "category": "recommendations",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T13:01:06.109Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0sd-ym0ya0.json"
+    },
+    {
+      "id": "rec-mq3sj0se-7dnnop",
+      "category": "recommendations",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T13:01:06.110Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0se-7dnnop.json"
+    },
+    {
+      "id": "res-mq3sj0sk-p1ajwn",
+      "category": "research",
+      "title": "Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-07T13:01:06.116Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "health_system",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0sl-r4ylk7",
+      "category": "recommendations",
+      "title": "opportunity: Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-07T13:01:06.117Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0sl-r4ylk7.json"
+    },
+    {
+      "id": "res-mq3sj0sq-1yh093",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T13:01:06.122Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3sj0sr-1qbulc",
+      "category": "recommendations",
+      "title": "opportunity: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T13:01:06.123Z",
+      "path": "quake-os/memory/recommendations/rec-mq3sj0sr-1qbulc.json"
+    },
+    {
+      "id": "msg-mq3sj0st-7y44h5",
+      "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T13:01:06.125Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0st-7y44h5.json"
+    },
+    {
+      "id": "msg-mq3sj0sv-pr341v",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ResearchAgent.run()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.127Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0sv-pr341v.json"
+    },
+    {
+      "id": "dec-mq3sj0sv-b3j0kb",
+      "category": "decisions",
+      "title": "Daily architecture review",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T13:01:06.127Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq3sj0sw-bwtk7u",
+      "category": "messages",
+      "title": "Architecture review complete",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T13:01:06.128Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0sw-bwtk7u.json"
+    },
+    {
+      "id": "msg-mq3sj0sw-c2c3cd",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ArchitectureAgent.review()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.128Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0sw-c2c3cd.json"
+    },
+    {
+      "id": "msg-mq3sj0sy-iry3qx",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T13:01:06.130Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0sy-iry3qx.json"
+    },
+    {
+      "id": "msg-mq3sj0sz-ql5b6b",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.131Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0sz-ql5b6b.json"
+    },
+    {
+      "id": "req-mq3sj0t0-y6yfvk",
+      "category": "requirements",
+      "title": "risk: Pipeline test",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T13:01:06.132Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq3sj0t1-cju08h",
+      "category": "requirements",
+      "title": "gap: Fundraising and nonprofit surfaces",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:01:06.133Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq3sj0t1-z2gui8",
+      "category": "requirements",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T13:01:06.133Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "msg-mq3sj0t2-qvogv3",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:01:06.134Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0t2-qvogv3.json"
+    },
+    {
+      "id": "msg-mq3sj0t3-ipay4z",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.135Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0t3-ipay4z.json"
+    },
+    {
+      "id": "msg-mq3sj0t4-d3c8n1",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T13:01:06.136Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0t4-d3c8n1.json"
+    },
+    {
+      "id": "msg-mq3sj0t4-rej1lw",
+      "category": "messages",
+      "title": "Daily Agent Cycle: QAAgent.test()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.136Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0t4-rej1lw.json"
+    },
+    {
+      "id": "audit-mq3sj0t5-vov5qd",
+      "category": "audits",
+      "title": "Daily cycle QA — 3 tasks",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T13:01:06.137Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3sj0t6-3gih08",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T13:01:06.138Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0t6-3gih08.json"
+    },
+    {
+      "id": "msg-mq3sj0t8-m6aar0",
+      "category": "messages",
+      "title": "Daily Agent Cycle: AuditorAgent.audit()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.140Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0t8-m6aar0.json"
+    },
+    {
+      "id": "wf-mq3sj0t9-3doikw",
+      "category": "lessons",
+      "title": "Workflow: Daily Agent Cycle",
+      "createdAt": "2026-06-07T13:01:06.142Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "workflow",
+        "daily-cycle",
+        "completed"
+      ]
+    },
+    {
+      "id": "daily-mq3sj0ta-7u5e5z",
+      "category": "lessons",
+      "title": "Daily cycle daily-mq3sj0ta-7u5e5z",
+      "createdAt": "2026-06-07T13:01:06.154Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "daily-cycle",
+        "needs_revision"
+      ]
+    },
+    {
+      "id": "task-frc-test-001",
+      "category": "tasks",
+      "title": "Hospital advocacy take-action form",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:01:06.151Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq3sj0tr-fsbhdx",
+      "category": "messages",
+      "title": "New task: Hospital advocacy take-action form",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:01:06.159Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0tr-fsbhdx.json"
+    },
+    {
+      "id": "req-mq3sj0ts-r08hqz",
+      "category": "requirements",
+      "title": "Hospital advocacy take-action form",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:01:06.160Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "feature-review"
+      ]
+    },
+    {
+      "id": "msg-mq3sj0tw-xeawbe",
+      "category": "messages",
+      "title": "Feature built: Hospital advocacy take-action form",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:01:06.164Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0tw-xeawbe.json"
+    },
+    {
+      "id": "msg-mq3sj0u5-joctcq",
+      "category": "messages",
+      "title": "QA tests ready: Hospital advocacy take-action form",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T13:01:06.173Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0u5-joctcq.json"
+    },
+    {
+      "id": "audit-mq3sj0u7-fg20ys",
+      "category": "audits",
+      "title": "Auditor critique: Hospital advocacy take-action form",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T13:01:06.175Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3sj0ub-vpck54",
+      "category": "messages",
+      "title": "Auditor critique: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T13:01:06.179Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0ub-vpck54.json"
+    },
+    {
+      "id": "audit-mq3sj0ud-nf48rt",
+      "category": "audits",
+      "title": "Architecture critique: Hospital advocacy take-action form",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T13:01:06.181Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3sj0ue-0a9aub",
+      "category": "messages",
+      "title": "Architecture critique: APPROVED",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T13:01:06.182Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0ue-0a9aub.json"
+    },
+    {
+      "id": "backlog-mq3sj0ue-876p5q",
+      "category": "lessons",
+      "title": "Backlog refresh: 0 new tasks",
+      "createdAt": "2026-06-07T13:01:06.183Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "backlog",
+        "auto-generated"
+      ]
+    }
+  ]
+}
+      "id": "msg-mq3sj0uf-wakfeo",
+      "category": "messages",
+      "title": "SME critique: APPROVED",
+      "agentId": "healthcare-sme-agent",
+      "createdAt": "2026-06-07T13:01:06.183Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0uf-wakfeo.json"
+    },
+    {
+      "id": "dec-mq3sj0ug-yf8ic7",
+      "category": "decisions",
+      "title": "CEO REVISE: Hospital advocacy take-action form",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T13:01:06.184Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq3sj0uj-7z0aad",
+      "category": "messages",
+      "title": "CEO REVISE: Hospital advocacy take-action form",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T13:01:06.187Z",
+      "path": "quake-os/memory/messages/msg-mq3sj0uj-7z0aad.json"
+    },
+    {
+      "id": "frc-mq3sj0um-6z6m9y",
+      "category": "audits",
+      "title": "Feature review: Hospital advocacy take-action form",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T13:01:06.190Z",
+      "path": "knowledge/audits.db",
+      "tags": [
+        "feature-review-chain",
+        "revise"
+      ]
+    }
+  ]
+}

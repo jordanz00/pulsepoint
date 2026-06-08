@@ -7,6 +7,8 @@ export const eventStatusSchema = z.enum([
   "COMPLETED",
 ]);
 
+export const eventFormatSchema = z.enum(["IN_PERSON", "VIRTUAL", "HYBRID"]);
+
 export const eventInputSchema = z.object({
   title: z.string().trim().min(1).max(200),
   description: z.string().trim().max(10000).optional(),
@@ -21,6 +23,13 @@ export const eventInputSchema = z.object({
     .min(2)
     .max(80)
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  venueName: z.string().trim().max(200).optional(),
+  venueAddress: z.string().trim().max(500).optional(),
+  timezone: z.string().trim().max(80).optional(),
+  format: eventFormatSchema.optional(),
+  registrationOpensAt: z.coerce.date().optional().nullable(),
+  registrationClosesAt: z.coerce.date().optional().nullable(),
+  waitlistEnabled: z.coerce.boolean().optional(),
 });
 
 export type EventInput = z.infer<typeof eventInputSchema>;
@@ -28,4 +37,6 @@ export type EventInput = z.infer<typeof eventInputSchema>;
 export const publicRegistrationSchema = z.object({
   guestName: z.string().trim().min(1).max(200),
   guestEmail: z.string().email().max(254),
+  ticketTypeId: z.string().optional(),
+  promoCode: z.string().trim().max(32).optional(),
 });

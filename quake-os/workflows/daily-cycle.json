@@ -1,0 +1,14 @@
+{
+  "id": "daily-cycle",
+  "name": "Daily Agent Cycle",
+  "description": "Research → Architecture → Product → Developer → QA → Auditor. Full AgentOrchestrator pipeline.",
+  "schedule": "daily",
+  "steps": [
+    { "id": "d1", "agentId": "research-agent", "action": "ResearchAgent.run()", "required": true },
+    { "id": "d2", "agentId": "architecture-agent", "action": "ArchitectureAgent.review()", "required": true },
+    { "id": "d3", "agentId": "product-agent", "action": "ProductAgent.generateTasks()", "required": true },
+    { "id": "d4", "agentId": "backend-engineer-agent", "action": "DeveloperAgent.build()", "required": true },
+    { "id": "d5", "agentId": "qa-agent", "action": "QAAgent.test()", "required": true },
+    { "id": "d6", "agentId": "auditor-agent", "action": "AuditorAgent.audit()", "required": true }
+  ]
+}

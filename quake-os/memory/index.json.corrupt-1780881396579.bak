@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-08T01:16:36.578Z",
+  "entries": [
+    {
+      "id": "msg-mq4isw1x-n5wbi4",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:16:36.549Z",
+      "path": "quake-os/memory/messages/msg-mq4isw1x-n5wbi4.json"
+    },
+    {
+      "id": "BL-016",
+      "category": "tasks",
+      "title": "Supportability gate rows — Commerce, Giving, Engage",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-coo",
+        "pulse-pilot-ops"
+      ]
+    },
+    {
+      "id": "msg-mq4isw1y-qn5dmu",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:16:36.550Z",
+      "path": "quake-os/memory/messages/msg-mq4isw1y-qn5dmu.json"
+    },
+    {
+      "id": "BL-017",
+      "category": "tasks",
+      "title": "Stripe webhook local replay doc",
+      "createdAt": "2026-06-08T01:16:36.537Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-backend",
+        "pulse-pilot-ops"
+      ]
+    },
+    {
+      "id": "msg-mq4isw20-mm9fjb",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-08T01:16:36.552Z",
+      "path": "quake-os/memory/messages/msg-mq4isw20-mm9fjb.json"
+    },
+    {
+      "id": "msg-mq4isw20-4w3kgh",
+      "category": "messages",
+      "title": "Daily Agent Cycle: QAAgent.test()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:16:36.552Z",
+      "path": "quake-os/memory/messages/msg-mq4isw20-4w3kgh.json"
+    },
+    {
+      "id": "BL-019",
+      "category": "tasks",
+      "title": "Quake OS KG + research stale task cleanup",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-continuous-runner"
+      ]
+    },
+    {
+      "id": "BL-018",
+      "category": "tasks",
+      "title": "E2E required CI check documentation",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "msg-mq4isw23-d2zu48",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-08T01:16:36.555Z",
+      "path": "quake-os/memory/messages/msg-mq4isw23-d2zu48.json"
+    },
+    {
+      "id": "BL-020",
+      "category": "tasks",
+      "title": "Learn enrollment + CE transcript export",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-ams-specialist",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "msg-mq4isw23-4tio9h",
+      "category": "messages",
+      "title": "Daily Agent Cycle: AuditorAgent.audit()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:16:36.555Z",
+      "path": "quake-os/memory/messages/msg-mq4isw23-4tio9h.json"
+    },
+    {
+      "id": "BL-022",
+      "category": "tasks",
+      "title": "Commerce finance CSV export parity tests",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-qa",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-021",
+      "category": "tasks",
+      "title": "Engage audience tag filter + send failure exceptions",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-backend",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-023",
+      "category": "tasks",
+      "title": "Insights snapshot metric parity guard",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-analytics",
+        "pulse-exec-copilot"
+      ]
+    },
+    {
+      "id": "wf-mq4isw24-fsz8dj",
+      "category": "lessons",
+      "title": "Workflow: Daily Agent Cycle",
+      "createdAt": "2026-06-08T01:16:36.557Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "workflow",
+        "daily-cycle",
+        "completed"
+      ]
+    },
+    {
+      "id": "BL-025",
+      "category": "tasks",
+      "title": "Healthcare AMS Wave 1 — advocacy issue hub + learn workforce",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-orchestrator",
+        "quake-os-hospital-association",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-026",
+      "category": "tasks",
+      "title": "Wave 2 — virtual career fair booths + hosted video",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-frontend",
+        "quake-os-ams-specialist"
+      ]
+    },
+    {
+      "id": "BL-027",
+      "category": "tasks",
+      "title": "Wave 3 — legislative feed + Protech GL parity slice",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-integrations",
+        "quake-os-revenue"
+      ]
+    },
+    {
+      "id": "BL-028",
+      "category": "tasks",
+      "title": "Member profile CE transcript download",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-frontend",
+        "quake-os-ams-specialist"
+      ]
+    },
+    {
+      "id": "BL-029",
+      "category": "tasks",
+      "title": "Giving export parity helpers + tests",
+      "createdAt": "2026-06-08T01:16:36.535Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-qa",
+        "quake-os-revenue"
+      ]
+    },
+    {
+      "id": "BL-030",
+      "category": "tasks",
+      "title": "Commerce webhook idempotency guard",
+      "createdAt": "2026-06-08T01:16:36.537Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-security",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-031",
+      "category": "tasks",
+      "title": "Renewals pulse + CSV export + cron gate label",
+      "createdAt": "2026-06-08T01:16:36.537Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "quake-os-frontend",
+        "quake-os-scale"
+      ]
+    },
+    {
+      "id": "dec-mq4isw2q-pjdry0",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-08T01:16:36.578Z",
+      "path": "knowledge/decisions.db"
+    }
+  ]
+}

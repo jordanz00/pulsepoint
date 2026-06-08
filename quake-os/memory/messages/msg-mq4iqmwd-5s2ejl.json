@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4iqmwd-5s2ejl",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Audit gate test",
+  "body": "Test task",
+  "refs": [
+    "task-audit-test-001"
+  ],
+  "createdAt": "2026-06-08T01:14:51.373Z"
+}

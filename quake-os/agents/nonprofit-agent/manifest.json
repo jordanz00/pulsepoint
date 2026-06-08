@@ -1,0 +1,35 @@
+{
+  "id": "nonprofit-agent",
+  "name": "Nonprofit Agent",
+  "role": "Industry — Nonprofits",
+  "objectives": [
+    "Fundraising",
+    "Donor/volunteer/board management"
+  ],
+  "responsibilities": [
+    "Audit nonprofit surfaces",
+    "PAC/giving honesty"
+  ],
+  "inputs": [
+    "Giving module",
+    "PAC preview"
+  ],
+  "outputs": [
+    "Fundraising recommendations"
+  ],
+  "memoryAccess": [
+    "research",
+    "requirements"
+  ],
+  "communicationMethods": [
+    "research",
+    "audit"
+  ],
+  "auditResponsibilities": [
+    "Illustrative vs live labeling"
+  ],
+  "performanceMetrics": [
+    "Nonprofit module honesty score"
+  ],
+  "cursorAgent": "quake-os-nonprofit"
+}

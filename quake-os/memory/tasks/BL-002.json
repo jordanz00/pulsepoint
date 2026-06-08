@@ -1,0 +1,21 @@
+{
+  "id": "BL-002",
+  "title": "Cursor pagination on member directory beyond 500",
+  "description": "",
+  "priority": "P1",
+  "businessImpact": "high",
+  "technicalComplexity": "medium",
+  "dependencies": [],
+  "ownerAgent": "quake-os-scale",
+  "status": "done",
+  "researchSources": [],
+  "acceptanceCriteria": [],
+  "createdAt": "2026-06-06T01:18:47.879Z",
+  "updatedAt": "2026-06-07T13:42:24.211Z",
+  "division": "scale",
+  "tags": [
+    "quake-os-scale",
+    "quake-os-database",
+    "quake-os-frontend"
+  ]
+}

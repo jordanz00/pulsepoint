@@ -1,0 +1,2606 @@
+[
+  {
+    "id": "exec-mq4iubov-8quvxg",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:17:43.471Z"
+  },
+  {
+    "id": "exec-mq4iu99q-6h53vu",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:17:40.334Z",
+    "completedAt": "2026-06-08T01:17:43.444Z"
+  },
+  {
+    "id": "exec-mq4iu94a-hdxmlw",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:17:40.138Z",
+    "completedAt": "2026-06-08T01:17:40.311Z"
+  },
+  {
+    "id": "exec-mq4ituyh-ufthol",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:17:21.785Z"
+  },
+  {
+    "id": "exec-mq4ituv4-9v5076",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:17:21.664Z",
+    "completedAt": "2026-06-08T01:17:22.164Z"
+  },
+  {
+    "id": "exec-mq4itumj-8mv0zi",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:17:21.355Z"
+  },
+  {
+    "id": "exec-mq4itucy-177nbi",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:17:21.010Z",
+    "completedAt": "2026-06-08T01:17:21.415Z"
+  },
+  {
+    "id": "exec-mq4ittng-r58baw",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:17:20.092Z",
+    "completedAt": "2026-06-08T01:17:20.942Z"
+  },
+  {
+    "id": "exec-mq4itsmc-q487qj",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:17:18.756Z"
+  },
+  {
+    "id": "exec-mq4itank-nhckmv",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:16:55.472Z"
+  },
+  {
+    "id": "exec-mq4itajt-zkgtlz",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:16:55.337Z",
+    "completedAt": "2026-06-08T01:16:55.454Z"
+  },
+  {
+    "id": "exec-mq4it8ic-oweo7c",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:16:52.692Z"
+  },
+  {
+    "id": "exec-mq4isw2z-izigt3",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:16:36.587Z"
+  },
+  {
+    "id": "exec-mq4isw2q-eukp3k",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:16:36.578Z",
+    "completedAt": "2026-06-08T01:16:36.632Z"
+  },
+  {
+    "id": "exec-mq4is847-k8qoso",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:16:05.527Z",
+    "completedAt": "2026-06-08T01:16:05.707Z"
+  },
+  {
+    "id": "exec-mq4is83v-nabqkx",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-08T01:16:05.515Z"
+  },
+  {
+    "id": "exec-mq4irpl7-dsr7xo",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:15:41.515Z",
+    "completedAt": "2026-06-08T01:17:45.117Z"
+  },
+  {
+    "id": "exec-mq4irp4s-av0j0c",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:15:40.924Z",
+    "completedAt": "2026-06-08T01:15:41.394Z"
+  },
+  {
+    "id": "exec-mq4ir6j4-hlu1pg",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:15:16.816Z",
+    "completedAt": "2026-06-08T01:17:18.440Z"
+  },
+  {
+    "id": "exec-mq4ir6en-yxsio4",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:15:16.655Z",
+    "completedAt": "2026-06-08T01:15:16.749Z"
+  },
+  {
+    "id": "exec-mq4iqn37-8p6mmy",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:14:51.619Z",
+    "completedAt": "2026-06-08T01:16:52.672Z"
+  },
+  {
+    "id": "exec-mq4iqn22-yaxxpm",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T01:14:51.578Z",
+    "completedAt": "2026-06-08T01:14:51.838Z"
+  },
+  {
+    "id": "exec-mq4hv6j2-vcy3ag",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:50:23.822Z",
+    "completedAt": "2026-06-08T00:50:24.152Z"
+  },
+  {
+    "id": "exec-mq4hv5t1-sys8lr",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:50:22.885Z",
+    "completedAt": "2026-06-08T00:50:23.819Z"
+  },
+  {
+    "id": "exec-mq4hv5ha-w0dhuy",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:50:22.462Z",
+    "completedAt": "2026-06-08T00:50:22.587Z"
+  },
+  {
+    "id": "exec-mq4hus8v-yxfnxv",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:50:05.311Z",
+    "completedAt": "2026-06-08T00:50:06.232Z"
+  },
+  {
+    "id": "exec-mq4hurfd-ovojfk",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:50:04.249Z",
+    "completedAt": "2026-06-08T00:50:05.299Z"
+  },
+  {
+    "id": "exec-mq4hur8h-tvh3k4",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:50:04.001Z",
+    "completedAt": "2026-06-08T00:50:04.127Z"
+  },
+  {
+    "id": "exec-mq4hs9r1-54uy98",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:48:08.029Z",
+    "completedAt": "2026-06-08T00:48:08.282Z"
+  },
+  {
+    "id": "exec-mq4hs9ah-wreijh",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:48:07.433Z",
+    "completedAt": "2026-06-08T00:48:08.025Z"
+  },
+  {
+    "id": "exec-mq4hs96d-wduqd3",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:48:07.285Z",
+    "completedAt": "2026-06-08T00:48:07.366Z"
+  },
+  {
+    "id": "exec-mq4hs0mw-xnh9nw",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:47:56.216Z",
+    "completedAt": "2026-06-08T00:47:56.400Z"
+  },
+  {
+    "id": "exec-mq4hrzpo-l10x3c",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:47:55.020Z",
+    "completedAt": "2026-06-08T00:47:55.415Z"
+  },
+  {
+    "id": "exec-mq4hr2dl-hc9qqu",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:47:11.817Z",
+    "completedAt": "2026-06-08T00:47:12.262Z"
+  },
+  {
+    "id": "exec-mq4hqccl-64r8yc",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:46:38.085Z",
+    "completedAt": "2026-06-08T00:46:38.557Z"
+  },
+  {
+    "id": "exec-mq4hqbi8-cgy56m",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:46:36.992Z",
+    "completedAt": "2026-06-08T00:46:38.082Z"
+  },
+  {
+    "id": "exec-mq4hqbb5-gsdix7",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:46:36.737Z",
+    "completedAt": "2026-06-08T00:46:36.850Z"
+  },
+  {
+    "id": "exec-mq4hog8d-klolon",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:45:09.805Z",
+    "completedAt": "2026-06-08T00:45:10.100Z"
+  },
+  {
+    "id": "exec-mq4hofib-a9v7ex",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:45:08.867Z",
+    "completedAt": "2026-06-08T00:45:09.803Z"
+  },
+  {
+    "id": "exec-mq4hofcr-u9vzud",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:45:08.667Z",
+    "completedAt": "2026-06-08T00:45:08.723Z"
+  },
+  {
+    "id": "exec-mq4hn904-r1m40f",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:44:13.780Z",
+    "completedAt": "2026-06-08T00:44:13.940Z"
+  },
+  {
+    "id": "exec-mq4hn8iw-wrzxo7",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:44:13.160Z",
+    "completedAt": "2026-06-08T00:44:13.778Z"
+  },
+  {
+    "id": "exec-mq4hn8ez-r17o46",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:44:13.019Z",
+    "completedAt": "2026-06-08T00:44:13.094Z"
+  },
+  {
+    "id": "exec-mq4hcg0o-0txj4q",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:35:49.656Z",
+    "completedAt": "2026-06-08T00:35:49.819Z"
+  },
+  {
+    "id": "exec-mq4hcfm5-4wj3p5",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:35:49.133Z",
+    "completedAt": "2026-06-08T00:35:49.652Z"
+  },
+  {
+    "id": "exec-mq4hcfcl-dpr6h6",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:35:48.789Z",
+    "completedAt": "2026-06-08T00:35:48.861Z"
+  },
+  {
+    "id": "exec-mq4hatn9-vfsbhx",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:34:34.005Z",
+    "completedAt": "2026-06-08T00:34:34.215Z"
+  },
+  {
+    "id": "exec-mq4hat1b-xtcrb4",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:34:33.215Z",
+    "completedAt": "2026-06-08T00:34:34.003Z"
+  },
+  {
+    "id": "exec-mq4hasxs-so1ye3",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-08T00:34:33.088Z",
+    "completedAt": "2026-06-08T00:34:33.203Z"
+  },
+  {
+    "id": "exec-mq43j4sd-4onic3",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T18:09:07.069Z",
+    "completedAt": "2026-06-07T18:09:07.272Z"
+  },
+  {
+    "id": "exec-mq43j4mo-vmosil",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T18:09:06.864Z",
+    "completedAt": "2026-06-07T18:09:06.955Z"
+  },
+  {
+    "id": "exec-mq43j43h-6qt9wx",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T18:09:06.173Z",
+    "completedAt": "2026-06-07T18:09:07.065Z"
+  },
+  {
+    "id": "exec-mq434j8b-j5xhz3",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:57:45.947Z",
+    "completedAt": "2026-06-07T17:57:46.099Z"
+  },
+  {
+    "id": "exec-mq434j0s-x4ye35",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:57:45.676Z",
+    "completedAt": "2026-06-07T17:57:45.711Z"
+  },
+  {
+    "id": "exec-mq434iyf-edmde3",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:57:45.591Z",
+    "completedAt": "2026-06-07T17:57:45.945Z"
+  },
+  {
+    "id": "exec-mq432epb-glshql",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:56:06.767Z",
+    "completedAt": "2026-06-07T17:56:06.862Z"
+  },
+  {
+    "id": "exec-mq432ens-h7stiy",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:56:06.712Z",
+    "completedAt": "2026-06-07T17:56:06.949Z"
+  },
+  {
+    "id": "exec-mq432efo-3b988h",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:56:06.420Z",
+    "completedAt": "2026-06-07T17:56:06.764Z"
+  },
+  {
+    "id": "exec-mq432ecr-7aip71",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:56:06.315Z",
+    "completedAt": "2026-06-07T17:56:06.707Z"
+  },
+  {
+    "id": "exec-mq432e5k-38495r",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:56:06.056Z",
+    "completedAt": "2026-06-07T17:56:06.109Z"
+  },
+  {
+    "id": "exec-mq432e4s-lbdif4",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:56:06.028Z",
+    "completedAt": "2026-06-07T17:56:06.096Z"
+  },
+  {
+    "id": "exec-mq431wum-1u8ot6",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:55:43.630Z",
+    "completedAt": "2026-06-07T17:55:43.734Z"
+  },
+  {
+    "id": "exec-mq431w0g-zj2hux",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:55:42.544Z",
+    "completedAt": "2026-06-07T17:55:42.822Z"
+  },
+  {
+    "id": "exec-mq42zwcv-supkhz",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:54:09.679Z",
+    "completedAt": "2026-06-07T17:54:10.047Z"
+  },
+  {
+    "id": "exec-mq42y296-cgj8xo",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:52:44.010Z",
+    "completedAt": "2026-06-07T17:52:44.104Z"
+  },
+  {
+    "id": "exec-mq42wmhp-3fy57f",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:51:36.925Z",
+    "completedAt": "2026-06-07T17:51:37.105Z"
+  },
+  {
+    "id": "exec-mq42wmdi-tza2bg",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:51:36.774Z",
+    "completedAt": "2026-06-07T17:51:36.898Z"
+  },
+  {
+    "id": "exec-mq42wm4h-rce7bl",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:51:36.449Z",
+    "completedAt": "2026-06-07T17:51:36.515Z"
+  },
+  {
+    "id": "exec-mq42wlz6-r99y6g",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:51:36.258Z",
+    "completedAt": "2026-06-07T17:51:36.747Z"
+  },
+  {
+    "id": "exec-mq42sq9w-r6srvj",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:48:35.204Z",
+    "completedAt": "2026-06-07T17:48:35.290Z"
+  },
+  {
+    "id": "exec-mq42spz2-jcq8hr",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:48:34.814Z",
+    "completedAt": "2026-06-07T17:48:35.202Z"
+  },
+  {
+    "id": "exec-mq42sai6-d2akx2",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:48:14.766Z",
+    "completedAt": "2026-06-07T17:48:15.453Z"
+  },
+  {
+    "id": "exec-mq42sae1-ye8t2l",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T17:48:14.617Z",
+    "completedAt": "2026-06-07T17:48:14.659Z"
+  },
+  {
+    "id": "exec-mq3z9h5m-gx7br8",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T16:09:38.074Z",
+    "completedAt": "2026-06-07T16:09:38.209Z"
+  },
+  {
+    "id": "exec-mq3z9grh-lqku3t",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T16:09:37.565Z",
+    "completedAt": "2026-06-07T16:09:38.071Z"
+  },
+  {
+    "id": "exec-mq3z9gp0-ecs534",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T16:09:37.476Z",
+    "completedAt": "2026-06-07T16:09:37.515Z"
+  },
+  {
+    "id": "exec-mq3z40zw-xe32lk",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T16:05:23.852Z",
+    "completedAt": "2026-06-07T16:05:23.948Z"
+  },
+  {
+    "id": "exec-mq3z40oe-ere24x",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T16:05:23.438Z",
+    "completedAt": "2026-06-07T16:05:23.850Z"
+  },
+  {
+    "id": "exec-mq3z40fi-tzibej",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T16:05:23.118Z",
+    "completedAt": "2026-06-07T16:05:23.175Z"
+  },
+  {
+    "id": "exec-mq3yak7h-jq92qp",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T15:42:29.069Z",
+    "completedAt": "2026-06-07T15:42:29.167Z"
+  },
+  {
+    "id": "exec-mq3yajxg-e5ajem",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T15:42:28.708Z",
+    "completedAt": "2026-06-07T15:42:29.067Z"
+  },
+  {
+    "id": "exec-mq3yajtm-scnn60",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T15:42:28.570Z",
+    "completedAt": "2026-06-07T15:42:28.606Z"
+  },
+  {
+    "id": "exec-mq3wbxsb-zf1t20",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:47:34.091Z",
+    "completedAt": "2026-06-07T14:47:34.174Z"
+  },
+  {
+    "id": "exec-mq3wbxrt-n3hy2a",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:47:34.073Z",
+    "completedAt": "2026-06-07T14:47:34.264Z"
+  },
+  {
+    "id": "exec-mq3wbxcj-doso5i",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:47:33.523Z",
+    "completedAt": "2026-06-07T14:47:34.042Z"
+  },
+  {
+    "id": "exec-mq3w7fd0-i6gu2a",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:44:03.588Z",
+    "completedAt": "2026-06-07T15:42:29.114Z"
+  },
+  {
+    "id": "exec-mq3w7fbx-pla3iy",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:44:03.549Z",
+    "completedAt": "2026-06-07T14:44:03.721Z"
+  },
+  {
+    "id": "exec-mq3w7eqh-8dc6oh",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:44:02.777Z",
+    "completedAt": "2026-06-07T14:44:03.546Z"
+  },
+  {
+    "id": "exec-mq3w3cw3-mebmdd",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:40:53.763Z",
+    "completedAt": "2026-06-07T14:40:54.013Z"
+  },
+  {
+    "id": "exec-mq3w3cog-3xffnh",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:40:53.488Z",
+    "completedAt": "2026-06-07T14:40:53.538Z"
+  },
+  {
+    "id": "exec-mq3w3cm3-mpmoz8",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-07T14:40:53.403Z"
+  },
+  {
+    "id": "exec-mq3vs5r0-ojl5nz",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:32:11.292Z",
+    "completedAt": "2026-06-07T14:32:11.988Z"
+  },
+  {
+    "id": "exec-mq3vs5el-lgqua8",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:32:10.845Z",
+    "completedAt": "2026-06-07T14:32:11.287Z"
+  },
+  {
+    "id": "exec-mq3vs5e6-9g5vta",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:32:10.830Z",
+    "completedAt": "2026-06-07T14:32:10.899Z"
+  },
+  {
+    "id": "exec-mq3ux03m-6ao4uo",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:07:57.634Z",
+    "completedAt": "2026-06-07T14:07:57.802Z"
+  },
+  {
+    "id": "exec-mq3uwzy7-0wwn2n",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:07:57.439Z",
+    "completedAt": "2026-06-07T14:07:57.474Z"
+  },
+  {
+    "id": "exec-mq3uwzua-tesp7r",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:07:57.298Z",
+    "completedAt": "2026-06-07T14:07:57.629Z"
+  },
+  {
+    "id": "exec-mq3uw6l3-qg3taa",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:07:19.383Z",
+    "completedAt": "2026-06-07T14:07:19.873Z"
+  },
+  {
+    "id": "exec-mq3uw67h-uop70p",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:07:18.893Z",
+    "completedAt": "2026-06-07T14:07:19.380Z"
+  },
+  {
+    "id": "exec-mq3uw63i-pdfz9t",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T14:07:18.750Z",
+    "completedAt": "2026-06-07T14:07:18.860Z"
+  },
+  {
+    "id": "exec-mq3uii92-xyantz",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:56:41.318Z",
+    "completedAt": "2026-06-07T13:56:41.428Z"
+  },
+  {
+    "id": "exec-mq3uii0o-jnqho1",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:56:41.016Z",
+    "completedAt": "2026-06-07T13:56:41.316Z"
+  },
+  {
+    "id": "exec-mq3uihy9-iv0bj8",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:56:40.929Z",
+    "completedAt": "2026-06-07T13:56:40.995Z"
+  },
+  {
+    "id": "exec-mq3ui629-rqyjh7",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:56:25.521Z",
+    "completedAt": "2026-06-07T13:56:25.663Z"
+  },
+  {
+    "id": "exec-mq3ui5u6-hm9zrj",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:56:25.230Z",
+    "completedAt": "2026-06-07T13:56:25.318Z"
+  },
+  {
+    "id": "exec-mq3ui5s5-duq11r",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:56:25.157Z",
+    "completedAt": "2026-06-07T13:56:25.518Z"
+  },
+  {
+    "id": "exec-mq3u07av-apmtfi",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:42:27.319Z",
+    "completedAt": "2026-06-07T13:42:27.821Z"
+  },
+  {
+    "id": "exec-mq3u0722-tagbxf",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:42:27.002Z",
+    "completedAt": "2026-06-07T13:42:27.069Z"
+  },
+  {
+    "id": "exec-mq3u071j-5a2oc6",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:42:26.983Z",
+    "completedAt": "2026-06-07T13:42:27.316Z"
+  },
+  {
+    "id": "exec-mq3tqr8z-pv8fjr",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:35:06.611Z",
+    "completedAt": "2026-06-07T13:35:06.696Z"
+  },
+  {
+    "id": "exec-mq3tqr1d-lvkbgd",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:35:06.337Z",
+    "completedAt": "2026-06-07T13:35:06.609Z"
+  },
+  {
+    "id": "exec-mq3tqqyh-e8owqn",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:35:06.233Z",
+    "completedAt": "2026-06-07T13:35:06.274Z"
+  },
+  {
+    "id": "exec-mq3tqgv8-a6xfho",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:34:53.156Z",
+    "completedAt": "2026-06-07T13:34:53.267Z"
+  },
+  {
+    "id": "exec-mq3tqgmi-3cxncq",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:34:52.842Z",
+    "completedAt": "2026-06-07T13:34:53.155Z"
+  },
+  {
+    "id": "exec-mq3tqgig-1yl4dl",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:34:52.696Z",
+    "completedAt": "2026-06-07T13:34:52.757Z"
+  },
+  {
+    "id": "exec-mq3tel35-2v2mu1",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:25:38.753Z",
+    "completedAt": "2026-06-07T13:25:38.811Z"
+  },
+  {
+    "id": "exec-mq3td9pp-mlpdrx",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:24:37.357Z",
+    "completedAt": "2026-06-07T13:24:37.519Z"
+  },
+  {
+    "id": "exec-mq3td9in-g0e263",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:24:37.103Z",
+    "completedAt": "2026-06-07T13:24:37.355Z"
+  },
+  {
+    "id": "exec-mq3td9eg-3l62y4",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:24:36.952Z",
+    "completedAt": "2026-06-07T13:24:37.028Z"
+  },
+  {
+    "id": "exec-mq3t5zc7-1042t7",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:18:57.319Z",
+    "completedAt": "2026-06-07T13:18:57.436Z"
+  },
+  {
+    "id": "exec-mq3t5z9e-d5g8k8",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:18:57.218Z",
+    "completedAt": "2026-06-07T13:18:57.278Z"
+  },
+  {
+    "id": "exec-mq3t5z6p-qrgmei",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:18:57.121Z",
+    "completedAt": "2026-06-07T13:18:57.317Z"
+  },
+  {
+    "id": "exec-mq3sx4cg-4pbdqr",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:12:03.904Z",
+    "completedAt": "2026-06-07T13:12:03.944Z"
+  },
+  {
+    "id": "exec-mq3sx44z-c3p39r",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:12:03.635Z",
+    "completedAt": "2026-06-07T13:12:03.751Z"
+  },
+  {
+    "id": "exec-mq3sx3ze-oyqetk",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:12:03.434Z",
+    "completedAt": "2026-06-07T13:12:03.633Z"
+  },
+  {
+    "id": "exec-mq3sj0to-7lw7xh",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:01:06.156Z",
+    "completedAt": "2026-06-07T13:01:06.336Z"
+  },
+  {
+    "id": "exec-mq3sj0np-8c29u7",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:01:05.941Z",
+    "completedAt": "2026-06-07T13:01:06.154Z"
+  },
+  {
+    "id": "exec-mq3sj0k3-5lh8wk",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:01:05.811Z",
+    "completedAt": "2026-06-07T13:01:05.853Z"
+  },
+  {
+    "id": "exec-mq3shzuy-2ghk8c",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:00:18.250Z",
+    "completedAt": "2026-06-07T13:00:18.347Z"
+  },
+  {
+    "id": "exec-mq3shzs4-dyx5nu",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:00:18.148Z",
+    "completedAt": "2026-06-07T13:00:18.217Z"
+  },
+  {
+    "id": "exec-mq3shzor-9g7wwb",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T13:00:18.027Z",
+    "completedAt": "2026-06-07T13:00:18.248Z"
+  },
+  {
+    "id": "exec-mq3scsx2-rbcw2x",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:56:15.974Z",
+    "completedAt": "2026-06-07T12:56:16.098Z"
+  },
+  {
+    "id": "exec-mq3s9z9k-kh6pne",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:54:04.232Z",
+    "completedAt": "2026-06-07T12:54:04.304Z"
+  },
+  {
+    "id": "exec-mq3rulvq-8lk8vf",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:42:07.046Z",
+    "completedAt": "2026-06-07T12:42:07.122Z"
+  },
+  {
+    "id": "exec-mq3rulq9-ss0m4o",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:42:06.849Z",
+    "completedAt": "2026-06-07T12:42:06.951Z"
+  },
+  {
+    "id": "exec-mq3rulpu-ydysz6",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:42:06.834Z",
+    "completedAt": "2026-06-07T12:42:07.044Z"
+  },
+  {
+    "id": "exec-mq3ro24n-fxfwh1",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:37:01.511Z",
+    "completedAt": "2026-06-07T12:37:01.615Z"
+  },
+  {
+    "id": "exec-mq3ro20q-iqs5pg",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:37:01.370Z",
+    "completedAt": "2026-06-07T12:37:01.509Z"
+  },
+  {
+    "id": "exec-mq3r78gp-vfw6uo",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:23:56.569Z",
+    "completedAt": "2026-06-07T12:23:56.644Z"
+  },
+  {
+    "id": "exec-mq3r6smd-xduan1",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:23:36.037Z",
+    "completedAt": "2026-06-07T12:23:36.086Z"
+  },
+  {
+    "id": "exec-mq3r6sl9-i19764",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:23:35.997Z",
+    "completedAt": "2026-06-07T12:23:36.096Z"
+  },
+  {
+    "id": "exec-mq3r6sh2-02mi8k",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:23:35.846Z",
+    "completedAt": "2026-06-07T12:23:35.995Z"
+  },
+  {
+    "id": "exec-mq3r6sgs-td33sg",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:23:35.836Z",
+    "completedAt": "2026-06-07T12:23:35.971Z"
+  },
+  {
+    "id": "exec-mq3r2ocd-dj7eeb",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:20:23.869Z",
+    "completedAt": "2026-06-07T12:20:23.929Z"
+  },
+  {
+    "id": "exec-mq3r1s2q-tasjd8",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:19:42.050Z",
+    "completedAt": "2026-06-07T12:19:42.151Z"
+  },
+  {
+    "id": "exec-mq3qwzw4-1j4q50",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:15:58.900Z",
+    "completedAt": "2026-06-07T12:15:59.474Z"
+  },
+  {
+    "id": "exec-mq3qwzvz-5cl4w8",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:15:58.895Z",
+    "completedAt": "2026-06-07T12:15:58.975Z"
+  },
+  {
+    "id": "exec-mq3qwzsd-hr7fnd",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:15:58.765Z",
+    "completedAt": "2026-06-07T12:15:58.898Z"
+  },
+  {
+    "id": "exec-mq3qwgmg-j7dtku",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:15:33.928Z",
+    "completedAt": "2026-06-07T12:15:34.024Z"
+  },
+  {
+    "id": "exec-mq3qusjc-ybzwd6",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:14:16.056Z",
+    "completedAt": "2026-06-07T12:14:16.069Z"
+  },
+  {
+    "id": "exec-mq3qmtbm-p3z2bf",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:08:03.826Z",
+    "completedAt": "2026-06-07T12:23:35.831Z"
+  },
+  {
+    "id": "exec-mq3qmtb8-90aq8r",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T12:08:03.812Z",
+    "completedAt": "2026-06-07T12:08:03.880Z"
+  },
+  {
+    "id": "exec-mq3pfi87-h2k5zh",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T11:34:23.239Z",
+    "completedAt": "2026-06-07T11:34:23.288Z"
+  },
+  {
+    "id": "exec-mq3pfi77-sc9sz8",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T11:34:23.203Z",
+    "completedAt": "2026-06-07T11:34:23.269Z"
+  },
+  {
+    "id": "exec-mq3pfi4n-ke33yw",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-07T11:34:23.111Z",
+    "completedAt": "2026-06-07T11:34:23.202Z"
+  },
+  {
+    "id": "exec-mq1quy3w-2gob5u",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:38:50.924Z",
+    "completedAt": "2026-06-06T02:38:51.063Z"
+  },
+  {
+    "id": "exec-mq1qumij-0ros1b",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:38:35.899Z",
+    "completedAt": "2026-06-06T02:38:35.993Z"
+  },
+  {
+    "id": "exec-mq1qumf5-mufiac",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:38:35.777Z",
+    "completedAt": "2026-06-06T02:38:35.897Z"
+  },
+  {
+    "id": "exec-mq1qt35z-gpd00t",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-06T02:37:24.167Z"
+  },
+  {
+    "id": "exec-mq1qt34y-csiile",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "running",
+    "startedAt": "2026-06-06T02:37:24.130Z"
+  },
+  {
+    "id": "exec-mq1qt32n-nm5stf",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:37:24.048Z",
+    "completedAt": "2026-06-06T02:37:24.116Z"
+  },
+  {
+    "id": "exec-mq1qsam3-mxdc19",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:36:47.163Z",
+    "completedAt": "2026-06-06T02:36:47.255Z"
+  },
+  {
+    "id": "exec-mq1qsagj-6ny2vd",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:36:46.963Z",
+    "completedAt": "2026-06-06T02:36:47.161Z"
+  },
+  {
+    "id": "exec-mq1qsad6-3rcb0g",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:36:46.842Z",
+    "completedAt": "2026-06-06T02:36:46.917Z"
+  },
+  {
+    "id": "exec-mq1qnvyf-x5b27h",
+    "workflowId": "daily-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T02:33:21.543Z",
+    "completedAt": "2026-06-06T02:33:21.612Z"
+  },
+  {
+    "id": "exec-mq1omcu1-rtags8",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T01:36:10.873Z",
+    "completedAt": "2026-06-06T01:36:10.911Z"
+  },
+  {
+    "id": "exec-mq1omcam-etqxt0",
+    "workflowId": "discovery-to-ship",
+    "agentIds": [
+      "research-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-06-06T01:36:10.174Z",
+    "completedAt": "2026-06-06T01:36:10.215Z"
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T12:42:06.932Z",
+  "entries": [
+    {
+      "id": "msg-mq3rulsc-46m2qd",
+      "category": "messages",
+      "title": "Discovery: Hospital associations need better PAC management.",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T12:42:06.924Z",
+      "path": "quake-os/memory/messages/msg-mq3rulsc-46m2qd.json"
+    },
+    {
+      "id": "msg-mq3rulse-4t16hi",
+      "category": "messages",
+      "title": "Test message",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T12:42:06.926Z",
+      "path": "quake-os/memory/messages/msg-mq3rulse-4t16hi.json"
+    },
+    {
+      "id": "dec-mq3rulsk-ysf275",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T12:42:06.932Z",
+      "path": "knowledge/decisions.db"
+    }
+  ]
+}     "agentId": "developer-agent",
+      "createdAt": "2026-06-07T12:42:06.921Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "req-mq3rulsm-pioff2",
+      "category": "requirements",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T12:42:06.934Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "feature-review"
+      ]
+    },
+    {
+      "id": "msg-mq3rulsn-nsejqw",
+      "category": "messages",
+      "title": "Feature built: Hospital associations need better PAC management.",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T12:42:06.935Z",
+      "path": "quake-os/memory/messages/msg-mq3rulsn-nsejqw.json"
+    }
+  ]
+}

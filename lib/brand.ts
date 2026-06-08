@@ -4,20 +4,21 @@
 
 export const BRAND_NAME = "PulsePoint";
 
-export const TAGLINE = "The modern AMS built for healthcare associations";
+export const TAGLINE =
+  "Association Management Software for Hospital & Healthsystem Trade Associations";
 
 export const ORIGIN_STORY =
-  "Built by an association that got tired of paying millions for outdated software.";
+  "Built for the way statewide hospital associations run membership, policy, education, and revenue—not retrofitted from generic AMS templates.";
 
 export const DIFFERENTIATORS = [
-  "Modern UI your staff actually likes using",
-  "Faster than legacy AMS platforms",
-  "AI-assisted workflows",
-  "Lower implementation costs",
-  "Easier reporting and exports",
-  "Modular architecture",
-  "Better member experience",
-  "No bloated enterprise consulting cycle",
+  "Purpose-built for hospital trade associations and statewide rosters",
+  "One member record: facility, contacts, advocacy, programs, and revenue",
+  "Search-first—find any CEO, hospital, or at-risk member in seconds",
+  "Advocacy and take-action tied to member hospitals, not spreadsheets",
+  "Executive KPIs from the same database staff use daily",
+  "Live and Preview labels—honest scope in product and contract",
+  "Modular rollout—value before a multi-year implementation",
+  "Modern workspace staff actually adopt",
 ] as const;
 
 export const BUILDER_ADVANTAGE = {
@@ -29,10 +30,20 @@ export const BUILDER_ADVANTAGE = {
 
 export const DESIGN_DIRECTION = {
   summary:
-    "HAP corporate brand (April 2025): primary blue #0072bc, warm accent #fbb040, light blue #8ed8f8. Tahoma for UI copy, Montserrat for headlines. Clean association-grade dashboards—not cliché hospital clipart.",
-  source: "HAP-Branding-Guidelines-April-2025-updated.pdf",
-  references: ["HAP 340B dashboards", "Oliver Wyman report surfaces"] as const,
-  avoid: "Off-brand navy/sky palettes; altering the HAP logo artwork",
+    "Calm neutrals (#FAFAFA / #1D1D1F), single healthcare accent (#0A6E7C), system typography (-apple-system / SF Pro), generous radius and whitespace. User-centric, minimal chrome—compete on clarity vs legacy AMS density.",
+  source: "lib/design-tokens.ts + app/globals.css",
+  references: ["Apple Human Interface Guidelines (spacing, hierarchy)"] as const,
+  avoid: "Employer-specific palettes; orange/warm corporate strips; cluttered data-dense tables without hierarchy",
+} as const;
+
+export const POSITIONING_VS_PROTECH = {
+  headline: "Modern AMS for healthcare associations—without the legacy tax",
+  pillars: [
+    "Intuitive first: fewer clicks, obvious next steps",
+    "Honest modular roadmap (Live vs coming soon)",
+    "Lower TCO: no million-dollar implementation before value",
+    "Tenant-safe by design (not bolted on later)",
+  ],
 } as const;
 
 export const DOMAIN_STRATEGY = {

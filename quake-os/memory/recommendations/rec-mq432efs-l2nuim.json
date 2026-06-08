@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq432efs-l2nuim",
+  "title": "gap: AMS competitor landscape",
+  "rationale": "docs/PROTECH-FEATURE-MAP.md: > “PulsePoint replaces the **daily staff wedge** Protech charges millions for—members, events, imports, payments, and op | data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"Modern liquid glass UX, honest alpha labels, advocacy issue hub + workforce alpha, faster pilot wedg | data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"PulsePoint CRM alpha inside full AMS spine\"",
+  "proposedBy": "research-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-07T17:56:06.424Z"
+}

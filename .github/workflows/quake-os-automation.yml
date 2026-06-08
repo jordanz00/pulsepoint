@@ -1,0 +1,58 @@
+name: Quake OS automation
+
+on:
+  schedule:
+    # Monday 09:00 UTC — weekly continuous improvement (matches Cursor automation cron)
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automation:
+    name: Gates → backlog → wave → report
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: pulsepoint
+          POSTGRES_PASSWORD: pulsepoint
+          POSTGRES_DB: pulsepoint
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql://pulsepoint:pulsepoint@localhost:5432/pulsepoint?schema=public
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
+      CLERK_SECRET_KEY: sk_test_ci_placeholder
+      QUAKE_OS_RUN_GATES: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run full automation pipeline
+        run: pnpm quake:automation:run
+      - name: Commit wave report
+        run: |
+          git config user.name "quake-os-automation"
+          git config user.email "quake-os-automation@users.noreply.github.com"
+          git add data/quake-os/waves/ data/quake-os/improvement-backlog.json quake-os/memory/ || true
+          if git diff --staged --quiet; then
+            echo "No wave artifacts to commit"
+          else
+            git commit -m "chore(quake-os): weekly automation wave report"
+            git push
+          fi

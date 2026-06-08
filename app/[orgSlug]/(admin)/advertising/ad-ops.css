@@ -1,0 +1,174 @@
+/* Healthcare ad-ops module — scoped under .ad-ops-shell */
+.ad-ops-shell {
+  --ad-bg: #f4f6f8;
+  --ad-surface: #ffffff;
+  --ad-text: #1a2332;
+  --ad-muted: #5c6b7a;
+  --ad-brand: #0b5cab;
+  --ad-ok: #0d7a4a;
+  --ad-err: #b91c1c;
+  --ad-border: #d8e0e8;
+  --ad-radius: 10px;
+}
+
+.ad-ops-shell .ad-ops-nav {
+  display: flex;
+  gap: 0.75rem 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  background: var(--ad-surface);
+  border: 1px solid var(--ad-border);
+  border-radius: var(--ad-radius);
+}
+
+.ad-ops-shell .ad-ops-nav__title {
+  margin-right: auto;
+  font-size: 0.95rem;
+}
+
+.ad-ops-shell .card {
+  background: var(--ad-surface);
+  border: 1px solid var(--ad-border);
+  border-radius: var(--ad-radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.ad-ops-shell .grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.ad-ops-shell .muted {
+  color: var(--ad-muted);
+  font-size: 0.9rem;
+}
+
+.ad-ops-shell .badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e8eef5;
+  color: var(--ad-brand);
+}
+
+.ad-ops-shell .badge--ok {
+  background: #dcf5e8;
+  color: var(--ad-ok);
+}
+
+.ad-ops-shell .badge--err {
+  background: #fde8e8;
+  color: var(--ad-err);
+}
+
+.ad-ops-shell table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ad-ops-shell th,
+.ad-ops-shell td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--ad-border);
+}
+
+.ad-ops-shell button.primary {
+  background: var(--ad-brand);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ad-ops-shell button.primary:disabled {
+  opacity: 0.6;
+}
+
+/* Glass executive layout (AdOpsPageShell) */
+.ad-ops-glass-page .pp-glass-stat-value--hero {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+.ad-ops-glass-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.ad-ops-glass-panel {
+  padding: 1rem 1.1rem;
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.55);
+  border: 0.5px solid rgba(0, 114, 188, 0.12);
+}
+.ad-ops-glass-panel--wide {
+  margin-top: 0.25rem;
+}
+.ad-ops-glass-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.ad-ops-glass-panel-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--ad-text);
+}
+.ad-ops-glass-stat {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0.35rem 0 0.65rem;
+  font-variant-numeric: tabular-nums;
+}
+.ad-ops-glass-stat--ok { color: var(--ad-ok); }
+.ad-ops-glass-stat--err { color: var(--ad-err); }
+.ad-ops-glass-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ad-brand);
+  text-decoration: none;
+}
+.ad-ops-glass-link:hover { text-decoration: underline; }
+.ad-ops-glass-steps {
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 1.15rem;
+  font-size: 0.85rem;
+  color: var(--ad-muted);
+  line-height: 1.45;
+}
+.ad-ops-glass-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.ad-ops-glass-table th {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ad-muted);
+  padding: 0.45rem 0.65rem;
+  border-bottom: 1px solid var(--ad-border);
+}
+.ad-ops-glass-table td {
+  padding: 0.55rem 0.65rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--ad-border) 65%, transparent);
+}
+.ad-ops-glass-table a {
+  color: var(--ad-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.ad-ops-glass-table a:hover { text-decoration: underline; }

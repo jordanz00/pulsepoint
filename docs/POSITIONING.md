@@ -3,11 +3,11 @@
 ## Hero
 
 - **Eyebrow:** Association Management Software  
-- **Headline:** Modern AMS Built for Healthcare Associations  
+- **Headline:** PulsePoint — Association Management Software Built for Healthcare  
 
 ## Tagline (internal / legacy)
 
-**The modern AMS built for healthcare associations.**
+**Association Management Software Built for Healthcare.**
 
 ## Origin story
 
@@ -15,14 +15,18 @@ Built by an association that got tired of paying millions for outdated software.
 
 ## What makes it different
 
-- Modern UI your staff actually likes using
-- Faster than legacy AMS platforms
-- AI-assisted workflows
-- Lower implementation costs
-- Easier reporting and exports
-- Modular architecture
-- Better member experience
-- No bloated enterprise consulting cycle
+**North star:** operational trust—predictable behavior under association workflows (imports, money, permissions, audit, exceptions)—not feature count.
+
+- **Honest Live labels** — features marked Live only after operational readiness gates (`pnpm claims:validate`, [PRODUCT-CLAIMS.md](./PRODUCT-CLAIMS.md))
+- **Operationally trustworthy** — staged imports, exception queues, runbooks, export parity
+- **Visually modern** — enforceable [UI-QUALITY-BAR.md](./UI-QUALITY-BAR.md); staff UI that stays consistent
+- Fewest clicks to common tasks; one screen per member
+- Lower implementation cost than legacy AMS lock-in
+- Modular architecture — graduate modules one at a time, not Protech parity in one pass
+
+**Positioning line for leadership:**
+
+> “PulsePoint only marks features **Live** when they pass operational readiness gates—not when a slide deck needs them.”
 
 ## Marketing IA (Protech-competitive)
 
@@ -53,8 +57,7 @@ Long-form copy: `lib/marketing-content.ts` (Work, MemberCore, Events, Learn, Giv
 | Commerce | Storefronts, dues, merchandise, payments | Roadmap → PulsePoint Commerce |
 | Committees | Boards, task forces, voting | Roadmap |
 | Communications | Campaigns, segmentation, engagement | Roadmap → PulsePoint Engage |
-| Insights | BI, dashboards, role-based reporting | Roadmap → PulsePoint Insights |
-| AI Tools | Automation and support workflows | Roadmap → PulsePoint AI |
+| Insights | BI, dashboards, role-based reporting | Alpha → PulsePoint Insights |
 
 ## Design direction
 

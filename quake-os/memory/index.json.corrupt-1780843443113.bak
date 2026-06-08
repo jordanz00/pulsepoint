@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T14:44:03.105Z",
+  "entries": [
+    {
+      "id": "res-mq3w7eqr-mupu6z",
+      "category": "research",
+      "title": "AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T14:44:02.787Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "competitor",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "msg-mq3w7eqs-wpgmbu",
+      "category": "messages",
+      "title": "New task: Define CE credit schema in requirements registry",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:44:02.788Z",
+      "path": "quake-os/memory/messages/msg-mq3w7eqs-wpgmbu.json"
+    },
+    {
+      "id": "task-mq3w7equ-g1syav",
+      "category": "tasks",
+      "title": "Bulk member→hospital assignment (BL-006)",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T14:44:02.790Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002j-ic10bf"
+      ]
+    },
+    {
+      "id": "msg-mq3w7eqv-eyie4t",
+      "category": "messages",
+      "title": "New task: Bulk member→hospital assignment (BL-006)",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:44:02.791Z",
+      "path": "quake-os/memory/messages/msg-mq3w7eqv-eyie4t.json"
+    },
+    {
+      "id": "msg-mq3w7eqw-ypa2my",
+      "category": "messages",
+      "title": "New task: gap: AMS competitor landscape",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:44:02.792Z",
+      "path": "quake-os/memory/messages/msg-mq3w7eqw-ypa2my.json"
+    },
+    {
+      "id": "rec-mq3w7eqz-t1u7z5",
+      "category": "recommendations",
+      "title": "opportunity: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T14:44:02.795Z",
+      "path": "quake-os/memory/recommendations/rec-mq3w7eqz-t1u7z5.json"
+    },
+    {
+      "id": "task-mq3w7eqy-4z90n7",
+      "category": "tasks",
+      "title": "Keep PAC marketing labeled illustrative",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T14:44:02.794Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002o-lbi00z"
+      ]
+    },
+    {
+      "id": "msg-mq3w7er0-d2dc9p",
+      "category": "messages",
+      "title": "New task: Keep PAC marketing labeled illustrative",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:44:02.796Z",
+      "path": "quake-os/memory/messages/msg-mq3w7er0-d2dc9p.json"
+    },
+    {
+      "id": "task-mq3w7eqz-vmmo6g",
+      "category": "tasks",
+      "title": "opportunity: AMS competitor landscape",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T14:44:02.795Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-from-research"
+      ]
+    },
+    {
+      "id": "msg-mq3w7er6-p94y16",
+      "category": "messages",
+      "title": "New task: opportunity: AMS competitor landscape",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:44:02.802Z",
+      "path": "quake-os/memory/messages/msg-mq3w7er6-p94y16.json"
+    },
+    {
+      "id": "msg-mq3w7erb-1dfqre",
+      "category": "messages",
+      "title": "New task: Extend AI helpers modularly",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:44:02.807Z",
+      "path": "quake-os/memory/messages/msg-mq3w7erb-1dfqre.json"
+    },
+    {
+      "id": "res-mq3w7erg-7l3kka",
+      "category": "research",
+      "title": "Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-07T14:44:02.812Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "hospital_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3w7eri-bzai3o",
+      "category": "recommendations",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-07T14:44:02.814Z",
+      "path": "quake-os/memory/recommendations/rec-mq3w7eri-bzai3o.json"
+    },
+    {
+      "id": "task-mq3w7es4-fw11oy",
+      "category": "tasks",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T14:44:02.836Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-from-research"
+      ]
+    },
+    {
+      "id": "msg-mq3w7et0-6gp3p8",
+      "category": "messages",
+      "title": "New task: gap: Hospital association advocacy",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:44:02.868Z",
+      "path": "quake-os/memory/messages/msg-mq3w7et0-6gp3p8.json"
+    },
+    {
+      "id": "rec-mq3w7eta-9pqsts",
+      "category": "recommendations",
+      "title": "risk: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-07T14:44:02.878Z",
+      "path": "quake-os/memory/recommendations/rec-mq3w7eta-9pqsts.json"
+    },
+    {
+      "id": "task-mq3w7etr-xexcx4",
+      "category": "tasks",
+      "title": "risk: Hospital association advocacy",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T14:44:02.895Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-from-research"
+      ]
+    },
+    {
+      "id": "res-mq3w7exd-plj05i",
+      "category": "research",
+      "title": "Pipeline test",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T14:44:03.025Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "membership",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq3w7ezl-xuybix",
+      "category": "recommendations",
+      "title": "risk: Pipeline test",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T14:44:03.105Z",
+      "path": "quake-os/memory/recommendations/rec-mq3w7ezl-xuybix.json"
+    }
+  ]
+}

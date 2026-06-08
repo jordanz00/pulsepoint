@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3uwzyv-eo3k50",
+  "from": "qa-agent",
+  "to": "auditor-agent",
+  "subject": "QA tests ready: Hospital associations need better PAC management.",
+  "body": "Gate: pnpm quake:gates",
+  "refs": [
+    "task-mq3uwzyp-y2hvm2"
+  ],
+  "createdAt": "2026-06-07T14:07:57.463Z"
+}

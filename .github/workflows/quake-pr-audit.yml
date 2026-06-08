@@ -1,0 +1,32 @@
+name: Quake OS PR audit
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "app/**"
+      - "lib/**"
+      - "components/**"
+      - "prisma/**"
+      - "docs/PRODUCT-CLAIMS.md"
+
+permissions:
+  pull-requests: write
+
+jobs:
+  audit-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Post Quake OS audit comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/quake-pr-audit-comment.sh "${{ github.event.pull_request.number }}"

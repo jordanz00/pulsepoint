@@ -1,0 +1,21 @@
+{
+  "id": "BL-001",
+  "title": "Public take-action form + response capture",
+  "description": "Staff +1 response shipped; need member-facing form with validation",
+  "priority": "P1",
+  "businessImpact": "high",
+  "technicalComplexity": "medium",
+  "dependencies": [],
+  "ownerAgent": "quake-os-backend",
+  "status": "done",
+  "researchSources": [],
+  "acceptanceCriteria": [],
+  "createdAt": "2026-06-06T01:18:47.879Z",
+  "updatedAt": "2026-06-07T13:42:24.140Z",
+  "division": "backend",
+  "tags": [
+    "quake-os-backend",
+    "quake-os-hospital-association",
+    "quake-os-security"
+  ]
+}

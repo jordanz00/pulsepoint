@@ -1,13 +1,18 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { exportMembersCsv } from "@/app/actions/members";
-import { stageMembersCsvImport } from "@/app/actions/member-import";
 
-export function MemberImportExport({ orgSlug }: { orgSlug: string }) {
-  const router = useRouter();
+/** Members list toolbar — export + link to staged import review. */
+export function MemberImportExport({
+  orgSlug,
+  simple = false,
+}: {
+  orgSlug: string;
+  simple?: boolean;
+}) {
   const [message, setMessage] = useState<string | null>(null);
 
   async function handleExport() {
@@ -23,21 +28,21 @@ export function MemberImportExport({ orgSlug }: { orgSlug: string }) {
     a.download = `pulsepoint-members-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
-    setMessage("Export downloaded");
+    setMessage("Your file was downloaded.");
   }
 
-  async function handleImport(file: File) {
-    const text = await file.text();
-    const result = await stageMembersCsvImport(text, orgSlug, file.name);
-    if (!result.ok) {
-      setMessage(result.error);
-      return;
-    }
-    setMessage(
-      `Staged ${result.data?.rowCount ?? 0} rows — review before applying to member records.`,
+  if (simple) {
+    return (
+      <div className="pc-simple-toolbar">
+        <Button type="button" variant="secondary" onClick={handleExport}>
+          Download list
+        </Button>
+        <Link href={`/${orgSlug}/members/imports`} className="pc-btn-secondary">
+          Import CSV
+        </Link>
+        {message ? <p className="w-full text-sm text-[var(--pc-text-secondary)]">{message}</p> : null}
+      </div>
     );
-    router.push(`/${orgSlug}/members/imports`);
-    router.refresh();
   }
 
   return (
@@ -45,28 +50,10 @@ export function MemberImportExport({ orgSlug }: { orgSlug: string }) {
       <Button type="button" variant="secondary" onClick={handleExport}>
         Export CSV
       </Button>
-      <label className="inline-flex cursor-pointer items-center">
-        <span className="rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium hover:bg-zinc-50">
-          Stage CSV import
-        </span>
-        <input
-          type="file"
-          accept=".csv,text/csv"
-          className="hidden"
-          onChange={(e) => {
-            const f = e.target.files?.[0];
-            if (f) void handleImport(f);
-          }}
-        />
-      </label>
-      <Button
-        type="button"
-        variant="secondary"
-        onClick={() => router.push(`/${orgSlug}/members/imports`)}
-      >
-        Review imports
-      </Button>
-      {message && <span className="text-sm text-zinc-600">{message}</span>}
+      <Link href={`/${orgSlug}/members/imports`} className="pc-btn-secondary">
+        Import CSV
+      </Link>
+      {message ? <p className="w-full text-sm text-[var(--pc-text-secondary)]">{message}</p> : null}
     </div>
   );
 }

@@ -4,6 +4,7 @@
 
 import type { Prisma } from "@/app/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
+import { redactForAudit } from "@/lib/security/audit-redact";
 
 export type AuditInput = {
   orgId: string;
@@ -15,6 +16,11 @@ export type AuditInput = {
 };
 
 export async function writeAuditLog(input: AuditInput): Promise<void> {
+  const diff =
+    input.diff === undefined
+      ? undefined
+      : (redactForAudit(input.diff) as Prisma.InputJsonValue);
+
   await prisma.auditLog.create({
     data: {
       orgId: input.orgId,
@@ -22,7 +28,7 @@ export async function writeAuditLog(input: AuditInput): Promise<void> {
       action: input.action,
       entity: input.entity,
       entityId: input.entityId ?? null,
-      diff: input.diff ?? undefined,
+      diff,
     },
   });
 }

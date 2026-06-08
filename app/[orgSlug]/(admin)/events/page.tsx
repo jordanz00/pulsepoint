@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getOrgDb } from "@/lib/db";
+import { AdminPage } from "@/components/admin/admin-page";
 import { PageHeader } from "@/components/ui/page-header";
 import { EmptyState } from "@/components/ui/empty-state";
-import { Badge } from "@/components/ui/badge";
+import { EventCoreHub } from "@/components/events/eventcore-hub";
+import { loadEventCoreSummary } from "@/lib/load-eventcore-summary";
+import { EventEventsFilter } from "@/components/events/event-events-filter";
+import { ModuleLandingBriefing } from "@/components/platform/module-landing-briefing";
+import { ADMIN_PAGES, isEasyAdminMode, pageSubtitle } from "@/lib/admin-page-copy";
 
 export default async function EventsPage({
   params,
@@ -11,73 +16,65 @@ export default async function EventsPage({
   params: Promise<{ orgSlug: string }>;
 }) {
   const { orgSlug } = await params;
+  const easy = isEasyAdminMode(orgSlug);
   const org = await prisma.organization.findUnique({ where: { slug: orgSlug } });
   if (!org) return null;
 
   const db = getOrgDb(org.id);
-  const events = await db.event.findMany({
-    orderBy: { startsAt: "desc" },
-    include: { _count: { select: { registrations: true } } },
-  });
+  const [events, summary] = await Promise.all([
+    db.event.findMany({
+      orderBy: { startsAt: "desc" },
+      include: { _count: { select: { registrations: true } } },
+      take: easy ? 50 : 100,
+    }),
+    loadEventCoreSummary(org.id),
+  ]);
 
   return (
-    <div className="space-y-6">
+    <AdminPage orgSlug={orgSlug}>
       <PageHeader
-        title="PulsePoint Events"
-        subtitle="Events, Sponsorships & Exhibits — registration, check-in, and public pages"
-        badge="live"
+        title={ADMIN_PAGES.events.title}
+        subtitle={pageSubtitle(orgSlug, "events")}
+        badge={easy ? undefined : "live"}
+        backHref={easy ? `/${orgSlug}` : undefined}
+        backLabel="Home"
         actions={
-          <Link href={`/${orgSlug}/events/new`} className="pc-btn-primary text-sm">
+          <Link href={`/${orgSlug}/events/new`} className="pc-btn-primary">
             New event
           </Link>
         }
       />
 
+      <ModuleLandingBriefing orgId={org.id} orgSlug={orgSlug} productId="events" />
+
+      <EventCoreHub orgSlug={orgSlug} stats={summary} />
+
       {events.length === 0 ? (
         <EmptyState
           title="No events yet"
-          description="Create an event, publish it, and share the public registration link."
+          description="Create an event, then share the registration link or email your member list."
           action={
-            <Link href={`/${orgSlug}/events/new`} className="pc-btn-primary text-sm">
+            <Link href={`/${orgSlug}/events/new`} className="pc-btn-primary">
               New event
             </Link>
           }
         />
       ) : (
-        <div className="space-y-3">
-          {events.map((e) => (
-            <article
-              key={e.id}
-              className="pc-card flex flex-wrap items-center justify-between gap-3"
-            >
-              <div>
-                <Link href={`/${orgSlug}/events/${e.id}`} className="pc-link text-base">
-                  {e.title}
-                </Link>
-                <p className="mt-1 text-sm text-slate-500">
-                  {e.startsAt.toLocaleString()} · {e._count.registrations}{" "}
-                  registrations
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge variant={e.status === "PUBLISHED" ? "live" : "roadmap"}>
-                  {e.status}
-                </Badge>
-                {e.status === "PUBLISHED" && (
-                  <Link
-                    href={`/${orgSlug}/e/${e.publicSlug}`}
-                    className="pc-btn-secondary text-xs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Public page
-                  </Link>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
+        <EventEventsFilter
+          orgSlug={orgSlug}
+          events={events.map((e) => ({
+            id: e.id,
+            title: e.title,
+            status: e.status,
+            startsAt: e.startsAt,
+            venueName: e.venueName,
+            format: e.format,
+            registrationCount: e._count.registrations,
+            capacity: e.capacity,
+            publicSlug: e.publicSlug,
+          }))}
+        />
       )}
-    </div>
+    </AdminPage>
   );
 }

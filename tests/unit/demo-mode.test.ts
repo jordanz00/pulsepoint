@@ -30,12 +30,23 @@ describe("demo-mode env gates", () => {
     expect(mod.isDemoModeEnabled()).toBe(true);
   });
 
-  it("is disabled in production", async () => {
+  it("is disabled in production without hosted preview flag", async () => {
     vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("VERCEL_ENV", "production");
+    vi.stubEnv("HOSTED_DEMO", "");
     vi.stubEnv("DEMO_MODE", "false"); // critical: we cannot import w/ true+prod
     vi.resetModules();
     const mod = await load();
     expect(mod.isDemoModeEnabled()).toBe(false);
+  });
+
+  it("enables on Vercel Preview when HOSTED_DEMO=true", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("VERCEL_ENV", "preview");
+    vi.stubEnv("HOSTED_DEMO", "true");
+    vi.resetModules();
+    const mod = await load();
+    expect(mod.isDemoModeEnabled()).toBe(true);
   });
 
   it("is disabled when DEMO_MODE is unset", async () => {
@@ -47,6 +58,13 @@ describe("demo-mode env gates", () => {
 
   it("is disabled when secret is too short", async () => {
     vi.stubEnv("DEMO_SESSION_SECRET", "short");
+    vi.resetModules();
+    const mod = await load();
+    expect(mod.isDemoModeEnabled()).toBe(false);
+  });
+
+  it("is disabled when Entra integration profile is active", async () => {
+    vi.stubEnv("INTEGRATION_PROFILE", "pilot-entra");
     vi.resetModules();
     const mod = await load();
     expect(mod.isDemoModeEnabled()).toBe(false);
@@ -94,10 +112,53 @@ describe("demo-mode cookie sign/verify", () => {
 });
 
 describe("demo-mode production refusal", () => {
-  it("assertDemoModeNotInProduction throws if both prod+demo", async () => {
+  it("assertDemoModeNotInProduction throws on Vercel Production with DEMO_MODE", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("VERCEL_ENV", "production");
+    vi.stubEnv("HOSTED_DEMO", "");
+    vi.stubEnv("DEMO_MODE", "true");
+    vi.resetModules();
+    const gates = await import("@/lib/demo-mode-gates");
+    expect(() => gates.assertDemoModeNotInProduction()).toThrow(
+      /DEMO_MODE_IN_PRODUCTION/,
+    );
+  });
+
+  it("assertDemoModeNotInProduction allows Vercel Preview + HOSTED_DEMO", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("VERCEL_ENV", "preview");
+    vi.stubEnv("HOSTED_DEMO", "true");
+    vi.stubEnv("DEMO_MODE", "true");
+    vi.resetModules();
+    const gates = await import("@/lib/demo-mode-gates");
+    expect(() => gates.assertDemoModeNotInProduction()).not.toThrow();
+  });
+
+  it("signDemoCookie refuses to mint on Vercel Production", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("VERCEL_ENV", "production");
+    vi.stubEnv("HOSTED_DEMO", "");
+    vi.stubEnv("DEMO_MODE", "true");
+    vi.resetModules();
+    const mod = await load();
+    expect(() => mod.signDemoCookie()).toThrow(/DEMO_MODE_IN_PRODUCTION/);
+  });
+
+  it("signDemoCookie works on Vercel Preview + HOSTED_DEMO", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("VERCEL_ENV", "preview");
+    vi.stubEnv("HOSTED_DEMO", "true");
+    vi.resetModules();
+    const mod = await load();
+    expect(mod.signDemoCookie()).toMatch(/^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/);
+  });
+
+  it("getDemoSession returns null silently in production (no throw, gate-only)", async () => {
     vi.stubEnv("NODE_ENV", "production");
     vi.stubEnv("DEMO_MODE", "true");
     vi.resetModules();
-    await expect(load()).rejects.toThrow(/DEMO_MODE_IN_PRODUCTION/);
+    const mod = await load();
+    // Read path must not crash passive page renders / build-time prerender.
+    await expect(mod.getDemoSession()).resolves.toBeNull();
   });
 });

@@ -1,3 +1,5 @@
+import { ConfirmProvider } from "@/components/confirm-dialog";
+import { ToastProvider } from "@/components/toast";
 import { isStandalonePrototype } from "@/lib/standalone-prototype";
 
 /**
@@ -5,11 +7,17 @@ import { isStandalonePrototype } from "@/lib/standalone-prototype";
  * When DEMO_MODE=true, children render without Clerk (no keyless / sign-in UI).
  */
 export function AppProviders({ children }: { children: React.ReactNode }) {
+  const inner = (
+    <ToastProvider>
+      <ConfirmProvider>{children}</ConfirmProvider>
+    </ToastProvider>
+  );
+
   if (isStandalonePrototype()) {
-    return children;
+    return inner;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { ClerkProvider } = require("@clerk/nextjs") as typeof import("@clerk/nextjs");
-  return <ClerkProvider>{children}</ClerkProvider>;
+  return <ClerkProvider>{inner}</ClerkProvider>;
 }

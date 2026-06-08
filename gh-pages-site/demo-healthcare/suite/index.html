@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="pp-base" content="/pulsepoint/" />
+  <title>Full suite — Sterling Healthcare demo</title>
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <script src="../../assets/site.js" defer></script>
+</head>
+<body>
+  <div class="pc-demo-banner">
+    Full suite (static) · all modules enabled · <a href="#" data-pp-exit-demo>Exit demo</a>
+  </div>
+  <main class="pc-section">
+    <h1 style="font-family:var(--font-display);color:var(--pc-accent);text-align:center;">Full suite explorer</h1>
+    <p style="text-align:center;color:var(--pc-muted);max-width:36rem;margin:0 auto 2rem;">
+      Standalone demo — every PulsePoint module clickable in the local app with seeded data.
+    </p>
+    <div class="feature-grid" style="max-width:56rem;margin:0 auto;">
+      <div class="feature-card"><h3>Work <span class="pc-badge pc-badge-live">Live</span></h3><p>Staff command center</p></div>
+      <div class="feature-card"><h3>MemberCore <span class="pc-badge pc-badge-live">Live</span></h3><p>50 members · roles · notes</p></div>
+      <div class="feature-card"><h3>Events <span class="pc-badge pc-badge-live">Live</span></h3><p>Registration · paid summit</p></div>
+      <div class="feature-card"><h3>Learn <span class="pc-badge pc-badge-alpha">Alpha</span></h3><p>CE types · courses</p></div>
+      <div class="feature-card"><h3>Giving <span class="pc-badge pc-badge-alpha">Alpha</span></h3><p>Campaigns · gifts</p></div>
+      <div class="feature-card"><h3>Commerce <span class="pc-badge pc-badge-alpha">Alpha</span></h3><p>Dues · sponsorships</p></div>
+      <div class="feature-card"><h3>Engage <span class="pc-badge pc-badge-alpha">Alpha</span></h3><p>Templates · audiences</p></div>
+      <div class="feature-card"><h3>Insights <span class="pc-badge pc-badge-alpha">Alpha</span></h3><p>KPI dashboard</p></div>
+      <div class="feature-card"><h3>Import review <span class="pc-badge pc-badge-live">Live</span></h3><p>Protech CSV staging</p></div>
+      <div class="feature-card"><h3>Exceptions <span class="pc-badge pc-badge-live">Live</span></h3><p>Ops queue</p></div>
+      <div class="feature-card"><h3>Committees <span class="pc-badge pc-badge-roadmap">Preview</span></h3><p>Governance rollup</p></div>
+      <div class="feature-card"><h3>Portal <span class="pc-badge pc-badge-live">Live</span></h3><p>Member self-service</p></div>
+    </div>
+    <p class="pc-note" style="max-width:40rem;margin:2rem auto 0;text-align:center;">
+      <a data-pp-href="demo-healthcare/walkthrough/">Guided walkthrough</a> ·
+      <a data-pp-href="demo/">Local app: Open full suite</a>
+    </p>
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.PulsePointSite.requireDemo();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-08T01:17:21.535Z",
+  "entries": [
+    {
+      "id": "rec-mq4ituqn-ze9r7m",
+      "category": "recommendations",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:21.503Z",
+      "path": "quake-os/memory/recommendations/rec-mq4ituqn-ze9r7m.json"
+    }
+  ]
+}title": "New task: OS test task",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:21.495Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqf-h81c96.json"
+    },
+    {
+      "id": "task-mq4ituqf-efqse5",
+      "category": "tasks",
+      "title": "Maintain honest Live/Alpha/Roadmap labels per docs/PRODUCT-CLAIMS.md",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:21.495Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002c-3zzkwb"
+      ]
+    },
+    {
+      "id": "res-mq4ituqf-bkyeki",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-08T01:17:21.495Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "msg-mq4ituqg-efjefp",
+      "category": "messages",
+      "title": "New task: Maintain honest Live/Alpha/Roadmap labels per docs/PRODUCT-CLAIMS.md",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:21.496Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqg-efjefp.json"
+    },
+    {
+      "id": "audit-mq4ituqg-j7w037",
+      "category": "audits",
+      "title": "OS test",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-08T01:17:21.496Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq4ituqi-qqu2j3",
+      "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:21.498Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqi-qqu2j3.json"
+    },
+    {
+      "id": "res-mq4ituqk-qmjf6r",
+      "category": "research",
+      "title": "AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:21.500Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "competitor",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "task-mq4ituqh-zogxph",
+      "category": "tasks",
+      "title": "Ship public take-action form with validation",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:21.497Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002e-yi540s"
+      ]
+    },
+    {
+      "id": "msg-mq4ituqm-alvnqs",
+      "category": "messages",
+      "title": "New task: Ship public take-action form with validation",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:21.502Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqm-alvnqs.json"
+    },
+    {
+      "id": "msg-mq4ituqk-v3r3re",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ResearchAgent.run()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:21.500Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqk-v3r3re.json"
+    },
+    {
+      "id": "task-mq4ituqn-ot5fkg",
+      "category": "tasks",
+      "title": "Define CE credit schema in requirements registry",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:21.503Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002f-ixlccp"
+      ]
+    },
+    {
+      "id": "msg-mq4ituqn-b2aj43",
+      "category": "messages",
+      "title": "New task: Define CE credit schema in requirements registry",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:21.503Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqn-b2aj43.json"
+    },
+    {
+      "id": "task-mq4ituqo-f0lmcw",
+      "category": "tasks",
+      "title": "Bulk member→hospital assignment (BL-006)",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:21.504Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002j-ic10bf"
+      ]
+    },
+    {
+      "id": "dec-mq4ituqo-p0za4d",
+      "category": "decisions",
+      "title": "Daily architecture review",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-08T01:17:21.504Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq4ituqp-ets0j1",
+      "category": "messages",
+      "title": "New task: Bulk member→hospital assignment (BL-006)",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:21.505Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqp-ets0j1.json"
+    },
+    {
+      "id": "task-mq4ituqp-6v83mx",
+      "category": "tasks",
+      "title": "Keep PAC marketing labeled illustrative",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:21.505Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002o-lbi00z"
+      ]
+    },
+    {
+      "id": "msg-mq4ituqu-u6o9eu",
+      "category": "messages",
+      "title": "New task: Keep PAC marketing labeled illustrative",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:21.510Z",
+      "path": "quake-os/memory/messages/msg-mq4ituqu-u6o9eu.json"
+    },
+    {
+      "id": "task-mq4ituqw-o1nlqt",
+      "category": "tasks",
+      "title": "Extend AI helpers modularly",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:21.512Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002w-skoyom"
+      ]
+    },
+    {
+      "id": "res-mq4ituqx-m3szam",
+      "category": "research",
+      "title": "AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:21.513Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "competitor",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq4itur5-1269ft",
+      "category": "recommendations",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:21.521Z",
+      "path": "quake-os/memory/recommendations/rec-mq4itur5-1269ft.json"
+    },
+    {
+      "id": "res-mq4iturc-vecchv",
+      "category": "research",
+      "title": "Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-08T01:17:21.528Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "hospital_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq4iturs-8x2nu1",
+      "category": "recommendations",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-08T01:17:21.544Z",
+      "path": "quake-os/memory/recommendations/rec-mq4iturs-8x2nu1.json"
+    },
+    {
+      "id": "msg-mq4iturh-wn6x0j",
+      "category": "messages",
+      "title": "Architecture review complete",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-08T01:17:21.533Z",
+      "path": "quake-os/memory/messages/msg-mq4iturh-wn6x0j.json"
+    }
+  ]
+}

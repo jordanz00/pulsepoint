@@ -1,0 +1,423 @@
+{
+  "_meta": {
+    "owner": "quake-os-continuous-runner",
+    "lastUpdated": "2026-06-08-sprint-j",
+    "cadence": "weekly_wave",
+    "lastBacklogRefresh": "2026-06-08T01:21:04.042Z",
+    "openTasks": 32
+  },
+  "items": [
+    {
+      "id": "BL-001",
+      "title": "Public take-action form + response capture",
+      "division": "backend",
+      "priority": "P1",
+      "status": "done",
+      "agents": [
+        "quake-os-backend",
+        "quake-os-hospital-association",
+        "quake-os-security"
+      ],
+      "notes": "Public /{orgSlug}/advocacy/{campaignId} + API route + AdvocacyCampaignResponse table"
+    },
+    {
+      "id": "BL-002",
+      "title": "Cursor pagination on member directory beyond 500",
+      "division": "scale",
+      "priority": "P1",
+      "status": "done",
+      "agents": [
+        "quake-os-scale",
+        "quake-os-database",
+        "quake-os-frontend"
+      ]
+    },
+    {
+      "id": "BL-003",
+      "title": "Staging pilot — Entra + Stripe + owners",
+      "division": "pilot",
+      "priority": "P0",
+      "status": "pending",
+      "agents": [
+        "quake-os-coo",
+        "pulse-pilot-ops"
+      ],
+      "human": true,
+      "notes": "Only open 48h item — SPRINT-A-OPERATOR-PACKET A1–A7"
+    },
+    {
+      "id": "BL-004",
+      "title": "Marketing + admin design parity (module showcases)",
+      "division": "design",
+      "priority": "P2",
+      "status": "done",
+      "notes": "Full module parity: MemberCore/EventCore glass hubs, event capacity bars, giving PAC pace, advocacy bill deck, integrations glass grid",
+      "agents": [
+        "quake-os-designer",
+        "pulse-glass-ui",
+        "quake-os-ux"
+      ]
+    },
+    {
+      "id": "BL-005",
+      "title": "Legislative tracker integration stub",
+      "division": "advocacy",
+      "priority": "P2",
+      "status": "done",
+      "agents": [
+        "quake-os-integrations",
+        "quake-os-hospital-association"
+      ]
+    },
+    {
+      "id": "BL-006",
+      "title": "Bulk member→hospital assignment",
+      "division": "membership",
+      "priority": "P2",
+      "status": "done",
+      "agents": [
+        "quake-os-ams-specialist",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-007",
+      "title": "Semgrep + security audit on advocacy actions",
+      "division": "security",
+      "priority": "P2",
+      "status": "done",
+      "notes": "Audit log on public submit; sensitive paths; integration isolation test; semgrep in security-audit.sh",
+      "agents": [
+        "quake-os-security",
+        "quake-os-audit"
+      ]
+    },
+    {
+      "id": "BL-008",
+      "title": "Power BI export path for membership analytics",
+      "division": "analytics",
+      "priority": "P3",
+      "status": "done",
+      "notes": "continuity:export adds fact_membership_analytics, fact_advocacy_hospital_participation, dim_engagement_tier, dim_hospital_account",
+      "agents": [
+        "quake-os-analytics",
+        "pulse-exec-copilot"
+      ]
+    },
+    {
+      "id": "BL-009",
+      "title": "Hospital association full AMS — executive data + liquid glass",
+      "division": "product",
+      "priority": "P1",
+      "status": "done",
+      "notes": "HA snapshot, strip on demo home + command center, enterprise hub glass, suite live counts",
+      "agents": [
+        "quake-os-hospital-association",
+        "pulse-glass-ui",
+        "quake-os-frontend",
+        "pulse-exec-copilot"
+      ]
+    },
+    {
+      "id": "BL-010",
+      "title": "All modules polish — P1 UI + global liquid glass Pass 4",
+      "division": "design",
+      "priority": "P1",
+      "status": "done",
+      "notes": "Global pc-card glass, deals/insights/pulse P1, HA strip on insights+overview, suite AdminPage, command PageHeader",
+      "agents": [
+        "pulse-glass-ui",
+        "quake-os-frontend",
+        "quake-os-ux"
+      ]
+    },
+    {
+      "id": "BL-011",
+      "title": "Demo DB schema drift guard",
+      "division": "reliability",
+      "priority": "P0",
+      "status": "done",
+      "notes": "dev-web-safe.sh auto db:push; setup-demo.sh table verify; demo:doctor script",
+      "agents": [
+        "quake-os-backend",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-012",
+      "title": "Protech 1k import stress fixture",
+      "division": "scale",
+      "priority": "P1",
+      "status": "done",
+      "notes": "import:stress-fixture → tests/fixtures/protech-member-export-1k.csv",
+      "agents": [
+        "quake-os-ams-specialist",
+        "quake-os-scale"
+      ]
+    },
+    {
+      "id": "BL-013",
+      "title": "Staging preflight script (Sprint A prep)",
+      "division": "pilot",
+      "priority": "P1",
+      "status": "done",
+      "notes": "pnpm staging:preflight — env checklist before deploy",
+      "agents": [
+        "quake-os-coo",
+        "pulse-pilot-ops"
+      ],
+      "human": true
+    },
+    {
+      "id": "BL-014",
+      "title": "Communities document library demo seed",
+      "division": "membership",
+      "priority": "P2",
+      "status": "done",
+      "notes": "CommunityDocument rows on board/finance/chapter spaces",
+      "agents": [
+        "quake-os-frontend"
+      ]
+    },
+    {
+      "id": "BL-015",
+      "title": "Advocacy take-action Playwright E2E (submit path)",
+      "division": "qa",
+      "priority": "P1",
+      "status": "done",
+      "notes": "tests/e2e/advocacy-take-action.spec.ts — load + submit on demo campaign",
+      "agents": [
+        "quake-os-qa",
+        "quake-os-hospital-association"
+      ]
+    },
+    {
+      "id": "BL-016",
+      "title": "Supportability gate rows — Commerce, Giving, Engage",
+      "division": "pilot",
+      "priority": "P2",
+      "status": "done",
+      "notes": "docs/SUPPORTABILITY-GATES.md per-module scenario tables",
+      "agents": [
+        "quake-os-coo",
+        "pulse-pilot-ops"
+      ]
+    },
+    {
+      "id": "BL-017",
+      "title": "Stripe webhook local replay doc",
+      "division": "pilot",
+      "priority": "P2",
+      "status": "done",
+      "notes": "docs/STRIPE-PILOT-DRILL.md § local replay (stripe listen + trigger)",
+      "agents": [
+        "quake-os-backend",
+        "pulse-pilot-ops"
+      ]
+    },
+    {
+      "id": "BL-018",
+      "title": "E2E required CI check documentation",
+      "division": "reliability",
+      "priority": "P2",
+      "status": "done",
+      "notes": "docs/E2E-CI.md + README + CONTRIBUTING + e2e.yml comment",
+      "agents": [
+        "quake-os-qa"
+      ],
+      "human": true
+    },
+    {
+      "id": "BL-019",
+      "title": "Quake OS KG + research stale task cleanup",
+      "division": "product",
+      "priority": "P1",
+      "status": "done",
+      "notes": "advocacy implements take-action; deduped graph; discoveries/research-engine updated",
+      "agents": [
+        "quake-os-continuous-runner"
+      ]
+    },
+    {
+      "id": "BL-020",
+      "title": "Learn enrollment + CE transcript export",
+      "division": "membership",
+      "priority": "P1",
+      "status": "done",
+      "notes": "enrollMemberInCourse, exportMemberTranscriptCsv, LearnQuickAdd enroll UI",
+      "agents": [
+        "quake-os-ams-specialist",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-021",
+      "title": "Engage audience tag filter + send failure exceptions",
+      "division": "membership",
+      "priority": "P1",
+      "status": "done",
+      "notes": "recipient-filter.ts; recordAutomationException on partial/total fail",
+      "agents": [
+        "quake-os-backend",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-022",
+      "title": "Commerce finance CSV export parity tests",
+      "division": "reliability",
+      "priority": "P1",
+      "status": "done",
+      "notes": "lib/commerce/csv-export.ts + unit tests",
+      "agents": [
+        "quake-os-qa",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-023",
+      "title": "Insights snapshot metric parity guard",
+      "division": "analytics",
+      "priority": "P2",
+      "status": "done",
+      "notes": "snapshotsMatchResolved + catalogResolvableKeys tests",
+      "agents": [
+        "quake-os-analytics",
+        "pulse-exec-copilot"
+      ]
+    },
+    {
+      "id": "BL-025",
+      "title": "Healthcare AMS Wave 1 — advocacy issue hub + learn workforce",
+      "division": "product",
+      "priority": "P0",
+      "status": "done",
+      "notes": "Issue templates, /enterprise/advocacy/issues, /learn/workforce, /compare-protech",
+      "agents": [
+        "quake-os-orchestrator",
+        "quake-os-hospital-association",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-026",
+      "title": "Wave 2 — virtual career fair booths + hosted video",
+      "division": "membership",
+      "priority": "P1",
+      "status": "done",
+      "notes": "Employer booths, Brazen-class UX, CE auto-award from playlists",
+      "agents": [
+        "quake-os-frontend",
+        "quake-os-ams-specialist"
+      ]
+    },
+    {
+      "id": "BL-027",
+      "title": "Wave 3 — legislative feed + Protech GL parity slice",
+      "division": "advocacy",
+      "priority": "P2",
+      "status": "done",
+      "notes": "Legislative tracker adapter live pull; finance CSV GL reconciliation",
+      "agents": [
+        "quake-os-integrations",
+        "quake-os-revenue"
+      ]
+    },
+    {
+      "id": "BL-028",
+      "title": "Member profile CE transcript download",
+      "division": "learn",
+      "priority": "P1",
+      "status": "done",
+      "notes": "MemberTranscriptExportButton on member profile Learn panel",
+      "agents": [
+        "quake-os-frontend",
+        "quake-os-ams-specialist"
+      ]
+    },
+    {
+      "id": "BL-029",
+      "title": "Giving export parity helpers + tests",
+      "division": "giving",
+      "priority": "P1",
+      "status": "done",
+      "notes": "lib/giving/csv-export.ts campaign total ↔ CSV parity",
+      "agents": [
+        "quake-os-qa",
+        "quake-os-revenue"
+      ]
+    },
+    {
+      "id": "BL-030",
+      "title": "Commerce webhook idempotency guard",
+      "division": "commerce",
+      "priority": "P1",
+      "status": "done",
+      "notes": "shouldSkipCommerceOrderPayment + Stripe route + unit test",
+      "agents": [
+        "quake-os-security",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-031",
+      "title": "Renewals pulse + CSV export + cron gate label",
+      "division": "membership",
+      "priority": "P1",
+      "status": "done",
+      "notes": "RenewalsSummaryPanel, exportRenewalsDueCsv, PULSE_CRON_RENEWALS hint",
+      "agents": [
+        "quake-os-frontend",
+        "quake-os-scale"
+      ]
+    },
+    {
+      "id": "BL-032",
+      "title": "Commerce mark-paid helper + webhook refactor",
+      "division": "commerce",
+      "priority": "P1",
+      "status": "done",
+      "notes": "markCommerceOrderPaid shared by Stripe webhook; commerce-order-paid.test.ts",
+      "agents": [
+        "quake-os-backend",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-033",
+      "title": "Communities document link MVP",
+      "division": "membership",
+      "priority": "P2",
+      "status": "done",
+      "notes": "https-only document-url guard; admin space detail; portal doc list",
+      "agents": [
+        "quake-os-backend",
+        "quake-os-security"
+      ]
+    },
+    {
+      "id": "BL-034",
+      "title": "Executive KPI number — marketing previews",
+      "division": "design",
+      "priority": "P1",
+      "status": "done",
+      "notes": "ExecutiveKpiNumber in insights + hero previews; nowrap baseline CSS",
+      "agents": [
+        "pulse-glass-ui",
+        "quake-os-frontend"
+      ]
+    },
+    {
+      "id": "BL-035",
+      "title": "Quake Execute full ship workflow",
+      "division": "product",
+      "priority": "P1",
+      "status": "done",
+      "notes": "pnpm quake:execute; docs/QUAKE-EXECUTE-WORKFLOW.md",
+      "agents": [
+        "quake-os-continuous-runner",
+        "quake-os-coo"
+      ]
+    }
+  ]
+}

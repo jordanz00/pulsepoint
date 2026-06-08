@@ -17,6 +17,7 @@ import {
   DEMO_ORG_SLUG,
   isDemoModeEnabled,
 } from "@/lib/demo-mode";
+import { portfolioWalkthroughMinutes, walkthroughTotalMinutes } from "@/lib/demo-walkthrough";
 
 export const dynamic = "force-dynamic";
 
@@ -36,87 +37,84 @@ export default async function DemoPage() {
   let actionBlock: ReactNode;
   if (enabled && seeded === true) {
     actionBlock = (
-      <form action="/api/demo/enter" method="post" className="mt-6 space-y-3">
-        <button type="submit" className="pc-btn-primary w-full !rounded-xl !py-3">
-          Enter demo as Sterling Healthcare owner
-        </button>
-        <p className="text-center text-xs text-slate-500">
-          Bounces you to <code>/{DEMO_ORG_SLUG}</code> with a 24-hour signed cookie.
-        </p>
-      </form>
+      <div className="mt-8 space-y-6">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <form action="/api/demo/enter" method="post" className="space-y-2">
+            <input type="hidden" name="mode" value="walkthrough" />
+            <button type="submit" className="pc-btn-primary w-full !rounded-xl !py-3">
+              Guided tour
+            </button>
+            <p className="text-center text-xs text-[var(--pc-text-tertiary)]">
+              Step-by-step · ~{portfolioWalkthroughMinutes()} min highlights · {walkthroughTotalMinutes()} min full
+            </p>
+          </form>
+          <form action="/api/demo/enter" method="post" className="space-y-2">
+            <input type="hidden" name="mode" value="suite" />
+            <button type="submit" className="pc-btn-secondary w-full !rounded-xl !py-3">
+              Full suite
+            </button>
+            <p className="text-center text-xs text-[var(--pc-text-tertiary)]">All modules enabled</p>
+          </form>
+        </div>
+        <form action="/api/demo/enter" method="post">
+          <button
+            type="submit"
+            className="w-full text-center text-sm font-medium text-[var(--pc-accent)] hover:underline"
+          >
+            Overview only →
+          </button>
+        </form>
+      </div>
     );
   } else if (enabled && seeded === "db_offline") {
     actionBlock = (
-      <div className="mt-6 rounded-xl border border-[var(--hap-warm)]/50 bg-[var(--pc-warm-muted)] p-4 text-sm text-[var(--hap-black)]">
-        <p className="font-semibold">Demo database not set up yet</p>
-        <p className="mt-1">One command (SQLite file — no Docker):</p>
-        <pre className="mt-2 overflow-x-auto rounded-lg bg-[var(--hap-blue-hover)] p-3 text-xs text-white">
+      <div className="mt-8 rounded-xl border border-[var(--pc-border)] bg-[var(--pc-accent-soft)] p-5 text-sm">
+        <p className="font-semibold">Database not set up</p>
+        <pre className="mt-2 overflow-x-auto rounded-lg bg-[var(--bg-inverse)] p-3 text-xs text-[var(--fg-on-inverse)]">
           pnpm demo:setup
         </pre>
-        <p className="mt-2 text-xs text-[var(--pc-muted)]">Then refresh this page.</p>
       </div>
     );
   } else if (enabled && seeded === false) {
     actionBlock = (
-      <div className="mt-6 rounded-xl border border-[var(--hap-warm)]/50 bg-[var(--pc-warm-muted)] p-4 text-sm text-[var(--hap-black)]">
-        <p className="font-semibold">Demo data not seeded yet.</p>
-        <p className="mt-1">Run the seed script, then refresh this page:</p>
-        <pre className="mt-2 overflow-x-auto rounded-lg bg-[var(--hap-blue-hover)] p-3 text-xs text-white">
+      <div className="mt-8 rounded-xl border border-[var(--pc-border)] bg-[var(--pc-accent-soft)] p-5 text-sm">
+        <p className="font-semibold">Seed demo data first:</p>
+        <pre className="mt-2 overflow-x-auto rounded-lg bg-[var(--bg-inverse)] p-3 text-xs text-[var(--fg-on-inverse)]">
           pnpm db:seed:demo
         </pre>
       </div>
     );
   } else {
     actionBlock = (
-      <div className="mt-6 rounded-xl border border-[var(--pc-border)] bg-[var(--pc-bg)] p-4 text-sm text-[var(--pc-text)]">
-        <p className="font-semibold">Demo mode is disabled.</p>
-        <p className="mt-2">To enable it locally, add to <code>.env.local</code>:</p>
-        <pre className="mt-2 overflow-x-auto rounded-lg bg-[var(--hap-blue-hover)] p-3 text-xs text-white">{`DEMO_MODE=true
-DEMO_SESSION_SECRET=replace-with-32+char-random-string-please`}</pre>
-        <p className="mt-2 text-xs text-[var(--pc-muted)]">
-          Then run <code>pnpm db:seed:demo</code> and restart <code>pnpm dev</code>.
-        </p>
+      <div className="mt-8 rounded-xl border border-[var(--pc-border)] bg-[var(--pc-bg)] p-5 text-sm">
+        <p className="font-semibold">Demo mode is off.</p>
+        <p className="mt-2 text-[var(--pc-text-secondary)]">Add to <code>.env.local</code>:</p>
+        <pre className="mt-2 overflow-x-auto rounded-lg bg-[var(--bg-inverse)] p-3 text-xs text-[var(--fg-on-inverse)]">{`DEMO_MODE=true
+DEMO_SESSION_SECRET=replace-with-32+char-random-string`}</pre>
       </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-[var(--pc-bg)] px-6 py-16">
-      <div className="mx-auto max-w-2xl rounded-2xl border border-[var(--pc-border)] bg-white p-8 shadow-sm">
+    <main className="pp-canvas min-h-screen px-6 py-16">
+      <div className="pc-glass-panel mx-auto max-w-lg p-8 text-[var(--fg-default)]">
         <div className="flex items-center gap-2">
-          <Badge variant="warning">Demo mode</Badge>
-          <Badge variant="roadmap">Prototype only</Badge>
+          <Badge variant="warning">Demo</Badge>
+          <Badge variant="roadmap">Prototype</Badge>
         </div>
 
-        <h1 className="pc-display mt-4 text-3xl font-semibold text-[var(--pc-text)]">
-          PulsePoint prototype demo
-        </h1>
-        <p className="mt-3 text-[var(--pc-muted)]">
-          Demo mode signs you in as the owner of a fully seeded sample
-          association (Sterling Healthcare Association) — no Clerk account
-          required. All data is illustrative and resets when you re-seed.
+        <h1 className="pc-display mt-5 text-2xl font-semibold text-[var(--pc-text)]">Try PulsePoint</h1>
+        <p className="mt-2 text-[15px] leading-relaxed text-[var(--pc-text-secondary)]">
+          Sample healthcare association—members, events, and staff tools. One click to enter. Illustrative data only.
         </p>
-
-        <div className="mt-6 rounded-xl border border-[var(--pc-border)] bg-[var(--pc-bg)] p-4 text-sm text-[var(--pc-text)]">
-          <p className="font-semibold">Safety rails</p>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            <li>
-              Refuses to run when <code>NODE_ENV=production</code>.
-            </li>
-            <li>
-              Requires <code>DEMO_MODE=true</code> and a 32+ char{" "}
-              <code>DEMO_SESSION_SECRET</code>.
-            </li>
-            <li>Cookie is HMAC-signed; cannot be forged without the server secret.</li>
-            <li>Audit log records every enter / exit.</li>
-          </ul>
-        </div>
 
         {actionBlock}
 
-        <div className="mt-8 border-t border-[var(--pc-border)] pt-4 text-xs text-[var(--pc-muted)]">
-          See <code>docs/DEMO-MODE.md</code> for the full setup.
-        </div>
+        <p className="mt-8 text-center text-xs text-[var(--pc-text-tertiary)]">
+          <a href="/" className="pc-link">
+            ← Marketing site
+          </a>
+        </p>
       </div>
     </main>
   );

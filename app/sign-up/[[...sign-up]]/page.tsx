@@ -6,6 +6,7 @@ export default function SignUpPage() {
     redirect("/demo");
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { SignUp } = require("@clerk/nextjs") as typeof import("@clerk/nextjs");
 
   return (

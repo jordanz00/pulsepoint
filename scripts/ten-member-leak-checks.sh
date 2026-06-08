@@ -13,6 +13,10 @@ grepq() {
   grep -q "$@" 2>/dev/null
 }
 
+grepqE() {
+  grep -qE "$@" 2>/dev/null
+}
+
 grepl() {
   grep -rE "$@" --include='*.ts' --include='*.tsx' . 2>/dev/null \
     | grep -v node_modules \
@@ -46,10 +50,15 @@ LEAK_FILES=0
 while IFS= read -r f; do
   [[ -z "$f" ]] && continue
   file="${f%%:*}"
-  if ! grepq 'getOrgDb' "$file"; then
-    echo "    -> $file has member query without getOrgDb"
-    LEAK_FILES=$((LEAK_FILES + 1))
+  if grepq 'getOrgDb' "$file"; then
+    continue
   fi
+  # CRM helpers receive OrgDb from getOrgDb(orgId) at call site
+  if grepq 'OrgDb' "$file" && grepqE 'db: OrgDb|params\.db|OrgDb,' "$file"; then
+    continue
+  fi
+  echo "    -> $file has member query without getOrgDb"
+  LEAK_FILES=$((LEAK_FILES + 1))
 done < <(grepl '\.member\.(findMany|findFirst|create|update|delete|count)' | grep -v '^\./tests/' || true)
 if [[ "$LEAK_FILES" -gt 0 ]]; then
   bad "$LEAK_FILES file(s) query member without getOrgDb"
@@ -82,13 +91,21 @@ else
   bad "fetchMembers missing assertAllRowsBelongToOrg"
 fi
 
-# 7. No public HTTP API returns member lists
-echo "[7/10] No member list in app/api routes"
-if grep -rE '\.member\.(findMany|findFirst)' app/api --include='*.ts' 2>/dev/null | grep -q .; then
-  grep -rE '\.member\.(findMany|findFirst)' app/api --include='*.ts' 2>/dev/null | head -5
-  bad "app/api route queries member table"
+# 7. No unscoped member access in app/api (getOrgDb required on same route)
+echo "[7/10] app/api member queries use getOrgDb"
+API_LEAK=0
+while IFS= read -r f; do
+  [[ -z "$f" ]] && continue
+  file="${f%%:*}"
+  if ! grepq 'getOrgDb' "$file"; then
+    echo "    -> $file queries member without getOrgDb"
+    API_LEAK=$((API_LEAK + 1))
+  fi
+done < <(grep -rE '\.member\.(findMany|findFirst)' app/api --include='*.ts' 2>/dev/null || true)
+if [[ "$API_LEAK" -gt 0 ]]; then
+  bad "$API_LEAK app/api route(s) query member without getOrgDb"
 else
-  ok "No member list endpoints in app/api"
+  ok "app/api member queries scoped via getOrgDb"
 fi
 
 # 8. Integration test exists

@@ -2,20 +2,28 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { FormAlert } from "@/components/ui/form-alert";
+import { FormField } from "@/components/ui/form-field";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { FORM_HELP } from "@/lib/form-help-copy";
 import { createCheckoutSession } from "@/app/actions/events";
 
 export function PublicRegistrationForm({
   orgSlug,
   eventSlug,
   priceCents,
+  ticketTypes = [],
 }: {
   orgSlug: string;
   eventSlug: string;
   priceCents: number;
+  ticketTypes?: { id: string; name: string; priceCents: number }[];
 }) {
+  const [ticketTypeId, setTicketTypeId] = useState(ticketTypes[0]?.id ?? "");
+  const selected = ticketTypes.find((t) => t.id === ticketTypeId);
+  const displayPrice = selected?.priceCents ?? priceCents;
   const [message, setMessage] = useState<string | null>(null);
+  const [messageVariant, setMessageVariant] = useState<"success" | "error" | "info">("info");
   const [pending, setPending] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -33,6 +41,8 @@ export function PublicRegistrationForm({
         eventSlug,
         guestName: fd.get("guestName"),
         guestEmail: fd.get("guestEmail"),
+        ticketTypeId: ticketTypeId || undefined,
+        promoCode: String(fd.get("promoCode") ?? "").trim() || undefined,
       }),
     });
 
@@ -48,11 +58,13 @@ export function PublicRegistrationForm({
     setPending(false);
 
     if (!res.ok || !data.ok) {
-      setMessage(data.error ?? "Registration failed");
+      setMessageVariant("error");
+      setMessage(data.error ?? "Registration failed. Please check your details and try again.");
       return;
     }
 
     if (data.waitlisted) {
+      setMessageVariant("success");
       setMessage("You have been added to the waitlist.");
       return;
     }
@@ -67,37 +79,54 @@ export function PublicRegistrationForm({
         window.location.href = checkout.data.url;
         return;
       }
-      setMessage(!checkout.ok ? checkout.error : "Payment could not start");
+      setMessageVariant("error");
+      setMessage(!checkout.ok ? checkout.error : "Payment could not start. Please contact the association.");
       return;
     }
 
+    setMessageVariant("success");
     setMessage(
       data.requiresPayment
-        ? "Registered — payment will be collected separately."
+        ? "You are registered. Payment will be collected separately."
         : "You are registered. Check your email for confirmation.",
     );
     form.reset();
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-xl border bg-white p-6">
-      {message && (
-        <p className="rounded bg-teal-50 px-3 py-2 text-sm text-teal-900">{message}</p>
-      )}
-      <div>
-        <Label htmlFor="guestName">Full name</Label>
-        <Input id="guestName" name="guestName" required />
-      </div>
-      <div>
-        <Label htmlFor="guestEmail">Email</Label>
-        <Input id="guestEmail" name="guestEmail" type="email" required />
-      </div>
-      {priceCents > 0 && (
-        <p className="text-sm text-zinc-600">
-          Price: ${(priceCents / 100).toFixed(2)} USD
+    <form onSubmit={onSubmit} className="pc-form-shell">
+      {message ? <FormAlert variant={messageVariant}>{message}</FormAlert> : null}
+      <FormField id="guestName" label="Full name" help={FORM_HELP.registration.guestName} required>
+        <Input name="guestName" required autoComplete="name" />
+      </FormField>
+      <FormField id="guestEmail" label="Email" help={FORM_HELP.registration.guestEmail} required>
+        <Input name="guestEmail" type="email" required autoComplete="email" />
+      </FormField>
+      {ticketTypes.length > 0 ? (
+        <FormField id="ticketType" label="Ticket type" required>
+          <select
+            name="ticketType"
+            className="pc-input w-full"
+            value={ticketTypeId}
+            onChange={(e) => setTicketTypeId(e.target.value)}
+          >
+            {ticketTypes.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.name} — ${(t.priceCents / 100).toFixed(2)}
+              </option>
+            ))}
+          </select>
+        </FormField>
+      ) : null}
+      <FormField id="promoCode" label="Promo code (optional)">
+        <Input name="promoCode" autoComplete="off" placeholder="e.g. EARLYBIRD" />
+      </FormField>
+      {displayPrice > 0 ? (
+        <p className="text-sm text-[var(--fg-muted)]">
+          Price: ${(displayPrice / 100).toFixed(2)} USD
         </p>
-      )}
-      <Button type="submit" disabled={pending}>
+      ) : null}
+      <Button type="submit" variant="primary" disabled={pending}>
         {pending ? "Submitting…" : "Register"}
       </Button>
     </form>

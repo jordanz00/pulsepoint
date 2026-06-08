@@ -1,0 +1,119 @@
+# $0 continuity — uptime monitor, weekly backup artifact, Docker image to GHCR
+name: Continuity
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+    - cron: "0 6 * * 0"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile"
+      - "scripts/continuity/**"
+      - ".github/workflows/continuity.yml"
+
+permissions:
+  contents: read
+  packages: write
+  issues: write
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  uptime:
+    name: Uptime (primary URL)
+    runs-on: ubuntu-latest
+    if: vars.PRIMARY_URL != ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - name: Health check
+        env:
+          PRIMARY_URL: ${{ vars.PRIMARY_URL }}
+          REQUIRE_STANDBY: "false"
+        run: pnpm continuity:health
+      - name: Open issue on failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "Continuity: primary health check failed";
+            const body = `Scheduled check failed for \`${{ vars.PRIMARY_URL }}\`.\n\nRun locally:\n\`\`\`bash\npnpm continuity:cutover\npnpm continuity:standby\n\`\`\`\nSee docs/FREE-CONTINUITY-TOOLKIT.md`;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "continuity",
+            });
+            if (issues.data.some((i) => i.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ["continuity"],
+            });
+
+  backup:
+    name: Weekly logical backup
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 6 * * 0')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm db:generate
+      - name: Backup database
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [[ -z "$DATABASE_URL" ]]; then
+            echo "Skip: add DATABASE_URL secret for hosted backups"
+            exit 0
+          fi
+          pnpm continuity:backup
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: pulsepoint-backup-${{ github.run_id }}
+          path: backups/
+          retention-days: 14
+          if-no-files-found: ignore
+
+  docker-standby-image:
+    name: Publish standby Docker image (GHCR)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ github.repository }}:latest
+            ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

@@ -13,7 +13,7 @@
    - **Import review** — `/{orgSlug}/members/imports`
    - **Exceptions** — `/{orgSlug}/exceptions`
    - **Settings** — `/{orgSlug}/settings`
-4. **Roadmap modules** — Learn, Giving, Commerce, Engage, AI, Insights — preview cards with honest copy.
+4. **Alpha modules** — Learn, Giving, Commerce, Engage, Insights — admin UIs with honest Live/Roadmap marketing labels.
 
 ## Design system
 

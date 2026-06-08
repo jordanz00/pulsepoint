@@ -1,0 +1,13 @@
+{
+  "id": "discovery-to-ship",
+  "name": "Discovery to Ship",
+  "description": "Research discovers insight → ticket → Product requirements → Developer build → QA test → Auditor review.",
+  "schedule": "on_demand",
+  "steps": [
+    { "id": "ds1", "agentId": "research-agent", "action": "discover()", "required": true },
+    { "id": "ds2", "agentId": "product-agent", "action": "writeRequirements()", "required": true },
+    { "id": "ds3", "agentId": "developer-agent", "action": "buildFeature()", "required": true },
+    { "id": "ds4", "agentId": "qa-agent", "action": "testFeature()", "required": true },
+    { "id": "ds5", "agentId": "auditor-agent", "action": "critiqueFeature()", "required": true }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq1obzqh-109cx2",
+  "from": "auditor-agent",
+  "to": "ceo-agent",
+  "subject": "Task approved: Audit gate test",
+  "body": "QA: APPROVED | Security: APPROVED | Auditor: APPROVED",
+  "refs": [
+    "task-audit-test-001",
+    "audit-mq1obzqd-e3ucfu"
+  ],
+  "createdAt": "2026-06-06T01:28:07.337Z"
+}

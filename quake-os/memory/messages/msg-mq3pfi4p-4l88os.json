@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3pfi4p-4l88os",
+  "from": "orchestrator",
+  "to": "qa-agent",
+  "subject": "New task: OS test task",
+  "body": "Test",
+  "refs": [
+    "task-test-os-001"
+  ],
+  "createdAt": "2026-06-07T11:34:23.113Z"
+}

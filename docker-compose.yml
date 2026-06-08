@@ -1,4 +1,4 @@
-# Local Postgres for PulsePoint development (optional; use Neon in production)
+# Local infrastructure for PulsePoint (association AMS + healthcare ad-ops API)
 services:
   db:
     image: postgres:16-alpine
@@ -12,5 +12,34 @@ services:
     volumes:
       - pulsepoint_pg:/var/lib/postgresql/data
 
+  ams_db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: ams
+      POSTGRES_PASSWORD: ams_local_dev
+      POSTGRES_DB: pulsepoint_ams
+    volumes:
+      - pulsepoint_ams_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ams -d pulsepoint_ams"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
 volumes:
   pulsepoint_pg:
+  pulsepoint_ams_pg:

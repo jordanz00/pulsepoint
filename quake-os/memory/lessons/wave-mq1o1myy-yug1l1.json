@@ -1,0 +1,26 @@
+{
+  "id": "wave-mq1o1myy-yug1l1",
+  "name": "test-wave",
+  "startedAt": "2026-06-06T01:20:04.234Z",
+  "completedAt": "2026-06-06T01:20:04.234Z",
+  "tasksPicked": [
+    "BL-001",
+    "BL-002"
+  ],
+  "agentsActivated": [
+    "quake-os-backend",
+    "quake-os-scale",
+    "ceo-agent",
+    "cto-agent",
+    "product-agent",
+    "auditor-agent",
+    "security-agent"
+  ],
+  "gatesPassed": true,
+  "auditVerdict": "APPROVED",
+  "notes": [
+    "Picked 2 tasks",
+    "Activated 7 agents",
+    "Run pnpm quake:gates for hard verification"
+  ]
+}

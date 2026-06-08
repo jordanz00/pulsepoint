@@ -1,0 +1,103 @@
+{
+  "nodes": [
+    {
+      "id": "feat-membership",
+      "type": "feature",
+      "label": "Membership Management"
+    },
+    {
+      "id": "feat-advocacy",
+      "type": "feature",
+      "label": "Advocacy Management"
+    },
+    {
+      "id": "feat-events",
+      "type": "feature",
+      "label": "Event Management"
+    },
+    {
+      "id": "feat-crm",
+      "type": "feature",
+      "label": "CRM"
+    },
+    {
+      "id": "feat-giving",
+      "type": "feature",
+      "label": "Fundraising / Giving"
+    },
+    {
+      "id": "feat-learning",
+      "type": "feature",
+      "label": "Learning / CE"
+    },
+    {
+      "id": "feat-engage",
+      "type": "feature",
+      "label": "Email / Engage"
+    },
+    {
+      "id": "org-hospital-assoc",
+      "type": "organization",
+      "label": "State Hospital Association"
+    },
+    {
+      "id": "org-health-system",
+      "type": "health_system",
+      "label": "Multi-Hospital Health System"
+    },
+    {
+      "id": "agent-hospital",
+      "type": "agent",
+      "label": "Hospital Association Agent"
+    },
+    {
+      "id": "req-take-action",
+      "type": "requirement",
+      "label": "Public take-action form"
+    },
+    {
+      "id": "leg-pa-340b",
+      "type": "legislation",
+      "label": "PA 340B Policy Context"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-org-advocacy",
+      "from": "org-hospital-assoc",
+      "to": "feat-advocacy",
+      "relation": "requires"
+    },
+    {
+      "id": "edge-org-membership",
+      "from": "org-hospital-assoc",
+      "to": "feat-membership",
+      "relation": "requires"
+    },
+    {
+      "id": "edge-hs-membership",
+      "from": "org-health-system",
+      "to": "feat-membership",
+      "relation": "requires"
+    },
+    {
+      "id": "edge-agent-advocacy",
+      "from": "agent-hospital",
+      "to": "feat-advocacy",
+      "relation": "reviews"
+    },
+    {
+      "id": "edge-advocacy-340b",
+      "from": "feat-advocacy",
+      "to": "leg-pa-340b",
+      "relation": "tracks"
+    },
+    {
+      "id": "edge-mq4iua5b-bv822s",
+      "from": "feat-advocacy",
+      "to": "req-take-action",
+      "relation": "implements"
+    }
+  ],
+  "updatedAt": "2026-06-08T01:17:41.471Z"
+}

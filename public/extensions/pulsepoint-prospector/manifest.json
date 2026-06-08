@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "PulsePoint Prospector",
+  "version": "0.1.0",
+  "description": "Prospect, enrich, and engage — PulsePoint AMS CRM sidebar.",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["http://localhost:3000/*", "https://*/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PulsePoint Prospector"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

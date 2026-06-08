@@ -1,7 +1,7 @@
 # PulsePoint — Agent Rules
 
 > Read this **before** generating, refactoring, or reviewing any code in this
-> repo. Honored by Cursor, Claude Code, Codex CLI, and any other AI agent
+> repo. Honored by Cursor, Claude Code, Codex CLI, and other coding agents
 > that respects `AGENTS.md`.
 
 PulsePoint is a multi-tenant Association Management System holding member
@@ -15,7 +15,7 @@ rules below are **non-negotiable** — accuracy and safety beat brevity.
 
 ### 1a. Never use template literals inside `query()` / `execute()` / `$queryRaw` / `$executeRaw` / `run()` calls
 
-The textbook AI-generated SQL injection bug looks like this:
+The textbook auto-generated SQL injection bug looks like this:
 
 ```ts
 // ❌ NEVER — anyone can pass " OR '1'='1' as `name`
@@ -174,7 +174,7 @@ that consults `requireStaffSession()` automatically respects it. See
 
 ---
 
-## TL;DR for AI agents
+## TL;DR for coding agents
 
 1. **Parameterize every SQL query.** Tagged templates only with Prisma's
    `$queryRaw`. No string concatenation, ever, under any circumstance.

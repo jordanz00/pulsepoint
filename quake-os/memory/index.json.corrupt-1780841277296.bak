@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T14:07:57.296Z",
+  "entries": [
+    {
+      "id": "req-mq3uwztr-8qu8db",
+      "category": "requirements",
+      "title": "risk: Pipeline test",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T14:07:57.279Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq3uwztw-5nrvh4",
+      "category": "requirements",
+      "title": "gap: Fundraising and nonprofit surfaces",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T14:07:57.284Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq3uwztz-t1w3f2",
+      "category": "requirements",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T14:07:57.287Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "msg-mq3uwzu1-xd3uu6",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T14:07:57.289Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzu1-xd3uu6.json"
+    },
+    {
+      "id": "msg-mq3uwzu4-nkn8sa",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T14:07:57.292Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzu4-nkn8sa.json"
+    },
+    {
+      "id": "msg-mq3uwzu6-ov9znb",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T14:07:57.294Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzu6-ov9znb.json"
+    },
+    {
+      "id": "task-test-os-001",
+      "category": "tasks",
+      "title": "OS test task",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T14:07:57.294Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "audit-mq3uwzu7-o8fl5a",
+      "category": "audits",
+      "title": "Daily cycle QA — 3 tasks",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T14:07:57.295Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3uwzu8-6w6j2y",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T14:07:57.296Z",
+      "path": "quake-os/memory/messages/msg-mq3uwzu8-6w6j2y.json"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "sprint-mq1o0031-4u1f34",
+  "name": "test-wave",
+  "phase": 2,
+  "initiative": "Quake OS continuous wave",
+  "taskIds": [
+    "BL-001",
+    "BL-002"
+  ],
+  "agents": [
+    "quake-os-backend",
+    "quake-os-scale",
+    "ceo-agent",
+    "cto-agent",
+    "product-agent",
+    "auditor-agent",
+    "security-agent"
+  ],
+  "acceptanceCriteria": [
+    "pnpm quake:gates passes",
+    "Audit verdict APPROVED or NEEDS_REVISION documented",
+    "Wave report filed"
+  ],
+  "createdAt": "2026-06-06T01:18:47.917Z"
+}

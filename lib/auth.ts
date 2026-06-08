@@ -16,10 +16,25 @@ import {
   isDemoModeEnabled,
 } from "@/lib/demo-mode";
 import { isStandalonePrototype } from "@/lib/standalone-prototype";
+import { isEntraAuthProfile } from "@/lib/integration-profile";
+import { isEntraConfigured } from "@/lib/entra-config";
+import { getEntraSession } from "@/lib/entra-session";
 
 async function clerkAuth() {
   const { auth } = await import("@clerk/nextjs/server");
   return auth();
+}
+
+async function entraStaffSession(): Promise<StaffSession | null> {
+  if (!isEntraAuthProfile() || !isEntraConfigured()) return null;
+  const session = await getEntraSession();
+  if (!session) return null;
+  return {
+    userId: session.userId,
+    orgId: session.orgId,
+    orgSlug: session.orgSlug,
+    role: session.role,
+  };
 }
 
 export type StaffSession = {
@@ -60,6 +75,9 @@ export async function requireStaffSession(): Promise<StaffSession> {
       throw new Error("UNAUTHORIZED");
     }
   }
+
+  const entra = await entraStaffSession();
+  if (entra) return entra;
 
   const session = await clerkAuth();
   const userId = session.userId;
@@ -122,6 +140,14 @@ export async function requireOrgAccessForSlug(orgSlug: string): Promise<StaffSes
     }
   }
 
+  const entra = await entraStaffSession();
+  if (entra) {
+    if (orgSlug !== entra.orgSlug) {
+      throw new Error("NOT_ORG_MEMBER");
+    }
+    return entra;
+  }
+
   const session = await clerkAuth();
   const userId = session.userId;
   if (!userId) {
@@ -173,4 +199,42 @@ export function assertPortalOrgAccess(
   if (sessionOrgId && sessionOrgId !== targetOrgId) {
     throw new Error("ORG_MISMATCH");
   }
+}
+
+export type PortalSession = {
+  userId: string;
+  orgId: string;
+};
+
+/**
+ * Member portal routes — signed-in user (Clerk or demo cookie).
+ */
+export async function requirePortalSession(orgSlug: string): Promise<PortalSession> {
+  const org = await prisma.organization.findUnique({ where: { slug: orgSlug } });
+  if (!org) {
+    throw new Error("ORG_NOT_FOUND");
+  }
+
+  if (isDemoModeEnabled()) {
+    const demo = await getDemoSession();
+    if (demo) {
+      return { userId: demo.userId, orgId: org.id };
+    }
+    if (isStandalonePrototype()) {
+      throw new Error("UNAUTHORIZED");
+    }
+  }
+
+  const session = await clerkAuth();
+  if (!session.userId) {
+    throw new Error("UNAUTHORIZED");
+  }
+
+  try {
+    assertPortalOrgAccess(session.orgId, org.id);
+  } catch {
+    throw new Error("ORG_MISMATCH");
+  }
+
+  return { userId: session.userId, orgId: org.id };
 }

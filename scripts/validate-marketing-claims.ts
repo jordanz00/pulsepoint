@@ -37,7 +37,7 @@ for (const f of FILES) checkFile(f);
 
 // coming_soon products must not be "available" in products.ts twin check
 const products = readFileSync(resolve(ROOT, "lib/products.ts"), "utf8");
-const roadmapIds = ["learn", "giving", "commerce", "engage", "insights", "ai"];
+const roadmapIds = ["learn", "giving", "commerce", "engage", "insights"];
 for (const id of roadmapIds) {
   const re = new RegExp(
     `id:\\s*"${id}"[\\s\\S]{0,400}status:\\s*"available"`,

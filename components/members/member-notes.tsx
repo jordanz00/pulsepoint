@@ -16,20 +16,42 @@ export function MemberNotes({
   orgSlug,
   memberId,
   initialNotes,
+  variant = "full",
+  maxVisible = 3,
 }: {
   orgSlug: string;
   memberId: string;
   initialNotes: Note[];
+  /** Compact: summary one-screen — fewer notes, shorter form */
+  variant?: "full" | "compact";
+  maxVisible?: number;
 }) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
+  const compact = variant === "compact";
+  const visibleNotes = compact ? initialNotes.slice(0, maxVisible) : initialNotes;
 
   async function onSubmit(formData: FormData) {
     setPending(true);
     setError(null);
     const body = String(formData.get("body") ?? "");
-    const result = await addMemberNote(memberId, { body }, orgSlug);
+    const noteType = String(formData.get("noteType") ?? "RELATIONSHIP") as
+      | "RELATIONSHIP"
+      | "FOLLOW_UP"
+      | "GENERAL";
+    const channel = String(formData.get("channel") ?? "");
+    const nextFollowUpAt = String(formData.get("nextFollowUpAt") ?? "");
+    const result = await addMemberNote(
+      memberId,
+      {
+        body,
+        noteType,
+        channel: compact ? "other" : channel,
+        nextFollowUpAt: nextFollowUpAt || undefined,
+      },
+      orgSlug,
+    );
     setPending(false);
     if (!result.ok) {
       setError(result.error ?? "Could not save note");
@@ -39,40 +61,83 @@ export function MemberNotes({
   }
 
   return (
-    <section className="rounded-xl border border-zinc-200 bg-white p-6">
-      <h2 className="text-lg font-semibold text-zinc-900">Staff notes</h2>
-      <p className="mt-1 text-sm text-zinc-500">
-        Canonical interaction history for this member — use notes here, not ad-hoc
-        spreadsheets or custom fields.
+    <section
+      className={`pp-readable-on-light mc-profile-notes${compact ? " mc-profile-notes--compact" : ""}`}
+    >
+      <h2 className="mc-profile-card-title">
+        {compact ? "Recent notes" : "Relationship notes"}
+      </h2>
+      <p className="mc-profile-lead">
+        {compact
+          ? "Staff touchpoints — add a note without leaving the summary."
+          : "Nurture the relationship — log calls, meetings, and follow-ups. Updates last touch and optional next follow-up date."}
       </p>
 
-      {initialNotes.length === 0 ? (
-        <p className="mt-4 text-sm text-zinc-500">No notes yet.</p>
+      {visibleNotes.length === 0 ? (
+        <p className="mc-profile-empty">No notes yet — log your first touch below.</p>
       ) : (
-        <ul className="mt-4 space-y-3">
-          {initialNotes.map((n) => (
-            <li key={n.id} className="rounded-lg bg-slate-50 px-4 py-3 text-sm">
-              <p className="whitespace-pre-wrap text-zinc-800">{n.body}</p>
-              <p className="mt-2 text-xs text-zinc-500">
-                {n.authorName ?? "Staff"} ·{" "}
-                {new Date(n.createdAt).toLocaleString()}
+        <ul className="mc-profile-notes-list">
+          {visibleNotes.map((n) => (
+            <li key={n.id} className="mc-profile-note-item">
+              <p className="mc-profile-note-body">{n.body}</p>
+              <p className="mc-profile-note-meta">
+                {n.authorName ?? "Staff"} · {new Date(n.createdAt).toLocaleString()}
               </p>
             </li>
           ))}
         </ul>
       )}
 
-      <form action={onSubmit} className="mt-6 space-y-3">
-        <textarea
-          name="body"
-          required
-          maxLength={5000}
-          rows={4}
-          placeholder="Call summary, renewal discussion, internal context…"
-          className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm"
-        />
-        {error && <p className="text-sm text-red-600">{error}</p>}
-        <Button type="submit" disabled={pending}>
+      <form action={onSubmit} className="mc-profile-notes-form">
+        {!compact ? (
+          <div className="grid gap-3 sm:grid-cols-3">
+            <label className="mc-field-label">
+              Type
+              <select name="noteType" className="mc-input">
+                <option value="RELATIONSHIP">Relationship</option>
+                <option value="FOLLOW_UP">Follow-up</option>
+                <option value="GENERAL">General</option>
+              </select>
+            </label>
+            <label className="mc-field-label">
+              Channel
+              <select name="channel" className="mc-input">
+                <option value="email">Email</option>
+                <option value="call">Call</option>
+                <option value="meeting">Meeting</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="in_person">In person</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label className="mc-field-label">
+              Next follow-up
+              <input name="nextFollowUpAt" type="datetime-local" className="mc-input" />
+            </label>
+          </div>
+        ) : (
+          <>
+            <input type="hidden" name="noteType" value="RELATIONSHIP" />
+            <input type="hidden" name="channel" value="other" />
+          </>
+        )}
+        <label className="mc-field-label">
+          Note
+          <textarea
+            name="body"
+            required
+            maxLength={5000}
+            rows={compact ? 3 : 4}
+            placeholder="What mattered in this touch — context for the next conversation…"
+            className="mc-input"
+          />
+        </label>
+        {error ? (
+          <p className="mc-profile-notes-error" role="alert">
+            {error}
+          </p>
+        ) : null}
+        <Button type="submit" disabled={pending} className="min-h-11">
           {pending ? "Saving…" : "Add note"}
         </Button>
       </form>

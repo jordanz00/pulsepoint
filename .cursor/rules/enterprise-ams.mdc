@@ -1,0 +1,39 @@
+---
+description: Enterprise statewide hospital association AMS — departments, RBAC, backups, Azure readiness
+globs:
+  - "**/*"
+alwaysApply: false
+---
+
+# Enterprise AMS (PulsePoint)
+
+When work touches **statewide association** structure, departments, advocacy, emergency, org hierarchy, or IT handoff:
+
+## Canonical references
+
+- Departments: `lib/association/departments.ts` (16 departments)
+- Modules / phases: `lib/association/modules.ts`
+- RBAC: `lib/permissions.ts` + `lib/association/rbac-matrix.ts`
+- UI hub: `app/[orgSlug]/(admin)/enterprise/`
+- Master prompt: `docs/ENTERPRISE-AMS-OPTIMIZED-PROMPT.md`
+- Architecture: `docs/ENTERPRISE-ARCHITECTURE.md`
+- Azure swap: `docs/ENTERPRISE-INTEGRATION.md`
+- **Backups mandatory:** `docs/BACKUP-REQUIREMENTS.md` — run `pnpm continuity:backup` before schema migrations
+
+## Rules
+
+1. New persistent models → add to `lib/org-models.ts` + backup/export scripts
+2. All data access via `getOrgDb(orgId)`; `requireCapability` on mutations
+3. Phase labels: `live` | `alpha` | `foundation` | `roadmap` — no false GA claims
+4. Do not invent healthcare statistics in advocacy/quality copy
+5. Microsoft/Azure: adapter + env only until `INTEGRATION_PROFILE=hap-azure` approved
+
+## Multi-agent split
+
+| Agent | Owns |
+|-------|------|
+| Members/CRM | `MemberOrganization`, `MemberPulse`, committees |
+| Advocacy | `AdvocacyIssue`, Engage campaigns |
+| Emergency | `EmergencyContact`, readiness reports |
+| Platform | RBAC, integrations, backups, audit |
+| Data | `continuity:export`, warehouse field dictionary |

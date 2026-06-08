@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3z9gp5-6pwtlq",
+  "from": "developer-agent",
+  "to": "qa-agent",
+  "subject": "Feature built: Audit gate test",
+  "body": "Implement: Audit gate test. AC: pass",
+  "refs": [
+    "task-audit-test-001"
+  ],
+  "createdAt": "2026-06-07T16:09:37.481Z"
+}

@@ -28,4 +28,11 @@ describe("permissions", () => {
     const caps = Object.keys(CAPABILITY_MIN_ROLE);
     expect(caps.length).toBeGreaterThan(8);
   });
+
+  it("giving read for staff, manage for admin only", () => {
+    expect(roleAllows("giving:read", "STAFF")).toBe(true);
+    expect(roleAllows("giving:read", "ADMIN")).toBe(true);
+    expect(roleAllows("giving:manage", "STAFF")).toBe(false);
+    expect(roleAllows("giving:manage", "ADMIN")).toBe(true);
+  });
 });

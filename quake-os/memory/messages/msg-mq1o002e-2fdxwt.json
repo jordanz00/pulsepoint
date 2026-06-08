@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq1o002e-2fdxwt",
+  "from": "orchestrator",
+  "to": "research-agent",
+  "subject": "New task: Refresh competitive intel registry quarterly",
+  "body": "Update competitive-intel.json with pricing motion and module parity notes.",
+  "refs": [
+    "task-mq1o002d-cj7euu"
+  ],
+  "createdAt": "2026-06-06T01:18:47.894Z"
+}

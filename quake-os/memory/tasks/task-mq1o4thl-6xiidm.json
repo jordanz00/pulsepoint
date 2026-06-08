@@ -1,0 +1,30 @@
+{
+  "title": "Prioritize advocacy take-action + hospital participation KPIs",
+  "description": "Auto-generated from architecture review: Prioritize advocacy take-action + hospital participation KPIs",
+  "priority": "P2",
+  "businessImpact": "medium",
+  "technicalComplexity": "medium",
+  "dependencies": [],
+  "ownerAgent": "backend-engineer-agent",
+  "researchSources": [
+    "res-mq1o002c-3zzkwb",
+    "res-mq1o002e-yi540s",
+    "res-mq1o002f-ixlccp",
+    "res-mq1o002j-ic10bf",
+    "res-mq1o002o-lbi00z",
+    "res-mq1o002w-skoyom"
+  ],
+  "acceptanceCriteria": [
+    "Implemented",
+    "Tests pass",
+    "Audit approved"
+  ],
+  "tags": [
+    "daily-cycle",
+    "product-generated"
+  ],
+  "id": "task-mq1o4thl-6xiidm",
+  "status": "in_progress",
+  "createdAt": "2026-06-06T01:22:32.649Z",
+  "updatedAt": "2026-06-06T01:22:32.650Z"
+}

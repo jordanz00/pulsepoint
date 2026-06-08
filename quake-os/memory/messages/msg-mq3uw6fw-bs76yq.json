@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3uw6fw-bs76yq",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: opportunity: AMS competitor landscape",
+  "body": "data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"Modern glass UI, honest pilot scope, Microsoft path\", | data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"Purpose-built healthcare association workflows out of box\"",
+  "refs": [
+    "task-mq3uw6fd-6tlexy"
+  ],
+  "createdAt": "2026-06-07T14:07:19.196Z"
+}

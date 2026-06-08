@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T17:56:06.690Z",
+  "entries": [
+    {
+      "id": "res-mq432emm-fb06mc",
+      "category": "research",
+      "title": "Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T17:56:06.670Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "healthcare_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "task-mq432ems-74mfhs",
+      "category": "tasks",
+      "title": "risk: Membership scale and security",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T17:56:06.676Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq432edm-yvf6pj"
+      ]
+    },
+    {
+      "id": "rec-mq432emt-48zate",
+      "category": "recommendations",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T17:56:06.677Z",
+      "path": "quake-os/memory/recommendations/rec-mq432emt-48zate.json"
+    },
+    {
+      "id": "rec-mq432emv-20iz14",
+      "category": "recommendations",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T17:56:06.679Z",
+      "path": "quake-os/memory/recommendations/rec-mq432emv-20iz14.json"
+    },
+    {
+      "id": "res-mq432emy-6chilx",
+      "category": "research",
+      "title": "Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-07T17:56:06.682Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "health_system",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq432emz-4vpshx",
+      "category": "recommendations",
+      "title": "opportunity: Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-07T17:56:06.683Z",
+      "path": "quake-os/memory/recommendations/rec-mq432emz-4vpshx.json"
+    },
+    {
+      "id": "task-mq432en0-fw25dg",
+      "category": "tasks",
+      "title": "opportunity: Enterprise health system governance",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T17:56:06.684Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-from-research"
+      ]
+    },
+    {
+      "id": "msg-mq432en1-r4yw02",
+      "category": "messages",
+      "title": "New task: opportunity: Enterprise health system governance",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T17:56:06.685Z",
+      "path": "quake-os/memory/messages/msg-mq432en1-r4yw02.json"
+    },
+    {
+      "id": "res-mq432en2-8hxjsy",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T17:56:06.686Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq432en2-349sxx",
+      "category": "recommendations",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T17:56:06.686Z",
+      "path": "quake-os/memory/recommendations/rec-mq432en2-349sxx.json"
+    },
+    

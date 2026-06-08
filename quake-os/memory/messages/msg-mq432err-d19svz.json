@@ -1,0 +1,13 @@
+{
+  "id": "msg-mq432err-d19svz",
+  "from": "developer-agent",
+  "to": "qa-agent",
+  "subject": "Build plans dispatched",
+  "body": "3 implementation plans written to memory/requirements.",
+  "refs": [
+    "task-mq432env-7evwsr",
+    "task-mq432enr-puu9is",
+    "task-mq432enn-ygt5a5"
+  ],
+  "createdAt": "2026-06-07T17:56:06.855Z"
+}

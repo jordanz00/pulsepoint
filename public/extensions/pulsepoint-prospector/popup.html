@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PulsePoint Prospector</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        width: 320px;
+        margin: 0;
+        padding: 12px;
+        font-size: 13px;
+      }
+      label {
+        display: block;
+        margin-top: 8px;
+        color: #52525b;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 4px;
+        padding: 6px 8px;
+      }
+      button {
+        margin-top: 12px;
+        width: 100%;
+        padding: 8px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      #status {
+        margin-top: 8px;
+        color: #52525b;
+        font-size: 12px;
+      }
+      a {
+        color: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+    <strong>PulsePoint Prospector</strong>
+    <label>API base (e.g. http://localhost:3000)</label>
+    <input id="baseUrl" type="url" placeholder="http://localhost:3000" />
+    <label>Org ID</label>
+    <input id="orgId" type="text" />
+    <label>Capture token</label>
+    <input id="token" type="password" />
+    <label>Org slug (for panel link)</label>
+    <input id="orgSlug" type="text" placeholder="demo-healthcare" />
+    <button id="save">Save settings</button>
+    <button id="enrich">Enrich this page</button>
+    <button id="panel">Open panel</button>
+    <p id="status"></p>
+    <p><a id="profile" href="#" target="_blank" hidden>Open CRM profile</a></p>
+    <script src="popup.js"></script>
+  </body>
+</html>

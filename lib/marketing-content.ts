@@ -6,17 +6,38 @@
 import type { CatalogStatus } from "@/lib/marketing-catalog";
 
 export const HERO_COPY = {
-  eyebrow: "Association Management Software",
-  headline: "Modern AMS Built for Healthcare Associations",
-  lead: "PulsePoint helps associations simplify operations, strengthen member engagement, and scale with confidence. Built on a modern, flexible platform, PulsePoint connects with your organization’s tools while delivering the performance and usability today’s teams expect.",
+  eyebrow: "Modern AMS for healthcare associations",
+  headline: "Run your entire association from one platform—without the legacy AMS tax",
+  lead:
+    "PulsePoint unifies membership, events, learning, giving, commerce, and staff operations in a single workspace—with honest Live and Preview labels on every module.",
   bridge:
-    "From membership management to events, education, reporting, and payments, PulsePoint provides what associations need in one connected platform—shipped modularly so you can start with MemberCore and PulsePoint Events today.",
+    "Start with modules that are live today; add previews when you are ready. No surprise scope in the contract.",
+} as const;
+
+export const VS_LEGACY_COPY = {
+  title: "What we do better",
+  lead:
+    "You get the work of a full association system—members, events, and staff tools—with a interface people actually enjoy using.",
+  pillars: [
+    {
+      title: "Easier day to day",
+      body: "Fewer clicks to add a member, publish an event, or fix a problem. Plain words, not software jargon.",
+    },
+    {
+      title: "Honest roadmap",
+      body: "Live means your team can rely on it today. Coming soon means we have not promised it in your contract yet.",
+    },
+    {
+      title: "Built to trust",
+      body: "Each association's data stays separate. Imports are reviewed before they go live. Payments and emails that fail show up for staff to handle.",
+    },
+  ],
 } as const;
 
 export const PLATFORM_INTRO = {
-  title: "Core Platform Features",
+  title: "Everything in one platform",
   subtitle:
-    "One platform narrative, modular delivery—see which capabilities are live in your tenant versus on the roadmap.",
+    "Pick the pieces you need. Green Live badges are ready now; Coming soon is clearly marked.",
 } as const;
 
 export type CoreFeature = {
@@ -30,65 +51,59 @@ export type CoreFeature = {
 export const CORE_PLATFORM_FEATURES: CoreFeature[] = [
   {
     id: "membership",
-    title: "Membership Management",
+    title: "MemberCore",
     description:
-      "Member directory, staff notes, audited CSV import (stage → review → apply), and role-based export—renewals and full portal on the roadmap.",
+      "Search your directory, import a spreadsheet safely, and keep notes on one screen per person.",
     status: "available",
     pulseModule: "MemberCore",
   },
   {
     id: "events",
-    title: "Events, Sponsorships & Exhibits",
+    title: "Events",
     description:
-      "Plan events, registration, and onsite check-in today—sponsorships, exhibits, and booth management on the PulsePoint Events roadmap.",
+      "Publish an event, share a registration link, check people in, and collect payment when you need it.",
     status: "available",
     pulseModule: "PulsePoint Events",
   },
   {
     id: "education",
-    title: "Education & Certifications",
-    description:
-      "Certifications, CE credits, and professional development in one system—PulsePoint Learn on the roadmap.",
-    status: "roadmap",
+    title: "Learning & credits",
+    description: "Track classes and continuing education on each member's record.",
+    status: "alpha",
     pulseModule: "PulsePoint Learn",
   },
   {
     id: "fundraising",
-    title: "Fundraising & Donor Management",
-    description:
-      "Donor profiles, campaigns, and giving workflows in one system—PulsePoint Giving on the roadmap.",
-    status: "roadmap",
+    title: "Fundraising",
+    description: "Run campaigns and record gifts in one place.",
+    status: "alpha",
     pulseModule: "PulsePoint Giving",
   },
   {
     id: "payments",
-    title: "E-Commerce & Payments",
-    description:
-      "Branded storefronts, dues, merchandise, and flexible payments—PulsePoint Commerce on the roadmap.",
-    status: "roadmap",
+    title: "Online payments",
+    description: "Sell dues or items through a simple checkout.",
+    status: "alpha",
     pulseModule: "PulsePoint Commerce",
   },
   {
     id: "communications",
-    title: "Marketing & Communications",
-    description:
-      "Targeted campaigns, segmentation, and engagement metrics—PulsePoint Engage on the roadmap.",
-    status: "roadmap",
+    title: "Email to members",
+    description: "Send updates to the right groups without exporting lists.",
+    status: "alpha",
     pulseModule: "PulsePoint Engage",
   },
   {
     id: "reporting",
-    title: "Business Intelligence & Analytics",
-    description:
-      "Dashboards, role-based reporting, and unified visibility—PulsePoint Insights on the roadmap.",
-    status: "roadmap",
+    title: "Reports & charts",
+    description: "See how membership and events are performing, and download spreadsheets.",
+    status: "alpha",
     pulseModule: "PulsePoint Insights",
   },
   {
     id: "staff",
-    title: "Staff Experience & Productivity",
-    description:
-      "Unified staff workspace, modern admin UX, and streamlined operations—PulsePoint Work (live for MemberCore + Events).",
+    title: "Staff workspace",
+    description: "The same calm layout across every module so training stays short.",
     status: "available",
     pulseModule: "PulsePoint Work",
   },
@@ -99,48 +114,32 @@ export type CapabilityItem = {
   status: CatalogStatus;
 };
 
-/** Membership Management product narrative — branded MemberCore */
+/** Membership & Member Experience — branded MemberCore */
 export const MEMBER_CORE_SPOTLIGHT = {
-  category: "Membership Management",
+  category: "Membership & Member Experience",
   productName: "MemberCore",
   paragraphs: [
-    "PulsePoint delivers a modern, intuitive membership experience that guides users from join to renewal through a streamlined, mobile-first journey.",
-    "With simplified onboarding, single sign-on (SSO), and integrated billing, members can easily manage their entire lifecycle in one place. A clean, modern interface combined with automated membership and benefits management improves engagement, increases completion rates, and reduces manual work for staff.",
+    "Create a seamless, modern experience for every member lifecycle stage — from application to renewal.",
+    "PulsePoint provides intuitive member portals, streamlined onboarding, self-service account management, and mobile-friendly workflows that reduce administrative overhead while improving engagement.",
   ],
   roadmapNote:
-    "SSO, integrated billing, and automated tier management are on the MemberCore roadmap—see labels below for what is live today.",
-  portalTitle: "Members get 24/7 access to a personalized self-service portal where they can:",
+    "Labels below show what is live in your tenant today versus on the roadmap.",
+  portalTitle: "Features include:",
   portalItems: [
-    { text: "Join or renew memberships", status: "roadmap" },
-    { text: "Pay dues and invoices", status: "roadmap" },
-    { text: "Register for events", status: "available" },
-    { text: "Manage profiles and preferences", status: "available" },
-    { text: "Access member benefits and resources", status: "roadmap" },
+    { text: "Guided membership applications and renewals", status: "roadmap" },
+    { text: "Personalized member dashboards", status: "roadmap" },
+    { text: "Self-service dues and payment management", status: "roadmap" },
+    { text: "Role-based member access", status: "available" },
+    { text: "Committee, chapter, and roster management", status: "roadmap" },
+    { text: "Automated renewal reminders and workflows", status: "roadmap" },
+    { text: "Secure single sign-on (SSO)", status: "roadmap" },
   ] as CapabilityItem[],
   orgTitle: "With MemberCore, you can:",
   orgItems: [
-    {
-      text: "Deliver a streamlined, guided membership journey with fewer steps",
-      status: "roadmap",
-    },
-    { text: "Launch a modern, customizable member portal", status: "available" },
-    {
-      text: "Automate membership tiers, benefits, and pricing",
-      status: "roadmap",
-    },
-    {
-      text: "Enable seamless self-service for dues, events, and purchases",
-      status: "available",
-    },
-    { text: "Provide mobile-friendly, always-on member access", status: "available" },
-    {
-      text: "Simplify applications, renewals, and member management",
-      status: "available",
-    },
-    {
-      text: "Manage chapters, committees, and rosters in one system",
-      status: "roadmap",
-    },
+    { text: "Find any member in seconds with search and tags", status: "available" },
+    { text: "Keep staff notes and history on one member record", status: "available" },
+    { text: "Import members with stage → review → apply", status: "available" },
+    { text: "Export audited member CSV for reporting", status: "available" },
   ] as CapabilityItem[],
 } as const;
 
@@ -157,36 +156,15 @@ export const PULSE_EVENTS_SPOTLIGHT = {
   ],
   roadmapNote:
     "Sponsorships, exhibits, session tracks, templates, walk-in kiosks, and advanced pricing tiers are on the PulsePoint Events roadmap—see labels below for what is live today.",
-  orgTitle: "With PulsePoint Events, you can:",
+  orgTitle: "Features include:",
   orgItems: [
-    {
-      text: "Simplify event setup and attendee registration",
-      status: "available",
-    },
-    {
-      text: "Automate registrations, cancellations, and reporting",
-      status: "roadmap",
-    },
-    {
-      text: "Enable fast onsite check-in with self-service or staff-assisted kiosks",
-      status: "available",
-    },
-    {
-      text: "Register walk-in attendees, process payments, and print badges instantly",
-      status: "roadmap",
-    },
-    {
-      text: "Reuse event templates, sessions, pricing, and venue configurations",
-      status: "roadmap",
-    },
-    {
-      text: "Manage exhibitors, sponsorships, and booth assignments in one place",
-      status: "roadmap",
-    },
-    {
-      text: "Support complex pricing models, including tiers and early-bird rates",
-      status: "roadmap",
-    },
+    { text: "Event registration and ticketing", status: "available" },
+    { text: "Sponsor and exhibitor management", status: "roadmap" },
+    { text: "Session scheduling", status: "roadmap" },
+    { text: "Attendance tracking", status: "available" },
+    { text: "Registration confirmation email", status: "available" },
+    { text: "Automated event reminders", status: "roadmap" },
+    { text: "Real-time reporting and revenue tracking", status: "roadmap" },
   ] as CapabilityItem[],
   closing:
     "PulsePoint Events helps your team run smoother, more profitable events while delivering a faster, more professional experience for attendees, sponsors, and exhibitors.",
@@ -202,32 +180,13 @@ export const PULSE_LEARN_SPOTLIGHT = {
   ],
   roadmapNote:
     "PulsePoint Learn is on the PulsePoint roadmap—capabilities below will ship with the Learn module.",
-  orgTitle: "With PulsePoint Learn, you can:",
+  orgTitle: "Features include:",
   orgItems: [
-    {
-      text: "Track certifications, CE credits, and professional milestones in one member record",
-      status: "roadmap",
-    },
-    {
-      text: "Maintain a complete, accurate education history for every member",
-      status: "roadmap",
-    },
-    {
-      text: "Deliver a consistent learning experience through integrated learning systems",
-      status: "roadmap",
-    },
-    {
-      text: "Connect courses, certifications, and accreditation programs to events and offerings",
-      status: "roadmap",
-    },
-    {
-      text: "Analyze engagement trends to understand which topics drive member interest",
-      status: "roadmap",
-    },
-    {
-      text: "Align education programs with member development and organizational goals",
-      status: "roadmap",
-    },
+    { text: "Certification lifecycle management", status: "roadmap" },
+    { text: "CE/CME credit tracking", status: "roadmap" },
+    { text: "Course enrollment workflows", status: "roadmap" },
+    { text: "Expiration and renewal automation", status: "roadmap" },
+    { text: "Progress dashboards for members and staff", status: "roadmap" },
   ] as CapabilityItem[],
   closing:
     "PulsePoint Learn helps associations modernize professional education while making it easier for members to grow, track progress, and stay certified.",
@@ -243,32 +202,13 @@ export const PULSE_GIVING_SPOTLIGHT = {
   ],
   roadmapNote:
     "PulsePoint Giving is on the PulsePoint roadmap—capabilities below will ship with the Giving module.",
-  orgTitle: "With PulsePoint Giving, you can:",
+  orgTitle: "Features include:",
   orgItems: [
-    {
-      text: "Create detailed donor profiles and track all supporter interactions",
-      status: "roadmap",
-    },
-    {
-      text: "Enable recurring gifts, one-time donations, in-kind contributions, and auctions",
-      status: "roadmap",
-    },
-    {
-      text: "Launch targeted fundraising campaigns and automated donor acknowledgments",
-      status: "roadmap",
-    },
-    {
-      text: "Simplify payment processing with automated and manual invoicing options",
-      status: "roadmap",
-    },
-    {
-      text: "Track fundraising performance and generate real-time reports and insights",
-      status: "roadmap",
-    },
-    {
-      text: "Identify trends and opportunities to improve campaign effectiveness",
-      status: "roadmap",
-    },
+    { text: "Donation processing", status: "roadmap" },
+    { text: "Campaign and appeal management", status: "roadmap" },
+    { text: "Donor segmentation", status: "roadmap" },
+    { text: "Recurring giving programs", status: "roadmap" },
+    { text: "Contribution history and reporting", status: "roadmap" },
   ] as CapabilityItem[],
   closing:
     "PulsePoint Giving helps associations increase fundraising efficiency, strengthen donor relationships, and gain clear visibility into revenue performance.",
@@ -284,40 +224,13 @@ export const PULSE_COMMERCE_SPOTLIGHT = {
   ],
   roadmapNote:
     "PulsePoint Commerce is on the PulsePoint roadmap—paid event registration via Stripe in PulsePoint Events is live today; full storefronts, dues commerce, and the capabilities below ship with Commerce.",
-  orgTitle: "With PulsePoint Commerce, you can:",
+  orgTitle: "Features include:",
   orgItems: [
-    {
-      text: "Launch a polished, customizable online storefront for members",
-      status: "roadmap",
-    },
-    {
-      text: "Automate e-commerce workflows to reduce staff workload",
-      status: "roadmap",
-    },
-    {
-      text: "Offer promotions, discounts, and tiered pricing models",
-      status: "roadmap",
-    },
-    {
-      text: "Calculate shipping, taxes, and fees in real time",
-      status: "roadmap",
-    },
-    {
-      text: "Enable self-service purchasing with full member control over orders and payments",
-      status: "roadmap",
-    },
-    {
-      text: "Accept credit cards, ACH, digital wallets, and international payments",
-      status: "roadmap",
-    },
-    {
-      text: "Support flexible payment options, including installment-based plans",
-      status: "roadmap",
-    },
-    {
-      text: "Configure surcharges to offset processing costs",
-      status: "roadmap",
-    },
+    { text: "Online payments and invoicing", status: "roadmap" },
+    { text: "Recurring billing support", status: "roadmap" },
+    { text: "Secure payment processing", status: "available" },
+    { text: "Product and resource sales", status: "roadmap" },
+    { text: "Integrated checkout experiences", status: "roadmap" },
   ] as CapabilityItem[],
   closing:
     "PulsePoint Commerce helps associations simplify transactions, expand revenue opportunities, and deliver a seamless buying experience for members and stakeholders.",
@@ -333,32 +246,13 @@ export const PULSE_ENGAGE_SPOTLIGHT = {
   ],
   roadmapNote:
     "PulsePoint Engage is on the PulsePoint roadmap—capabilities below will ship with the Engage module.",
-  orgTitle: "With PulsePoint Engage, you can:",
+  orgTitle: "Features include:",
   orgItems: [
-    {
-      text: "Integrate with your preferred marketing automation and email platforms",
-      status: "roadmap",
-    },
-    {
-      text: "Send communications to individuals or large member groups directly from the system",
-      status: "roadmap",
-    },
-    {
-      text: "Build dynamic member segments based on membership type, behavior, or engagement activity",
-      status: "roadmap",
-    },
-    {
-      text: "Personalize messaging to improve relevance and response rates",
-      status: "roadmap",
-    },
-    {
-      text: "Track campaign performance, including opens, clicks, and engagement metrics",
-      status: "roadmap",
-    },
-    {
-      text: "Analyze communication effectiveness through integrated reporting tools",
-      status: "roadmap",
-    },
+    { text: "Email campaign management", status: "roadmap" },
+    { text: "Segmented audience targeting", status: "roadmap" },
+    { text: "Automated notifications and reminders", status: "roadmap" },
+    { text: "Member engagement tracking", status: "roadmap" },
+    { text: "Communication history and activity logs", status: "available" },
   ] as CapabilityItem[],
   closing:
     "PulsePoint Engage helps associations strengthen member relationships, improve communication efficiency, and drive higher engagement through smarter, more targeted outreach.",
@@ -374,32 +268,14 @@ export const PULSE_INSIGHTS_SPOTLIGHT = {
   ],
   roadmapNote:
     "PulsePoint Insights is on the PulsePoint roadmap—MemberCore CSV export and basic admin lists are available today; dashboards, exploration, and unified BI ship with Insights.",
-  orgTitle: "With PulsePoint Insights, you can:",
+  orgTitle: "Features include:",
   orgItems: [
-    {
-      text: "Create and share customizable dashboards across your organization",
-      status: "roadmap",
-    },
-    {
-      text: "Track membership trends, event performance, fundraising results, and engagement metrics in real time",
-      status: "roadmap",
-    },
-    {
-      text: "Visualize and explore data without leaving the platform",
-      status: "roadmap",
-    },
-    {
-      text: "Build role-based dashboards for staff, leadership, and departments",
-      status: "roadmap",
-    },
-    {
-      text: "Turn insights into action with clear, accessible reporting tools",
-      status: "roadmap",
-    },
-    {
-      text: "Improve decision-making with unified, organization-wide data visibility",
-      status: "roadmap",
-    },
+    { text: "Custom dashboards and reports", status: "roadmap" },
+    { text: "Membership analytics", status: "roadmap" },
+    { text: "Revenue and financial reporting", status: "roadmap" },
+    { text: "Event performance insights", status: "roadmap" },
+    { text: "Exportable operational data", status: "available" },
+    { text: "Executive-level KPI tracking", status: "roadmap" },
   ] as CapabilityItem[],
   closing:
     "PulsePoint Insights helps associations move from fragmented reporting to a connected, data-driven approach that supports smarter strategy and better outcomes.",
@@ -458,6 +334,79 @@ export const PULSE_WORK_SPOTLIGHT = {
     "PulsePoint Work helps association teams work faster, stay aligned, and focus more time on delivering value to members instead of managing systems.",
 } as const;
 
+/** Built for Security, Reliability & Scale — synced with SECURITY_MARKETING on homepage */
+export const SECURITY_PLATFORM_SPOTLIGHT = {
+  category: "Member data, protected.",
+  productName: "Platform foundation",
+  paragraphs: [
+    "Hospital associations trust PulsePoint with roster, payment, and engagement information. Each organization gets its own private space—imports are reviewed before they land, and problems surface for staff to fix.",
+  ],
+  roadmapNote: "",
+  orgTitle: "What you can count on:",
+  orgItems: [
+    {
+      text: "Separate private data space for every association",
+      status: "available",
+    },
+    {
+      text: "Role-based access—staff only see permitted screens and exports",
+      status: "available",
+    },
+    {
+      text: "Validated workflows for member and event records",
+      status: "available",
+    },
+    {
+      text: "Automated checks to reduce cross-organization data exposure",
+      status: "available",
+    },
+    {
+      text: "Spreadsheet uploads reviewed before production data changes",
+      status: "available",
+    },
+    {
+      text: "Payments and registrations processed once—no silent double charges",
+      status: "available",
+    },
+  ] as CapabilityItem[],
+  closing: "",
+} as const;
+
+/** Why Organizations Choose PulsePoint */
+export const WHY_ORGANIZATIONS_CHOOSE = {
+  title: "Why associations switch to PulsePoint",
+  paragraphs: [
+    "Your staff should not need a manual the size of a phone book to update a member or open registration.",
+    "PulsePoint is shaped by people who run association work every day—so the screens match how you actually work.",
+    "You get one place for members and events now, with room to add learning, fundraising, and reporting when those modules are ready for you.",
+  ],
+} as const;
+
+/** PulsePoint at a Glance — synced with GLANCE_MARKETING + lib/glance-marketing-preview.ts */
+export const PULSE_AT_A_GLANCE = {
+  title: "PulsePoint at a Glance",
+  designedFor: [
+    "Statewide hospital associations",
+    "Health system member networks",
+    "Government affairs & PAC teams",
+    "IT and web operations",
+  ],
+  supports: [
+    { text: "MemberCore directory & renewals", status: "available" as CatalogStatus },
+    { text: "EventCore registration & export", status: "available" as CatalogStatus },
+    { text: "Staff workspace & integrations", status: "available" as CatalogStatus },
+    { text: "Advocacy, giving, insights & more", status: "alpha" as CatalogStatus },
+    { text: "Microsoft 365 + EasyDNN handoff", status: "available" as CatalogStatus },
+  ],
+  builtWith: [
+    "Separate data space for each association",
+    "Spreadsheet imports reviewed before go-live",
+    "Safe payment and registration handling",
+    "Clear staff screens when something needs attention",
+    "Modern, fast web experience",
+  ],
+} as const;
+
 export const BETTER_EXPERIENCES = {
   title: "Better Experiences for Members and Staff",
   lead: "PulsePoint helps associations create personalized, frictionless member experiences across every interaction.",
@@ -482,27 +431,74 @@ export const BETTER_EXPERIENCES = {
     "The result is a more connected, efficient, and modern association experience for everyone involved.",
 } as const;
 
-export type FaqItem = { question: string; answer: string };
+export type FaqItem = {
+  question: string;
+  answer: string;
+  bullets?: readonly string[];
+};
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    question: "What is association management software (AMS)?",
+    question: "What is PulsePoint?",
     answer:
-      "Association management software (AMS) is a platform designed to help associations manage operations, member relationships, and organizational growth. AMS platforms typically include tools for membership management, dues and renewals, event registration, certifications and continuing education, reporting and analytics, communications and marketing, and e-commerce and payments. PulsePoint combines these capabilities into a unified, modern platform built specifically for healthcare associations—delivered in modules so you can adopt what you need when you need it.",
+      "Cloud AMS for hospital associations—membership, advocacy, events, and revenue on one platform.",
   },
   {
-    question: "Why choose a modern AMS platform?",
+    question: "Who is it for?",
     answer:
-      "A modern AMS allows associations to centralize member data, automate repetitive tasks, and integrate with other business systems. With PulsePoint, organizations benefit from faster implementation and onboarding, continuous platform updates, improved security and scalability, modern APIs and integrations (roadmap), reduced administrative complexity, and better reporting and visibility across the organization as modules roll out.",
+      "Statewide hospital and health system associations—facility rosters, GR, and C-suite workflows.",
   },
   {
-    question: "Is PulsePoint a CRM or an AMS?",
+    question: "What makes it different?",
     answer:
-      "PulsePoint combines the strengths of both. As a CRM-powered AMS, PulsePoint helps organizations manage member relationships while supporting association-specific workflows such as membership and dues management, chapter and committee administration (roadmap), certifications and credential tracking (roadmap), events and registrations, and communications and engagement (roadmap). This unified approach eliminates disconnected systems and gives teams a clearer view of member activity in one platform.",
+      "PulsePoint puts your whole association on one platform—built for statewide hospital associations, not generic chapter software.",
+    bullets: [
+      "MemberCore — one hospital roster for every module",
+      "EventCore — registration, check-in, and payments",
+      "Advocacy — policy campaigns tied to who acted",
+      "Insights — board-ready revenue from the same data staff uses",
+      "Hospital PAC — fundraising linked to policy priorities",
+      "Microsoft 365, EasyDNN, and Stripe — connected, not replaced",
+    ],
   },
   {
-    question: "Does PulsePoint support Power BI reporting?",
+    question: "What's live today?",
+    answer: "MemberCore, events, and staff workspace. Other modules show Preview until GA.",
+  },
+  {
+    question: "Does PulsePoint handle our PAC?",
     answer:
-      "PulsePoint Insights is being built for export-friendly reporting and Power BI–ready semantic layers (roadmap)—so teams can visualize member trends without a six-figure BI implementation. Today, use CSV export and dashboard placeholders in MemberCore and PulsePoint Events; full Power BI connectors will ship with PulsePoint Insights.",
+      "PAC fundraising runs through Giving (Preview)—goals, contributions, and issue-linked reporting beside Advocacy. Compliance filings stay with counsel; PulsePoint tracks pacing and ties dollars to policy priorities.",
+  },
+  {
+    question: "How is data protected?",
+    answer:
+      "We treat your member data as sensitive—and security is something we work on every day, not something we set once and forget. Safeguards are in place so your association's information stays private, access stays controlled, and protections keep improving as standards evolve.",
+    bullets: [
+      "Protection built into the platform from the start",
+      "Security practices reviewed and strengthened on an ongoing basis",
+      "We will walk through details with your IT team and counsel before go-live",
+    ],
+  },
+  {
+    question: "Does PulsePoint work with Microsoft 365?",
+    answer:
+      "Yes. PulsePoint is built to plug into the Microsoft 365 your staff already use—the same work accounts, the same Outlook mail and calendar—so membership work and Microsoft tools feel like one environment, not two systems fighting each other.",
+    bullets: [
+      "Sign in with Microsoft — staff use their existing work accounts, no extra passwords",
+      "Outlook mail, calendar, and contacts show inside PulsePoint for everyday work",
+      "Connected through your organization's Microsoft account—the way enterprise tools are meant to integrate",
+      "Your IT team approves the connection once; we keep it current as Microsoft updates",
+    ],
+  },
+  {
+    question: "We run EasyDNN on our public website. How does that connect?",
+    answer:
+      "Configure your DNN site URL in Enterprise → Integrations. Export event pages and member directory as HTML modules to paste into EasyDNN—registration stays on PulsePoint with Stripe.",
+  },
+  {
+    question: "What does pricing look like?",
+    answer:
+      "Modular—start with live modules (MemberCore, events, workspace) and add previews when ready. Request a demo for a quote sized to your roster and integrations.",
   },
 ];

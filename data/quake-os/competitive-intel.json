@@ -1,0 +1,195 @@
+{
+  "_meta": {
+    "owner": "quake-os-market-research",
+    "source": "Quake OS Healthcare AMS World-Class Wave 1",
+    "lastUpdated": "2026-06-07",
+    "validationStatus": "analyst_curated",
+    "sources": [
+      "https://protechassociates.com/",
+      "https://blog.breezio.com/ams-highlight-series-protech",
+      "docs/PROTECH-FEATURE-MAP.md",
+      "docs/PROTECH-IMPORT.md"
+    ]
+  },
+  "competitors": [
+    {
+      "name": "Protech AMS",
+      "category": "healthcare_association_ams",
+      "platform": "Microsoft Dynamics 365 / Azure",
+      "strengths": [
+        "Deep healthcare association install base",
+        "AppSource-certified Microsoft stack",
+        "LX365 Power BI embedded analytics",
+        "Mature membership, events, education, commerce, accounting modules"
+      ],
+      "weaknesses": [
+        "Legacy UX patterns vs modern web apps",
+        "Long implementation and customization cycles",
+        "Advocacy/grassroots often custom or third-party"
+      ],
+      "healthcareFit": "Primary incumbent for state hospital associations",
+      "advocacyPac": "Not a native grassroots stack in standard pitch — varies by deployment",
+      "eventsCe": "Strong events + education on member profile",
+      "workforceLms": "Education history on profile; not a virtual career fair platform",
+      "microsoftM365": "Native Dynamics, Teams, Outlook, Power BI, Copilot path",
+      "pricingPosture": "Enterprise quote-based; public site emphasizes TCO vs multi-tool stacks",
+      "migrationPain": "High — decades of config, GL integrations, custom reports",
+      "pulsepointWedge": "Modern liquid glass UX, honest alpha labels, advocacy issue hub + workforce alpha, faster pilot wedge",
+      "docRef": "docs/PROTECH-FEATURE-MAP.md"
+    },
+    {
+      "name": "Fonteva",
+      "category": "salesforce_ams",
+      "platform": "Salesforce",
+      "strengths": ["Salesforce ecosystem", "Enterprise CRM depth", "AppExchange extensions"],
+      "weaknesses": ["Cost", "Implementation complexity", "Salesforce skill dependency"],
+      "healthcareFit": "Large nonprofits and some health associations",
+      "advocacyPac": "Via Salesforce campaigns or ISV add-ons",
+      "eventsCe": "Events and education via Salesforce modules",
+      "workforceLms": "Often integrated LMS ISV",
+      "microsoftM365": "Integrations available; not native Microsoft AMS",
+      "pricingPosture": "Enterprise Salesforce licensing + Fonteva SKUs",
+      "migrationPain": "High — Salesforce data model + custom objects",
+      "pulsepointWedge": "Purpose-built healthcare association workflows without Salesforce tax"
+    },
+    {
+      "name": "iMIS",
+      "category": "association_ams",
+      "platform": "iMIS Cloud / legacy",
+      "strengths": ["Mature AMS", "CE and events", "Association industry brand"],
+      "weaknesses": ["Customization cost", "Dated member portal patterns"],
+      "healthcareFit": "Mixed — general association with healthcare verticals",
+      "advocacyPac": "Varies; often external advocacy tools",
+      "eventsCe": "Solid CE and event registration",
+      "workforceLms": "CE modules; career pipeline typically external",
+      "microsoftM365": "Integrations; not Dynamics-native",
+      "pricingPosture": "Enterprise tiered",
+      "migrationPain": "Medium-high — long-tenured data models",
+      "pulsepointWedge": "Executive dashboards and advocacy-first design"
+    },
+    {
+      "name": "Higher Logic",
+      "category": "community_engagement",
+      "platform": "SaaS community",
+      "strengths": ["Community and engagement", "Marketing automation"],
+      "weaknesses": ["Not full AMS for dues/advocacy ops"],
+      "healthcareFit": "Engagement layer atop AMS",
+      "advocacyPac": "Grassroots email/community; not PAC compliance",
+      "eventsCe": "Community events; not full conference ops",
+      "workforceLms": "Limited",
+      "microsoftM365": "Some integrations",
+      "pricingPosture": "Subscription by community size",
+      "migrationPain": "Low as add-on; high if mistaken for full AMS",
+      "pulsepointWedge": "Unified ops console — membership + advocacy + events"
+    },
+    {
+      "name": "MemberSuite",
+      "category": "association_ams",
+      "platform": "Cloud AMS (NovoEd / Community Brands family)",
+      "strengths": ["SMB association fit", "Events and dues"],
+      "weaknesses": ["Limited health-system scale", "Less Microsoft-native depth"],
+      "healthcareFit": "Smaller associations",
+      "advocacyPac": "Basic email; not hospital roster advocacy",
+      "eventsCe": "Standard event registration",
+      "workforceLms": "Basic CE",
+      "microsoftM365": "Limited vs Protech",
+      "pricingPosture": "Mid-market subscription",
+      "migrationPain": "Medium",
+      "pulsepointWedge": "Scales from chapter to statewide hospital roster"
+    },
+    {
+      "name": "YourMembership",
+      "category": "association_ams",
+      "platform": "Cloud AMS",
+      "strengths": ["SMB association fit", "Website + member portal"],
+      "weaknesses": ["Less enterprise advocacy depth"],
+      "healthcareFit": "Professional societies more than hospital associations",
+      "advocacyPac": "Limited",
+      "eventsCe": "Events and CE basics",
+      "workforceLms": "Limited",
+      "microsoftM365": "Limited",
+      "pricingPosture": "Mid-market",
+      "migrationPain": "Medium",
+      "pulsepointWedge": "Hospital association packaging + advocacy hub"
+    },
+    {
+      "name": "Salesforce Nonprofit / AMS ISVs",
+      "category": "salesforce_ams",
+      "platform": "Salesforce",
+      "strengths": ["CRM flexibility", "Ecosystem"],
+      "weaknesses": ["Build vs buy time", "Admin skill gap"],
+      "healthcareFit": "Large systems with Salesforce center of gravity",
+      "advocacyPac": "Custom or ISV",
+      "eventsCe": "ISV-dependent",
+      "workforceLms": "ISV-dependent",
+      "microsoftM365": "Coexistence integrations",
+      "pricingPosture": "Salesforce licenses + SI costs",
+      "migrationPain": "Very high without disciplined phase plan",
+      "pulsepointWedge": "Opinionated healthcare AMS vs blank Salesforce canvas"
+    },
+    {
+      "name": "Nimble-class CRM",
+      "category": "crm",
+      "platform": "SaaS CRM",
+      "strengths": ["Relationship CRM", "Lightweight workflows"],
+      "weaknesses": ["Not AMS — no dues/events core"],
+      "healthcareFit": "Contact management only",
+      "advocacyPac": "Not applicable",
+      "eventsCe": "Not applicable",
+      "workforceLms": "Not applicable",
+      "microsoftM365": "Email/calendar sync",
+      "pricingPosture": "Per-seat CRM",
+      "migrationPain": "Low as CRM; wrong tool if AMS needed",
+      "pulsepointWedge": "PulsePoint CRM alpha inside full AMS spine"
+    }
+  ],
+  "healthcareTrends2025_2027": [
+    {
+      "topic": "Workforce pipeline",
+      "summary": "Hospital associations prioritize nursing/allied health pipelines, retention incentives, and virtual recruiting.",
+      "validationStatus": "pending_sme"
+    },
+    {
+      "topic": "Access & rural care",
+      "summary": "Coverage gaps, wait times, telehealth policy, and rural access remain top advocacy themes.",
+      "validationStatus": "pending_sme"
+    },
+    {
+      "topic": "Workplace violence",
+      "summary": "Staff safety legislation, reporting, and mandatory training drive coalition campaigns.",
+      "validationStatus": "pending_sme"
+    },
+    {
+      "topic": "Behavioral health integration",
+      "summary": "Parity, crisis services, and workforce shortages cross state and federal agendas.",
+      "validationStatus": "pending_sme"
+    },
+    {
+      "topic": "Maternal health",
+      "summary": "Mortality prevention coalitions tie education, workforce, and policy campaigns.",
+      "validationStatus": "pending_sme"
+    },
+    {
+      "topic": "SDOH & food access",
+      "summary": "Screening workflows and community benefit programs link clinical ops to advocacy.",
+      "validationStatus": "pending_sme"
+    },
+    {
+      "topic": "Member engagement",
+      "summary": "CE, credentials, virtual events, and mobile-first executives expect modern UX.",
+      "validationStatus": "analyst_curated"
+    },
+    {
+      "topic": "Advocacy operations",
+      "summary": "Grassroots, legislator engagement, issue campaigns — PAC compliance stays legally bounded.",
+      "validationStatus": "analyst_curated"
+    }
+  ],
+  "featureGapsToWatch": [
+    "Native LMS depth vs Handshake/Brazen-class career platforms",
+    "Protech GL/accounting parity",
+    "Legislative feed automation",
+    "FEC/PAC compliance workflows",
+    "Power BI embed GA"
+  ]
+}

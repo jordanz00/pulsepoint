@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq3ro23j-5klpua",
+  "title": "gap: Healthcare CE and education",
+  "rationale": "knowledge/requirements.db#req-mq3r78ib-uiu0mz: gap: Fundraising and nonprofit surfaces | knowledge/requirements.db#req-mq3r6snf-8x2r57: gap: Fundraising and nonprofit surfaces | lib/association/modules.ts: summary: \"CE credits, courses, events; LMS integration roadmap.\",",
+  "proposedBy": "healthcare-association-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-07T12:37:01.471Z"
+}

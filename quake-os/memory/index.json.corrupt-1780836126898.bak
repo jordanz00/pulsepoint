@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T12:42:06.900Z",
+  "entries": []
+}  {
+      "id": "rec-mq3rulrm-48mf8k",
+      "category": "recommendations",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-07T12:42:06.898Z",
+      "path": "quake-os/memory/recommendations/rec-mq3rulrm-48mf8k.json"
+    }
+  ]
+}    "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T12:42:06.890Z",
+      "path": "quake-os/memory/messages/msg-mq3rulre-t0eiqd.json"
+    },
+    {
+      "id": "rec-mq3rulre-waapq8",
+      "category": "recommendations",
+      "title": "risk: Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-07T12:42:06.890Z",
+      "path": "quake-os/memory/recommendations/rec-mq3rulre-waapq8.json"
+    },
+    {
+      "id": "msg-mq3rulrf-il65tz",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ResearchAgent.run()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T12:42:06.891Z",
+      "path": "quake-os/memory/messages/msg-mq3rulrf-il65tz.json"
+    },
+    {
+      "id": "task-audit-test-001",
+      "category": "tasks",
+      "title": "Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T12:42:06.805Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "dec-mq3rulrg-woxnce",
+      "category": "decisions",
+      "title": "Daily architecture review",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T12:42:06.892Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "frc-mq3rulrg-mk41x8",
+      "category": "audits",
+      "title": "Feature review: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T12:42:06.893Z",
+      "path": "knowledge/audits.db",
+      "tags": [
+        "feature-review-chain",
+        "revise"
+      ]
+    },
+    {
+      "id": "msg-mq3rulrh-tfeapm",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ArchitectureAgent.review()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T12:42:06.893Z",
+      "path": "quake-os/memory/messages/msg-mq3rulrh-tfeapm.json"
+    },
+    {
+      "id": "dec-mq3rulrc-esftoq",
+      "category": "decisions",
+      "title": "CEO REVISE: Hospital advocacy take-action form",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T12:42:06.888Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq3rulrj-7x4r8j",
+      "category": "messages",
+      "title": "CEO REVISE: Hospital advocacy take-action form",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T12:42:06.895Z",
+      "path": "quake-os/memory/messages/msg-mq3rulrj-7x4r8j.json"
+    },
+    {
+      "id": "msg-mq3rulrk-cucxpv",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T12:42:06.896Z",
+      "path": "quake-os/memory/messages/msg-mq3rulrk-cucxpv.json"
+    },
+    {
+      "id": "task-frc-test-001",
+      "category": "tasks",
+      "title": "Hospital advocacy take-action form",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T12:42:06.827Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "frc-mq3rulrg-mk41x8",
+      "category": "lessons",
+      "title": "Review chain: Audit gate test",
+      "createdAt": "2026-06-07T12:42:06.897Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "feature-review-chain"
+      ]
+    },
+    {
+      "id": "msg-mq3rulrl-7v11h2",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T12:42:06.897Z",
+      "path": "quake-os/memory/messages/msg-mq3rulrl-7v11h2.json"
+    },
+    

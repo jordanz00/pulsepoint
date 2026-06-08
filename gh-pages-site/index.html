@@ -6,75 +6,69 @@
   <meta name="pp-base" content="/pulsepoint/" />
   <title>PulsePoint — Modern AMS for Healthcare Associations</title>
   <link rel="stylesheet" href="assets/site.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" />
   <script src="assets/site.js" defer></script>
 </head>
 <body>
   <header class="pc-header">
-    <div class="pc-header-inner">
+    <div class="pc-header-inner" style="max-width:72rem;margin:0 auto;">
       <a class="pc-brand" data-pp-href="" href="#">
-        <img class="pc-logo" data-pp-src="haplogo_box_blue.jpeg" alt="HAP" width="40" height="40" />
+        <img class="pc-logo" data-pp-src="haplogo_box_blue.jpeg" alt="" width="40" height="40" />
         <span>PulsePoint</span>
       </a>
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-        <a class="pc-btn-warm" data-pp-href="demo/">Try demo</a>
+        <a class="pc-btn-secondary" data-pp-href="demo/">Try demo</a>
       </div>
     </div>
   </header>
 
-  <section class="pc-hero">
-    <p class="pc-eyebrow">Association Management Software</p>
-    <h1>Modern AMS Built for Healthcare Associations</h1>
-    <p class="pc-lead">
-      PulsePoint helps associations simplify operations, strengthen member engagement, and scale with confidence—starting with MemberCore and PulsePoint Events today.
+  <section class="pc-hero" style="padding:5rem 1.5rem 4rem;">
+    <p class="pc-eyebrow">Association management software</p>
+    <h1 style="max-width:18ch;margin-left:auto;margin-right:auto;line-height:1.08;">
+      The modern AMS built for healthcare associations.
+    </h1>
+    <p class="pc-lead" style="max-width:40rem;margin:1.25rem auto 0;">
+      Membership, events, payments, and operations—modular, honest, and designed for staff who refuse to fight their software every morning.
     </p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a class="pc-btn-warm" data-pp-href="demo/">Try interactive demo</a>
-      <a class="pc-btn-secondary" href="https://github.com/jordanz00/pulsepoint" target="_blank" rel="noopener">View source on GitHub</a>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+      <button type="button" class="pc-btn-primary" data-pp-enter-demo="walkthrough">Guided walkthrough</button>
+      <button type="button" class="pc-btn-secondary" data-pp-enter-demo="suite">Full suite demo</button>
+    </div>
+    <p style="font-size:0.8rem;color:var(--pc-muted);margin-top:1rem;">3 Live · 5 Alpha modules · Static preview on GitHub Pages</p>
+  </section>
+
+  <section style="border-top:1px solid var(--pc-border);border-bottom:1px solid var(--pc-border);background:linear-gradient(180deg,#f8fafc 0%,#fff 100%);padding:2.5rem 1.5rem;">
+    <div style="max-width:48rem;margin:0 auto;text-align:center;">
+      <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--pc-accent);margin:0;">AMS + CRM suite</p>
+      <p style="font-size:1.05rem;color:var(--pc-muted);margin:0.75rem 0 0;line-height:1.5;">Filter modules by operations, CRM, or revenue in the full app—each labeled Live or Preview from the same registry staff use.</p>
     </div>
   </section>
 
-  <section class="pc-section">
-    <h2 style="font-family:var(--font-display);color:var(--hap-blue);margin-top:0;">Core platform features</h2>
-    <p style="color:var(--pc-muted);max-width:42rem;">Live vs Roadmap labels match the full product—this GitHub Pages site is a static preview; the full app runs locally or on a Node host.</p>
-    <div class="feature-grid" style="margin-top:1.5rem;">
-      <article class="feature-card">
-        <span class="pc-badge pc-badge-live">Live</span>
-        <h3>MemberCore</h3>
-        <p>Directory, staff notes, staged CSV import, audited export.</p>
-      </article>
-      <article class="feature-card">
-        <span class="pc-badge pc-badge-live">Live</span>
-        <h3>PulsePoint Events</h3>
-        <p>Registration, waitlist, check-in, paid events with Stripe.</p>
-      </article>
-      <article class="feature-card">
-        <span class="pc-badge pc-badge-roadmap">Roadmap</span>
-        <h3>PulsePoint Learn</h3>
-        <p>CE credits and certifications—labeled honestly until shipped.</p>
-      </article>
-      <article class="feature-card">
-        <span class="pc-badge pc-badge-roadmap">Roadmap</span>
-        <h3>PulsePoint Commerce &amp; Insights</h3>
-        <p>Storefronts, dues, and board-ready analytics on the roadmap.</p>
-      </article>
+  <section class="pc-section" style="max-width:72rem;margin:0 auto;">
+    <h2 style="font-family:var(--font-display);color:var(--pc-accent);margin-top:0;text-align:center;">Platform features</h2>
+    <div class="feature-grid" style="margin-top:2rem;">
+      <article class="feature-card"><span class="pc-badge pc-badge-live">Live</span><h3>MemberCore</h3><p>Directory, imports, governance roles.</p></article>
+      <article class="feature-card"><span class="pc-badge pc-badge-live">Live</span><h3>Events</h3><p>Register, waitlist, paid checkout.</p></article>
+      <article class="feature-card"><span class="pc-badge pc-badge-alpha">Alpha</span><h3>Learn</h3><p>CE types, courses, awards.</p></article>
+      <article class="feature-card"><span class="pc-badge pc-badge-alpha">Alpha</span><h3>Commerce</h3><p>Dues, merch, sponsorship SKUs.</p></article>
+      <article class="feature-card"><span class="pc-badge pc-badge-alpha">Alpha</span><h3>Giving</h3><p>Campaigns and gifts.</p></article>
+      <article class="feature-card"><span class="pc-badge pc-badge-alpha">Alpha</span><h3>Engage</h3><p>Templates and audiences.</p></article>
+      <article class="feature-card"><span class="pc-badge pc-badge-alpha">Alpha</span><h3>Insights</h3><p>KPIs and snapshots.</p></article>
+      <article class="feature-card"><span class="pc-badge pc-badge-live">Live</span><h3>Work</h3><p>Staff shell + exception queue.</p></article>
     </div>
   </section>
 
   <section class="pc-section" style="padding-top:0;">
-    <div class="pc-card" style="text-align:center;">
-      <span class="pc-badge pc-badge-demo">GitHub Pages demo</span>
-      <h2 style="margin:0.75rem 0 0.5rem;font-family:var(--font-display);">Click through without installing</h2>
-      <p style="color:var(--pc-muted);max-width:32rem;margin:0 auto 1.25rem;">
-        Opens a static prototype of the Sterling Healthcare admin experience. For the full database-backed app, clone the repo and run <code>pnpm demo:setup</code>.
+    <div class="pc-card" style="text-align:center;max-width:40rem;margin:0 auto;">
+      <h2 style="margin:0 0 0.75rem;font-family:var(--font-display);">Full app on your machine</h2>
+      <p style="color:var(--pc-muted);margin:0 auto 1.25rem;">
+        <code>pnpm demo:setup &amp;&amp; pnpm dev</code> — database-backed demo at localhost:3000
       </p>
-      <a class="pc-btn-primary" data-pp-href="demo/">Enter demo</a>
+      <a class="pc-btn-primary" data-pp-href="demo/">Open demo launcher</a>
     </div>
   </section>
 
   <footer class="pc-section pc-note" style="text-align:center;">
-    PulsePoint prototype · Hosted on GitHub Pages · <a href="https://github.com/jordanz00/pulsepoint">jordanz00/pulsepoint</a>
+    PulsePoint · <a href="https://github.com/jordanz00/pulsepoint">github.com/jordanz00/pulsepoint</a>
   </footer>
 </body>
 </html>

@@ -1,0 +1,13 @@
+{
+  "id": "dec-mq1o0tgl-bm7zkl",
+  "status": "accepted",
+  "createdAt": "2026-06-06T01:19:25.989Z",
+  "title": "Quake OS bootstrap",
+  "context": "Master build directive — OS before features",
+  "decision": "File-backed memory + engines + orchestrator operational",
+  "alternatives": [
+    "External agent runtime",
+    "Database-backed memory"
+  ],
+  "decidedBy": "ceo-agent"
+}

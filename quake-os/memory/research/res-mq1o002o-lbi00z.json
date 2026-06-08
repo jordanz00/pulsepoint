@@ -1,0 +1,16 @@
+{
+  "id": "res-mq1o002o-lbi00z",
+  "topic": "Nonprofit fundraising and donor trends",
+  "category": "nonprofit",
+  "summary": "Associations blend dues + PAC + foundation giving. Donor CRM and pledge tracking remain roadmap; PAC preview is illustrative only.",
+  "sources": [
+    "lib/pac-marketing-preview.ts",
+    "docs/PRODUCT-CLAIMS.md"
+  ],
+  "recommendations": [
+    "Keep PAC marketing labeled illustrative",
+    "Connect giving module to real Stripe when pilot ready"
+  ],
+  "authorAgent": "nonprofit-agent",
+  "createdAt": "2026-06-06T01:18:47.904Z"
+}

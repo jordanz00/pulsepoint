@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3vs5gd-05bhhz",
+  "from": "orchestrator",
+  "to": "security-agent",
+  "subject": "New task: risk: Membership scale and security",
+  "body": "scripts/ten-member-leak-checks.sh: bad \"$LEAK_FILES file(s) query member without getOrgDb\" | scripts/ten-member-leak-checks.sh: bad \"$API_LEAK app/api route(s) query member without getOrgDb\" | docs/SCALE-AND-SECURITY.md: | Integration test | `tests/integration/member-tenant-isolation.test.ts` | | docs/SCALE-AND-SECURITY.md: | `MAX_MEMBER_LIST_ROWS` | 500 | `lib/tenant-guards.ts` | | scripts/ten-member-leak-checks.sh: # Ten checks — prevent cross-association member list leaks.",
+  "refs": [
+    "task-mq3vs5gc-m6ih55"
+  ],
+  "createdAt": "2026-06-07T14:32:10.909Z"
+}

@@ -25,4 +25,4 @@
 
 ## Updates
 
-Add a row before integrating any new SaaS (analytics, chat, AI API). Update `app/privacy/page.tsx` the same week.
+Add a row before integrating any new SaaS (analytics, chat, external APIs). Update `app/privacy/page.tsx` the same week.

@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-08T01:17:23.079Z",
+  "entries": [
+    {
+      "id": "msg-mq4itvts-c5qz9m",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ArchitectureAgent.review()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.912Z",
+      "path": "quake-os/memory/messages/msg-mq4itvts-c5qz9m.json"
+    },
+    {
+      "id": "task-mq4itvu7-uy95ls",
+      "category": "tasks",
+      "title": "[gap] gap signals for AMS competitor landscape (medium confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.927Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq4itvu8-0ldwrf",
+      "category": "messages",
+      "title": "New task: [gap] gap signals for AMS competitor landscape (medium confidence)",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.928Z",
+      "path": "quake-os/memory/messages/msg-mq4itvu8-0ldwrf.json"
+    },
+    {
+      "id": "msg-mq4itvv5-2w0ujb",
+      "category": "messages",
+      "title": "New task: risk: Membership scale and security",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.961Z",
+      "path": "quake-os/memory/messages/msg-mq4itvv5-2w0ujb.json"
+    },
+    {
+      "id": "task-mq4itvvf-2w46jw",
+      "category": "tasks",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.971Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4itul5-mqac3f"
+      ]
+    },
+    {
+      "id": "msg-mq4itvvh-yph71c",
+      "category": "messages",
+      "title": "New task: risk: Healthcare CE and education",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.973Z",
+      "path": "quake-os/memory/messages/msg-mq4itvvh-yph71c.json"
+    },
+    {
+      "id": "msg-mq4itvvc-g44qbw",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-08T01:17:22.968Z",
+      "path": "quake-os/memory/messages/msg-mq4itvvc-g44qbw.json"
+    },
+    {
+      "id": "msg-mq4itvvk-9j8ckr",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:22.976Z",
+      "path": "quake-os/memory/messages/msg-mq4itvvk-9j8ckr.json"
+    },
+    {
+      "id": "req-mq4itvvk-dto1xz",
+      "category": "requirements",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.976Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq4itvvm-lrxdl2",
+      "category": "requirements",
+      "title": "gap: Enterprise health system governance",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.978Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq4itvw4-87ynt4",
+      "category": "requirements",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.996Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq4itvw6-kni43o",
+      "category": "requirements",
+      "title": "[gap] gap signals for AMS competitor landscape (medium confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.998Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "msg-mq4itvwc-2k7bth",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:23.004Z",
+      "path": "quake-os/memory/messages/msg-mq4itvwc-2k7bth.json"
+    },
+    {
+      "id": "msg-mq4itvwk-qffkoo",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:23.012Z",
+      "path": "quake-os/memory/messages/msg-mq4itvwk-qffkoo.json"
+    },
+    {
+      "id": "task-mq4itvvl-gyanf0",
+      "category": "tasks",
+      "title": "gap: Enterprise health system governance",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:22.977Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4ituqc-zuc0bq"
+      ]
+    },
+    {
+      "id": "msg-mq4itvww-8ojp4h",
+      "category": "messages",
+      "title": "New task: gap: Enterprise health system governance",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:23.024Z",
+      "path": "quake-os/memory/messages/msg-mq4itvww-8ojp4h.json"
+    },
+    {
+      "id": "task-mq4itvxb-xtnzsq",
+      "category": "tasks",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:23.039Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4itul5-mqac3f"
+      ]
+    },
+    {
+      "id": "msg-mq4itvxc-xgnj0d",
+      "category": "messages",
+      "title": "New task: risk: Healthcare CE and education",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:23.040Z",
+      "path": "quake-os/memory/messages/msg-mq4itvxc-xgnj0d.json"
+    },
+    {
+      "id": "task-mq4itvxd-ukng0w",
+      "category": "tasks",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:23.041Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4itul6-5sy7wl"
+      ]
+    },
+    {
+      "id": "backlog-mq4itvxa-6clmyy",
+      "category": "lessons",
+      "title": "Backlog refresh: 17 new tasks",
+      "createdAt": "2026-06-08T01:17:23.044Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "backlog",
+        "auto-generated"
+      ]
+    },
+    {
+      "id": "msg-mq4itvxe-raxsk1",
+      "category": "messages",
+      "title": "New task: gap: Healthcare CE and education",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:23.042Z",
+      "path": "quake-os/memory/messages/msg-mq4itvxe-raxsk1.json"
+    },
+    {
+      "id": "task-mq4itvxp-5hkmcf",
+      "category": "tasks",
+      "title": "opportunity: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-08T01:17:23.053Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mq4itul7-zazlf0"
+      ]
+    },
+    {
+      "id": "msg-mq4itvxs-ly5dfg",
+      "category": "messages",
+      "title": "New task: opportunity: Healthcare CE and education",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-08T01:17:23.056Z",
+      "path": "quake-os/memory/messages/msg-mq4itvxs-ly5dfg.json"
+    },
+    {
+      "id": "res-mq4itvy0-qr6eqa",
+      "category": "research",
+      "title": "AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:23.064Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "competitor",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mq4itvye-57zozl",
+      "category": "recommendations",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-08T01:17:23.078Z",
+      "path": "quake-os/memory/recommendations/rec-mq4itvye-57zozl.json"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "BL-003",
+  "title": "Staging pilot — Entra + Stripe + owners",
+  "description": "",
+  "priority": "P0",
+  "businessImpact": "critical",
+  "technicalComplexity": "medium",
+  "dependencies": [],
+  "ownerAgent": "quake-os-coo",
+  "status": "pending",
+  "researchSources": [],
+  "acceptanceCriteria": [],
+  "createdAt": "2026-06-06T01:18:47.879Z",
+  "updatedAt": "2026-06-06T01:18:47.879Z",
+  "division": "pilot",
+  "human": true,
+  "tags": [
+    "quake-os-coo",
+    "pulse-pilot-ops"
+  ]
+}

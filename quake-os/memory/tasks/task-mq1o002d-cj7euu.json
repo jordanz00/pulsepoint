@@ -1,0 +1,23 @@
+{
+  "id": "task-mq1o002d-cj7euu",
+  "status": "pending",
+  "createdAt": "2026-06-06T01:18:47.893Z",
+  "updatedAt": "2026-06-06T01:18:47.893Z",
+  "title": "Refresh competitive intel registry quarterly",
+  "description": "Update competitive-intel.json with pricing motion and module parity notes.",
+  "priority": "P2",
+  "businessImpact": "high",
+  "technicalComplexity": "medium",
+  "dependencies": [],
+  "ownerAgent": "research-agent",
+  "researchSources": [
+    "res-mq1o002c-3zzkwb"
+  ],
+  "acceptanceCriteria": [
+    "competitive-intel.json updated",
+    "wave report filed"
+  ],
+  "tags": [
+    "auto-from-research"
+  ]
+}

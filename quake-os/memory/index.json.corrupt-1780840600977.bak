@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T13:56:40.976Z",
+  "entries": [
+    {
+      "id": "task-mq3uihz8-g0a6u5",
+      "category": "tasks",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:56:40.964Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq3uihzb-7uvjox",
+      "category": "messages",
+      "title": "New task: Hospital associations need better PAC management.",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T13:56:40.967Z",
+      "path": "quake-os/memory/messages/msg-mq3uihzb-7uvjox.json"
+    },
+    {
+      "id": "msg-mq3uihzc-u5gmgn",
+      "category": "messages",
+      "title": "Discovery: Hospital associations need better PAC management.",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T13:56:40.968Z",
+      "path": "quake-os/memory/messages/msg-mq3uihzc-u5gmgn.json"
+    },
+    {
+      "id": "req-mq3uihzc-yn9wug",
+      "category": "requirements",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T13:56:40.968Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "requirements",
+        "discovery"
+      ]
+    },
+    {
+      "id": "task-audit-test-001",
+      "category": "tasks",
+      "title": "Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:56:40.943Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq3uihzd-tponq2",
+      "category": "messages",
+      "title": "Requirements ready: Hospital associations need better PAC management.",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T13:56:40.969Z",
+      "path": "quake-os/memory/messages/msg-mq3uihzd-tponq2.json"
+    },
+    {
+      "id": "req-mq3uihzf-wduacu",
+      "category": "requirements",
+      "title": "Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:56:40.971Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "feature-review"
+      ]
+    },
+    {
+      "id": "msg-mq3uihzk-a7y2hr",
+      "category": "messages",
+      "title": "Feature built: Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T13:56:40.976Z",
+      "path": "quake-os/memory/messages/msg-mq3uihzk-a7y2hr.json"
+    }
+  ]
+}      "pipeline"
+      ]
+    }
+  ]
+}

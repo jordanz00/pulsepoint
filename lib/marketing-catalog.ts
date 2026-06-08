@@ -3,7 +3,7 @@
  * Status labels are honest (available vs roadmap); do not imply shipped modules.
  */
 
-export type CatalogStatus = "available" | "roadmap";
+export type CatalogStatus = "available" | "alpha" | "roadmap";
 
 export type MarketingPersona = {
   id: "members" | "leaders" | "staff";
@@ -22,7 +22,7 @@ export const ADVANCE_ASSOCIATION = {
 export const MARKETING_PERSONAS: MarketingPersona[] = [
   {
     id: "members",
-    title: "Members",
+    title: "MemberCore",
     description:
       "Manage every step of the member journey—profiles, renewals, directories, and self-service portal access—in one intuitive workspace.",
     cta: "Explore MemberCore",
@@ -76,31 +76,31 @@ export const AMS_FEATURE_CATALOG: AmsFeature[] = [
     id: "education",
     title: "Education & Certifications",
     description:
-      "Certifications, CE credits, and learning milestones in one member record (PulsePoint Learn — roadmap).",
-    status: "roadmap",
+      "CE credit types, courses, and awards—PulsePoint Learn (alpha: real admin UI in demo).",
+    status: "alpha",
     pulseModule: "PulsePoint Learn",
   },
   {
     id: "fundraising",
     title: "Fundraising & Donor Management",
     description:
-      "Donor profiles, campaigns, and recurring gifts in one system (PulsePoint Giving — roadmap).",
-    status: "roadmap",
+      "Campaigns and gifts on the member graph—PulsePoint Giving (alpha in demo).",
+    status: "alpha",
     pulseModule: "PulsePoint Giving",
   },
   {
     id: "ecommerce",
     title: "E-Commerce & Payments",
     description:
-      "Branded storefronts, dues, merchandise, and member self-service purchasing (PulsePoint Commerce — roadmap).",
-    status: "roadmap",
+      "Dues, merch, and sponsorship SKUs—PulsePoint Commerce (alpha); paid events live today.",
+    status: "alpha",
     pulseModule: "PulsePoint Commerce",
   },
   {
     id: "accounting",
     title: "Accounting",
     description:
-      "Process transactions and maintain accurate financial records integrated with Commerce (roadmap).",
+      "GL codes on products and finance export on the Commerce roadmap—integrated with payments.",
     status: "roadmap",
     pulseModule: "PulsePoint Commerce",
   },
@@ -108,16 +108,16 @@ export const AMS_FEATURE_CATALOG: AmsFeature[] = [
     id: "marketing",
     title: "Marketing & Communications",
     description:
-      "Targeted campaigns, segmentation, and engagement metrics (PulsePoint Engage — roadmap).",
-    status: "roadmap",
+      "Templates, audiences, and sends—PulsePoint Engage (alpha in demo).",
+    status: "alpha",
     pulseModule: "PulsePoint Engage",
   },
   {
     id: "bi",
     title: "Business Intelligence & Analytics",
     description:
-      "Dashboards, role-based reporting, and unified data visibility (PulsePoint Insights — roadmap).",
-    status: "roadmap",
+      "Live KPIs and snapshots—PulsePoint Insights (alpha in demo).",
+    status: "alpha",
     pulseModule: "PulsePoint Insights",
   },
 ];

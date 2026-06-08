@@ -1,8 +1,8 @@
 # Contributing to PulsePoint
 
-## AI-assisted development
+## Assisted development
 
-Use AI for boilerplate, tests, copy drafts, and docs. **Do not** let AI merge these without a human diff and threat model:
+Use your editor’s assistive tools for boilerplate, tests, copy drafts, and docs. **Do not** merge sensitive paths without a human diff and threat model:
 
 | Path | Risk |
 |------|------|
@@ -37,9 +37,12 @@ and complete the checklist in `docs/SECURITY-PARANOID.md`.
 ```bash
 pnpm db:migrate
 pnpm test
+pnpm demo:setup && pnpm test:e2e   # before UI / advocacy changes
 pnpm security:audit
 pnpm claims:validate
 ```
+
+PRs to `main` must pass **CI / quality** and **E2E (demo wedge) / playwright** — see [docs/E2E-CI.md](docs/E2E-CI.md).
 
 ## Marketing honesty
 

@@ -5,7 +5,7 @@
 
 import type { ProductId } from "@/lib/products";
 
-export type PillarStatus = "available" | "coming_soon";
+export type PillarStatus = "available" | "alpha" | "coming_soon";
 
 export type FeaturePillar = {
   id: string;
@@ -28,7 +28,7 @@ export const FEATURE_PILLARS: FeaturePillar[] = [
   },
   {
     id: "members",
-    title: "Members",
+    title: "MemberCore",
     description: "Profiles, renewals, directories",
     status: "available",
     productId: "members",
@@ -46,7 +46,7 @@ export const FEATURE_PILLARS: FeaturePillar[] = [
     id: "education",
     title: "Education",
     description: "Certifications, CE credits, learning pathways",
-    status: "coming_soon",
+    status: "alpha",
     productId: "learn",
     path: "learn",
   },
@@ -54,7 +54,7 @@ export const FEATURE_PILLARS: FeaturePillar[] = [
     id: "fundraising",
     title: "Fundraising",
     description: "Donors, campaigns, recurring gifts",
-    status: "coming_soon",
+    status: "alpha",
     productId: "giving",
     path: "giving",
   },
@@ -62,22 +62,15 @@ export const FEATURE_PILLARS: FeaturePillar[] = [
     id: "commerce",
     title: "Commerce",
     description: "Storefronts, dues, merchandise, payments",
-    status: "coming_soon",
+    status: "alpha",
     productId: "commerce",
     path: "commerce",
-  },
-  {
-    id: "committees",
-    title: "Committees",
-    description: "Boards, task forces, voting",
-    status: "coming_soon",
-    path: "committees",
   },
   {
     id: "communications",
     title: "Communications",
     description: "Campaigns, segmentation, engagement",
-    status: "coming_soon",
+    status: "alpha",
     productId: "engage",
     path: "engage",
   },
@@ -85,21 +78,14 @@ export const FEATURE_PILLARS: FeaturePillar[] = [
     id: "insights",
     title: "Insights",
     description: "BI, dashboards, organization-wide reporting",
-    status: "coming_soon",
+    status: "alpha",
     productId: "insights",
     path: "insights",
-  },
-  {
-    id: "ai",
-    title: "AI Tools",
-    description: "Automation and support workflows",
-    status: "coming_soon",
-    productId: "ai",
-    path: "ai",
   },
 ];
 
 export function pillarHref(orgSlug: string, pillar: FeaturePillar): string | null {
-  if (!pillar.path || pillar.status !== "available") return null;
+  if (!pillar.path) return null;
+  if (pillar.status === "coming_soon") return null;
   return `/${orgSlug}/${pillar.path}`;
 }

@@ -1,0 +1,38 @@
+---
+description: Quake OS — autonomous multi-agent platform. Activate for OS builds, memory, engines, orchestrator.
+alwaysApply: false
+globs:
+  - "quake-os/**"
+---
+
+# Quake OS
+
+**Package:** `quake-os/` at repo root  
+**Directive:** `quake-os/docs/OS-MASTER-DIRECTIVE.md`
+
+## Before AMS features
+
+1. `pnpm quake:os` — verify OS health
+2. Read `quake-os/memory/tasks/` or legacy `data/quake-os/improvement-backlog.json`
+3. Run wave: `pnpm quake:os:wave`
+
+## Engines
+
+| Engine | Module |
+|--------|--------|
+| Memory | `quake-os/core/memory-store.ts` |
+| Tasks | `quake-os/core/task-engine.ts` |
+| Research | `quake-os/core/research-engine.ts` |
+| Audit | `quake-os/core/audit-engine.ts` |
+| Planning | `quake-os/core/planning-engine.ts` |
+| Improvement | `quake-os/core/improvement-engine.ts` |
+| Knowledge graph | `quake-os/knowledge-graph/store.ts` |
+| Orchestrator | `quake-os/orchestrator/index.ts` |
+
+## Feature complete workflow
+
+`runImprovementLoop()` → 8 review steps per `workflows/feature-complete.json`
+
+## Agents
+
+21 OS agents in `quake-os/agents/registry.json` — sync folders: `pnpm quake:agents:sync`

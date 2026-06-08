@@ -8,9 +8,13 @@ import { getOrgDb, prisma } from "@/lib/db";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { checkRegistrationGuards } from "@/lib/register-guards";
 import { publicRegistrationSchema } from "@/lib/validations/event";
+import { checkRegistrationWindow } from "@/lib/event-registration-window";
+import { generateBadgeCode } from "@/lib/event-badge";
 import { writeAuditLog } from "@/lib/audit";
-import { isResendConfigured, getResend, DEFAULT_FROM } from "@/lib/email";
+import { DEFAULT_FROM } from "@/lib/email";
+import { sendEmailWithFailover } from "@/lib/adapters/email";
 import { runSoftFailStep } from "@/lib/automation";
+import { resolveEventRegistrationPrice } from "@/lib/events/resolve-registration-price";
 
 const registerBodySchema = publicRegistrationSchema.extend({
   orgSlug: z.string().min(1).max(80),
@@ -32,7 +36,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid registration" }, { status: 400 });
   }
 
-  const { orgSlug, eventSlug, guestName, guestEmail } = parsed.data;
+  const { orgSlug, eventSlug, guestName, guestEmail, ticketTypeId, promoCode } =
+    parsed.data;
 
   const org = await prisma.organization.findUnique({ where: { slug: orgSlug } });
   if (!org) {
@@ -63,6 +68,29 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Event not available" }, { status: 404 });
   }
 
+  const window = checkRegistrationWindow(event);
+  if (!window.open) {
+    const messages: Record<string, string> = {
+      not_published: "Registration is not open",
+      not_open_yet: "Registration has not opened yet",
+      closed: "Registration is closed",
+      cancelled: "This event was cancelled",
+      completed: "This event has ended",
+    };
+    return NextResponse.json(
+      { error: messages[window.reason] ?? "Registration unavailable" },
+      { status: 403 },
+    );
+  }
+
+  const { priceCents, promoCodeUsed } = await resolveEventRegistrationPrice(db, {
+    eventId: event.id,
+    eventPriceCents: event.priceCents,
+    ticketTypeId,
+    promoCode,
+    consumePromo: true,
+  });
+
   if (event.capacity) {
     const confirmed = await db.eventRegistration.count({
       where: {
@@ -71,13 +99,23 @@ export async function POST(request: Request) {
       },
     });
     if (confirmed >= event.capacity) {
+      if (!event.waitlistEnabled) {
+        return NextResponse.json({ error: "Event is at capacity" }, { status: 409 });
+      }
+      const maxPos = await db.eventRegistration.aggregate({
+        where: { eventId: event.id, status: "WAITLIST" },
+        _max: { waitlistPosition: true },
+      });
       const waitlist = await db.eventRegistration.create({
         data: {
           orgId: org.id,
           eventId: event.id,
           guestName,
           guestEmail,
+          ticketTypeId: ticketTypeId ?? null,
           status: "WAITLIST",
+          waitlistPosition: (maxPos._max.waitlistPosition ?? 0) + 1,
+          promoCodeUsed,
         },
       });
       return NextResponse.json({
@@ -88,7 +126,7 @@ export async function POST(request: Request) {
     }
   }
 
-  const status = event.priceCents > 0 ? "PENDING" : "CONFIRMED";
+  const status = priceCents > 0 ? "PENDING" : "CONFIRMED";
 
   const registration = await db.eventRegistration.create({
     data: {
@@ -96,10 +134,26 @@ export async function POST(request: Request) {
       eventId: event.id,
       guestName,
       guestEmail,
+      ticketTypeId: ticketTypeId ?? null,
       status,
       paidAt: status === "CONFIRMED" ? new Date() : null,
+      promoCodeUsed,
     },
   });
+  if (status === "CONFIRMED") {
+    await db.eventRegistration.update({
+      where: { id: registration.id },
+      data: { badgeCode: generateBadgeCode(registration.id) },
+    });
+  }
+
+  const memberMatch = guestEmail
+    ? await db.member.findFirst({ where: { orgId: org.id, email: guestEmail } })
+    : null;
+  if (memberMatch) {
+    const { autoRecomputeEngagement } = await import("@/lib/jobs/auto-engagement");
+    await autoRecomputeEngagement(org.id, memberMatch.id).catch(() => undefined);
+  }
 
   await writeAuditLog({
     orgId: org.id,
@@ -116,14 +170,13 @@ export async function POST(request: Request) {
     3_600_000,
   );
 
-  if (isResendConfigured() && emailSendLimit.ok) {
+  if (emailSendLimit.ok) {
     await runSoftFailStep({
       orgId: org.id,
       workflow: "registration.confirm_email",
-      step: "resend.send",
+      step: "email.adapter.send",
       run: async () => {
-        const resend = getResend();
-        await resend.emails.send({
+        await sendEmailWithFailover({
           from: DEFAULT_FROM,
           to: guestEmail,
           subject: `Registration: ${event.title}`,
@@ -136,8 +189,7 @@ export async function POST(request: Request) {
   return NextResponse.json({
     ok: true,
     registrationId: registration.id,
-    requiresPayment: event.priceCents > 0,
-    checkoutAvailable:
-      event.priceCents > 0 && Boolean(process.env.STRIPE_SECRET_KEY),
+    requiresPayment: priceCents > 0,
+    checkoutAvailable: priceCents > 0,
   });
 }

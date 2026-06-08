@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { FormAlert } from "@/components/ui/form-alert";
+import { FormField } from "@/components/ui/form-field";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { FORM_HELP } from "@/lib/form-help-copy";
 import { updatePortalProfile } from "@/app/actions/portal";
 
 export function PortalProfileForm({
@@ -19,39 +21,48 @@ export function PortalProfileForm({
   };
 }) {
   const [message, setMessage] = useState<string | null>(null);
+  const [messageVariant, setMessageVariant] = useState<"success" | "error">("success");
+  const [pending, setPending] = useState(false);
 
   async function onSubmit(formData: FormData) {
+    setPending(true);
+    setMessage(null);
     const result = await updatePortalProfile(orgSlug, {
       firstName: String(formData.get("firstName") ?? ""),
       lastName: String(formData.get("lastName") ?? ""),
       email: String(formData.get("email") ?? ""),
       phone: String(formData.get("phone") ?? ""),
     });
-    setMessage(result.ok ? "Profile saved" : result.error);
+    setPending(false);
+    setMessageVariant(result.ok ? "success" : "error");
+    setMessage(result.ok ? "Your profile was updated." : result.error);
   }
 
   return (
-    <form action={onSubmit} className="max-w-md space-y-4 rounded-xl border bg-white p-6">
-      {message && <p className="text-sm text-teal-800">{message}</p>}
+    <form action={onSubmit} className="pc-form-shell">
+      {message ? <FormAlert variant={messageVariant}>{message}</FormAlert> : null}
       <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="firstName">First name</Label>
-          <Input id="firstName" name="firstName" required defaultValue={initial.firstName} />
-        </div>
-        <div>
-          <Label htmlFor="lastName">Last name</Label>
-          <Input id="lastName" name="lastName" required defaultValue={initial.lastName} />
-        </div>
+        <FormField id="firstName" label="First name" help={FORM_HELP.member.firstName} required>
+          <Input name="firstName" required defaultValue={initial.firstName} autoComplete="given-name" />
+        </FormField>
+        <FormField id="lastName" label="Last name" help={FORM_HELP.member.lastName} required>
+          <Input name="lastName" required defaultValue={initial.lastName} autoComplete="family-name" />
+        </FormField>
       </div>
-      <div>
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" name="email" type="email" defaultValue={initial.email ?? ""} />
-      </div>
-      <div>
-        <Label htmlFor="phone">Phone</Label>
-        <Input id="phone" name="phone" defaultValue={initial.phone ?? ""} />
-      </div>
-      <Button type="submit">Save profile</Button>
+      <FormField id="email" label="Email" help={FORM_HELP.member.email}>
+        <Input
+          name="email"
+          type="email"
+          defaultValue={initial.email ?? ""}
+          autoComplete="email"
+        />
+      </FormField>
+      <FormField id="phone" label="Phone" help={FORM_HELP.member.phone}>
+        <Input name="phone" type="tel" defaultValue={initial.phone ?? ""} autoComplete="tel" />
+      </FormField>
+      <Button type="submit" variant="primary" disabled={pending}>
+        {pending ? "Saving…" : "Save profile"}
+      </Button>
     </form>
   );
 }

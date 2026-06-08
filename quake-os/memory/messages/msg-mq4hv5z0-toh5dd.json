@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4hv5z0-toh5dd",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Hospital association advocacy",
+  "body": "docs/PRODUCT-CLAIMS.md: | `advocacy` | PulsePoint Advocacy | `/{orgSlug}/enterprise/advocacy` | Issue/campaign CRUD + take-action audience launc | app/actions/advocacy.ts: * PulsePoint Advocacy — issues, campaigns, take-action audience launch (alpha).",
+  "refs": [
+    "task-mq4hv5yz-pmgfq3"
+  ],
+  "createdAt": "2026-06-08T00:50:23.100Z"
+}

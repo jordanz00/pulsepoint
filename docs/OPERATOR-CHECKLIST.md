@@ -6,6 +6,8 @@
 
 **Overall:** 🟡 **Controlled pilot** — foundation is in place; finish ops ownership and production drill before broad go-live or grant claims beyond MemberCore + Events.
 
+**Strategic mode:** Option A — production-grade **pilotable** AMS first ([REALIZATION-PLAN.md](./REALIZATION-PLAN.md)). Sellable multi-customer SaaS (Option B) after one successful pilot cycle.
+
 ---
 
 ## Status at a glance
@@ -15,21 +17,23 @@
 | **Multi-tenant data isolation** | 🟢 | `getOrgDb()` + **10 leak checks** (`pnpm leak:checks`); runtime `assertAllRowsBelongToOrg`; integration test when `DATABASE_URL` set. Postgres RLS still reference-only. |
 | **Roles & permissions (server-side)** | 🟢 | Export, import, delete require real capabilities (ADMIN where required)—not UI-only. Clerk org roles must match staff reality. |
 | **Member directory & staff notes** | 🟢 | One member record; notes in `MemberNote` (not spreadsheets in custom fields). |
+| **Member detail one-screen (wedge)** | 🟢 | Summary tab: tags, event registrations, compact notes + jump links to deeper tabs (`UI-QUALITY-BAR` contrast on light inset). |
 | **Member import / cutover** | 🟢 | CSV → **stage → review → apply** at `/{orgSlug}/members/imports`. Safe for sandbox and disciplined cutover. |
-| **Events & registration (free)** | 🟢 | Publish, public register, capacity/waitlist, check-in, registration state rules. |
+| **Events & registration (free)** | 🟢 | Publish panel + draft/create flow, public register, capacity/waitlist, check-in (≥44px), registration state rules. |
 | **Paid events (Stripe)** | 🟡 | Signed webhooks, idempotency, metadata checks, PENDING→CONFIRMED state machine. **Needs:** live Stripe + one runbook drill with named owner. |
 | **Automation failures (email, etc.)** | 🟢 | Non-fatal steps queue to `/{orgSlug}/exceptions`—not silent Zapier-style failure. |
 | **Public registration abuse** | 🟢 | IP/org/email rate limits + email send cap on open registration. |
 | **Audit trail** | 🟢 | Key actions logged (import, export, delete, registration, payment). |
-| **Marketing vs reality** | 🟢 | Live/Roadmap labels; `pnpm claims:validate` in CI. Learn, Commerce, Insights, AI = **roadmap only** in decks. |
-| **Roadmap modules in product** | 🔴 | Admin “coming soon” pages exist; **do not** claim CE, storefront, BI, or AI as shipped. |
+| **Marketing vs reality** | 🟢 | Live/Roadmap labels; `pnpm claims:validate` in CI. Alpha modules labeled honestly in decks. |
+| **Pilot onboarding UX** | 🟢 | Home checklist guides empty orgs through MemberCore + Events wedge (`docs/PILOT-SETUP-CHECKLIST.md`). |
+| **Alpha modules in product** | 🟡 | Learn, Giving, Commerce, Engage, Insights have admin UIs; **do not** claim GA until checklist green. |
 | **Privacy & subprocessors** | 🟡 | `docs/SUBPROCESSORS.md` + privacy page for IT questionnaires. **Needs:** counsel-approved privacy policy before public launch. |
 | **GDPR / formal data rights** | 🔴 | Admin CSV export + delete rules today; automated DSAR/portability **not** shipped. |
 | **Runbooks & on-call** | 🟡 | `docs/RUNBOOK.md` covers Stripe drift, import mistakes, email failures. **Needs:** named owners per runbook before peak traffic. |
 | **Production environment** | 🟡 | `docs/DEPLOY.md` (Vercel + Neon + Clerk + Stripe). **Needs:** org-specific prod deploy + webhook registration + smoke checklist signed off. |
 | **CI quality gate** | 🟢 | Typecheck, lint, unit tests, security audit, migrations, build on `main`. |
-| **End-to-end tests in CI** | 🟡 | Playwright exists; **not** yet required in GitHub Actions—add before calling regression “covered.” |
-| **AI on auth/money paths** | 🟢 | `CONTRIBUTING.md` + sensitive-path review script; AI for boilerplate, human review on webhooks/permissions/import apply. |
+| **End-to-end tests in CI** | 🟢 | Playwright demo wedge in `.github/workflows/e2e.yml` (parallel to `ci.yml`). |
+| **Sensitive-path review** | 🟢 | `CONTRIBUTING.md` + review script; human review on webhooks/permissions/import apply. |
 
 ---
 
@@ -37,8 +41,8 @@
 
 - “We are building **PulsePoint**, our own modular AMS—**MemberCore** and **PulsePoint Events** are the live wedge.”
 - “Data is **multi-tenant by design**; exports and imports are **controlled and audited**.”
-- “**Learn, Commerce, Insights, Giving, Engage, and AI** are on the **roadmap**, labeled honestly on the site—we are not claiming them in grants as shipped.”
-- “We use **AI to move faster on UI and tests**; **permissions, payments, and migration** are engineered and reviewed by our team.”
+- “**Learn, Commerce, Insights, Giving, and Engage** are **alpha** today—labeled honestly on the site; we are not claiming them as fully shipped in grants.”
+- “**Permissions, payments, and migration** are engineered and reviewed by our team—not bolted on after the fact.”
 
 ---
 
@@ -89,9 +93,15 @@ This is **not** a blind vibe-coded CRM:
 
 | Doc | Use |
 |-----|-----|
+| `docs/REALIZATION-PLAN.md` | Operational trust, 18-month blocks, Option A locked |
+| `docs/UI-QUALITY-BAR.md` | Enforceable admin UI standards |
+| `docs/SUPPORTABILITY-GATES.md` | Module GA operability checklist |
 | `docs/PROJECT-BRIEF.md` | Full narrative for leadership |
 | `docs/PRODUCT-CLAIMS.md` | What may appear in decks |
 | `docs/RUNBOOK.md` | Incident steps |
+| `docs/EXCEPTIONS-DRILL.md` | Email-fail → exceptions queue drill |
+| `docs/DEMO-SCRIPT-15MIN.md` | Leadership wedge demo (15 min) |
+| `docs/WEDGE-UI-AUDIT.md` | Sprint E UI-QUALITY-BAR wedge pass |
 | `docs/SCOPE.md` | Wedge vs Protech parity |
 | `docs/SUBPROCESSORS.md` | IT questionnaire |
 

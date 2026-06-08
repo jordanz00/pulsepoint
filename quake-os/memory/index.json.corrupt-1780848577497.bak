@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-07T16:09:37.497Z",
+  "entries": [
+    {
+      "id": "msg-mq3z40zp-o1p6is",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T16:05:23.845Z",
+      "path": "quake-os/memory/messages/msg-mq3z40zp-o1p6is.json"
+    },
+    {
+      "id": "msg-mq3z412a-17r0qq",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.938Z",
+      "path": "quake-os/memory/messages/msg-mq3z412a-17r0qq.json"
+    },
+    {
+      "id": "res-mq3z412a-65sjpa",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T16:05:23.938Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "msg-mq3z412a-lh0326",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T16:05:23.938Z",
+      "path": "quake-os/memory/messages/msg-mq3z412a-lh0326.json"
+    },
+    {
+      "id": "msg-mq3z412b-uzj1ku",
+      "category": "messages",
+      "title": "Daily Agent Cycle: QAAgent.test()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.939Z",
+      "path": "quake-os/memory/messages/msg-mq3z412b-uzj1ku.json"
+    },
+    {
+      "id": "rec-mq3z412b-0ga03y",
+      "category": "recommendations",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-07T16:05:23.939Z",
+      "path": "quake-os/memory/recommendations/rec-mq3z412b-0ga03y.json"
+    },
+    {
+      "id": "msg-mq3z412b-poxviy",
+      "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T16:05:23.939Z",
+      "path": "quake-os/memory/messages/msg-mq3z412b-poxviy.json"
+    },
+    {
+      "id": "msg-mq3z412c-ih11gc",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ResearchAgent.run()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.940Z",
+      "path": "quake-os/memory/messages/msg-mq3z412c-ih11gc.json"
+    },
+    {
+      "id": "audit-mq3z412b-h4wrzs",
+      "category": "audits",
+      "title": "Daily cycle QA — 3 tasks",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T16:05:23.939Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "dec-mq3z412c-6mskz8",
+      "category": "decisions",
+      "title": "Daily architecture review",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T16:05:23.940Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq3z412d-f4tn8f",
+      "category": "messages",
+      "title": "Architecture review complete",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T16:05:23.941Z",
+      "path": "quake-os/memory/messages/msg-mq3z412d-f4tn8f.json"
+    },
+    {
+      "id": "msg-mq3z412d-scqfyo",
+      "category": "messages",
+      "title": "Daily Agent Cycle: AuditorAgent.audit()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.941Z",
+      "path": "quake-os/memory/messages/msg-mq3z412d-scqfyo.json"
+    },
+    {
+      "id": "msg-mq3z412d-v45q3b",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ArchitectureAgent.review()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.941Z",
+      "path": "quake-os/memory/messages/msg-mq3z412d-v45q3b.json"
+    },
+    {
+      "id": "wf-mq3z412e-42eqem",
+      "category": "lessons",
+      "title": "Workflow: Daily Agent Cycle",
+      "createdAt": "2026-06-07T16:05:23.942Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "workflow",
+        "daily-cycle",
+        "completed"
+      ]
+    },
+    {
+      "id": "msg-mq3z412e-lpts0v",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T16:05:23.942Z",
+      "path": "quake-os/memory/messages/msg-mq3z412e-lpts0v.json"
+    },
+    {
+      "id": "msg-mq3z412f-mgdqpd",
+      "category": "messages",
+      "title": "Daily Agent Cycle: ProductAgent.generateTasks()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.943Z",
+      "path": "quake-os/memory/messages/msg-mq3z412f-mgdqpd.json"
+    },
+    {
+      "id": "req-mq3z412f-a66o7l",
+      "category": "requirements",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T16:05:23.943Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq3z412g-3b9eqo",
+      "category": "requirements",
+      "title": "risk: Pipeline test",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T16:05:23.944Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mq3z412g-66ry5s",
+      "category": "requirements",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T16:05:23.944Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "msg-mq3z412g-90ejb1",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T16:05:23.944Z",
+      "path": "quake-os/memory/messages/msg-mq3z412g-90ejb1.json"
+    },
+    {
+      "id": "msg-mq3z412h-ejzlkb",
+      "category": "messages",
+      "title": "Daily Agent Cycle: DeveloperAgent.build()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.945Z",
+      "path": "quake-os/memory/messages/msg-mq3z412h-ejzlkb.json"
+    },
+    {
+      "id": "msg-mq3z412h-8dr843",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T16:05:23.945Z",
+      "path": "quake-os/memory/messages/msg-mq3z412h-8dr843.json"
+    },
+    {
+      "id": "msg-mq3z412h-d2ztz2",
+      "category": "messages",
+      "title": "Daily Agent Cycle: QAAgent.test()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.945Z",
+      "path": "quake-os/memory/messages/msg-mq3z412h-d2ztz2.json"
+    },
+    {
+      "id": "audit-mq3z412i-do2lqf",
+      "category": "audits",
+      "title": "Daily cycle QA — 3 tasks",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T16:05:23.946Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3z412i-71zix9",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T16:05:23.946Z",
+      "path": "quake-os/memory/messages/msg-mq3z412i-71zix9.json"
+    },
+    {
+      "id": "msg-mq3z412i-1syils",
+      "category": "messages",
+      "title": "Daily Agent Cycle: AuditorAgent.audit()",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:05:23.946Z",
+      "path": "quake-os/memory/messages/msg-mq3z412i-1syils.json"
+    },
+    {
+      "id": "wf-mq3z412j-jnuvfm",
+      "category": "lessons",
+      "title": "Workflow: Daily Agent Cycle",
+      "createdAt": "2026-06-07T16:05:23.947Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "workflow",
+        "daily-cycle",
+        "completed"
+      ]
+    },
+    {
+      "id": "daily-mq3z412j-4wy8yx",
+      "category": "lessons",
+      "title": "Daily cycle daily-mq3z412j-4wy8yx",
+      "createdAt": "2026-06-07T16:05:23.948Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "daily-cycle",
+        "needs_revision"
+      ]
+    },
+    {
+      "id": "dec-mq3z43hp-x4y4ag",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T16:05:27.085Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "dec-mq3z8m61-jn9m05",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T16:08:57.913Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "dec-mq3z95pz-ethw50",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T16:09:23.255Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "task-audit-test-001",
+      "category": "tasks",
+      "title": "Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T16:09:37.473Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mq3z9gp1-v7nqdo",
+      "category": "messages",
+      "title": "New task: Audit gate test",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:09:37.477Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gp1-v7nqdo.json"
+    },
+    {
+      "id": "req-mq3z9gp3-yg5k31",
+      "category": "requirements",
+      "title": "Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T16:09:37.479Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "feature-review"
+      ]
+    },
+    {
+      "id": "msg-mq3z9gp5-6pwtlq",
+      "category": "messages",
+      "title": "Feature built: Audit gate test",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T16:09:37.481Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gp5-6pwtlq.json"
+    },
+    {
+      "id": "msg-mq3z9gp6-abt8pa",
+      "category": "messages",
+      "title": "QA tests ready: Audit gate test",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-07T16:09:37.482Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gp6-abt8pa.json"
+    },
+    {
+      "id": "audit-mq3z9gp7-dcm423",
+      "category": "audits",
+      "title": "Auditor critique: Audit gate test",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T16:09:37.483Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3z9gp9-ggsw3a",
+      "category": "messages",
+      "title": "Auditor critique: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-07T16:09:37.485Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gp9-ggsw3a.json"
+    },
+    {
+      "id": "audit-mq3z9gpa-s2s1y5",
+      "category": "audits",
+      "title": "Architecture critique: Audit gate test",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T16:09:37.486Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mq3z9gpb-r7b0rn",
+      "category": "messages",
+      "title": "Architecture critique: APPROVED",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-07T16:09:37.487Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gpb-r7b0rn.json"
+    },
+    {
+      "id": "audit-mq3z9gpb-1v65yz",
+      "category": "audits",
+      "title": "Healthcare SME critique: Audit gate test",
+      "agentId": "healthcare-sme-agent",
+      "createdAt": "2026-06-07T16:09:37.487Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "res-mq3z9gpc-0nq8dj",
+      "category": "research",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T16:09:37.488Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "discovery"
+      ]
+    },
+    {
+      "id": "dec-mq3z9gpd-9r7qzh",
+      "category": "decisions",
+      "title": "CEO REVISE: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T16:09:37.489Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mq3z9gpg-h4c2fn",
+      "category": "messages",
+      "title": "CEO REVISE: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T16:09:37.492Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gpg-h4c2fn.json"
+    },
+    {
+      "id": "frc-mq3z9gph-b5vjnr",
+      "category": "audits",
+      "title": "Feature review: Audit gate test",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-07T16:09:37.493Z",
+      "path": "knowledge/audits.db",
+      "tags": [
+        "feature-review-chain",
+        "revise"
+      ]
+    },
+    {
+      "id": "task-mq3z9gpi-wuzpjo",
+      "category": "tasks",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-07T16:09:37.494Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "discovery",
+        "nonprofit"
+      ]
+    },
+    {
+      "id": "msg-mq3z9gpj-fporry",
+      "category": "messages",
+      "title": "New task: Hospital associations need better PAC management.",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-07T16:09:37.495Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gpj-fporry.json"
+    },
+    {
+      "id": "msg-mq3z9gpj-wync89",
+      "category": "messages",
+      "title": "Discovery: Hospital associations need better PAC management.",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-07T16:09:37.495Z",
+      "path": "quake-os/memory/messages/msg-mq3z9gpj-wync89.json"
+    },
+    {
+      "id": "req-mq3z9gpk-axl133",
+      "category": "requirements",
+      "title": "Hospital associations need better PAC management.",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-07T16:09:37.496Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "requirements",
+        "discovery"
+      ]
+    }
+  ]
+}

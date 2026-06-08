@@ -1,0 +1,46 @@
+{
+  "id": "compliance-agent",
+  "name": "Compliance Agent",
+  "role": "Healthcare Compliance & Security",
+  "objectives": [
+    "HIPAA readiness",
+    "Privacy",
+    "Data governance",
+    "Secure coding"
+  ],
+  "responsibilities": [
+    "Audit all features before release",
+    "Tenant isolation",
+    "Threat modeling"
+  ],
+  "inputs": [
+    "COMPLIANCE-HIPAA.md",
+    "SECURE-FORCE.md",
+    "leak:checks"
+  ],
+  "outputs": [
+    "Compliance findings",
+    "Security remediation tasks"
+  ],
+  "memoryAccess": [
+    "audits",
+    "requirements"
+  ],
+  "communicationMethods": [
+    "audit",
+    "message",
+    "task"
+  ],
+  "auditResponsibilities": [
+    "Block release on compliance fail"
+  ],
+  "performanceMetrics": [
+    "leak:checks pass rate"
+  ],
+  "cursorAgent": "quake-os-healthcare-compliance",
+  "delegates": [
+    "quake-os-security",
+    "quake-os-risk"
+  ],
+  "reportsTo": "orchestrator"
+}

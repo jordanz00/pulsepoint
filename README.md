@@ -8,25 +8,48 @@ PulsePoint is a multi-tenant AMS for healthcare associations, delivered as a pro
 
 | Product | Status |
 |---------|--------|
-| **PulsePoint Work** | Available — staff admin workspace (MemberCore + Events modules live) |
-| **MemberCore** | Available — Membership Management: CRM, tags, CSV import/export |
-| **PulsePoint Events** | Available — registration, payments, check-in |
-| **PulsePoint Commerce** | Coming soon — e-commerce, storefronts, and association payments |
-| **PulsePoint AI** | Coming soon — staff assist and comms drafts |
-| **PulsePoint Insights** | Coming soon — dashboards and board reports |
+| **PulsePoint Work** | Available — staff admin workspace |
+| **MemberCore** | Available — directory, tags, CSV import/export, audited notes |
+| **PulsePoint Events** | Available — registration, Stripe payments, check-in |
+| **PulsePoint Learn** | Alpha — credit types, courses, audited credit awards |
+| **PulsePoint Giving** | Alpha — campaigns and donations |
+| **PulsePoint Commerce** | Alpha — products + checkout via vendor-agnostic adapter |
+| **PulsePoint Engage** | Alpha — templates, audiences, sends through email failover chain |
+| **PulsePoint Insights** | Alpha — live KPIs + reproducible snapshots |
 
-**Engineering (anti–vibe-code):** [docs/SECURITY-PARANOID.md](docs/SECURITY-PARANOID.md) · [docs/VIBE-CODE-RISKS.md](docs/VIBE-CODE-RISKS.md) · [docs/SYSTEM-DESIGN.md](docs/SYSTEM-DESIGN.md) · [docs/DATA-DICTIONARY.md](docs/DATA-DICTIONARY.md) · [docs/OPERATOR-CHECKLIST.md](docs/OPERATOR-CHECKLIST.md) · [docs/RUNBOOK.md](docs/RUNBOOK.md) · [docs/AI-DATA-POLICY.md](docs/AI-DATA-POLICY.md)
+Status ladder: **Available** = shipped, full UX. **Alpha** = real schema + actions + admin UI; rough edges; not GA. **Coming soon** = stub only.
 
-After code changes: `pnpm test` · `pnpm security:audit`
+**Design:** [docs/DESIGN-PRINCIPLES.md](docs/DESIGN-PRINCIPLES.md) · tokens in `app/globals.css`
 
-**Feature pillars** (operational): Members, Events, Commerce, Committees, Communications, Insights, AI Tools — see [docs/POSITIONING.md](docs/POSITIONING.md).
+**Engineering (anti–vibe-code):** [docs/SECURITY-PARANOID.md](docs/SECURITY-PARANOID.md) · [docs/VIBE-CODE-RISKS.md](docs/VIBE-CODE-RISKS.md) · [docs/SYSTEM-DESIGN.md](docs/SYSTEM-DESIGN.md) · [docs/DATA-DICTIONARY.md](docs/DATA-DICTIONARY.md) · [docs/OPERATOR-CHECKLIST.md](docs/OPERATOR-CHECKLIST.md) · [docs/RUNBOOK.md](docs/RUNBOOK.md)
+
+**Enterprise AMS (statewide hospital association):** [docs/ENTERPRISE-AMS-OPTIMIZED-PROMPT.md](docs/ENTERPRISE-AMS-OPTIMIZED-PROMPT.md) · [docs/ENTERPRISE-ARCHITECTURE.md](docs/ENTERPRISE-ARCHITECTURE.md) · [docs/BACKUP-REQUIREMENTS.md](docs/BACKUP-REQUIREMENTS.md) · admin hub `/[orgSlug]/enterprise`
+
+**Quake OS (multi-agent AMS org):** [docs/QUAKE-OS.md](docs/QUAKE-OS.md) — 30+ specialist agents, continuous improvement. End each wave with **`pnpm quake:execute`** ([workflow](docs/QUAKE-EXECUTE-WORKFLOW.md)); quick check: `pnpm quake:gates`. Invoke `@quake-os-continuous-runner` or `@quake-os-orchestrator` in Cursor. [Continuous playbook](docs/QUAKE-OS-CONTINUOUS.md) · [Scale & security](docs/SCALE-AND-SECURITY.md)
+
+After code changes: `pnpm test` · `pnpm test:e2e` (demo mode) · `pnpm security:audit`
+
+**CI:** Unit/lint in `ci.yml`; Playwright demo wedge in `e2e.yml` — both should be required checks on `main` ([docs/E2E-CI.md](docs/E2E-CI.md)).
+
+**Feature pillars** (operational): Members, Events, Commerce, Committees, Communications, Insights — see [docs/POSITIONING.md](docs/POSITIONING.md).
 
 | | |
 |---|---|
 | **Brand** | PulsePoint |
 | **Package / repo folder** | `pulsepoint` (`/Users/jordanzabady/Desktop/pulse`) |
-| **Stack** | Next.js 16 · Postgres · Prisma · Clerk · Stripe · Resend |
+| **Stack** | Next.js 16 · Postgres · Prisma · Clerk/Demo · Stripe · Resend (all behind adapters — see [docs/VENDOR-PORTABILITY.md](docs/VENDOR-PORTABILITY.md)) |
 | **MVP data** | PII only (no PHI) |
+| **Enterprise** | **Deferred** — demo only; future Azure + [haponline.org](https://www.haponline.org) per [docs/ENTERPRISE-INTEGRATION.md](docs/ENTERPRISE-INTEGRATION.md) |
+
+## Product mode: standalone demo (not HAP-integrated)
+
+PulsePoint is a **demo AMS** today. Do not connect to HAP production systems or embed in www.haponline.org until `INTEGRATION_PROFILE=hap-azure` is approved and documented in `docs/ENTERPRISE-INTEGRATION.md`.
+
+Default env: `INTEGRATION_PROFILE=demo` (PulsePoint branding, optional demo auth — no enterprise SSO required).
+
+**Realization (18-month):** [docs/REALIZATION-PLAN.md](docs/REALIZATION-PLAN.md) · **UI bar:** [docs/UI-QUALITY-BAR.md](docs/UI-QUALITY-BAR.md) · **Ops gates:** [docs/SUPPORTABILITY-GATES.md](docs/SUPPORTABILITY-GATES.md) · [docs/GO-TO-MARKET-6MONTH.md](docs/GO-TO-MARKET-6MONTH.md)
+
+**Continuity ($0 tools):** [docs/FREE-CONTINUITY-TOOLKIT.md](docs/FREE-CONTINUITY-TOOLKIT.md) — `pnpm continuity:health` · `pnpm continuity:backup` · `pnpm continuity:standby`
 
 ## Live demo on GitHub (no Vercel)
 
@@ -42,7 +65,11 @@ Static marketing + click-through admin preview — deployed from `gh-pages-site/
 
 For the **full** database-backed app (imports, Stripe, SQLite): local quick start below.
 
+**Sterling Healthcare demo (Protech-style tour):** `pnpm demo:setup` → http://localhost:3000/demo → see `docs/DEMO-GUIDE.md` and `docs/PROTECH-FEATURE-MAP.md`.
+
 ## Quick start (local)
+
+**Review on your machine:** see **[LOCAL-REVIEW.md](./LOCAL-REVIEW.md)** — start `pnpm dev`, open http://localhost:3000/demo, click **Enter demo**, then http://localhost:3000/demo-healthcare
 
 ### 1. Prerequisites
 
@@ -88,12 +115,17 @@ See [docs/DEPLOY.md](docs/DEPLOY.md) for Vercel + Neon production steps.
 ```
 app/
   (marketing)/          Landing page
-  [orgSlug]/(admin)/    Staff dashboard (members, events, settings, portal)
+  [orgSlug]/(admin)/    Staff dashboard (work, members, events, learn, giving,
+                        commerce, engage, insights, settings, portal)
   [orgSlug]/e/          Public event registration (no auth)
   api/webhooks/         Clerk + Stripe
-lib/                    db, auth, audit, stripe, email, rate-limit
+  actions/              Server actions per module
+lib/                    db, auth, audit, rate-limit, products, brand
+lib/adapters/           Vendor portability — auth, payments, email, storage
+                        (every external dependency goes through here)
 prisma/                 Schema + migrations
 tests/                  Vitest + Playwright
+themes/                 hap-enterprise.css (loaded only when INTEGRATION_PROFILE=hap-azure)
 ```
 
 ## Scripts
@@ -103,6 +135,7 @@ tests/                  Vitest + Playwright
 | `pnpm dev` | Dev server |
 | `pnpm build` | Production build |
 | `pnpm test` | Unit tests |
+| `pnpm test:e2e` | Playwright (demo wedge + advocacy); see [docs/E2E-CI.md](docs/E2E-CI.md) |
 | `pnpm db:migrate` | Apply migrations (dev) |
 | `pnpm db:seed` | Demo org seed |
 
@@ -117,6 +150,22 @@ See [docs/TRADEMARK.md](docs/TRADEMARK.md). **PulsePoint** is used instead of pl
 - **Phase 2** — Events + payments + email
 - **Phase 3** — Member portal (Clerk-linked members)
 - **Phase 4** — Platform billing, marketing site, beta
+- **Phase 5** — Roadmap modules (Learn, Giving, Commerce, Engage, Insights) — **alpha today**, GA over the [6-month plan](docs/GO-TO-MARKET-6MONTH.md)
+
+## Bulletproof stack (vendor-agnostic by design)
+
+Every external service is behind a typed adapter under `lib/adapters/`:
+
+| Layer | Primary | Fallback | Self-host |
+|---|---|---|---|
+| Auth | Clerk | Demo signed-cookie | Auth.js + Postgres |
+| DB | Postgres on Neon | Any Postgres host | SQLite (dev) |
+| Hosting | Vercel | Self-host Node | Azure Container Apps |
+| Payments | Stripe | Manual + HMAC webhook | Adyen (planned) |
+| Email | Resend | Generic SMTP | Log-only |
+| Storage | S3-compatible (R2/B2/AWS) | Local FS | NAS / VM disk |
+
+If any single vendor goes dark, swap by env var + redeploy. Full failure plan: [docs/VENDOR-PORTABILITY.md](docs/VENDOR-PORTABILITY.md).
 
 ## Security
 

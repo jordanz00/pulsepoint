@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq43j4oh-cxuiyh",
+  "from": "developer-agent",
+  "to": "qa-agent",
+  "subject": "Feature built: Hospital associations need better PAC management.",
+  "body": "Implement: Hospital associations need better PAC management.. AC: PAC contributions tracked per hospital account; Illustrative vs live labels per PRODUCT-CLAIMS; Tenant-isolated PAC data — getOrgDb(orgId); Staff capability gate on PAC exports; Audit log on contribution mutations; pnpm quake:gates passes",
+  "refs": [
+    "task-mq43j4nt-kplifv"
+  ],
+  "createdAt": "2026-06-07T18:09:06.929Z"
+}

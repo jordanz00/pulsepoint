@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq3tqgu8-taqrin",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Fundraising and nonprofit surfaces",
+  "body": "docs/PRODUCT-CLAIMS.md: | `giving` | PulsePoint Giving | `/{orgSlug}/giving` | Roadmap chips on unshipped features |",
+  "refs": [
+    "task-mq3tqgu7-d1zplb"
+  ],
+  "createdAt": "2026-06-07T13:34:53.120Z"
+}
