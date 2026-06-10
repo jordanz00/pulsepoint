@@ -15,7 +15,7 @@
 | P0 | EventCore revenue mix — no clipped labels | **Done** |
 | P0 | E2E marketing tests match live copy | **Done** |
 | P1 | KCJ proposal HTML + 2-page PDF | **Done** |
-| P1 | Git commit pulse changes (681 files) | **Waiting on explicit commit OK** |
+| P1 | Git commit pulse changes | **Done** — `8096339` Flagship 5 + `HEAD` Quake corp / enterprise |
 | P1 | Quake OS Corporation (7 divisions) | **Done** — `pnpm quake:os:corporation` |
 | P1 | Health system governance page | **Done** — `/enterprise/governance` |
 | P1 | Corporation GitHub Action + handoff CLI | **Done** — `quake-os-corporation.yml` |
