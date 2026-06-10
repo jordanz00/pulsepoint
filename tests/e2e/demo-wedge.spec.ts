@@ -43,7 +43,9 @@ test.describe("demo wedge", () => {
   test("exceptions queue shows seeded items", async ({ page }) => {
     await enterDemo(page);
     await page.goto(`/${DEMO_SLUG}/exceptions`);
-    await expect(page.getByRole("heading", { name: /Exceptions/i })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Exceptions queue/i }),
+    ).toBeVisible();
     await expect(page.getByText(/registration\.confirm_email/i)).toBeVisible();
   });
 });
