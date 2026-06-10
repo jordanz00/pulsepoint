@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vx9yt-3olxpr",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: [risk] risk signals for Membership scale and security (high confidence)",
+  "body": "From research Membership scale and security: Topic: Membership scale and security. Analyzed 24 source hits across 3 paths. No critical gaps flagged in corpus. 1 risk signal(s) require compliance review.",
+  "refs": [
+    "task-mq5vx9y1-a9k1hq"
+  ],
+  "createdAt": "2026-06-09T00:11:42.389Z"
+}

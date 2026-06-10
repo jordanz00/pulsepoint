@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vfode-xr6bhf",
+  "from": "qa-agent",
+  "to": "auditor-agent",
+  "subject": "QA tests ready: Hospital advocacy take-action form",
+  "body": "Gate: pnpm quake:gates",
+  "refs": [
+    "task-frc-test-001"
+  ],
+  "createdAt": "2026-06-08T23:58:01.250Z"
+}

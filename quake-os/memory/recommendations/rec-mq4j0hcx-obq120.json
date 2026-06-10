@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq4j0hcx-obq120",
+  "title": "risk: Pipeline test",
+  "rationale": "docs/SCALE-AND-SECURITY.md: | Integration test | `tests/integration/member-tenant-isolation.test.ts` | | docs/SCALE-AND-SECURITY.md: | `MAX_MEMBER_LIST_ROWS` | 500 | `lib/tenant-guards.ts` | | docs/SCALE-AND-SECURITY.md: ## Tenant isolation (non-negotiable)",
+  "proposedBy": "research-agent",
+  "targetAgents": [
+    "security-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-08T01:22:30.753Z"
+}

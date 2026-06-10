@@ -7,28 +7,20 @@ alwaysApply: true
 
 # Pulse session workflow
 
+**Superseded by `.cursor/rules/earn-worth-ship-protocol.mdc`** — follow EARN-WORTH loop every message.
+
 Before implementing:
 
-1. Read `docs/PROJECT-PULSE.md` if it exists.
+1. Read `docs/SHIP-NOW-WORKFLOW.md` and `docs/PROJECT-PULSE.md`.
 2. Confirm **one scope** (pulse repo only unless user names another product).
-3. For shared marketing CSS or deploy: propose plan first.
+3. For shared marketing CSS or deploy: still ship in one pass after scope block.
 
 Before marking done:
 
-1. Run or request `pnpm quake:gates` (or `pnpm workflow:session --gates`).
-2. Paste pass/fail — do not claim done on untested UI.
+1. Run `pnpm ship:now` (or `pnpm quake:gates`).
+2. Browser-verify UI at 375 + 1280 when marketing/admin changed.
 3. Write `data/quake-os/waves/YYYY-MM-DD-*.md` for any shipped feature pass.
 
-Prompt shape user should use (coach if vague):
-
-```
-Scope: …
-Files: @…
-Do NOT touch: …
-Verify: pnpm quake:gates
-Done when: …
-```
+Commit when user says **ship**, **finish**, **finish all**, or **earn your worth**.
 
 Never invent pilot claims, stats, or "production ready" without `docs/PILOT-EXECUTION-STATUS.md` alignment.
-
-Never commit unless user explicitly asks.

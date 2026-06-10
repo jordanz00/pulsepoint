@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq7fa7ac-x1z3ft",
+  "from": "auditor-agent",
+  "to": "architecture-agent",
+  "subject": "Auditor critique: NEEDS_REVISION",
+  "body": "",
+  "refs": [
+    "task-frc-test-001",
+    "audit-mq7fa7a7-1adobl"
+  ],
+  "createdAt": "2026-06-10T02:01:24.324Z"
+}

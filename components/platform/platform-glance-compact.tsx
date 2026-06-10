@@ -69,7 +69,7 @@ export function PlatformGlanceCompact({ orgSlug, activeProductId }: Props) {
         ))}
       </div>
 
-      <div className="pp-glance-compact-scroll" role="list" aria-label="All modules">
+      <div className="pp-glance-compact-grid" role="list" aria-label="All modules">
         {PULSE_PRODUCTS.map((mod) => {
           const selected = mod.id === activeProductId;
           const href = productHref(orgSlug, mod);
@@ -87,7 +87,7 @@ export function PlatformGlanceCompact({ orgSlug, activeProductId }: Props) {
               prefetch
             >
               <FeatureIcon icon={PRODUCT_MARKETING_ICONS[mod.id]} productId={mod.id} size="sm" />
-              <span>{mod.shortName}</span>
+              <span className="pp-glance-compact-chip-label">{mod.shortName}</span>
               <StatusPill status={statusToCatalog(mod.status)} />
             </Link>
           );

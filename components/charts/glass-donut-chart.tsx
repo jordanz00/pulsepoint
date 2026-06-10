@@ -2,6 +2,7 @@
 
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
+import { useChartContainerReady } from "@/components/charts/use-chart-container-ready";
 
 export type DonutSlice = { name: string; value: number; color: string };
 
@@ -21,12 +22,24 @@ export function GlassDonutChart({
   variant?: "default" | "compact";
 }) {
   const reduced = usePrefersReducedMotion();
+  const ready = useChartContainerReady();
   const compact = variant === "compact";
+
+  if (!ready) {
+    return (
+      <div
+        className={`pp-glass-donut${compact ? " pp-glass-donut--compact" : ""}`}
+        style={{ height, width: "100%", minWidth: 0 }}
+        role="img"
+        aria-label={ariaLabel}
+      />
+    );
+  }
 
   return (
     <div
       className={`pp-glass-donut${compact ? " pp-glass-donut--compact" : ""}`}
-      style={{ height }}
+      style={{ height, width: "100%", minWidth: 0 }}
       role="img"
       aria-label={ariaLabel}
     >

@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq4iy6wm-4vz83v",
+  "title": "risk: Membership scale and security",
+  "rationale": "knowledge/research.db#res-mq4ixbti-uzz4lq: Membership scale and security | knowledge/research.db#res-mq4ivi3k-f2kfwu: Membership scale and security | knowledge/competitors.db#intel-res-mq4ixbti-uzz4lq: Intel: Membership scale and security | knowledge/competitors.db#intel-res-mq4ivi3k-f2kfwu: Intel: Membership scale and security | scripts/ten-member-leak-checks.sh: bad \"$LEAK_FILES file(s) query member without getOrgDb\"",
+  "proposedBy": "security-agent",
+  "targetAgents": [
+    "security-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-08T01:20:43.894Z"
+}

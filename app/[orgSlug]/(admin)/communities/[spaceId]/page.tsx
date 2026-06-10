@@ -6,6 +6,7 @@ import { requireOrgAccessForSlug } from "@/lib/auth";
 import { AdminPage } from "@/components/admin/admin-page";
 import { PageHeader } from "@/components/ui/page-header";
 import { CommunityDocumentForm } from "@/components/communities/community-document-form";
+import { CommunityPostForm } from "@/components/communities/community-post-form";
 
 export default async function CommunitySpaceAdminPage({
   params,
@@ -84,29 +85,34 @@ export default async function CommunitySpaceAdminPage({
         <CommunityDocumentForm orgSlug={orgSlug} spaceId={spaceId} />
       </div>
 
-      <section className="pc-card mt-6">
-        <h2 className="pc-section-title">Recent discussion</h2>
-        {posts.length === 0 ? (
-          <p className="mt-2 text-sm text-[var(--pc-text-secondary)]">No posts in this space yet.</p>
-        ) : (
-          <ul className="mt-4 space-y-3">
-            {posts.map((post) => (
-              <li key={post.id} className="border-b border-[var(--pc-border)] pb-3 last:border-0">
-                <p className="font-semibold">{post.title}</p>
-                <p className="text-xs text-[var(--pc-text-tertiary)]">
-                  {post.createdAt.toLocaleString()}
-                </p>
-              </li>
-            ))}
-          </ul>
-        )}
-        <p className="mt-4 text-sm text-[var(--pc-text-secondary)]">
-          Member portal:{" "}
-          <Link href={`/${orgSlug}/portal/communities/${spaceId}`} className="pc-link">
-            open in portal
-          </Link>
-        </p>
-      </section>
+      <div className="mt-6 grid gap-6 lg:grid-cols-2">
+        <section className="pc-card">
+          <h2 className="pc-section-title">Recent discussion</h2>
+          {posts.length === 0 ? (
+            <p className="mt-2 text-sm text-[var(--pc-text-secondary)]">No posts in this space yet.</p>
+          ) : (
+            <ul className="mt-4 space-y-3">
+              {posts.map((post) => (
+                <li key={post.id} className="border-b border-[var(--pc-border)] pb-3 last:border-0">
+                  <p className="font-semibold">{post.title}</p>
+                  <p className="mt-1 text-sm text-[var(--pc-text-secondary)] line-clamp-2">{post.body}</p>
+                  <p className="mt-1 text-xs text-[var(--pc-text-tertiary)]">
+                    {post.createdAt.toLocaleString()}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
+          <p className="mt-4 text-sm text-[var(--pc-text-secondary)]">
+            Member portal:{" "}
+            <Link href={`/${orgSlug}/portal/communities/${spaceId}`} className="pc-link">
+              open in portal
+            </Link>
+          </p>
+        </section>
+
+        <CommunityPostForm orgSlug={orgSlug} spaceId={spaceId} />
+      </div>
     </AdminPage>
   );
 }

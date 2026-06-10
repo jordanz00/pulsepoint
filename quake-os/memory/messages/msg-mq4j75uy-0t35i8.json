@@ -1,0 +1,16 @@
+{
+  "id": "msg-mq4j75uy-0t35i8",
+  "from": "auditor-agent",
+  "to": "ceo-agent",
+  "subject": "Daily audit: NEEDS_REVISION",
+  "body": "",
+  "refs": [
+    "audit-mq4j75up-l0jcot",
+    "task-mq4j4kwr-pe4fwb",
+    "task-mq4j4kwh-egw4df",
+    "task-mq4j4kvd-5v2m40",
+    "task-mq4j4l1o-i87rzv",
+    "task-mq4j4l2o-lbsr5r"
+  ],
+  "createdAt": "2026-06-08T01:27:42.442Z"
+}

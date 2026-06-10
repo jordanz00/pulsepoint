@@ -1,0 +1,26 @@
+---
+description: PulsePoint AMS canonical repo — ad-ops and association AMS live here only.
+alwaysApply: true
+---
+
+# PulsePoint AMS — this repo is canonical
+
+Develop **only** in `/Users/jordanzabady/Desktop/pulse`.
+
+Do not recreate the deleted standalone copy at `~/Desktop/Cursor Projects/pulsepoint-ams*` — it was removed after salvage (Jun 2026).
+
+## Layout
+
+- **Association AMS:** `app/[orgSlug]/(admin)/`, `lib/`, `components/`
+- **Ad-ops API:** `packages/api`, `packages/worker`, `packages/shared`
+- **Ad-ops UI:** `app/[orgSlug]/(admin)/advertising/`, `components/ad-ops/`
+- **Ad-ops glass CSS:** `app/[orgSlug]/(admin)/advertising/ad-ops.css`
+- **Quake OS:** `quake-os/`, `data/quake-os/`
+
+## Demo
+
+```bash
+pnpm dev
+# Ad-ops: /demo-healthcare/advertising
+# API: http://localhost:4000/health (when ad-ops stack running)
+```

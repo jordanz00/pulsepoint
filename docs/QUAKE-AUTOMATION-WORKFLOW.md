@@ -25,6 +25,22 @@ Exit code **0** = gates passed, ready for implementation. **1** = stop and fix.
 
 ---
 
+## Full corporation cycle (weekly)
+
+Runs all 7 divisions + C-suite board synthesis:
+
+```bash
+pnpm quake:os:corporation
+```
+
+Writes `data/quake-os/waves/YYYY-MM-DD-corporation-cycle.md` with board verdict (`SHIP` / `REVISE` / `STOP`) and Cursor handoff for top tasks.
+
+**Scheduler:** weekly `corporation-cycle` job in `quake-os/orchestrator/scheduled-jobs.ts`  
+**Cursor Automation:** `data/quake-os/automation-prompts/corporation-cycle.workflow.json`  
+**Mission Control UI:** `/demo-healthcare/mission-control`
+
+---
+
 ## Before every PR
 
 ```bash
@@ -41,6 +57,7 @@ pnpm quake:gates
 | Gate suite on PR | PR to app/lib/components | `.github/workflows/quake-gates.yml` |
 | Audit PR comment | PR open/update | `.github/workflows/quake-pr-audit.yml` |
 | Daily scheduler | Daily 07:00 UTC | `.github/workflows/quake-os-daily.yml` |
+| Corporation cycle | Mon 08:00 UTC | `.github/workflows/quake-os-corporation.yml` |
 | Session context | Cursor open | `.cursor/hooks.json` |
 
 ---

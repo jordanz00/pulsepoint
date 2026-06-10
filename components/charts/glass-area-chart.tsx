@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import type { ChartPoint } from "@/lib/motion/chart-samples";
 import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
+import { useChartContainerReady } from "@/components/charts/use-chart-container-ready";
 
 type GlassAreaChartProps = {
   data: ChartPoint[];
@@ -31,13 +32,25 @@ export function GlassAreaChart({
   variant = "default",
 }: GlassAreaChartProps) {
   const reduced = usePrefersReducedMotion();
+  const ready = useChartContainerReady();
   const gradId = useId().replace(/:/g, "");
   const isSparkline = variant === "sparkline";
+
+  if (!ready) {
+    return (
+      <div
+        className={`pp-glass-chart${isSparkline ? " pp-glass-chart--sparkline" : ""} ${className}`.trim()}
+        style={{ height }}
+        role="img"
+        aria-label={ariaLabel}
+      />
+    );
+  }
 
   return (
     <div
       className={`pp-glass-chart${isSparkline ? " pp-glass-chart--sparkline" : ""} ${className}`.trim()}
-      style={{ height }}
+      style={{ height, width: "100%", minWidth: 0 }}
       role="img"
       aria-label={ariaLabel}
     >

@@ -218,14 +218,18 @@ export function runAutomationPipeline(input?: {
     name,
     taskCount,
     runResearch: true,
-    runGates: !input?.skipGates,
+    runGates: false,
     gatesResult: gates,
   });
 
   let workflowId: string | null = null;
   let workflowSteps = 0;
   if (input?.runWorkflow !== false && gates.passed) {
-    const wf = runWorkflow("continuous-improvement", { runGates: true });
+    const wf = runWorkflow("continuous-improvement", {
+      runGates: false,
+      gatesResult: gates,
+      gatesPassed: gates.passed,
+    });
     if (wf) {
       workflowId = wf.workflowId;
       workflowSteps = wf.steps.length;

@@ -1,6 +1,6 @@
 # PulsePoint Ad-Ops (Healthcare Advertising AMS)
 
-**Canonical repo:** `/Users/jordanzabady/Desktop/pulse` only. The `Cursor Projects/pulsepoint-ams` copy is archived — see its `MIGRATED.md`.
+**Canonical repo:** `/Users/jordanzabady/Desktop/pulse` only. The old standalone `pulsepoint-ams` copy was merged and **deleted** (Jun 2026).
 
 ## What this is
 
@@ -37,8 +37,11 @@ pnpm dev
 ## Documentation
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md)
+- [CONSOLE-GLASS-DESIGN.md](./CONSOLE-GLASS-DESIGN.md) — ad-ops liquid glass tokens (`ad-ops.css`)
 - [IT-HANDOFF.md](./IT-HANDOFF.md)
 - [COMPLIANCE-HIPAA.md](./COMPLIANCE-HIPAA.md)
+- [EX-MACHINA-SYSTEM-BRIEF.md](./EX-MACHINA-SYSTEM-BRIEF.md) — demo narrative for ad-ops
+- [NIMBLE-FEATURE-MAP.md](./NIMBLE-FEATURE-MAP.md) — Nimble parity reference (association CRM vs ad-ops)
 - [THREAT-MODEL.md](./THREAT-MODEL.md)
 - [DATA-CLASSIFICATION.md](./DATA-CLASSIFICATION.md)
 - [SECURITY-AD-OPS.md](./SECURITY-AD-OPS.md)

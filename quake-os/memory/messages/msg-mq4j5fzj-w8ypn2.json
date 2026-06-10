@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4j5fzj-w8ypn2",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Advance Integrations to alpha",
+  "body": "Vendor registry with adapter pattern; Stripe/Clerk live; workspace SSO and BI planned.",
+  "refs": [
+    "task-mq4j5fzf-2znmu9"
+  ],
+  "createdAt": "2026-06-08T01:26:22.255Z"
+}

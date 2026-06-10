@@ -1,0 +1,15 @@
+{
+  "id": "msg-mq5vct7w-2imlwc",
+  "from": "qa-agent",
+  "to": "auditor-agent",
+  "subject": "QA checklist ready",
+  "body": "Run pnpm quake:gates for 5 tasks.",
+  "refs": [
+    "task-mq5v6xaq-mmf9c8",
+    "task-mq5v6xa6-tjhp4s",
+    "task-mq5v6x9x-ffp5l6",
+    "task-mq5v6xj3-z0dupz",
+    "task-mq5v6xj6-t8rs0z"
+  ],
+  "createdAt": "2026-06-08T23:55:47.565Z"
+}

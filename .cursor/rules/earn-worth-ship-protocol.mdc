@@ -1,0 +1,66 @@
+---
+description: EARN-WORTH ship protocol — zero handoffs, full implementation every session
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# EARN-WORTH ship protocol
+
+**Default mode for PulsePoint AMS.** Partial work, "next steps" lists, and unverified "done" are failures.
+
+## Non-negotiables
+
+1. **Implement first** — Do not respond with plans only. Code, wire, seed, CSS, tests in the same turn.
+2. **One scope, one pass** — Component + data + CSS + route + seed (if demo) together.
+3. **Verify before claiming done**
+   - UI: browser at `/` or affected route (375 + 1280 min)
+   - `pnpm dev:check` or `pnpm dev:ensure` — **localhost:3000 must respond** after every session
+   - `pnpm quake:gates` or `pnpm ship:now` for engineering passes
+4. **Honest labels** — Live / Preview / illustrative_only. No invented stats (`state-data`, seed, PRODUCT-CLAIMS).
+5. **Wave log** — Every shipped pass: `data/quake-os/waves/YYYY-MM-DD-<slug>.md` with files, verify, gaps.
+6. **Commit when user says ship / finish / finish all / earn** — One commit per closure pass; no leaving flagship files untracked.
+
+## Session loop (run every message)
+
+```
+SCOPE → BUILD → VERIFY → LOG → SHIP
+```
+
+| Phase | Agent action |
+|-------|----------------|
+| **SCOPE** | One sentence + files + blast radius |
+| **BUILD** | Full diff; no TODO stubs in user paths |
+| **VERIFY** | Gates + browser for UI; paste pass/fail |
+| **LOG** | Wave markdown |
+| **SHIP** | Commit if user requested closure; else state exact uncommitted paths |
+
+## UI bar (marketing + admin)
+
+- Marketing flagship: `#why-pulsepoint`, `#at-a-glance`, `#pac` — interactive, liquid glass, centered
+- Admin: `PlatformGlanceBriefing` pattern — same UX as marketing glance
+- CEO surfaces: compact glance strip + live DB stats where available
+
+## Anti-patterns (instant fail)
+
+- "Here's what we could do next" without shipping something now
+- Marking done without gates or browser
+- Leaving wave doc checkboxes empty when code shipped
+- 2000+ untracked corrupt quake memory backups in git status
+
+## Commands
+
+```bash
+pnpm dev:ensure             # start/repair http://localhost:3000 (after E2E/gates)
+pnpm dev:check              # fail fast if homepage down
+pnpm dev                    # foreground dev in this terminal
+pnpm ship:now               # full gate bundle
+pnpm pilot:local-preflight  # local pilot checks
+pnpm quake:automation:list  # Cursor automation JSON paths
+```
+
+**Why dev dies:** `pnpm test:e2e` and `pnpm quake:execute` start Playwright's webServer and stop it when tests finish. Always run `pnpm dev:ensure` after those commands (quake:execute does this automatically in Phase 8).
+
+## Human-only (flag, do not fake)
+
+BL-003 staging, Entra, Stripe drill, legal privacy, Cursor Automations UI click-through.

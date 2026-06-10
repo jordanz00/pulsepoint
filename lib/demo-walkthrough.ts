@@ -48,6 +48,18 @@ const STEPS_RAW: Omit<WalkthroughStep, "index">[] = [
     show: ["Four executive KPIs", "Membership + revenue charts", "Hospital association strip"],
   },
   {
+    id: "leadership-loop",
+    title: "Leadership loop",
+    module: "Executive",
+    path: "/leadership",
+    status: "live",
+    durationMin: 15,
+    portfolioHighlight: true,
+    talkTrack:
+      "Scripted CEO path — six stops from command center to board pack with live stats on every card. The story investors and boards want in one click.",
+    show: ["Six-step briefing", "Live stat per stop", "Quake mission control", "Board pack close"],
+  },
+  {
     id: "members",
     title: "MemberCore directory",
     module: "MemberCore",
@@ -193,6 +205,18 @@ const STEPS_RAW: Omit<WalkthroughStep, "index">[] = [
     talkTrack:
       "Board-ready KPIs: dues vs non-dues revenue, member counts, snapshot history, and audited exports from one database.",
     show: ["Total / dues / non-dues", "Revenue breakdown", "Snapshot export", "Audit trail"],
+  },
+  {
+    id: "portal",
+    title: "Member portal self-service",
+    module: "Portal",
+    path: "/portal",
+    status: "live",
+    durationMin: 2,
+    portfolioHighlight: true,
+    talkTrack:
+      "Members download their own CE transcript, pay renewals, and see events — self-service on the same roster staff manage.",
+    show: ["CE transcript download", "Renewal pay", "Event registrations", "Committee roles"],
   },
   {
     id: "board-pack",

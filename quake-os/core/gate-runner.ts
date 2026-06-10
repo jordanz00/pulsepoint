@@ -19,17 +19,19 @@ export type GateSuiteResult = {
   completedAt: string;
 };
 
-const DEFAULT_TIMEOUT_MS = 120_000;
+/** Full suite (claims + leaks + vitest + tsc) often exceeds 2m on cold CI. */
+const DEFAULT_TIMEOUT_MS = 300_000;
 
 function runCommand(command: string, timeoutMs = DEFAULT_TIMEOUT_MS): GateCheckResult {
   const started = Date.now();
   try {
-    const output = execSync(command, {
+    // Inherit stdio — vitest output can fill pipe buffers and deadlock execSync.
+    execSync(command, {
       cwd: REPO_ROOT,
-      encoding: "utf8",
       timeout: timeoutMs,
-      stdio: ["ignore", "pipe", "pipe"],
+      stdio: "inherit",
     });
+    const output = "";
     return {
       command,
       status: "pass",

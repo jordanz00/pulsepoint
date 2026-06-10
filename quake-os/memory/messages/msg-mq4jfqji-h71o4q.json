@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4jfqji-h71o4q",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: Roadmap: Finance & Accounting",
+  "body": "Dues/checkout today; GL/NetSuite/QuickBooks via integration registry.",
+  "refs": [
+    "task-mq4jfqjh-lnijcl"
+  ],
+  "createdAt": "2026-06-08T01:34:22.494Z"
+}

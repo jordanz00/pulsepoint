@@ -1,14 +1,85 @@
-/* Healthcare ad-ops module — scoped under .ad-ops-shell */
+/* Healthcare ad-ops — scoped liquid glass (ported from archived pulsepoint-ams console) */
+
+@keyframes ad-ops-mesh-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(1.5%, -1%) scale(1.015);
+  }
+  66% {
+    transform: translate(-1%, 1.5%) scale(0.99);
+  }
+}
+
 .ad-ops-shell {
-  --ad-bg: #f4f6f8;
-  --ad-surface: #ffffff;
-  --ad-text: #1a2332;
-  --ad-muted: #5c6b7a;
+  position: relative;
+  isolation: isolate;
+  min-height: 100%;
+  padding-bottom: 1.5rem;
+
+  /* Legacy aliases + glass tokens */
+  --ad-bg: #eef2f8;
+  --ad-bg-deep: #dfe8f4;
+  --ad-surface: rgba(255, 255, 255, 0.84);
+  --ad-text: #0f172a;
+  --ad-muted: #475569;
   --ad-brand: #0b5cab;
+  --ad-brand-2: #1e7bd9;
+  --ad-brand-3: #1453c2;
   --ad-ok: #0d7a4a;
   --ad-err: #b91c1c;
-  --ad-border: #d8e0e8;
-  --ad-radius: 10px;
+  --ad-warn: #b45309;
+  --ad-border: rgba(255, 255, 255, 0.68);
+  --ad-border-strong: rgba(15, 40, 80, 0.12);
+  --ad-radius: 12px;
+  --ad-radius-lg: 16px;
+  --ad-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ad-glass: rgba(255, 255, 255, 0.58);
+  --ad-glass-strong: rgba(255, 255, 255, 0.84);
+  --ad-glass-muted: rgba(255, 255, 255, 0.42);
+  --ad-glass-border: rgba(255, 255, 255, 0.68);
+  --ad-glass-shadow:
+    0 8px 32px rgba(15, 40, 80, 0.07),
+    0 1px 0 rgba(255, 255, 255, 0.78) inset;
+  --ad-glass-shadow-raised:
+    0 14px 40px -12px rgba(15, 40, 80, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.85) inset;
+  --ad-glass-blur: blur(20px) saturate(1.28);
+  --ad-glass-blur-strong: blur(28px) saturate(1.38);
+}
+
+.ad-ops-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 75% 55% at 12% 8%, rgba(11, 92, 171, 0.11), transparent 55%),
+    radial-gradient(ellipse 65% 50% at 88% 18%, rgba(124, 92, 255, 0.08), transparent 52%),
+    radial-gradient(ellipse 60% 45% at 70% 92%, rgba(14, 165, 183, 0.09), transparent 50%),
+    linear-gradient(165deg, #f4f8fd 0%, var(--ad-bg) 45%, var(--ad-bg-deep) 100%);
+  pointer-events: none;
+}
+
+.ad-ops-shell::after {
+  content: "";
+  position: fixed;
+  inset: -15%;
+  z-index: -1;
+  background: radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.45), transparent 58%);
+  animation: ad-ops-mesh-drift 22s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .ad-ops-shell {
+    --ad-glass: rgba(255, 255, 255, 0.94);
+    --ad-glass-strong: #ffffff;
+    --ad-glass-muted: rgba(249, 251, 253, 0.95);
+    --ad-surface: #ffffff;
+  }
 }
 
 .ad-ops-shell .ad-ops-nav {
@@ -18,22 +89,57 @@
   align-items: center;
   padding: 0.75rem 1rem;
   margin-bottom: 1.25rem;
-  background: var(--ad-surface);
-  border: 1px solid var(--ad-border);
-  border-radius: var(--ad-radius);
+  background: var(--ad-glass);
+  backdrop-filter: var(--ad-glass-blur-strong);
+  -webkit-backdrop-filter: var(--ad-glass-blur-strong);
+  border: 1px solid var(--ad-glass-border);
+  border-radius: var(--ad-radius-lg);
+  box-shadow: var(--ad-glass-shadow);
 }
 
 .ad-ops-shell .ad-ops-nav__title {
   margin-right: auto;
   font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--ad-text);
+}
+
+.ad-ops-shell .ad-ops-nav a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ad-muted);
+  text-decoration: none;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  transition:
+    background 0.16s var(--ad-ease),
+    color 0.16s var(--ad-ease),
+    box-shadow 0.16s var(--ad-ease);
+}
+
+.ad-ops-shell .ad-ops-nav a:hover {
+  background: var(--ad-glass-muted);
+  color: var(--ad-text);
+  text-decoration: none;
 }
 
 .ad-ops-shell .card {
-  background: var(--ad-surface);
-  border: 1px solid var(--ad-border);
-  border-radius: var(--ad-radius);
+  background: var(--ad-glass);
+  backdrop-filter: var(--ad-glass-blur);
+  -webkit-backdrop-filter: var(--ad-glass-blur);
+  border: 1px solid var(--ad-glass-border);
+  border-radius: var(--ad-radius-lg);
   padding: 1.25rem;
   margin-bottom: 1rem;
+  box-shadow: var(--ad-glass-shadow);
+  transition:
+    box-shadow 0.2s var(--ad-ease),
+    transform 0.2s var(--ad-ease);
+}
+
+.ad-ops-shell .card:hover {
+  box-shadow: var(--ad-glass-shadow-raised);
+  transform: translateY(-1px);
 }
 
 .ad-ops-shell .grid2 {
@@ -48,23 +154,28 @@
 }
 
 .ad-ops-shell .badge {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
   font-weight: 600;
-  background: #e8eef5;
-  color: var(--ad-brand);
+  background: rgba(231, 240, 251, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #0c4a8f;
+  border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 .ad-ops-shell .badge--ok {
-  background: #dcf5e8;
+  background: rgba(220, 245, 232, 0.9);
   color: var(--ad-ok);
 }
 
 .ad-ops-shell .badge--err {
-  background: #fde8e8;
+  background: rgba(254, 226, 226, 0.92);
   color: var(--ad-err);
+  border-color: rgba(185, 28, 28, 0.15);
 }
 
 .ad-ops-shell table {
@@ -77,41 +188,73 @@
 .ad-ops-shell td {
   text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--ad-border);
+  border-bottom: 1px solid var(--ad-border-strong);
+}
+
+.ad-ops-shell thead th {
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ad-muted);
+  font-weight: 700;
+  background: var(--ad-glass-muted);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ad-glass-border);
 }
 
 .ad-ops-shell button.primary {
-  background: var(--ad-brand);
+  background: linear-gradient(135deg, var(--ad-brand) 0%, var(--ad-brand-3) 100%);
   color: #fff;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 500;
+  box-shadow:
+    0 4px 14px rgba(11, 92, 171, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
 }
 
 .ad-ops-shell button.primary:disabled {
   opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Glass executive layout (AdOpsPageShell) */
 .ad-ops-glass-page .pp-glass-stat-value--hero {
   font-size: clamp(2rem, 4vw, 3.25rem);
 }
+
 .ad-ops-glass-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
 .ad-ops-glass-panel {
   padding: 1rem 1.1rem;
-  border-radius: var(--r-lg);
-  background: rgba(255, 255, 255, 0.55);
-  border: 0.5px solid rgba(0, 114, 188, 0.12);
+  border-radius: var(--ad-radius-lg);
+  background: var(--ad-glass);
+  backdrop-filter: var(--ad-glass-blur);
+  -webkit-backdrop-filter: var(--ad-glass-blur);
+  border: 1px solid var(--ad-glass-border);
+  box-shadow: var(--ad-glass-shadow);
+  transition:
+    box-shadow 0.2s var(--ad-ease),
+    transform 0.2s var(--ad-ease);
 }
+
+.ad-ops-glass-panel:hover {
+  box-shadow: var(--ad-glass-shadow-raised);
+  transform: translateY(-1px);
+}
+
 .ad-ops-glass-panel--wide {
   margin-top: 0.25rem;
 }
+
 .ad-ops-glass-panel-head {
   display: flex;
   flex-wrap: wrap;
@@ -120,27 +263,40 @@
   gap: 0.5rem;
   margin-bottom: 0.75rem;
 }
+
 .ad-ops-glass-panel-title {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 650;
   color: var(--ad-text);
 }
+
 .ad-ops-glass-stat {
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0.35rem 0 0.65rem;
   font-variant-numeric: tabular-nums;
 }
-.ad-ops-glass-stat--ok { color: var(--ad-ok); }
-.ad-ops-glass-stat--err { color: var(--ad-err); }
+
+.ad-ops-glass-stat--ok {
+  color: var(--ad-ok);
+}
+
+.ad-ops-glass-stat--err {
+  color: var(--ad-err);
+}
+
 .ad-ops-glass-link {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--ad-brand);
   text-decoration: none;
 }
-.ad-ops-glass-link:hover { text-decoration: underline; }
+
+.ad-ops-glass-link:hover {
+  text-decoration: underline;
+}
+
 .ad-ops-glass-steps {
   margin: 0.5rem 0 0.75rem;
   padding-left: 1.15rem;
@@ -148,11 +304,13 @@
   color: var(--ad-muted);
   line-height: 1.45;
 }
+
 .ad-ops-glass-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
 }
+
 .ad-ops-glass-table th {
   font-size: 0.68rem;
   font-weight: 700;
@@ -160,15 +318,34 @@
   letter-spacing: 0.05em;
   color: var(--ad-muted);
   padding: 0.45rem 0.65rem;
-  border-bottom: 1px solid var(--ad-border);
+  border-bottom: 1px solid var(--ad-glass-border);
+  background: var(--ad-glass-muted);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
+
 .ad-ops-glass-table td {
   padding: 0.55rem 0.65rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--ad-border) 65%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--ad-border-strong) 65%, transparent);
 }
+
 .ad-ops-glass-table a {
   color: var(--ad-brand);
   font-weight: 600;
   text-decoration: none;
 }
-.ad-ops-glass-table a:hover { text-decoration: underline; }
+
+.ad-ops-glass-table a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ad-ops-shell::after {
+    animation: none;
+  }
+
+  .ad-ops-shell .card:hover,
+  .ad-ops-glass-panel:hover {
+    transform: none;
+  }
+}

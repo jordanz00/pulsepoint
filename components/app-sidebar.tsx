@@ -31,7 +31,7 @@ function NavBadge({
       <span
         className="nav-alpha-dot"
         title="Preview module"
-        aria-label="Alpha module"
+        aria-label="Preview module"
       />
     );
   }
@@ -81,7 +81,7 @@ function NavSection({
                   const Icon = adminNavIcon(item.iconId);
                   return <Icon size={16} aria-hidden />;
                 })()}
-                <span className="min-w-0 flex-1 truncate">{item.name}</span>
+                <span className="pp-nav-item-label">{item.name}</span>
               </span>
             );
           }
@@ -95,7 +95,7 @@ function NavSection({
               aria-current={active ? "page" : undefined}
             >
               <Icon size={16} aria-hidden />
-              <span className="min-w-0 flex-1 truncate">{item.name}</span>
+              <span className="pp-nav-item-label">{item.name}</span>
               <NavBadge item={item} counts={counts} />
             </Link>
           );

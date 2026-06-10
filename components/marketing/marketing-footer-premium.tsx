@@ -31,6 +31,12 @@ export function MarketingFooterPremium() {
             Security
           </a>
           <Link
+            href="/built-by-comms"
+            className="font-medium tracking-[-0.005em] text-[var(--pc-text-secondary)] transition-colors hover:text-[var(--pc-text)]"
+          >
+            Built by comms
+          </Link>
+          <Link
             href="/compare-protech"
             className="font-medium tracking-[-0.005em] text-[var(--pc-text-secondary)] transition-colors hover:text-[var(--pc-text)]"
           >

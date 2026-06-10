@@ -72,6 +72,18 @@ const responseSchema = z.object({
   increment: z.coerce.number().int().min(1).max(100).default(1),
 });
 
+const campaignIdSchema = z.object({
+  campaignId: z.string().cuid(),
+});
+
+function revalidateAdvocacyCampaignPaths(orgSlug: string, campaignId?: string) {
+  revalidatePath(`/${orgSlug}/enterprise/advocacy`);
+  revalidatePath(`/${orgSlug}/enterprise/advocacy/campaigns`);
+  if (campaignId) {
+    revalidatePath(`/${orgSlug}/enterprise/advocacy/campaigns/${campaignId}`);
+  }
+}
+
 export async function createAdvocacyIssue(
   orgSlug: string,
   raw: unknown,
@@ -277,7 +289,7 @@ export async function createAdvocacyCampaign(
       entityId: created.id,
     });
 
-    revalidatePath(`/${orgSlug}/enterprise/advocacy`);
+    revalidateAdvocacyCampaignPaths(orgSlug, created.id);
     return { ok: true, data: { id: created.id } };
   } catch (e) {
     return { ok: false, error: messageFromActionError(e) };
@@ -335,7 +347,7 @@ export async function launchAdvocacyTakeAction(
       diff: { audienceId: audience.id },
     });
 
-    revalidatePath(`/${orgSlug}/enterprise/advocacy`);
+    revalidateAdvocacyCampaignPaths(orgSlug, campaign.id);
     revalidatePath(`/${orgSlug}/engage`);
     return { ok: true, data: { audienceId: audience.id } };
   } catch (e) {
@@ -378,8 +390,119 @@ export async function recordAdvocacyResponse(
       diff: { increment: parsed.data.increment, responseCount: next },
     });
 
-    revalidatePath(`/${orgSlug}/enterprise/advocacy`);
+    revalidateAdvocacyCampaignPaths(orgSlug, campaign.id);
     return { ok: true, data: { responseCount: updated.responseCount } };
+  } catch (e) {
+    return { ok: false, error: messageFromActionError(e) };
+  }
+}
+
+export async function pauseAdvocacyCampaign(
+  orgSlug: string,
+  raw: unknown,
+): Promise<ActionResult<{ id: string }>> {
+  try {
+    const staff = await requireCapability("advocacy:write", { orgSlug });
+    const parsed = campaignIdSchema.safeParse(raw);
+    if (!parsed.success) return { ok: false, error: "Invalid campaign" };
+
+    const db = getOrgDb(staff.orgId);
+    const campaign = await db.advocacyCampaign.findUnique({
+      where: { id: parsed.data.campaignId },
+    });
+    if (!campaign || campaign.orgId !== staff.orgId) {
+      return { ok: false, error: "Campaign not found" };
+    }
+
+    await db.advocacyCampaign.update({
+      where: { id: campaign.id },
+      data: { isActive: false },
+    });
+
+    await writeAuditLog({
+      orgId: staff.orgId,
+      userId: staff.userId,
+      action: "advocacy.campaign.pause",
+      entity: "AdvocacyCampaign",
+      entityId: campaign.id,
+    });
+
+    revalidateAdvocacyCampaignPaths(orgSlug, campaign.id);
+    return { ok: true, data: { id: campaign.id } };
+  } catch (e) {
+    return { ok: false, error: messageFromActionError(e) };
+  }
+}
+
+export async function resumeAdvocacyCampaign(
+  orgSlug: string,
+  raw: unknown,
+): Promise<ActionResult<{ id: string }>> {
+  try {
+    const staff = await requireCapability("advocacy:write", { orgSlug });
+    const parsed = campaignIdSchema.safeParse(raw);
+    if (!parsed.success) return { ok: false, error: "Invalid campaign" };
+
+    const db = getOrgDb(staff.orgId);
+    const campaign = await db.advocacyCampaign.findUnique({
+      where: { id: parsed.data.campaignId },
+    });
+    if (!campaign || campaign.orgId !== staff.orgId) {
+      return { ok: false, error: "Campaign not found" };
+    }
+
+    await db.advocacyCampaign.update({
+      where: { id: campaign.id },
+      data: { isActive: true, endsAt: null },
+    });
+
+    await writeAuditLog({
+      orgId: staff.orgId,
+      userId: staff.userId,
+      action: "advocacy.campaign.resume",
+      entity: "AdvocacyCampaign",
+      entityId: campaign.id,
+    });
+
+    revalidateAdvocacyCampaignPaths(orgSlug, campaign.id);
+    return { ok: true, data: { id: campaign.id } };
+  } catch (e) {
+    return { ok: false, error: messageFromActionError(e) };
+  }
+}
+
+export async function closeAdvocacyCampaign(
+  orgSlug: string,
+  raw: unknown,
+): Promise<ActionResult<{ id: string }>> {
+  try {
+    const staff = await requireCapability("advocacy:write", { orgSlug });
+    const parsed = campaignIdSchema.safeParse(raw);
+    if (!parsed.success) return { ok: false, error: "Invalid campaign" };
+
+    const db = getOrgDb(staff.orgId);
+    const campaign = await db.advocacyCampaign.findUnique({
+      where: { id: parsed.data.campaignId },
+    });
+    if (!campaign || campaign.orgId !== staff.orgId) {
+      return { ok: false, error: "Campaign not found" };
+    }
+
+    await db.advocacyCampaign.update({
+      where: { id: campaign.id },
+      data: { isActive: false, endsAt: new Date() },
+    });
+
+    await writeAuditLog({
+      orgId: staff.orgId,
+      userId: staff.userId,
+      action: "advocacy.campaign.close",
+      entity: "AdvocacyCampaign",
+      entityId: campaign.id,
+    });
+
+    revalidateAdvocacyCampaignPaths(orgSlug, campaign.id);
+    return { ok: true, data: { id: campaign.id } };
   } catch (e) {
     return { ok: false, error: messageFromActionError(e) };
   }

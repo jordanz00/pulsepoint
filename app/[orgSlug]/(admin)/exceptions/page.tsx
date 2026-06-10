@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { notFound } from "next/navigation";
 import { listOpenExceptions } from "@/app/actions/exceptions";
@@ -6,6 +7,8 @@ import { AdminPage } from "@/components/admin/admin-page";
 import { PageHeader } from "@/components/ui/page-header";
 import { pageSubtitle } from "@/lib/admin-page-copy";
 import { prisma } from "@/lib/prisma";
+import { EnterpriseDataTable } from "@/components/enterprise/enterprise-data-table";
+import { EnterpriseStatePanel } from "@/components/enterprise/enterprise-state-panel";
 
 export default async function ExceptionsPage({
   params,
@@ -26,6 +29,11 @@ export default async function ExceptionsPage({
         subtitle={pageSubtitle(orgSlug, "exceptions")}
         backHref={`/${orgSlug}`}
         backLabel="Home"
+        actions={
+          <Link href={`/${orgSlug}/sync`} className="pc-btn-secondary text-sm">
+            Sync center
+          </Link>
+        }
       />
 
       <div className="pp-module-stats glass mb-6">
@@ -43,49 +51,52 @@ export default async function ExceptionsPage({
         </div>
       </div>
 
-      {items.length === 0 ? (
-        <div className="pc-card pp-readable-on-light p-8 text-center">
-          <p className="text-lg font-semibold text-[var(--readable-on-light-fg)]">Queue is clear</p>
-          <p className="mt-2 text-sm text-[var(--readable-on-light-muted)]">
-            Automation exceptions appear here when a workflow step needs staff review.
-          </p>
-        </div>
-      ) : (
-        <div className="pc-table-wrap pc-card">
-          <table className="pc-table">
-            <thead>
-              <tr>
-                <th>Workflow</th>
-                <th>Step</th>
-                <th>Outcome</th>
-                <th>Message</th>
-                <th>When</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((row) => (
-                <tr key={row.id}>
-                  <td className="font-medium">{row.workflow}</td>
-                  <td>{row.step}</td>
-                  <td>
-                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">
-                      {row.outcome}
-                    </span>
-                  </td>
-                  <td className="max-w-md text-sm text-[var(--text-muted)]">{row.message}</td>
-                  <td className="whitespace-nowrap text-sm text-[var(--text-muted)]">
-                    {formatDistanceToNow(row.createdAt, { addSuffix: true })}
-                  </td>
-                  <td className="text-right">
-                    <ResolveExceptionButton exceptionId={row.id} />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <EnterpriseDataTable
+        caption="Open exceptions"
+        count={items.length}
+        empty={
+          <EnterpriseStatePanel
+            variant="clear"
+            title="Queue is clear"
+            description="Automation exceptions appear here when a workflow step needs staff review."
+          />
+        }
+      >
+        <thead>
+          <tr>
+            <th scope="col">Workflow</th>
+            <th scope="col">Step</th>
+            <th scope="col">Outcome</th>
+            <th scope="col">Message</th>
+            <th scope="col">When</th>
+            <th scope="col">
+              <span className="sr-only">Actions</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((row) => (
+            <tr key={row.id}>
+              <td className="pp-data-table__primary">{row.workflow}</td>
+              <td>{row.step}</td>
+              <td>
+                <span className={`pp-data-table__badge pp-data-table__badge--${row.outcome === "FAILED" ? "err" : "watch"}`}>
+                  {row.outcome}
+                </span>
+              </td>
+              <td className="pp-data-table__muted pp-data-table__truncate">{row.message}</td>
+              <td className="pp-data-table__muted pp-data-table__nowrap">
+                <time dateTime={row.createdAt.toISOString()}>
+                  {formatDistanceToNow(row.createdAt, { addSuffix: true })}
+                </time>
+              </td>
+              <td className="pp-data-table__actions">
+                <ResolveExceptionButton exceptionId={row.id} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </EnterpriseDataTable>
     </AdminPage>
   );
 }

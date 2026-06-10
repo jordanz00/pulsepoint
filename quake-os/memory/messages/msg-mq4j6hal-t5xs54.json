@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4j6hal-t5xs54",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: risk: Membership scale and security",
+  "body": "knowledge/research.db#res-mq4j5cl1-it5ct5: Membership scale and security | knowledge/research.db#res-mq4j3mn3-wsehbt: Membership scale and security | knowledge/competitors.db#intel-res-mq4j5cl1-it5ct5: Intel: Membership scale and security | knowledge/competitors.db#intel-res-mq4j3mn3-wsehbt: Intel: Membership scale and security | scripts/ten-member-leak-checks.sh: bad \"$LEAK_FILES file(s) query member without getOrgDb\"",
+  "refs": [
+    "task-mq4j6hak-hfx4vw"
+  ],
+  "createdAt": "2026-06-08T01:27:10.605Z"
+}

@@ -1,0 +1,55 @@
+---
+description: Flagship delivery workflow — browser-verified marketing and demo surfaces
+globs:
+  - "**/components/marketing/**"
+  - "**/app/(marketing)/**"
+  - "**/lib/marketing*.ts"
+  - "**/lib/*-marketing-preview.ts"
+alwaysApply: false
+---
+
+# Flagship delivery workflow
+
+Use this workflow for **marketing landing**, **#why-pulsepoint**, and any **portfolio-grade** UI the user expects to ship in one pass—not incremental CSS tweaks.
+
+## Bar
+
+Executive / keynote quality: contrast break, real interaction, honest labels (Live / Preview), illustrative disclaimer where numbers are sample.
+
+## Steps (do not skip)
+
+1. **Scope block** (chat or wave header)
+   - Files · surfaces · data source · risk · success = screenshot at 1280px
+
+2. **Build in one pass**
+   - Component + dedicated CSS + data lib together
+   - Reuse existing preview patterns; do not invent stats
+   - Prefer purposeful interaction (module film, explorer tabs) over static chart grids
+
+3. **Browser verify** (mandatory before “done”)
+   - Open `/` and `#why-pulsepoint` at **375**, **1280**, **1440**
+   - Check reduced motion, keyboard on interactive controls, focus rings
+   - Do not claim success without seeing rendered output
+
+4. **Gates**
+   - `pnpm claims:validate` (marketing copy)
+   - `pnpm leak:checks` if tenant/data paths touched
+   - Note unrelated typecheck failures; do not hide them
+
+5. **Wave log**
+   - `data/quake-os/waves/YYYY-MM-DD-<slug>.md` with scope, files, verify notes, honest gaps
+
+## Anti-patterns
+
+- Another pass of sparklines + bento only
+- “Done” without browser check
+- Invented KPIs or policy claims
+- Bulk edits to shared tokens without blast-radius note
+
+## Current flagship anchor
+
+- Section: `#why-pulsepoint` · `VsLegacyPremiumSection`
+- CSS: `app/why-pulsepoint-flagship.css`
+- Static compare: `why-pulsepoint-gap-compare.tsx`
+- Module film: `why-pulsepoint-module-film.tsx`
+- Data: `lib/why-pulsepoint-flagship.ts`, `WHAT_MAKES_IT_DIFFERENT` in `lib/marketing-home.ts`

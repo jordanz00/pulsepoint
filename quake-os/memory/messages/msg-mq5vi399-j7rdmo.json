@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vi399-j7rdmo",
+  "from": "orchestrator",
+  "to": "security-agent",
+  "subject": "New task: risk: Healthcare CE and education",
+  "body": "knowledge/research.db#res-mq5vi30r-kxvxp5: Membership scale and security | knowledge/competitors.db#intel-res-mq5vi30r-kxvxp5: Intel: Membership scale and security",
+  "refs": [
+    "task-mq5vi398-sp64hv"
+  ],
+  "createdAt": "2026-06-08T23:59:53.853Z"
+}

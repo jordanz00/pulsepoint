@@ -1,0 +1,16 @@
+{
+  "id": "msg-mq5vceyj-pjj1vy",
+  "from": "architecture-agent",
+  "to": "product-agent",
+  "subject": "Architecture review complete",
+  "body": "Approved for task generation.",
+  "refs": [
+    "res-mq5vce8d-ymnfzw",
+    "res-mq5vcebo-cvru0e",
+    "res-mq5vcec0-8e71m1",
+    "res-mq5vcels-zs73pn",
+    "res-mq5vceqm-3slxnj",
+    "res-mq5vceqs-lryz55"
+  ],
+  "createdAt": "2026-06-08T23:55:29.083Z"
+}

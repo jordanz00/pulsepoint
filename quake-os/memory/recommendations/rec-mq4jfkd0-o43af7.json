@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq4jfkd0-o43af7",
+  "title": "risk: Healthcare CE and education",
+  "rationale": "knowledge/research.db#res-mq4jfkaa-tqhdk5: Membership scale and security | knowledge/competitors.db#intel-res-mq4jfkaa-tqhdk5: Intel: Membership scale and security | knowledge/requirements.db#req-mq4jdq97-gvce98: risk: Membership scale and security",
+  "proposedBy": "healthcare-association-agent",
+  "targetAgents": [
+    "security-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-08T01:34:14.484Z"
+}

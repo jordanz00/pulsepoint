@@ -10,7 +10,7 @@ import { getPaymentAdapterForOrg } from "@/lib/adapters/payments";
 import { writeAuditLog } from "@/lib/audit";
 import { shouldSimulateDemoPayment } from "@/lib/demo-payment";
 import { getOrgDb, prisma } from "@/lib/db";
-import { escapeCsvCell } from "@/lib/giving/csv";
+import { GIFT_CSV_HEADER, buildGiftCsvRow } from "@/lib/giving/csv-export";
 import { markDonationPaid } from "@/lib/giving/mark-donation-paid";
 import { resolvePortalMember } from "@/lib/portal/resolve-portal-member";
 import { requireCapability } from "@/lib/permissions";
@@ -240,18 +240,22 @@ export async function startDonationCheckout(
 
 export async function exportDonorsCsv(
   orgSlug?: string,
+  campaignId?: string,
 ): Promise<ActionResult<{ csv: string; count: number }>> {
   try {
     const staff = await requireCapability("giving:manage", { orgSlug });
     const db = getOrgDb(staff.orgId);
-    const lines = [
-      "donor_name,donor_email,amount_usd,campaign,paid_at,created_at,member_id",
-    ];
+    if (campaignId) {
+      const campaign = await db.campaign.findFirst({ where: { id: campaignId } });
+      if (!campaign) return { ok: false, error: "Campaign not found" };
+    }
+    const lines = [GIFT_CSV_HEADER];
     let cursor: string | undefined;
     let count = 0;
 
     while (true) {
       const batch = await db.donation.findMany({
+        where: campaignId ? { campaignId } : undefined,
         orderBy: [{ createdAt: "asc" }, { id: "asc" }],
         take: EXPORT_BATCH_SIZE,
         ...buildCursorQuery(cursor),
@@ -262,15 +266,15 @@ export async function exportDonorsCsv(
       for (const gift of batch) {
         if (!gift.paidAt) continue;
         lines.push(
-          [
-            escapeCsvCell(gift.donorName),
-            gift.donorEmail ?? "",
-            (gift.amountCents / 100).toFixed(2),
-            escapeCsvCell(gift.campaign.name),
-            gift.paidAt.toISOString(),
-            gift.createdAt.toISOString(),
-            gift.memberId ?? "",
-          ].join(","),
+          buildGiftCsvRow({
+            donorName: gift.donorName,
+            donorEmail: gift.donorEmail ?? "",
+            amountCents: gift.amountCents,
+            campaignName: gift.campaign.name,
+            paidAt: gift.paidAt.toISOString(),
+            createdAt: gift.createdAt.toISOString(),
+            memberId: gift.memberId ?? "",
+          }),
         );
         count += 1;
       }
@@ -283,7 +287,7 @@ export async function exportDonorsCsv(
       userId: staff.userId,
       action: "giving.export",
       entity: "Donation",
-      diff: { count },
+      diff: { count, campaignId: campaignId ?? null },
     });
 
     return { ok: true, data: { csv: lines.join("\n"), count } };

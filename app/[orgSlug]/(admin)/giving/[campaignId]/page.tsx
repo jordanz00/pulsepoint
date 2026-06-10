@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdminPage } from "@/components/admin/admin-page";
 import { CampaignProgress } from "@/components/giving/campaign-progress";
+import { GivingExportButton } from "@/components/giving/giving-export-button";
 import { CampaignStatusSelect } from "@/components/giving/giving-admin-panel";
 import { PageHeader } from "@/components/ui/page-header";
 import { requirePageCapability } from "@/lib/admin-page-guard";
@@ -65,9 +66,18 @@ export default async function CampaignDetailPage({
         ) : null}
 
         <section className="giving-section" aria-labelledby="giving-gifts-heading">
-          <h2 id="giving-gifts-heading" className="giving-section__title">
-            Paid gifts
-          </h2>
+          <div className="giving-section__head">
+            <h2 id="giving-gifts-heading" className="giving-section__title">
+              Paid gifts
+            </h2>
+            {canManage ? (
+              <GivingExportButton
+                orgSlug={orgSlug}
+                campaignId={campaign.id}
+                campaignSlug={campaign.id}
+              />
+            ) : null}
+          </div>
           {campaign.paidGifts.length === 0 ? (
             <p className="giving-empty">No paid gifts yet.</p>
           ) : (

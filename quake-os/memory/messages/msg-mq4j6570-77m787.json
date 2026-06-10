@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq4j6570-77m787",
+  "from": "architecture-agent",
+  "to": "healthcare-sme-agent",
+  "subject": "Architecture critique: APPROVED",
+  "body": "Proceed to documentation sync\nRun pnpm quake:gates",
+  "refs": [
+    "task-frc-test-001",
+    "audit-mq4j656j-tsbir8"
+  ],
+  "createdAt": "2026-06-08T01:26:54.924Z"
+}

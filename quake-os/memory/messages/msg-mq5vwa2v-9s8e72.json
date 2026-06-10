@@ -1,0 +1,15 @@
+{
+  "id": "msg-mq5vwa2v-9s8e72",
+  "from": "product-agent",
+  "to": "developer-agent",
+  "subject": "Daily tasks ready for build",
+  "body": "5 tasks queued.",
+  "refs": [
+    "task-mq5vw7we-fyqa4x",
+    "task-mq5vw7w2-thk8d9",
+    "task-mq5vw7vz-00mqgd",
+    "task-mq5vw9nn-rptqjp",
+    "task-mq5vw9og-g41btu"
+  ],
+  "createdAt": "2026-06-09T00:10:55.879Z"
+}

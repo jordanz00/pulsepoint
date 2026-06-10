@@ -9,7 +9,10 @@ import { runGateSuite } from "@/quake-os/core/gate-runner";
 export const QAAgent = {
   id: "qa-agent" as const,
 
-  test(codeChanges: DeveloperBuildResult, options?: { runGates?: boolean }): QATestResult {
+  test(
+    codeChanges: DeveloperBuildResult,
+    options?: { runGates?: boolean; gatesResult?: { passed: boolean } },
+  ): QATestResult {
     const checklist: QATestResult["checklist"] = [
       { item: "pnpm test — unit tests", status: "pending" },
       { item: "pnpm leak:checks — tenant isolation", status: "pending" },
@@ -17,7 +20,12 @@ export const QAAgent = {
       { item: "Acceptance criteria documented per task", status: "pass" },
     ];
 
-    if (options?.runGates) {
+    if (options?.gatesResult) {
+      checklist.push({
+        item: "pnpm quake:gates — reused from pipeline",
+        status: options.gatesResult.passed ? "pass" : "warn",
+      });
+    } else if (options?.runGates) {
       const gates = runGateSuite();
       const gateStatus = gates.passed ? ("pass" as const) : ("warn" as const);
       checklist.push({

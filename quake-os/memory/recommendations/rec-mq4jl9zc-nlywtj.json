@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq4jl9zc-nlywtj",
+  "title": "gap: Healthcare CE and education",
+  "rationale": "knowledge/requirements.db#req-mq4jl8um-8x8yix: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4jihqx-3do43j: [gap] gap signals for AMS competitor landscape (high confidence) | lib/association/modules.ts: summary: \"CE credits, courses, events; LMS integration roadmap.\",",
+  "proposedBy": "healthcare-association-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-08T01:38:40.968Z"
+}

@@ -23,12 +23,12 @@ test.describe("demo walkthrough", () => {
   test("members CEO filter opens profile", async ({ page }) => {
     await enterDemo(page);
     await page.goto(`/${DEMO_SLUG}/members`);
-    await expect(page.getByRole("heading", { name: /Members/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Members", exact: true })).toBeVisible();
 
     await page.goto(`/${DEMO_SLUG}/members?rolePreset=ceo&roleMode=include`);
     await expect(page.getByRole("status")).toContainText(/CEO/i);
 
-    await page.getByRole("link", { name: /President.*CEO/i }).click();
+    await page.getByRole("link", { name: /Khan, Avery/i }).click();
     await expect(page).toHaveURL(new RegExp(`\\/${DEMO_SLUG}\\/members\\/[^/]+$`));
     await expect(page.getByRole("heading", { name: "Avery Khan" }).first()).toBeVisible();
   });
@@ -46,7 +46,7 @@ test.describe("demo walkthrough", () => {
     await expect(page.getByText(/Member directory/i)).toBeVisible();
 
     await page.goto(`/${DEMO_SLUG}/insights`);
-    await expect(page.getByRole("heading", { name: /Reports & revenue/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Insights", exact: true })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Custom dashboard/i })).toBeVisible();
   });
 });

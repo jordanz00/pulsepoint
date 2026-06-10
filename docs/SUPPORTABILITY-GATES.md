@@ -70,11 +70,12 @@ Each of Commerce, Learn, Engage, Giving, Insights repeats the full checklist **p
 |----------|---------------|-------|------|
 | **Staff enrollment** | `enrollMemberInCourse` creates `CourseEnrollment`; member profile shows course | Education coord | [ ] |
 | **CE award** | Manual award appears on transcript + Learn admin list | Education coord | [ ] |
-| **Transcript export** | `exportMemberTranscriptCsv` rows match member profile enrollments + awards | Compliance | [ ] |
+| **Transcript export** | `exportMemberTranscriptCsv` rows match member profile enrollments + awards | Compliance | [x] |
+| **Portal transcript** | `exportPortalTranscriptCsv` + `tests/unit/portal-transcript-export.test.ts` green | Compliance | [x] |
 | **Export parity** | CSV award totals = sum of on-screen CE for same member | Compliance | [ ] |
 | **Human override** | ADMIN can re-enroll or award without DB access | Eng | [ ] |
-| **Failure copy** | Invalid member/course returns plain error | Eng | [ ] |
-| **E2E / integration** | `tests/unit/learn-transcript.test.ts` + enrollment action tests green | QA | [ ] |
+| **Failure copy** | Invalid member/course returns plain error | Eng | [x] |
+| **E2E / integration** | `tests/unit/learn-transcript.test.ts` + portal transcript tests green | QA | [x] |
 
 ### Insights (alpha → GA)
 

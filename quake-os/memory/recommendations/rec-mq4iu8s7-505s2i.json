@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq4iu8s7-505s2i",
+  "title": "gap: Healthcare CE and education",
+  "rationale": "knowledge/requirements.db#req-mq4itv1q-jwwnqd: gap: Fundraising and nonprofit surfaces | knowledge/requirements.db#req-mq4itv1m-et49mg: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4iqn1x-pbnaos: gap: Fundraising and nonprofit surfaces | knowledge/requirements.db#req-mq4iqn1v-nehp21: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4hv5zo-4a4c0j: gap: Fundraising and nonprofit surfaces",
+  "proposedBy": "healthcare-association-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-08T01:17:39.703Z"
+}

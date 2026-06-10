@@ -3,6 +3,8 @@ import { AdOpsApiError } from "@/components/ad-ops/ad-ops-api-error";
 import { AdOpsPageShell } from "@/components/ad-ops/ad-ops-page-shell";
 import { CampaignActions } from "@/components/ad-ops/campaign-actions";
 import { CreativeActions } from "@/components/ad-ops/creative-actions";
+import { ComplianceQaGates } from "@/components/enterprise/compliance-qa-gates";
+import { MlrWorkflowRail } from "@/components/enterprise/mlr-workflow-rail";
 import { adOpsApi } from "@/lib/ad-ops-api";
 import { adOpsPaths } from "@/lib/ad-ops-paths";
 
@@ -51,6 +53,15 @@ export default async function AdvertisingCampaignDetailPage({
         backHref={p.campaigns}
         backLabel="Campaigns"
       >
+        <section className="pp-compliance-mlr glass pp-glass-surface mb-6">
+          <h2 className="pc-section-title">Approval gates</h2>
+          <ComplianceQaGates
+            audienceQaAt={campaign.audienceQaAt}
+            budgetQaAt={campaign.budgetQaAt}
+            creativeQaAt={campaign.creativeQaAt}
+          />
+        </section>
+
         <div className="grid gap-4 lg:grid-cols-2">
           <section className="space-y-2">
             <h2 className="text-lg font-semibold">Status</h2>
@@ -61,10 +72,6 @@ export default async function AdvertisingCampaignDetailPage({
               PulsePoint ID: <strong>{campaign.pulsepointId ?? "Not synced"}</strong>
             </p>
             <p>Budget: ${Number(campaign.budgetUsd).toLocaleString()}</p>
-            <p className="text-sm text-[var(--fg-muted)]">
-              QA gates: Audience {campaign.audienceQaAt ? "✓" : "—"} · Budget{" "}
-              {campaign.budgetQaAt ? "✓" : "—"} · Creative {campaign.creativeQaAt ? "✓" : "—"}
-            </p>
           </section>
           <section className="space-y-2">
             <h2 className="text-lg font-semibold">Explain the delta</h2>
@@ -93,6 +100,15 @@ export default async function AdvertisingCampaignDetailPage({
         ) : null}
 
         <div className="mt-6 space-y-4">
+          <section className="pp-compliance-mlr glass pp-glass-surface p-4">
+            <h2 className="pc-section-title">Creative MLR lifecycle</h2>
+            <MlrWorkflowRail
+              currentState={
+                campaign.creatives.find((c) => c.state === "SUBMITTED")?.state ??
+                campaign.creatives[0]?.state
+              }
+            />
+          </section>
           <CampaignActions campaignId={id} state={campaign.state} readiness={readiness} />
           <CreativeActions campaignId={id} creatives={campaign.creatives} />
         </div>

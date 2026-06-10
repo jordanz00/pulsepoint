@@ -33,6 +33,14 @@ Healthcare-focused AMS prototype: executive narratives, liquid glass UI, advocac
 6. Insights board pack → print/export  
 7. Compare Protech → import staging  
 
+## Shipped waves
+
+| Wave | Report |
+|------|--------|
+| Portfolio showcase | `data/quake-os/waves/2026-06-08-portfolio-showcase-wave.md` |
+| Portfolio closure | `data/quake-os/waves/2026-06-08-portfolio-closure-wave.md` |
+| Workflow wave 2 | `data/quake-os/waves/2026-06-08-portfolio-workflow-wave2.md` |
+
 ## Quake OS cadence (weekly, ~45 min)
 
 See **`docs/QUAKE-OS-PORTFOLIO-WORKFLOW.md`** for the full closure checklist.

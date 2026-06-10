@@ -3,7 +3,16 @@
 import { useState, useTransition } from "react";
 import { exportDonorsCsv } from "@/app/actions/giving";
 
-export function GivingExportButton({ orgSlug }: { orgSlug: string }) {
+export function GivingExportButton({
+  orgSlug,
+  campaignId,
+  campaignSlug,
+}: {
+  orgSlug: string;
+  campaignId?: string;
+  /** Used in download filename when exporting one campaign. */
+  campaignSlug?: string;
+}) {
   const [pending, startTransition] = useTransition();
   const [msg, setMsg] = useState<string | null>(null);
 
@@ -15,7 +24,7 @@ export function GivingExportButton({ orgSlug }: { orgSlug: string }) {
         disabled={pending}
         onClick={() => {
           startTransition(async () => {
-            const res = await exportDonorsCsv(orgSlug);
+            const res = await exportDonorsCsv(orgSlug, campaignId);
             if (!res.ok) {
               setMsg(res.error);
               return;
@@ -24,7 +33,9 @@ export function GivingExportButton({ orgSlug }: { orgSlug: string }) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = `donors-${orgSlug}.csv`;
+            a.download = campaignId
+              ? `gifts-${campaignSlug ?? campaignId}-${orgSlug}.csv`
+              : `donors-${orgSlug}.csv`;
             a.click();
             URL.revokeObjectURL(url);
             setMsg(`Exported ${res.data!.count} gifts.`);

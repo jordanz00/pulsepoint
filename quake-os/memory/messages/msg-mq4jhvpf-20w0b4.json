@@ -1,0 +1,15 @@
+{
+  "id": "msg-mq4jhvpf-20w0b4",
+  "from": "developer-agent",
+  "to": "qa-agent",
+  "subject": "Build plans dispatched",
+  "body": "5 implementation plans written to memory/requirements.",
+  "refs": [
+    "task-mq4jhvc9-v03rvn",
+    "task-mq4jhvc8-wm205x",
+    "task-mq4jhvaf-hjq6gf",
+    "task-mq4jhvmt-z4x13k",
+    "task-mq4jhvmu-lbm3an"
+  ],
+  "createdAt": "2026-06-08T01:36:02.499Z"
+}

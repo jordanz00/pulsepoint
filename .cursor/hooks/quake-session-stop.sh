@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Remind to run gates after agent session when files under app/lib/components changed.
+# Remind to run gates after agent session; restore localhost:3000 if E2E stopped dev.
 set -euo pipefail
 input="$(cat)"
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -7,6 +7,11 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 if [[ ! -f "$ROOT/scripts/quake-gates.sh" ]]; then
   echo '{}'
   exit 0
+fi
+
+# Restore dev server after Playwright / long gate runs
+if [[ -x "$ROOT/scripts/dev-ensure.sh" ]]; then
+  bash "$ROOT/scripts/dev-ensure.sh" >>/tmp/pulse-dev-ensure.log 2>&1 || true
 fi
 
 # sessionStop payload may include edited files — if unavailable, skip quietly
@@ -24,9 +29,13 @@ except Exception:
 if [[ "$CHANGED" -gt 0 ]]; then
   cat <<EOF
 {
-  "followup_message": "Quake OS: ${CHANGED} app/lib/component file(s) touched this session. Run \`pnpm quake:gates\` before PR. Pipeline: \`pnpm quake:automation:run\`."
+  "followup_message": "Quake OS: ${CHANGED} app/lib/component file(s) touched. Run \`pnpm quake:gates\` before PR. Local preview: http://localhost:3000 — if blank, \`pnpm dev:ensure\`."
 }
 EOF
 else
-  echo '{}'
+  cat <<EOF
+{
+  "followup_message": "Local preview: http://localhost:3000 — if the page is blank, run \`pnpm dev:ensure\` (E2E and quake:execute stop the dev server)."
+}
+EOF
 fi

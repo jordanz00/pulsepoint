@@ -5,6 +5,7 @@
 import type { ExecutiveDashboard } from "@/lib/executive-metrics";
 import type { ExecutiveBrief } from "@/lib/copilot/executive-brief";
 import type { PeriodDelta } from "@/lib/dashboard-glass";
+import { renderBoardPackLeadershipLoopSection } from "@/lib/board-pack/leadership-loop-section";
 
 export type BoardPackChartInput = {
   revenueTrend: { label: string; value: number }[];
@@ -187,9 +188,11 @@ export function buildBoardPackHtml(input: {
       <ul>
         <li><strong>Advocacy</strong> — Public issue stories and take-action campaigns on the member roster.</li>
         <li><strong>Learn / workforce</strong> — Video playlists and virtual career fair booth grid.</li>
+        <li><strong>Member portal</strong> — Self-service CE transcript download from My certifications.</li>
         <li><strong>Insights</strong> — This board pack exports from the same KPI engine as the admin dashboard.</li>
       </ul>
     </section>
+    ${renderBoardPackLeadershipLoopSection(orgSlug)}
     <p class="footer">Board pack from PulsePoint AMS — verify figures against staff exports before external distribution. Advocacy and workforce sections are illustrative alpha previews.</p>
   </div>
 </body>

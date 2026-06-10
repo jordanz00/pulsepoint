@@ -1,13 +1,25 @@
-import { describe, expect, it, beforeAll } from "vitest";
+import { describe, expect, it, beforeAll, afterAll } from "vitest";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { runWorkflow, dailyCycleFromWorkflow } from "@/quake-os/core/workflow-engine";
 import { listServiceAgents } from "@/quake-os/agents/services/service-registry";
 import { syncLegacyBacklog } from "@/quake-os/core/memory-store";
-import { initAllKnowledgeDbs } from "@/quake-os/knowledge/client";
+import { closeKnowledgeClients, initAllKnowledgeDbs } from "@/quake-os/knowledge/client";
+
+const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), "quake-workflow-test-"));
 
 describe("workflow engine", () => {
   beforeAll(() => {
+    process.env.QUAKE_KNOWLEDGE_ROOT = tmpRoot;
     syncLegacyBacklog();
     initAllKnowledgeDbs();
+  });
+
+  afterAll(() => {
+    closeKnowledgeClients();
+    fs.rmSync(tmpRoot, { recursive: true, force: true });
+    delete process.env.QUAKE_KNOWLEDGE_ROOT;
   });
 
   it("lists 12 service agents", () => {

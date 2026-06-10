@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vb4n6-ob2i7b",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Advance Emergency Management to alpha",
+  "body": "Emergency rosters, readiness reports, alerting via Engage sequences.",
+  "refs": [
+    "task-mq5vb4n4-bcs90q"
+  ],
+  "createdAt": "2026-06-08T23:54:29.058Z"
+}

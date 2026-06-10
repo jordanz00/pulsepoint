@@ -49,6 +49,8 @@ Aliases (e.g. `backend-engineer-agent` → `developer-agent`) resolve in `core/a
 ```bash
 pnpm quake:os                 # OS status
 pnpm quake:os:daily            # Full daily cycle (backlog + workflow)
+pnpm quake:os:corporation      # Full corporation cycle (7 divisions + board)
+pnpm quake:corporation:handoff # Print Cursor prompt from latest corp wave
 pnpm quake:os:scheduler        # Run due scheduled jobs
 pnpm quake:os:wave             # Continuous improvement wave
 pnpm quake:research            # Research pipeline only
@@ -91,4 +93,5 @@ CI: `.github/workflows/quake-os-daily.yml` (07:00 UTC).
 
 - `docs/ARCHITECTURE.md` — technical architecture
 - `docs/ORG-CHART.md` — 12-agent org chart
+- `docs/CORPORATION.md` — AI corporation charter + automation stack
 - `docs/OS-MASTER-DIRECTIVE.md` — charter

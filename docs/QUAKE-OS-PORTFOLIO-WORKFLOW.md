@@ -37,6 +37,8 @@ cd /Users/jordanzabady/Desktop/pulse
 
 # 5 — Marketing nav: compare, whats-new, learn workforce section on /
 
+# 6 — Why PulsePoint: headline before chapter pills; no side-rail overlap
+
 pnpm quake:gates
 pnpm test tests/e2e/demo-walkthrough.spec.ts   # DEMO_MODE=true
 ```

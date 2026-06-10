@@ -98,6 +98,9 @@ export function EnterpriseHub({
             <p className="pp-demo-panel-sub">Hospital roster, advocacy, emergency, and integrations.</p>
           </div>
           <div className="pp-enterprise-hub__quick-links">
+            <Link href={`/${orgSlug}/enterprise/governance`} className="pc-btn-secondary text-sm">
+              Health system governance
+            </Link>
             <Link href={`/${orgSlug}/enterprise/organizations`} className="pc-btn-secondary text-sm">
               Hospital accounts
             </Link>

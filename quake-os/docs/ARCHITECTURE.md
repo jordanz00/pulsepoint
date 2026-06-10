@@ -167,7 +167,24 @@ pnpm quake:os:daily        # full daily agent cycle
 pnpm quake:os:wave         # run orchestrated wave
 pnpm quake:os:research     # research only
 pnpm quake:os:scheduler    # run due scheduled jobs (daily cycle, research, weekly wave)
+pnpm quake:os:corporation  # full corporation cycle (7 divisions + C-suite board)
 ```
+
+---
+
+## Corporation orchestrator
+
+`CorporationOrchestrator` (`orchestrator/corporation-orchestrator.ts`) runs the full AI corporation:
+
+1. Backlog refresh (legacy + AMS + research + audits)
+2. **Parallel divisions** — Research, Compliance, Industry, Executive (CTO)
+3. **Engineering pipeline** — Architecture → Product → Developer → QA → Auditor
+4. Documentation sync
+5. **C-suite board** — CEO + CTO → `SHIP` / `REVISE` / `STOP`
+
+Division registry: `core/corporation.ts` · Charter: `docs/CORPORATION.md`  
+Weekly scheduler job: `corporation-cycle` in `orchestrator/scheduled-jobs.ts`  
+Mission Control UI: `/demo-healthcare/mission-control`
 
 ---
 

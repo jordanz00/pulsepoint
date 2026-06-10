@@ -41,7 +41,9 @@ Quake OS → CEO · CTO · Product · Research · Healthcare SME · Hospital Ass
 
 **Delegates** (optional): UX, frontend, database, security, designer, scale — under core agents per `registry.json` `_aliases`.
 
-**Continuous mode:** `docs/QUAKE-OS-CONTINUOUS.md` · `pnpm quake:gates` · `pnpm quake:os:daily` · `.github/workflows/quake-gates.yml`
+**Continuous mode:** `docs/QUAKE-OS-CONTINUOUS.md` · `pnpm quake:gates` · `pnpm quake:os:daily` · `pnpm quake:os:corporation` · `.github/workflows/quake-gates.yml`
+
+**Corporation cycle:** `quake-os/docs/CORPORATION.md` · `pnpm quake:corporation:handoff` · 7 divisions + C-suite board
 
 **Legacy Pulse agents** (still required on merges): `pulse-supervisor`, `pulse-glass-ui`, `pulse-pilot-ops`; add `pulse-microsoft`, `pulse-research`, `pulse-exec-copilot` per `pulse-multi-agent.mdc`.
 

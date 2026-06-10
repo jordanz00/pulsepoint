@@ -14,6 +14,7 @@ import { PortalProfileForm } from "@/components/portal/portal-profile-form";
 import { PortalQuickNav } from "@/components/portal/portal-quick-nav";
 import { PortalOrderPayButton } from "@/components/portal/portal-order-pay-button";
 import { PortalRenewButton } from "@/components/portal/portal-renew-button";
+import { PortalTranscriptExportButton } from "@/components/portal/portal-transcript-export-button";
 
 function fmtUsd(cents: number) {
   return new Intl.NumberFormat("en-US", {
@@ -271,6 +272,12 @@ export function PortalHub({
             data.certifications.totalCredits > 0
               ? `${data.certifications.totalCredits} CE credits earned`
               : `${data.certifications.enrollments.length} enrollment${data.certifications.enrollments.length === 1 ? "" : "s"}`
+          }
+          action={
+            <PortalTranscriptExportButton
+              orgSlug={orgSlug}
+              memberName={`${member.firstName} ${member.lastName}`.trim()}
+            />
           }
         >
           {data.certifications.enrollments.length === 0 &&

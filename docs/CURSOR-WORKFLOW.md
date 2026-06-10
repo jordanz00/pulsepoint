@@ -14,7 +14,27 @@
 | **2. Plan** | Plan mode for shared CSS, deploy, data | List files, blast radius, verify commands |
 | **3. Prompt** | Use template below | Implement minimal diff only |
 | **4. Verify** | Run gates before “done” | Paste gate output; no fake PASS |
-| **5. Close** | Say “commit” only when happy | Write `data/quake-os/waves/YYYY-MM-DD-*.md` + update backlog |
+| **5. Close** | Say “commit” only when happy | Write `data/quake-os/waves/YYYY-MM-DD-*.md` + update backlog; run `pnpm dev:ensure` |
+
+---
+
+## Local dev (do not skip)
+
+**Symptom:** `http://localhost:3000/` blank or connection refused after an agent session.
+
+**Cause:** Playwright E2E (`pnpm test:e2e`, `pnpm quake:execute`) starts and **stops** its own dev server when tests finish.
+
+**Fix:**
+
+```bash
+cd /Users/jordanzabady/Desktop/pulse
+pnpm dev:ensure    # background — preferred after gates/E2E
+# or
+pnpm dev           # foreground — keep terminal open
+pnpm dev:check     # verify homepage returns PulsePoint HTML
+```
+
+`pnpm quake:execute` runs Phase 8 (`dev:ensure`) automatically. Cursor session hooks also try to restore dev on start/stop.
 
 ---
 

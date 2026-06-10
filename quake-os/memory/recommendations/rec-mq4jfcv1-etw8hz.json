@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq4jfcv1-etw8hz",
+  "title": "gap: Enterprise health system governance",
+  "rationale": "knowledge/requirements.db#req-mq4jdhwg-q3j3yn: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4jcq7d-js868i: gap: Enterprise health system governance",
+  "proposedBy": "health-system-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-08T01:34:04.765Z"
+}

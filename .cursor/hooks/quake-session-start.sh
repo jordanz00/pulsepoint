@@ -10,6 +10,11 @@ if [[ ! -f "$ROOT/quake-os/orchestrator/index.ts" ]]; then
   exit 0
 fi
 
+# Start dev server in background if localhost:3000 is down (non-blocking)
+if [[ -x "$ROOT/scripts/dev-ensure.sh" ]]; then
+  bash "$ROOT/scripts/dev-ensure.sh" >>/tmp/pulse-dev-ensure.log 2>&1 &
+fi
+
 PENDING="$(python3 -c "
 import json
 from pathlib import Path
@@ -25,6 +30,6 @@ else:
 cat <<EOF
 {
   "continue": true,
-  "additional_context": "Quake OS automation workflow active. Repo: pulse. Before shipping: pnpm quake:gates. Full pipeline: pnpm quake:automation:run. Open backlog items: ${PENDING}. Orchestrator: @quake-os-orchestrator. Continuous: @quake-os-continuous-runner. Docs: docs/QUAKE-AUTOMATION-WORKFLOW.md"
+  "additional_context": "Quake OS automation workflow active. Repo: pulse. Local dev: http://localhost:3000 — run pnpm dev:ensure if blank after E2E. Before shipping: pnpm quake:gates. Full pipeline: pnpm quake:automation:run. Open backlog items: ${PENDING}. Orchestrator: @quake-os-orchestrator. Docs: docs/QUAKE-AUTOMATION-WORKFLOW.md"
 }
 EOF

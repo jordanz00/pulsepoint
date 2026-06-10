@@ -14,8 +14,14 @@ export async function enterDemo(page: Page) {
 /** Open launched campaign public form (link uses target=_blank in admin UI). */
 export async function openLaunchedTakeActionForm(page: Page) {
   await page.goto(`/${DEMO_SLUG}/enterprise/advocacy`);
-  await expect(page.getByRole("heading", { name: /Advocacy/i })).toBeVisible();
-  const publicFormLink = page.getByRole("link", { name: /Public form/i }).first();
+  await expect(
+    page.getByRole("heading", { name: /Advocacy & government affairs/i }),
+  ).toBeVisible({ timeout: 15_000 });
+  const campaignRow = page
+    .locator("ul.mk-adv-preview-campaigns > li")
+    .filter({ hasText: "Spring grassroots hospital sign-on" });
+  await expect(campaignRow).toBeVisible({ timeout: 15_000 });
+  const publicFormLink = campaignRow.getByRole("link", { name: /Public form/i });
   await expect(publicFormLink).toBeVisible();
   const href = await publicFormLink.getAttribute("href");
   expect(href).toBeTruthy();

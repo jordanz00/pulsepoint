@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5v7itg-h3s9vw",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: opportunity: AMS competitor landscape",
+  "body": "data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"Purpose-built healthcare association workflows without Salesforce tax\" | data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"Executive dashboards and advocacy-first design\" | data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"Unified ops console — membership + advocacy + events\" | data/quake-os/competitive-intel.json: \"pulsepointWedge\": \"Scales from chapter to statewide hospital roster\" | data/quake-os/competitive-intel.json:",
+  "refs": [
+    "task-mq5v7itf-ns6swr"
+  ],
+  "createdAt": "2026-06-08T23:51:40.807Z"
+}

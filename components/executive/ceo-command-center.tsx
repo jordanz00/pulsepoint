@@ -11,8 +11,16 @@ import {
 import { PlatformGlanceCompact } from "@/components/platform/platform-glance-compact";
 import { ExecutiveBriefing } from "@/components/copilot/executive-briefing";
 import { HospitalAssociationStrip } from "@/components/enterprise/hospital-association-strip";
+import { LeadershipLoopPanel } from "@/components/executive/leadership-loop-panel";
+import {
+  CommandCenterOpsBrief,
+  CommandCenterOperatorPanels,
+} from "@/components/enterprise/command-center-ops-brief";
+import { loadCommandCenterOpsSnapshot } from "@/lib/command-center-ops";
 import { AdminPage } from "@/components/admin/admin-page";
 import { PageHeader } from "@/components/ui/page-header";
+import { getOrgDb } from "@/lib/db";
+import type { LeadershipLoopContext } from "@/lib/leadership-loop";
 import type { PeriodDelta } from "@/lib/dashboard-glass";
 
 function fmtUsd(cents: number) {
@@ -48,6 +56,18 @@ export async function CeoCommandCenter({
   orgName: string;
 }) {
   const data = await loadCeoCommandCenter(orgId, orgSlug, orgName);
+  const ops = await loadCommandCenterOpsSnapshot(orgId, data);
+  const db = getOrgDb(orgId);
+  const courseCount = await db.course.count();
+
+  const loopContext: LeadershipLoopContext = {
+    memberTotal: data.members.total,
+    renewalsDue30: data.members.renewalsDue30,
+    advocacyActive: data.advocacy.activeCount,
+    courseCount,
+    revenueMtdUsd: fmtUsd(data.revenue.mtdCents),
+    exceptionCount: ops.exceptionCount,
+  };
   const asOf = data.dataAsOf.toLocaleString("en-US", {
     month: "short",
     day: "numeric",
@@ -71,6 +91,9 @@ export async function CeoCommandCenter({
           backLabel="Home"
           actions={
             <>
+              <Link href={`/${orgSlug}/leadership?walkthrough=1`} className="pc-btn-primary text-sm">
+                Leadership loop
+              </Link>
               <Link href={`/${orgSlug}/insights/board-pack`} className="pc-btn-secondary text-sm">
                 Board pack
               </Link>
@@ -85,7 +108,12 @@ export async function CeoCommandCenter({
         />
       </div>
 
+      <CommandCenterOpsBrief data={data} ops={ops} orgSlug={orgSlug} />
+      <CommandCenterOperatorPanels ops={ops} orgSlug={orgSlug} />
+
       <PlatformGlanceCompact orgSlug={orgSlug} />
+
+      <LeadershipLoopPanel orgSlug={orgSlug} context={loopContext} variant="compact" />
 
       <section className="ceo-kpi-strip" aria-label="Executive KPIs">
         <CeoKpiCard

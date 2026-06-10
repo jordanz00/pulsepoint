@@ -6,18 +6,30 @@ import type { KnowledgeEdge, KnowledgeGraph, KnowledgeNode, KnowledgeNodeType } 
 import { generateId } from "@/quake-os/core/memory-store";
 import { KNOWLEDGE_GRAPH_PATH } from "@/quake-os/core/paths";
 
+function emptyGraph(): KnowledgeGraph {
+  return { nodes: [], edges: [], updatedAt: new Date().toISOString() };
+}
+
 function readGraph(): KnowledgeGraph {
   if (!fs.existsSync(KNOWLEDGE_GRAPH_PATH)) {
-    return { nodes: [], edges: [], updatedAt: new Date().toISOString() };
+    return emptyGraph();
   }
-  return JSON.parse(fs.readFileSync(KNOWLEDGE_GRAPH_PATH, "utf8")) as KnowledgeGraph;
+  try {
+    const raw = fs.readFileSync(KNOWLEDGE_GRAPH_PATH, "utf8").trim();
+    if (!raw) return emptyGraph();
+    return JSON.parse(raw) as KnowledgeGraph;
+  } catch {
+    return emptyGraph();
+  }
 }
 
 function writeGraph(graph: KnowledgeGraph): void {
   graph.updatedAt = new Date().toISOString();
   const dir = KNOWLEDGE_GRAPH_PATH.replace(/\/[^/]+$/, "");
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(KNOWLEDGE_GRAPH_PATH, JSON.stringify(graph, null, 2));
+  const tmp = `${KNOWLEDGE_GRAPH_PATH}.${process.pid}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(graph, null, 2));
+  fs.renameSync(tmp, KNOWLEDGE_GRAPH_PATH);
 }
 
 export function upsertNode(input: {

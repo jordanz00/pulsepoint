@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vf61a-yv7wcs",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: Bulk member→hospital assignment (BL-006)",
+  "body": "From research Multi-hospital enterprise governance: Health systems need parent/child org accounts, delegated admins, and consolidated reporting. OrganizationAccount model supports hospital roster today.",
+  "refs": [
+    "task-mq5vf619-0ggy54"
+  ],
+  "createdAt": "2026-06-08T23:57:37.486Z"
+}

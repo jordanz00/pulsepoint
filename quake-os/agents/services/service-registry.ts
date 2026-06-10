@@ -115,6 +115,7 @@ const SERVICES: ServiceExecutor[] = [
     execute(action, ctx) {
       const dev = ctx.payload.developer as DeveloperBuildResult;
       const runGates = ctx.payload.runGates === true;
+      const gatesResult = ctx.payload.gatesResult as { passed: boolean } | undefined;
       if (!dev?.taskIds) {
         return serviceResult("qa-agent", action, {
           agentId: "qa-agent",
@@ -124,7 +125,7 @@ const SERVICES: ServiceExecutor[] = [
           completedAt: new Date().toISOString(),
         });
       }
-      const data = QAAgent.test(dev, { runGates });
+      const data = QAAgent.test(dev, { runGates, gatesResult });
       return serviceResult("qa-agent", action, data);
     },
   },

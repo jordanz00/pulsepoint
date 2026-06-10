@@ -14,15 +14,16 @@ import { PAC_GOAL_PCT } from "@/lib/pac-marketing-preview";
 export { STATEWIDE_HOSPITAL_MEMBER_COUNT, STATEWIDE_HOSPITAL_MEMBERSHIP_LINE };
 
 export const MARKETING_HERO = {
-  productTagline: "For hospital associations",
-  headline: "See your association clearly.",
+  productTagline: "Association management software",
+  headline: "PulsePoint",
+  metaTitle: "AMS for hospital associations",
   subhead:
-    "One platform for membership, advocacy, PAC fundraising, events, and revenue—built for statewide hospital rosters.",
-  valuePills: ["Microsoft 365 ready", "EasyDNN website export", "Board-ready KPIs"] as const,
+    "Membership, advocacy, PAC, events, and revenue on one spine—built for statewide hospital rosters.",
+  valuePills: ["12 connected modules", "Microsoft 365 ready", "Board-ready KPIs"] as const,
   ctaPrimary: "Open interactive demo",
   ctaSecondary: "Talk to our team",
-  trustLine: "Sample data in previews · Live & Preview on every screen",
-  demoLabel: "Try it now — no login",
+  trustLine: "Every screen labeled Live or Preview · sample data in demos",
+  demoLabel: "Live product preview",
   demoCaption: "",
 } as const;
 

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vi9o6-5e9n5b",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Healthcare CE and education",
+  "body": "lib/association/modules.ts: summary: \"CE credits, courses, events; LMS integration roadmap.\",",
+  "refs": [
+    "task-mq5vi9o6-jpgv0r"
+  ],
+  "createdAt": "2026-06-09T00:00:02.166Z"
+}

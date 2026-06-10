@@ -68,6 +68,16 @@ function runOrchestratorStep(action: string, ctx: Record<string, unknown>): Agen
     };
   }
   if (action.toLowerCase().includes("gates")) {
+    const reused = ctx.gatesResult as { passed?: boolean; command?: string } | undefined;
+    if (reused && typeof reused.passed === "boolean") {
+      return {
+        agentId: "orchestrator",
+        action,
+        ok: reused.passed,
+        data: { ...reused, reused: true },
+        completedAt: now,
+      };
+    }
     const gates = runGateSuite({ dryRun: !ctx.runGates });
     return {
       agentId: "orchestrator",

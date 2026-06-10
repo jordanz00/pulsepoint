@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5umptr-lhlbnr",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: Extend AI helpers modularly",
+  "body": "From research AI copilot opportunities for association staff: Executive brief copilot and member 360 narratives are in-repo. Next: advocacy issue summarization offline-safe.",
+  "refs": [
+    "task-mq5umptr-hpbzdh"
+  ],
+  "createdAt": "2026-06-08T23:35:30.111Z"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4jfbz5-zsaxka",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: [risk] risk signals for Healthcare CE and education (medium confidence)",
+  "body": "From research Healthcare CE and education: Topic: Healthcare CE and education. Analyzed 24 source hits across 2 paths. 1 gap signal(s) identified. 1 opportunity signal(s) found. 1 risk signal(s) require compliance review.",
+  "refs": [
+    "task-mq4jfbz0-eo3qmq"
+  ],
+  "createdAt": "2026-06-08T01:34:03.617Z"
+}

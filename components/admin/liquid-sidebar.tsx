@@ -31,7 +31,7 @@ function NavBadge({
   counts: AdminNavCounts;
 }) {
   if (item.status === "alpha" || item.status === "roadmap") {
-    return <span className="pp-nav-alpha-dot" title="Alpha" aria-label="Alpha module" />;
+    return <span className="pp-nav-alpha-dot" title="Preview" aria-label="Preview module" />;
   }
   if (item.id === "members") {
     return <span className="pp-nav-count-badge">{counts.members}</span>;
@@ -83,7 +83,7 @@ function NavItemRow({
         title={item.status === "alpha" ? `${item.name} (Alpha)` : item.description}
       >
         <Icon size={18} strokeWidth={1.75} aria-hidden />
-        <span className="min-w-0 flex-1 truncate">{item.name}</span>
+        <span className="pp-nav-item-label">{item.name}</span>
         <NavBadge item={item} counts={counts} />
       </Link>
       <FavoriteButton id={item.id} href={item.href} label={item.name} />
@@ -143,7 +143,7 @@ function FavoritesSection({ pathname }: { pathname: string }) {
                   aria-current={active ? "page" : undefined}
                 >
                   <Star size={16} fill="currentColor" aria-hidden />
-                  <span className="min-w-0 flex-1 truncate">{f.label}</span>
+                  <span className="pp-nav-item-label">{f.label}</span>
                 </Link>
                 <FavoriteButton id={f.id} href={f.href} label={f.label} />
               </div>

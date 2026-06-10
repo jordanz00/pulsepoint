@@ -65,5 +65,18 @@ export async function POST(request: Request) {
     return NextResponse.json(result);
   }
 
+  if (body.action === "corporation-cycle") {
+    const { runCorporationCycle } = await import("@/quake-os/orchestrator/corporation-orchestrator");
+    const result = runCorporationCycle({
+      runGates: process.env.QUAKE_OS_RUN_GATES === "1",
+    });
+    return NextResponse.json({
+      id: result.id,
+      boardVerdict: result.executive.boardVerdict,
+      taskIds: result.product.taskIds,
+      agentsActivated: result.agentsActivated,
+    });
+  }
+
   return NextResponse.json({ error: "Unknown action" }, { status: 400 });
 }

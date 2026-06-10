@@ -1,0 +1,38 @@
+name: Quake OS corporation cycle
+
+on:
+  schedule:
+    # Monday 08:00 UTC — full AI corporation (7 divisions + board synthesis)
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corporation:
+    name: Corporation cycle → wave report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run full corporation cycle
+        run: pnpm quake:os:corporation
+      - name: Commit corporation artifacts
+        run: |
+          git config user.name "quake-os-corporation"
+          git config user.email "quake-os-corporation@users.noreply.github.com"
+          git add data/quake-os/waves/*corporation-cycle.md quake-os/memory/ || true
+          if git diff --staged --quiet; then
+            echo "No corporation artifacts to commit"
+          else
+            git commit -m "chore(quake-os): weekly corporation cycle report"
+            git push
+          fi

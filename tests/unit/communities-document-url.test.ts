@@ -1,11 +1,9 @@
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { isAllowedCommunityDocumentUrl } from "@/lib/communities/document-url";
 
 describe("isAllowedCommunityDocumentUrl", () => {
-  const prevNodeEnv = process.env.NODE_ENV;
-
   afterEach(() => {
-    process.env.NODE_ENV = prevNodeEnv;
+    vi.unstubAllEnvs();
   });
 
   it("allows https URLs", () => {
@@ -18,12 +16,12 @@ describe("isAllowedCommunityDocumentUrl", () => {
   });
 
   it("rejects http in production", () => {
-    process.env.NODE_ENV = "production";
+    vi.stubEnv("NODE_ENV", "production");
     expect(isAllowedCommunityDocumentUrl("http://localhost/policy.pdf")).toBe(false);
   });
 
   it("allows http in development for local testing", () => {
-    process.env.NODE_ENV = "development";
+    vi.stubEnv("NODE_ENV", "development");
     expect(isAllowedCommunityDocumentUrl("http://localhost:3000/sample.pdf")).toBe(true);
   });
 

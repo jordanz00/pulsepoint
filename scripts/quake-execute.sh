@@ -62,6 +62,7 @@ if [[ ! -f "${WAVE_FILE}" ]]; then
 - claims:validate + leak:checks
 - test:e2e
 - quake:gates
+- dev:ensure (restores http://localhost:3000)
 
 ## Human sign-off
 
@@ -70,6 +71,10 @@ if [[ ! -f "${WAVE_FILE}" ]]; then
 EOF
   echo "Wrote ${WAVE_FILE}"
 fi
+
+echo ""
+echo "▸ Phase 8 — Restore local dev server (E2E stops Playwright's webServer)"
+bash scripts/dev-ensure.sh
 
 echo ""
 echo "✓ QUAKE EXECUTE complete — ${WAVE}"

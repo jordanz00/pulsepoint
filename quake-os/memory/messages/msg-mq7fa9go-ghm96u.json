@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq7fa9go-ghm96u",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: risk: Pipeline test",
+  "body": "docs/SCALE-AND-SECURITY.md: | Integration test | `tests/integration/member-tenant-isolation.test.ts` | | docs/SCALE-AND-SECURITY.md: | `MAX_MEMBER_LIST_ROWS` | 500 | `lib/tenant-guards.ts` | | docs/SCALE-AND-SECURITY.md: ## Tenant isolation (non-negotiable)",
+  "refs": [
+    "task-mq7fa9gk-ygh8hi"
+  ],
+  "createdAt": "2026-06-10T02:01:27.144Z"
+}

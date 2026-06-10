@@ -39,7 +39,8 @@ Quake OS
 └── Orchestrator
 ```
 
-Full role map: `quake-os/docs/ORG-CHART.md`
+Full role map: `quake-os/docs/ORG-CHART.md`  
+Corporation charter: `quake-os/docs/CORPORATION.md`
 
 **Cursor agents:** `.cursor/agents/quake-os-*.md`  
 **Orchestration rule:** `.cursor/rules/quake-os-orchestrator.mdc`  

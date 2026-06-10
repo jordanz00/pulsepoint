@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5uh4py-5hrfoz",
+  "from": "orchestrator",
+  "to": "security-agent",
+  "subject": "New task: risk: Membership scale and security",
+  "body": "scripts/ten-member-leak-checks.sh: bad \"$LEAK_FILES file(s) query member without getOrgDb\" | scripts/ten-member-leak-checks.sh: bad \"$API_LEAK app/api route(s) query member without getOrgDb\" | docs/SCALE-AND-SECURITY.md: | Integration test | `tests/integration/member-tenant-isolation.test.ts` | | docs/SCALE-AND-SECURITY.md: | `MAX_MEMBER_LIST_ROWS` | 500 | `lib/tenant-guards.ts` | | scripts/ten-member-leak-checks.sh: # Ten checks — prevent cross-association member list leaks.",
+  "refs": [
+    "task-mq5uh4pf-4ihgzr"
+  ],
+  "createdAt": "2026-06-08T23:31:09.478Z"
+}

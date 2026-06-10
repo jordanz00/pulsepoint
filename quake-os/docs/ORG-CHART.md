@@ -111,3 +111,13 @@ Auditor Agent
 ```bash
 pnpm quake:os:daily
 ```
+
+## Full corporation cycle
+
+All 7 divisions + board synthesis:
+
+```bash
+pnpm quake:os:corporation
+```
+
+See `docs/CORPORATION.md` for division mandates and automation stack.

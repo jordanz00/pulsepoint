@@ -29,6 +29,8 @@
 /knowledge/*.db-journal
 /knowledge/*.db-wal
 /knowledge/*.db-shm
+quake-os/memory/*.corrupt*.bak
+quake-os/memory/index.json.corrupt-*.bak
 
 # misc
 .DS_Store

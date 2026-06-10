@@ -11,17 +11,17 @@ test.describe("demo wedge", () => {
     "Set DEMO_MODE=true and run pnpm db:seed:demo",
   );
 
-  test("enter demo reaches home with wedge cards", async ({ page }) => {
+  test("enter demo reaches home with executive briefing", async ({ page }) => {
     await enterDemo(page);
-    await expect(page.getByRole("heading", { name: /^Home$/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Members\s+50/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Events\s+4/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Sterling Healthcare/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Leadership briefing/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Command center/i }).first()).toBeVisible();
   });
 
   test("members directory loads", async ({ page }) => {
     await enterDemo(page);
     await page.goto(`/${DEMO_SLUG}/members`);
-    await expect(page.getByRole("heading", { name: /Members/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Members", exact: true })).toBeVisible();
     await expect(page.locator(".member-directory-row").first()).toBeVisible();
   });
 
@@ -37,7 +37,7 @@ test.describe("demo wedge", () => {
     await enterDemo(page);
     await page.goto(`/${DEMO_SLUG}/events`);
     await expect(page.getByRole("heading", { name: /Events/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /New event/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /New event/i }).first()).toBeVisible();
   });
 
   test("exceptions queue shows seeded items", async ({ page }) => {

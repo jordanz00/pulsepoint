@@ -51,5 +51,14 @@ export function campaignTotalsMatchExport(
   return sumRaisedCents(donations) === sumCsvGiftCents(exportRows);
 }
 
+/** Paid gifts only — matches campaign detail dashboard + export batch. */
+export function paidGiftExportRows(
+  donations: DonationAmountRow[],
+): { amountCents: number }[] {
+  return donations
+    .filter((d) => d.paidAt != null)
+    .map((d) => ({ amountCents: d.amountCents }));
+}
+
 export const GIFT_CSV_HEADER =
   "donor_name,donor_email,amount_usd,campaign,paid_at,created_at,member_id";

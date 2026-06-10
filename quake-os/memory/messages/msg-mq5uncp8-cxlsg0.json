@@ -1,0 +1,16 @@
+{
+  "id": "msg-mq5uncp8-cxlsg0",
+  "from": "research-agent",
+  "to": "architecture-agent",
+  "subject": "Research pipeline complete",
+  "body": "Search→Analyze→Summarize→Store→Recommend: 6 findings; 9 tasks.",
+  "refs": [
+    "res-mq5uncmk-5e87ar",
+    "res-mq5uncmx-9k562x",
+    "res-mq5uncnf-9ie8eu",
+    "res-mq5uncnv-t6kbjc",
+    "res-mq5uncov-5tkpcx",
+    "res-mq5uncoz-7je81c"
+  ],
+  "createdAt": "2026-06-08T23:35:59.756Z"
+}

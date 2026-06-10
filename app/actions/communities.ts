@@ -73,19 +73,31 @@ export async function createCommunityPost(
     const parsed = postSchema.safeParse(raw);
     if (!parsed.success) return { ok: false, error: "Invalid post" };
     const db = getOrgDb(staff.orgId);
-    await db.communityPost.create({
+    const space = await db.communitySpace.findFirst({
+      where: { id: spaceId, orgId: staff.orgId },
+    });
+    if (!space) return { ok: false, error: "Community not found" };
+    const created = await db.communityPost.create({
       data: {
         orgId: staff.orgId,
         spaceId,
         authorUserId: staff.userId,
-        title: parsed.data.title,
-        body: parsed.data.body,
+        title: parsed.data.title.trim(),
+        body: parsed.data.body.trim(),
       },
     });
+    await writeAuditLog({
+      orgId: staff.orgId,
+      userId: staff.userId,
+      action: "communities.post.create",
+      entity: "CommunityPost",
+      entityId: created.id,
+      diff: { spaceId, title: created.title },
+    });
     revalidatePath(`/${orgSlug}/communities`);
+    revalidatePath(`/${orgSlug}/communities/${spaceId}`);
     revalidatePath(`/${orgSlug}/portal/communities`);
-    revalidatePath(`/${orgSlug}/c`);
-    revalidatePath(`/${orgSlug}/portal/communities`);
+    revalidatePath(`/${orgSlug}/portal/communities/${spaceId}`);
     return { ok: true };
   } catch (e) {
     return { ok: false, error: messageFromActionError(e) };

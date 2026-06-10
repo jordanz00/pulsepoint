@@ -1,0 +1,15 @@
+{
+  "id": "msg-mq7fa9we-v6cd8x",
+  "from": "ceo-agent",
+  "to": "product-agent",
+  "subject": "Board REVISE: corporation cycle",
+  "body": "Board requests revision — audit: NEEDS_REVISION, QA checklist has warnings.",
+  "refs": [
+    "task-mq7fa9h7-lqjkum",
+    "task-mq7fa9gr-30m1nx",
+    "task-mq7fa9gi-ru1dtn",
+    "task-mq7fa9t7-zrhgxw",
+    "task-mq7fa9uf-wu0pet"
+  ],
+  "createdAt": "2026-06-10T02:01:27.710Z"
+}

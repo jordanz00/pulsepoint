@@ -6,9 +6,8 @@ import { requireOrgAccessForSlug } from "@/lib/auth";
 import { loadAdvocacyDashboardStats } from "@/lib/advocacy-dashboard";
 import { AdvocacyBillDeck } from "@/components/advocacy/advocacy-bill-deck";
 import { AdvocacyQuickActions } from "@/components/advocacy/advocacy-quick-actions";
-import { CopyTakeActionLink } from "@/components/advocacy/copy-take-action-link";
-import { publicTakeActionUrl } from "@/lib/advocacy/public-take-action-url";
-import { engageAudienceUrl } from "@/lib/engage/audience-url";
+import { AdvocacyCampaignBoard } from "@/components/enterprise/advocacy-campaign-os";
+import type { AdvocacyCampaignRecord } from "@/lib/advocacy-campaign-ops";
 import { AdminPage } from "@/components/admin/admin-page";
 import { PageHeader } from "@/components/ui/page-header";
 import { moduleCssVars } from "@/lib/module-colors";
@@ -43,7 +42,7 @@ export default async function AdvocacyPage({
       where: { orgId: org.id, isActive: true },
       orderBy: { createdAt: "desc" },
       take: 20,
-      include: { issue: { select: { title: true, billNumber: true } } },
+      include: { issue: { select: { title: true, billNumber: true, status: true } } },
     }),
     loadAdvocacyDashboardStats(org.id),
   ]);
@@ -51,6 +50,19 @@ export default async function AdvocacyPage({
   const stateIssues = issues.filter((i) => i.jurisdiction.toLowerCase() !== "federal").length;
   const federalIssues = issues.length - stateIssues;
   const launchedCount = campaigns.filter((c) => c.audienceId).length;
+
+  const campaignRecords: AdvocacyCampaignRecord[] = campaigns.map((c) => ({
+    id: c.id,
+    name: c.name,
+    isActive: c.isActive,
+    audienceId: c.audienceId,
+    responseCount: c.responseCount,
+    targetCount: c.targetCount,
+    startsAt: c.startsAt,
+    endsAt: c.endsAt,
+    createdAt: c.createdAt,
+    issue: c.issue,
+  }));
 
   return (
     <AdminPage orgSlug={orgSlug}>
@@ -159,66 +171,19 @@ export default async function AdvocacyPage({
           </ul>
         </section>
 
-        <section className="pp-advocacy-panel glass pp-glass-surface p-5">
+        <section className="pp-advocacy-panel glass pp-glass-surface p-5 lg:col-span-2">
           <div className="pp-advocacy-panel-head">
             <h2 className="pc-section-title">Active campaigns</h2>
+            <Link href={`/${orgSlug}/enterprise/advocacy/campaigns`} className="pc-btn-secondary text-sm">
+              All campaigns
+            </Link>
             <Link href={`/${orgSlug}/engage`} className="pc-btn-secondary text-sm">
               Engage
             </Link>
           </div>
-          <ul className="mk-adv-preview-campaigns mt-4">
-            {campaigns.map((c) => {
-              const target = c.targetCount > 0 ? c.targetCount : stats.hospitalAccounts;
-              const pct =
-                target > 0 ? Math.min(100, Math.round((c.responseCount / target) * 100)) : 0;
-              return (
-                <li key={c.id} style={moduleCssVars("advocacy")}>
-                  <div className="mk-adv-preview-campaign-head">
-                    <span className="mk-adv-preview-campaign-name">{c.name}</span>
-                    <span className="mk-adv-preview-campaign-count">
-                      {c.responseCount}/{target || "—"}
-                      {c.audienceId ? " · launched" : " · draft"}
-                    </span>
-                  </div>
-                  {c.audienceId ? (
-                    <div className="pp-advocacy-campaign-links">
-                      <CopyTakeActionLink orgSlug={orgSlug} campaignId={c.id} />
-                      <Link
-                        href={publicTakeActionUrl(orgSlug, c.id)}
-                        className="pc-btn-secondary text-sm"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Public form
-                      </Link>
-                      <Link
-                        href={engageAudienceUrl(orgSlug, c.audienceId!)}
-                        className="pc-btn-secondary text-sm"
-                      >
-                        Engage audience
-                      </Link>
-                    </div>
-                  ) : null}
-                  {target > 0 ? (
-                    <div className="mk-mc-preview-facility-track" aria-hidden>
-                      <span className="mk-mc-preview-facility-fill" style={{ width: `${pct}%` }} />
-                    </div>
-                  ) : null}
-                  {c.issue ? (
-                    <p className="pp-advocacy-campaign-issue">
-                      {c.issue.title}
-                      {c.issue.billNumber ? ` · ${c.issue.billNumber}` : ""}
-                    </p>
-                  ) : null}
-                </li>
-              );
-            })}
-            {campaigns.length === 0 ? (
-              <li className="pp-advocacy-empty">
-                <p>Create a campaign below, then launch take-action to build an Engage audience.</p>
-              </li>
-            ) : null}
-          </ul>
+          <div className="mt-4">
+            <AdvocacyCampaignBoard orgSlug={orgSlug} campaigns={campaignRecords} />
+          </div>
         </section>
       </div>
 

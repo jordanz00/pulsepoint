@@ -1,0 +1,35 @@
+{
+  "name": "Quake OS — Full Corporation Cycle",
+  "description": "Weekly full AI corporation: 7 divisions, engineering pipeline, C-suite board synthesis.",
+  "workflow": {
+    "triggers": [
+      {
+        "schedule": {
+          "cron": "0 8 * * 1"
+        }
+      },
+      {
+        "webhook": {}
+      }
+    ],
+    "actions": [
+      {
+        "gitPr": {}
+      }
+    ],
+    "prompts": [
+      {
+        "prompt": "Act as Quake OS Corporation Orchestrator for PulsePoint AMS.\n\nMUST READ FIRST:\n- .cursor/agents/quake-os-orchestrator.md\n- .cursor/rules/quake-os-orchestrator.mdc\n- quake-os/docs/CORPORATION.md\n- data/quake-os/improvement-backlog.json\n\nPHASE 0: Run `pnpm quake:os:corporation` mentally — read latest data/quake-os/waves/*-corporation-cycle.md.\n\nPHASE 1 PARALLEL: @quake-os-market-research, @quake-os-healthcare-compliance, @quake-os-healthcare-association, @quake-os-hospital-association, @quake-os-cto\n\nPHASE 2 SEQUENTIAL: @quake-os-solution-architect → @quake-os-product-manager → @quake-os-backend + @quake-os-frontend (one P0/P1 item) → @quake-os-qa → @quake-os-audit\n\nPHASE 3: @quake-os-ceo board verdict → @quake-os-technical-writer doc sync\n\nRules: small diffs, no invented KPIs, getOrgDb, pnpm quake:gates before PR. Human gates documented only.\n\nOutput: update corporation wave report + PR when SHIP/NEEDS_REVISION."
+      }
+    ],
+    "model": "",
+    "gitConfig": {
+      "repo": "jordanz00/pulsepoint",
+      "branch": "main"
+    },
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true
+  }
+}

@@ -27,7 +27,7 @@ export function MarketingHeader({
   const demoHref = "/demo";
 
   return (
-    <header className="glass mk-glass-header sticky top-0 z-50">
+    <header className="glass mk-glass-header sticky top-0 z-50 !mt-0 !rounded-none">
       <div className="mk-container flex flex-wrap items-center justify-between gap-4 py-3">
         <Link href="/" className="flex items-center gap-2.5">
           <BrandLogo size="md" priority />

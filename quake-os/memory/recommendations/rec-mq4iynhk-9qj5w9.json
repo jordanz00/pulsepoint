@@ -1,0 +1,13 @@
+{
+  "id": "rec-mq4iynhk-9qj5w9",
+  "title": "gap: Enterprise health system governance",
+  "rationale": "knowledge/requirements.db#req-mq4ixxc0-7v19zx: gap: Hospital association advocacy | knowledge/requirements.db#req-mq4ivxeg-sag0sb: gap: Hospital association advocacy",
+  "proposedBy": "health-system-agent",
+  "targetAgents": [
+    "developer-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-06-08T01:21:05.384Z"
+}

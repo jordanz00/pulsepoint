@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vdei0-soqbes",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: [opportunity] Research baseline for Enterprise health system governance (medium confidence)",
+  "body": "From research Enterprise health system governance: Topic: Enterprise health system governance. Analyzed 24 source hits across 2 paths. No critical gaps flagged in corpus. 1 opportunity signal(s) found.",
+  "refs": [
+    "task-mq5vdehz-7pqz2e"
+  ],
+  "createdAt": "2026-06-08T23:56:15.144Z"
+}

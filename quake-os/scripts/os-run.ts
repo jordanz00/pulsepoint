@@ -2,7 +2,14 @@
 /**
  * Quake OS CLI — bootstrap, status, wave, research, scheduler.
  */
-import { bootstrapOs, getOsStatus, runDailyCycle, runWave } from "@/quake-os/orchestrator/index";
+import {
+  bootstrapOs,
+  getOsStatus,
+  runCorporationCycle,
+  runDailyCycle,
+  runWave,
+  getCorporationSummary,
+} from "@/quake-os/orchestrator/index";
 import { runDueWorkflows, listScheduledJobs } from "@/quake-os/orchestrator/scheduler";
 import { runResearchCycle } from "@/quake-os/core/research-engine";
 
@@ -27,6 +34,27 @@ function printResearch(): void {
         researchCount: result.research.length,
         tasksCreated: result.tasksCreated,
         recommendations: result.recommendations.length,
+      },
+      null,
+      2,
+    ),
+  );
+}
+
+function printCorporation(): void {
+  const result = runCorporationCycle({
+    runGates: process.env.QUAKE_OS_RUN_GATES === "1",
+  });
+  console.log(
+    JSON.stringify(
+      {
+        id: result.id,
+        boardVerdict: result.executive.boardVerdict,
+        divisions: result.divisions.length,
+        agentsActivated: result.agentsActivated.length,
+        taskIds: result.product.taskIds,
+        auditVerdict: result.audit.verdict,
+        corporation: getCorporationSummary(),
       },
       null,
       2,
@@ -89,9 +117,13 @@ async function main(): Promise<void> {
     case "daily-cycle":
       printDailyCycle();
       break;
+    case "corporation":
+    case "corp":
+      printCorporation();
+      break;
     default:
       console.error(
-        `Unknown command: ${cmd}. Use: status | bootstrap | wave | research | daily | scheduler`,
+        `Unknown command: ${cmd}. Use: status | bootstrap | wave | research | daily | corporation | scheduler`,
       );
       process.exit(1);
   }

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4j1p0b-d5a5ky",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Healthcare CE and education",
+  "body": "knowledge/requirements.db#req-mq4iz57z-rww82e: [gap] gap signals for AMS competitor landscape (high confidence) | knowledge/requirements.db#req-mq4iz57x-qp9cox: gap: Healthcare CE and education | lib/association/modules.ts: summary: \"CE credits, courses, events; LMS integration roadmap.\",",
+  "refs": [
+    "task-mq4j1p09-00lk70"
+  ],
+  "createdAt": "2026-06-08T01:23:27.323Z"
+}

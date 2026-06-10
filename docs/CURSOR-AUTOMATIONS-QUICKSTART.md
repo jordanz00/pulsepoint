@@ -18,7 +18,7 @@ Automations do **not** auto-load `.cursor/agents/quake-os-*.md`. Saved definitio
 **From this chat:** Automations cannot be saved to Cursor cloud from the editor pane — use **Agents Window** on `pulse`:
 
 ```
-Create Cursor automations from data/quake-os/automation-prompts/*.workflow.json — all three.
+Create Cursor automations from data/quake-os/automation-prompts/*.workflow.json — all four.
 ```
 
 **Or run:**
@@ -86,6 +86,7 @@ Save. Done.
 |------------|---------|-------|-------------|
 | **PR audit comment** | PR opened or updated | Comment on PRs | `automation-prompts/pr-audit.md` |
 | **Full wave on demand** | Manual or webhook | Open or update PRs | `automation-prompts/full-wave.md` |
+| **Full corporation cycle** | Mon 8:00 AM + webhook | Open or update PRs | `automation-prompts/corporation-cycle.md` |
 
 ---
 
@@ -97,6 +98,7 @@ Save. Done.
 | Terminal | `pnpm quake:gates` | Must pass before any ship |
 | GitHub | `.github/workflows/quake-gates.yml` | CI tests on PR |
 | GitHub | `.github/workflows/quake-os-daily.yml` | Daily scheduler only |
+| GitHub | `.github/workflows/quake-os-corporation.yml` | Weekly corporation cycle (Mon 08:00 UTC) |
 | **Cursor Automation** | Weekly + PR prompts above | Backlog work + audit comments |
 
 **Rule:** Automations call `pnpm quake:gates` and write to `data/quake-os/waves/`. GitHub Actions keep running tests — don't replace them.

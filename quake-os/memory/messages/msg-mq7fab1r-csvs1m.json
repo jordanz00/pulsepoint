@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq7fab1r-csvs1m",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Enterprise health system governance",
+  "body": "knowledge/requirements.db#req-mq7fa9qm-n36xf9: gap: Hospital association advocacy",
+  "refs": [
+    "task-mq7fab1o-h1cdtr"
+  ],
+  "createdAt": "2026-06-10T02:01:29.199Z"
+}

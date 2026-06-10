@@ -1616,26 +1616,44 @@
     radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.08), transparent 45%);
 }
 
-/* Sticky marketing jump nav */
+/* Sticky marketing jump nav — pins flush to viewport top when scrolled */
 .pp-marketing-jump-nav {
-  position: sticky;
-  top: 4.25rem;
-  z-index: 40;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 55;
   margin: 0;
   padding: 0;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-8px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  background: color-mix(in srgb, rgba(255, 255, 255, 0.88) 92%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--brand-primary) 10%, transparent);
+  transform: translateY(-100%);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  background: color-mix(in srgb, rgba(255, 255, 255, 0.94) 96%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-primary) 12%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 24px rgba(0, 40, 80, 0.06);
 }
 .pp-marketing-jump-nav--visible {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+.pp-marketing-jump-nav-spacer {
+  height: 2.75rem;
+  flex-shrink: 0;
+}
+html.pp-jump-nav-pinned .pp-marketing-canvas > header.mk-glass-header {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+html.pp-jump-nav-pinned .pp-marketing-canvas > header.mk-glass-header,
+.pp-marketing-canvas > header.mk-glass-header {
+  top: 0;
+  margin-top: 0;
 }
 .pp-marketing-jump-nav-inner {
   display: flex;

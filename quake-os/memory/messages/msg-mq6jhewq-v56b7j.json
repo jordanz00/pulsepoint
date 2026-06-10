@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq6jhewq-v56b7j",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: gap: Healthcare CE and education",
+  "body": "knowledge/requirements.db#req-mq4nfaaj-ykcgz9: gap: Fundraising and nonprofit surfaces | knowledge/requirements.db#req-mq4nfaad-fw4izv: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4nbv4k-1gttf0: gap: Fundraising and nonprofit surfaces | knowledge/requirements.db#req-mq4nbv4h-cdywgj: gap: Enterprise health system governance | knowledge/requirements.db#req-mq4nbl0j-np8rkf: gap: Fundraising and nonprofit surfaces",
+  "refs": [
+    "task-mq6jhewp-7t4kjh"
+  ],
+  "createdAt": "2026-06-09T11:11:13.082Z"
+}

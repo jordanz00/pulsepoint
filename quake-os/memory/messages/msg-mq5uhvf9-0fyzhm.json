@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq5uhvf9-0fyzhm",
+  "from": "auditor-agent",
+  "to": "developer-agent",
+  "subject": "Audit review: NEEDS_REVISION",
+  "body": "",
+  "refs": [
+    "task-mq5uhvet-u1z8bg",
+    "audit-mq5uhvf2-bypkuy"
+  ],
+  "createdAt": "2026-06-08T23:31:44.085Z"
+}

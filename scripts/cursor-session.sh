@@ -33,9 +33,15 @@ else
 fi
 echo ""
 
+echo "── Local dev ──"
+bash scripts/dev-ensure.sh || echo "  ⚠ Run: pnpm dev:ensure  (or pnpm dev in a terminal)"
+echo ""
+
 echo "── Quick verify ──"
 echo "  pnpm workflow:session --gates   # full Quake gates"
-echo "  pnpm dev                        # http://localhost:3000"
+echo "  pnpm dev                        # foreground dev (same terminal)"
+echo "  pnpm dev:ensure                 # background dev after E2E/gates"
+echo "  pnpm dev:check                  # verify http://localhost:3000"
 echo "  pnpm quake:automation:install   # Cursor automations"
 echo ""
 

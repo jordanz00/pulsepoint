@@ -1,18 +1,16 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { AdminPage } from "@/components/admin/admin-page";
 import { PageHeader } from "@/components/ui/page-header";
 import { ModuleLandingBriefing } from "@/components/platform/module-landing-briefing";
-import { ensureDefaultCrmWorkflows, getCrmDashboard } from "@/app/actions/crm";
-
-const LINKS = [
-  { title: "Member directory", hrefSuffix: "members", external: true },
-  { title: "Unify contacts", hrefSuffix: "unify", external: false },
-  { title: "Prospector", hrefSuffix: "prospector", external: false },
-  { title: "Workflows", hrefSuffix: "workflows", external: false },
-  { title: "Web forms", hrefSuffix: "forms", external: false },
-] as const;
+import {
+  CrmOpsBrief,
+  CrmOperatorPanels,
+  CrmQuickPaths,
+  CrmRelationshipQueue,
+} from "@/components/enterprise/crm-ops-center";
+import { ensureDefaultCrmWorkflows } from "@/app/actions/crm";
+import { loadCrmOpsSnapshot } from "@/lib/crm-ops";
 
 export default async function CrmHubPage({
   params,
@@ -24,56 +22,27 @@ export default async function CrmHubPage({
   if (!org) notFound();
 
   await ensureDefaultCrmWorkflows(orgSlug);
-  const dash = await getCrmDashboard(orgSlug);
-  const stats = dash.ok ? dash.data : null;
+  const snapshot = await loadCrmOpsSnapshot(org.id);
+  const queueSize = snapshot.overdueFollowUps + snapshot.atRiskCount;
 
   return (
     <AdminPage orgSlug={orgSlug}>
       <PageHeader
         title="CRM"
-        subtitle="Contacts, workflows, and prospecting."
+        subtitle={`${snapshot.activeMembers} active members · ${queueSize} item${queueSize === 1 ? "" : "s"} in relationship queue · hospital association CRM`}
         backHref={`/${orgSlug}`}
         backLabel="Home"
       />
 
       <ModuleLandingBriefing orgId={org.id} orgSlug={orgSlug} productId="crm" />
 
-      {stats ? (
-        <div className="pp-module-stats glass">
-          <div className="pp-module-stat">
-            <span className="pp-module-stat-value">{stats.followUpsDue}</span>
-            <span className="pp-module-stat-label">Follow-ups (7 days)</span>
-          </div>
-          <div className="pp-module-stat">
-            <span className="pp-module-stat-value">{stats.atRiskCount}</span>
-            <span className="pp-module-stat-label">At-risk</span>
-          </div>
-          <div className="pp-module-stat">
-            <span className="pp-module-stat-value">{stats.activeWorkflows}</span>
-            <span className="pp-module-stat-label">Active workflows</span>
-          </div>
-          <div className="pp-module-stat">
-            <span className="pp-module-stat-value">{stats.duplicateGroups}</span>
-            <span className="pp-module-stat-label">Duplicate groups</span>
-          </div>
-        </div>
-      ) : null}
+      <CrmOpsBrief snapshot={snapshot} orgSlug={orgSlug} />
+      <CrmOperatorPanels snapshot={snapshot} orgSlug={orgSlug} />
 
-      <ul className="grid gap-3 sm:grid-cols-2">
-        {LINKS.map((p) => (
-          <li key={p.title}>
-            <Link
-              href={
-                p.external ? `/${orgSlug}/${p.hrefSuffix}` : `/${orgSlug}/crm/${p.hrefSuffix}`
-              }
-              className="pc-card block transition hover:shadow-md"
-            >
-              <span className="font-semibold text-[var(--text-primary)]">{p.title}</span>
-              <span className="mt-1 block text-sm text-[var(--text-muted)]">Open →</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className="pp-crm-hub-grid">
+        <CrmRelationshipQueue snapshot={snapshot} orgSlug={orgSlug} />
+        <CrmQuickPaths orgSlug={orgSlug} />
+      </div>
     </AdminPage>
   );
 }

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq7bufmj-wcvv2a",
+  "from": "cto-agent",
+  "to": "architecture-agent",
+  "subject": "CTO health check complete",
+  "body": "Knowledge DBs: 8; Graph nodes: 12",
+  "refs": [
+    "dec-mq7bufmf-axrfch"
+  ],
+  "createdAt": "2026-06-10T00:25:09.787Z"
+}

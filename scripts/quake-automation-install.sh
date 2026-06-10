@@ -23,7 +23,7 @@ fi
 echo ""
 echo "Install (Cursor UI):"
 echo "  1. Automations → New (repeat for each workflow)"
-echo "  2. Or Agents Window: \"Create automations from data/quake-os/automation-prompts/*.workflow.json\""
+echo "  2. Or Agents Window: \"Create automations from data/quake-os/automation-prompts/*.workflow.json (4 workflows)\""
 echo "  3. Save each automation"
 echo ""
 echo "Docs: docs/CURSOR-AUTOMATIONS-QUICKSTART.md"

@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq5v4zr4-wx24cw",
+  "from": "healthcare-sme-agent",
+  "to": "ceo-agent",
+  "subject": "SME critique: APPROVED",
+  "body": "Proceed to documentation sync\nRun pnpm quake:gates",
+  "refs": [
+    "task-frc-test-001",
+    "audit-mq5v4zr3-r8ytyo"
+  ],
+  "createdAt": "2026-06-08T23:49:42.784Z"
+}

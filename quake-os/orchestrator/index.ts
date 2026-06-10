@@ -176,6 +176,11 @@ export function completeFeature(featureName: string, taskId?: string) {
 export { getAgentIds, loadAgentRegistry };
 export { AgentOrchestrator, runDailyCycle } from "@/quake-os/orchestrator/agent-orchestrator";
 export {
+  CorporationOrchestrator,
+  runCorporationCycle,
+} from "@/quake-os/orchestrator/corporation-orchestrator";
+export { getCorporationSummary, CORPORATION_DIVISIONS } from "@/quake-os/core/corporation";
+export {
   schedule,
   runDueJobs,
   runDueWorkflows,

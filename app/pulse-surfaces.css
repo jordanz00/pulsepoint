@@ -607,7 +607,14 @@ body:has(.pp-marketing-canvas) {
   border-radius: var(--r-xl);
   box-shadow: var(--glass-shadow);
 }
-.mk-glass-header { border-bottom: 0.5px solid rgba(0,114,188,0.12); }
+.mk-glass-header {
+  border-bottom: 0.5px solid rgba(0,114,188,0.12);
+  margin-top: 0;
+  border-radius: 0;
+}
+.pp-marketing-canvas > header.mk-glass-header {
+  transition: transform 0.22s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
 
 .mk-hero-gradient { position: relative; overflow: hidden; }
 .mk-hero-gradient::before {
@@ -981,7 +988,16 @@ body:has(.pp-marketing-canvas) {
   gap: 0.45rem;
   align-items: center;
 }
-.mk-preview-modules--suite .mk-preview-tile-title { font-size: 0.72rem; }
+.mk-preview-modules--suite .mk-preview-tile-title {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  white-space: normal;
+  text-wrap: balance;
+}
+.mk-preview-modules--suite .mk-preview-tile-module {
+  white-space: normal;
+  line-height: 1.2;
+}
 .mk-preview-modules--suite .mk-preview-tile-sub { display: none; }
 .mk-preview-modules--suite .mk-mod-glass-tile {
   box-shadow:
@@ -1708,6 +1724,11 @@ body:has(.pp-marketing-canvas) {
   overflow: hidden;
 }
 .pp-glass-chart--sparkline { opacity: 0.95; }
+.pp-glass-chart,
+.pp-glass-donut {
+  width: 100%;
+  min-width: 0;
+}
 .mk-revenue-glance-bottom {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -3331,15 +3352,25 @@ body:has(.pp-marketing-canvas) {
 .pp-liquid-icon-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; background: transparent; border-radius: var(--r-md); cursor: pointer; color: var(--text-muted); }
 .pp-liquid-icon-btn:hover { background: rgba(0,114,188,0.08); }
 .pp-liquid-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
-.pp-liquid-sidebar { width: 220px; border-right: 0.5px solid rgba(0,114,188,0.12); border-radius: 0; display: flex; flex-direction: column; padding: 12px 10px; min-height: 100%; }
-.pp-liquid-sidebar-nav { flex: 1; overflow-y: auto; }
+.pp-liquid-sidebar { width: 236px; border-right: 0.5px solid rgba(0,114,188,0.12); border-radius: 0; display: flex; flex-direction: column; padding: 12px 10px; min-height: 100%; }
+.pp-liquid-sidebar-nav { flex: 1; overflow-y: auto; overscroll-behavior: contain; }
 .pp-liquid-main { flex: 1; overflow-y: auto; padding: 20px 22px; }
 .pp-sidebar-brand { display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 8px; text-decoration: none; color: var(--text-primary); }
 .pp-sidebar-brand-name { font-size: 13px; font-weight: 600; }
 .pp-nav-section { margin-bottom: 8px; }
 .pp-nav-section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-muted); padding: 10px 10px 4px; }
 .pp-nav-list { list-style: none; padding: 0; margin: 0; }
-.pp-nav-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--r-md); font-size: var(--text-base); color: var(--text-muted); text-decoration: none; transition: background 0.12s; }
+.pp-nav-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: var(--r-md); font-size: var(--text-base); color: var(--text-muted); text-decoration: none; transition: background 0.12s; min-height: 40px; }
+.pp-nav-item-label {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.3;
+  white-space: normal;
+  text-wrap: balance;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
 .pp-nav-item:hover { background: rgba(0,114,188,0.08); color: var(--text-primary); }
 .pp-nav-item--active { background: rgba(0,114,188,0.14); color: var(--brand-primary-dark); font-weight: 600; }
 .pp-nav-item--roadmap { opacity: 0.5; cursor: not-allowed; }
@@ -6281,21 +6312,23 @@ body:has(.pp-marketing-canvas) {
 .pp-glance-module-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.4rem;
+  gap: 0.45rem;
   margin-bottom: 0.85rem;
 }
 @media (min-width: 640px) {
-  .pp-glance-module-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pp-glance-module-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (min-width: 900px) {
-  .pp-glance-module-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .pp-glance-module-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .pp-glance-module {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.25rem;
-  padding: 0.5rem 0.55rem;
+  justify-content: flex-start;
+  gap: 0.3rem;
+  min-height: 3.25rem;
+  padding: 0.55rem 0.6rem;
   border-radius: var(--r-md);
   border: 0.5px solid rgba(12, 31, 51, 0.08);
   background: rgba(255, 255, 255, 0.42);
@@ -6315,9 +6348,13 @@ body:has(.pp-marketing-canvas) {
   box-shadow: 0 8px 22px color-mix(in srgb, var(--mod-active-fg) 11%, transparent);
 }
 .pp-glance-module-name {
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  white-space: normal;
+  text-wrap: balance;
+  width: 100%;
 }
 .pp-glance-module .mk-status-live,
 .pp-glance-module .mk-status-alpha,
@@ -6563,22 +6600,26 @@ body:has(.pp-marketing-canvas) {
   border: 0.5px solid rgba(12, 31, 51, 0.08);
   color: var(--readable-on-light-muted);
 }
-.pp-glance-compact-scroll {
-  display: flex;
+.pp-glance-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.45rem;
-  overflow-x: auto;
-  padding-bottom: 0.15rem;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 640px) {
+  .pp-glance-compact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .pp-glance-compact-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .pp-glance-compact-chip {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  display: inline-flex;
+  scroll-snap-align: unset;
+  display: flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.65rem;
-  border-radius: 999px;
+  gap: 0.4rem;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.85rem;
   border: 0.5px solid rgba(12, 31, 51, 0.1);
   background: rgba(255, 255, 255, 0.55);
   font-size: 0.72rem;
@@ -6586,6 +6627,13 @@ body:has(.pp-marketing-canvas) {
   color: var(--fg-default);
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.pp-glance-compact-chip-label {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.25;
+  white-space: normal;
+  text-wrap: balance;
 }
 .pp-glance-compact-chip:hover,
 .pp-glance-compact-chip:focus-visible {

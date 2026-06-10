@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4j59dj-cum5vi",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Hospital advocacy take-action form",
+  "body": "Member-facing advocacy response",
+  "refs": [
+    "task-frc-test-001"
+  ],
+  "createdAt": "2026-06-08T01:26:13.687Z"
+}

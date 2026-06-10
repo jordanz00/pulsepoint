@@ -11,6 +11,7 @@ import { ExecutiveKpiStrip } from "@/components/admin/executive-kpi-strip";
 import { ExecutiveBriefing } from "@/components/copilot/executive-briefing";
 import { OverviewChartsPanel } from "@/components/admin/overview-charts-panel";
 import { BoardPackActions } from "@/components/insights/board-pack-actions";
+import { BoardPackLeadershipBanner } from "@/components/insights/board-pack-leadership-banner";
 import { loadOverviewCharts } from "@/lib/overview-dashboard-data";
 import { loadDashboardPeriodDeltas } from "@/lib/dashboard-glass";
 
@@ -63,6 +64,7 @@ export default async function BoardPackPage({
       />
 
       <div className="pp-board-pack pp-route-enter space-y-8 mt-6">
+        <BoardPackLeadershipBanner orgSlug={orgSlug} />
         <p className="text-sm text-[var(--fg-muted)]">
           Designed for board packets and leadership email — not a raw CSV dump. Use Print to save as PDF.
         </p>

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5uhdy7-f9ksln",
+  "from": "developer-agent",
+  "to": "qa-agent",
+  "subject": "Feature built: Hospital advocacy take-action form",
+  "body": "Implement: Hospital advocacy take-action form. AC: Form validates; Tenant isolated",
+  "refs": [
+    "task-frc-test-001"
+  ],
+  "createdAt": "2026-06-08T23:31:21.439Z"
+}

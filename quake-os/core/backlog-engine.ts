@@ -221,11 +221,17 @@ export function refreshBacklog(sources: BacklogSource[] = [
 
   const legacyPath = path.join(REPO_ROOT, "data", "quake-os", "improvement-backlog.json");
   if (fs.existsSync(legacyPath)) {
-    const raw = JSON.parse(fs.readFileSync(legacyPath, "utf8")) as { _meta?: Record<string, unknown> };
+    const raw = JSON.parse(fs.readFileSync(legacyPath, "utf8")) as {
+      _meta?: Record<string, unknown>;
+      items?: { status?: string }[];
+    };
+    const legacyOpen =
+      raw.items?.filter((i) => i.status === "pending" || i.status === "in_progress").length ?? 0;
     raw._meta = {
       ...raw._meta,
       lastBacklogRefresh: new Date().toISOString(),
-      openTasks: open.length,
+      openTasks: legacyOpen,
+      quakeMemoryOpenTasks: open.length,
     };
     fs.writeFileSync(legacyPath, JSON.stringify(raw, null, 2));
   }

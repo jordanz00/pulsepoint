@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq5vuax6-586rq3",
+  "from": "healthcare-sme-agent",
+  "to": "ceo-agent",
+  "subject": "SME critique: NEEDS_REVISION",
+  "body": "",
+  "refs": [
+    "task-audit-test-001",
+    "audit-mq5vuax5-yn98iu"
+  ],
+  "createdAt": "2026-06-09T00:09:23.658Z"
+}

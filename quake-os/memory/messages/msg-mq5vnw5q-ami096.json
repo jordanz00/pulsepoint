@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq5vnw5q-ami096",
+  "from": "auditor-agent",
+  "to": "architecture-agent",
+  "subject": "Auditor critique: NEEDS_REVISION",
+  "body": "",
+  "refs": [
+    "task-audit-test-001",
+    "audit-mq5vnw5n-0ra58u"
+  ],
+  "createdAt": "2026-06-09T00:04:24.590Z"
+}

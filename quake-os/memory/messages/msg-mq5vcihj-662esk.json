@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vcihj-662esk",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: opportunity: Healthcare CE and education",
+  "body": "knowledge/requirements.db#req-mq5v5wgp-2nl30r: [opportunity] opportunity signals for AMS competitor landscape (high confidence)",
+  "refs": [
+    "task-mq5vcihh-yqabn1"
+  ],
+  "createdAt": "2026-06-08T23:55:33.655Z"
+}

@@ -7,13 +7,14 @@ Version-controlled automation drafts for **PulsePoint AMS** (`jordanz00/pulsepoi
 | **Weekly continuous** | Mon 9:00 (`0 9 * * 1`) | Open/update PRs | `weekly-continuous.md` · `weekly-continuous.workflow.json` |
 | **PR audit comment** | PR opened + updated | Comment on PRs | `pr-audit.md` · `pr-audit.workflow.json` |
 | **Full wave on demand** | Webhook (manual test in UI) | Open/update PRs | `full-wave.md` · `full-wave.workflow.json` |
+| **Full corporation cycle** | Mon 08:00 (`0 8 * * 1`) + webhook | Open/update PRs | `corporation-cycle.md` · `corporation-cycle.workflow.json` |
 
 ## Install in Cursor (save to your account)
 
 This chat cannot push to Cursor’s Automations API. Use **Agents Window** on the `pulse` repo:
 
 ```
-Create Cursor automations from data/quake-os/automation-prompts/*.workflow.json — all three: weekly continuous, PR audit, full wave.
+Create Cursor automations from data/quake-os/automation-prompts/*.workflow.json — all four: weekly continuous, PR audit, full wave, corporation cycle.
 ```
 
 Or manually for each file:

@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4jfj1w-7z7dmm",
+  "from": "orchestrator",
+  "to": "product-agent",
+  "subject": "New task: [risk] risk signals for Fundraising and nonprofit surfaces (low confidence)",
+  "body": "From research Fundraising and nonprofit surfaces: Topic: Fundraising and nonprofit surfaces. Analyzed 24 source hits across 2 paths. No critical gaps flagged in corpus. 1 risk signal(s) require compliance review.",
+  "refs": [
+    "task-mq4jfj0o-bsn4m5"
+  ],
+  "createdAt": "2026-06-08T01:34:12.788Z"
+}

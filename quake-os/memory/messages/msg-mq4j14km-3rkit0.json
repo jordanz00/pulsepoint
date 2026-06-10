@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq4j14km-3rkit0",
+  "from": "orchestrator",
+  "to": "security-agent",
+  "subject": "New task: risk: Hospital association advocacy",
+  "body": "lib/advocacy-dashboard.ts: * Advocacy dashboard stats — hospital-association rollups from MemberCore (real tenant data).",
+  "refs": [
+    "task-mq4j14kl-hbbf40"
+  ],
+  "createdAt": "2026-06-08T01:23:00.838Z"
+}

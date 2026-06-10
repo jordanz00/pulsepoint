@@ -1,0 +1,11 @@
+{
+  "id": "msg-mq5vt2v8-cg8im3",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Advance Security, Compliance & Governance to alpha",
+  "body": "RBAC, audit trail, backup requirements, enterprise SSO roadmap, HIPAA-aware design.",
+  "refs": [
+    "task-mq5vt2v6-bzoo3r"
+  ],
+  "createdAt": "2026-06-09T00:08:26.564Z"
+}

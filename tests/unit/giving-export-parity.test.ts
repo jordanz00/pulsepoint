@@ -6,6 +6,7 @@ import {
   campaignTotalsMatchExport,
   countGiftCsvDataRows,
   giftAmountUsd,
+  paidGiftExportRows,
   sumCsvGiftCents,
 } from "@/lib/giving/csv-export";
 
@@ -27,6 +28,17 @@ describe("giving export parity", () => {
     expect(sumRaisedCents(donations)).toBe(7500);
     expect(sumCsvGiftCents(exportRows)).toBe(7500);
     expect(campaignTotalsMatchExport(donations, exportRows)).toBe(true);
+  });
+
+  it("paidGiftExportRows excludes unpaid pledges", () => {
+    const donations = [
+      { amountCents: 5000, paidAt: new Date() },
+      { amountCents: 2500, paidAt: new Date() },
+      { amountCents: 10_000, paidAt: null },
+    ];
+    const rows = paidGiftExportRows(donations);
+    expect(rows).toHaveLength(2);
+    expect(sumCsvGiftCents(rows)).toBe(7500);
   });
 
   it("CSV row count matches export batch length", () => {

@@ -1,0 +1,16 @@
+{
+  "id": "msg-mq4ix36r-nj9bar",
+  "from": "architecture-agent",
+  "to": "product-agent",
+  "subject": "Architecture review complete",
+  "body": "Approved for task generation.",
+  "refs": [
+    "res-mq4ix2vu-5bzkm5",
+    "res-mq4ix2yk-o5azgx",
+    "res-mq4ix30v-kreqp6",
+    "res-mq4ix312-xi851t",
+    "res-mq4ix32a-xszjn6",
+    "res-mq4ix34o-o1ou5q"
+  ],
+  "createdAt": "2026-06-08T01:19:52.419Z"
+}

@@ -3,6 +3,7 @@
 import { LiquidSidebar } from "@/components/admin/liquid-sidebar";
 import { LiquidMobileNav } from "@/components/admin/liquid-mobile-nav";
 import { LiquidTopbar } from "@/components/admin/liquid-topbar";
+import { EnterpriseOperationalRail } from "@/components/enterprise/enterprise-operational-rail";
 import { NavPreferencesProvider } from "@/components/navigation/nav-preferences-provider";
 import { RecentTracker } from "@/components/navigation/recent-tracker";
 import { SkipToMain } from "@/components/skip-to-main";
@@ -38,6 +39,10 @@ export function AppShell({
           nav={nav}
           standalone={standalone}
           exceptionPreview={exceptionPreview}
+        />
+        <EnterpriseOperationalRail
+          orgSlug={orgSlug}
+          exceptionCount={navCounts.exceptions}
         />
         <div className="pp-liquid-body">
           <LiquidSidebar

@@ -1,0 +1,12 @@
+{
+  "id": "msg-mq5vc5p5-oqld8i",
+  "from": "ceo-agent",
+  "to": "developer-agent",
+  "subject": "CEO REVISE: Audit gate test",
+  "body": "Revise Audit gate test per critique notes before external pilot.",
+  "refs": [
+    "task-audit-test-001",
+    "frc-mq5vc5oz-87lfw0"
+  ],
+  "createdAt": "2026-06-08T23:55:17.081Z"
+}
