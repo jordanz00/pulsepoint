@@ -75,6 +75,15 @@ export function buildNavShortcuts(orgSlug: string): NavShortcut[] {
       section: "pages",
     },
     {
+      id: "flagship",
+      label: "Flagship features",
+      description: "Five buyer-facing demo capabilities",
+      href: () => `${base}/flagship`,
+      keywords: ["sales", "showcase", "demo", "flagship"],
+      iconId: "suite",
+      section: "pages",
+    },
+    {
       id: "command-center",
       label: "Command Center",
       description: "Executive briefing",

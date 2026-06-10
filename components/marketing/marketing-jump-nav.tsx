@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 
 const LINKS = [
   { href: "#why-pulsepoint", label: "Why PulsePoint" },
+  { href: "#flagship-features", label: "Flagship" },
   { href: "#features", label: "Modules" },
+  { href: "#personas", label: "Who it's for" },
   { href: "#healthcare", label: "Healthcare" },
   { href: "#security", label: "Security" },
+  { href: "/compare-protech", label: "vs Protech", isRoute: true },
   { href: "#demo", label: "Demo" },
   { href: "#faq", label: "FAQ" },
 ] as const;
@@ -23,7 +26,14 @@ export function MarketingJumpNav() {
   }, []);
 
   useEffect(() => {
-    const ids = LINKS.map((l) => l.href.slice(1));
+    document.documentElement.classList.toggle("pp-jump-nav-pinned", visible);
+    return () => document.documentElement.classList.remove("pp-jump-nav-pinned");
+  }, [visible]);
+
+  useEffect(() => {
+    const ids = LINKS.filter((l) => !("isRoute" in l && l.isRoute)).map((l) =>
+      l.href.slice(1),
+    );
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -46,21 +56,34 @@ export function MarketingJumpNav() {
   }, []);
 
   return (
-    <nav
-      className={`pp-marketing-jump-nav${visible ? " pp-marketing-jump-nav--visible" : ""}`}
-      aria-label="Page sections"
-    >
-      <div className="mk-container pp-marketing-jump-nav-inner">
-        {LINKS.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className={`pp-marketing-jump-nav-link${active === link.href ? " is-active" : ""}`}
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-    </nav>
+    <>
+      {visible ? <div className="pp-marketing-jump-nav-spacer" aria-hidden /> : null}
+      <nav
+        className={`pp-marketing-jump-nav${visible ? " pp-marketing-jump-nav--visible" : ""}`}
+        aria-label="Page sections"
+      >
+        <div className="mk-container pp-marketing-jump-nav-inner">
+        {LINKS.map((link) =>
+          "isRoute" in link && link.isRoute ? (
+            <a
+              key={link.href}
+              href={link.href}
+              className="pp-marketing-jump-nav-link"
+            >
+              {link.label}
+            </a>
+          ) : (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`pp-marketing-jump-nav-link${active === link.href ? " is-active" : ""}`}
+            >
+              {link.label}
+            </a>
+          ),
+        )}
+        </div>
+      </nav>
+    </>
   );
 }

@@ -1,10 +1,11 @@
 {
   "_meta": {
     "owner": "quake-os-continuous-runner",
-    "lastUpdated": "2026-06-08-sprint-j",
+    "lastUpdated": "2026-06-08-sprint-m",
     "cadence": "weekly_wave",
-    "lastBacklogRefresh": "2026-06-08T01:21:04.042Z",
-    "openTasks": 32
+    "lastBacklogRefresh": "2026-06-10T00:41:09.829Z",
+    "openTasks": 1,
+    "quakeMemoryOpenTasks": 22
   },
   "items": [
     {
@@ -417,6 +418,179 @@
       "agents": [
         "quake-os-continuous-runner",
         "quake-os-coo"
+      ]
+    },
+    {
+      "id": "BL-036",
+      "title": "Portfolio closure wave — walkthrough, board pack, public routes",
+      "division": "product",
+      "priority": "P0",
+      "status": "done",
+      "notes": "docs/QUAKE-OS-PORTFOLIO-WORKFLOW.md; 19-step tour; board pack HTML parity; middleware public paths",
+      "agents": [
+        "quake-os-orchestrator",
+        "pulse-glass-ui",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-037",
+      "title": "Portal self-service CE transcript",
+      "division": "learn",
+      "priority": "P1",
+      "status": "done",
+      "notes": "exportPortalTranscriptCsv + PortalTranscriptExportButton on portal hub",
+      "agents": [
+        "quake-os-frontend",
+        "quake-os-security"
+      ]
+    },
+    {
+      "id": "BL-038",
+      "title": "Board pack leadership loop follow-up",
+      "division": "product",
+      "priority": "P1",
+      "status": "done",
+      "notes": "BoardPackLeadershipBanner + printable HTML section",
+      "agents": [
+        "quake-os-product-manager",
+        "pulse-glass-ui"
+      ]
+    },
+    {
+      "id": "BL-039",
+      "title": "Why PulsePoint flagship layout + Recharts container polish",
+      "division": "design",
+      "priority": "P1",
+      "status": "done",
+      "notes": "Horizontal chapter pills; title width; useChartContainerReady; jump nav Workforce + vs Protech",
+      "agents": [
+        "pulse-glass-ui",
+        "quake-os-frontend"
+      ]
+    },
+    {
+      "id": "BL-040",
+      "title": "Giving campaign detail export parity (DB integration)",
+      "division": "reliability",
+      "priority": "P1",
+      "status": "done",
+      "notes": "paidGiftExportRows + giving-campaign-export-parity integration test",
+      "agents": [
+        "quake-os-qa",
+        "quake-os-revenue"
+      ]
+    },
+    {
+      "id": "BL-041",
+      "title": "Portal transcript export unit tests",
+      "division": "learn",
+      "priority": "P2",
+      "status": "done",
+      "notes": "exportPortalTranscriptCsv mocked security + CSV shape tests",
+      "agents": [
+        "quake-os-qa",
+        "quake-os-security"
+      ]
+    },
+    {
+      "id": "BL-042",
+      "title": "Communities post form on admin space detail",
+      "division": "membership",
+      "priority": "P2",
+      "status": "done",
+      "notes": "CommunityPostForm + createCommunityPost audit + space revalidate",
+      "agents": [
+        "quake-os-frontend",
+        "quake-os-backend"
+      ]
+    },
+    {
+      "id": "BL-043",
+      "title": "Giving campaign-scoped CSV export action",
+      "division": "giving",
+      "priority": "P2",
+      "status": "done",
+      "notes": "exportDonorsCsv(campaignId) + GivingExportButton on campaign detail",
+      "agents": [
+        "quake-os-revenue",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-044",
+      "title": "Learn supportability sign-off rows",
+      "division": "learn",
+      "priority": "P2",
+      "status": "done",
+      "notes": "SUPPORTABILITY-GATES.md transcript + portal export rows checked",
+      "agents": [
+        "quake-os-qa",
+        "quake-os-documentation"
+      ]
+    },
+    {
+      "id": "BL-045",
+      "title": "Quake automation gate timeout fix",
+      "division": "reliability",
+      "priority": "P1",
+      "status": "done",
+      "notes": "gate-runner DEFAULT_TIMEOUT_MS 300s — fixes false STOP_GATES on cold runs",
+      "agents": [
+        "quake-os-continuous-runner",
+        "quake-os-qa"
+      ]
+    },
+    {
+      "id": "BL-046",
+      "title": "Enterprise health system governance — hierarchy + rollups",
+      "division": "enterprise",
+      "priority": "P1",
+      "status": "done",
+      "notes": "/enterprise/governance — parent-child trees, orphan hospitals, governance KPIs; corporation cycle handoff",
+      "agents": [
+        "quake-os-hospital-association",
+        "quake-os-healthcare-association",
+        "quake-os-backend",
+        "quake-os-frontend"
+      ]
+    },
+    {
+      "id": "BL-047",
+      "title": "Quake OS corporation — GitHub Action + handoff CLI",
+      "division": "quake-os",
+      "priority": "P1",
+      "status": "done",
+      "notes": "quake-os-corporation.yml Mon 08:00 UTC; pnpm quake:corporation:handoff; 4th Cursor automation",
+      "agents": [
+        "quake-os-orchestrator",
+        "quake-os-continuous-runner"
+      ]
+    },
+    {
+      "id": "BL-048",
+      "title": "Top 20 feature showcase hub",
+      "division": "product",
+      "priority": "P1",
+      "status": "done",
+      "notes": "/showcase — 20 cards, live tenant stats, tier 1+2, nav + demo home CTA",
+      "agents": [
+        "quake-os-product-manager",
+        "pulse-glass-ui",
+        "quake-os-frontend"
+      ]
+    },
+    {
+      "id": "BL-049",
+      "title": "Flagship 5 hub + marketing + claims",
+      "division": "product",
+      "priority": "P1",
+      "status": "done",
+      "notes": "/flagship — 5 buyer cards + per-feature hubs, #flagship-features marketing, walkthrough, PRODUCT-CLAIMS",
+      "agents": [
+        "quake-os-product-manager",
+        "pulse-glass-ui",
+        "quake-os-frontend"
       ]
     }
   ]

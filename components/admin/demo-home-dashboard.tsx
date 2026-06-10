@@ -118,7 +118,16 @@ export async function DemoHomeDashboard({ orgSlug }: Props) {
               </p>
             </div>
             <div className="pp-demo-welcome__actions">
-              <Link href={`/${orgSlug}/walkthrough?step=0`} className="pc-btn-primary">
+              <Link href={`/${orgSlug}/flagship`} className="pc-btn-primary">
+                Flagship features
+              </Link>
+              <Link href={`/${orgSlug}/showcase`} className="pc-btn-secondary">
+                Top 20 showcase
+              </Link>
+              <Link href={`/${orgSlug}/leadership?walkthrough=1`} className="pc-btn-secondary">
+                Leadership briefing
+              </Link>
+              <Link href={`/${orgSlug}/walkthrough?step=0`} className="pc-btn-secondary">
                 Take the tour
               </Link>
               <Link href={`/${orgSlug}/command-center`} className="pc-btn-secondary">

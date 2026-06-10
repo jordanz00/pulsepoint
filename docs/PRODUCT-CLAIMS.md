@@ -42,6 +42,20 @@ These surfaces are walkthrough-ready in the Sterling Healthcare demo (`demo-heal
 | Hospital PAC preview | Marketing + `/{orgSlug}/giving` | Illustrative PAC pacing in marketing; donations alpha | FEC filing, compliance workflows, dedicated PAC admin |
 | Protech comparison | `/compare-protech` | Honest Live/Alpha/Roadmap matrix vs typical Protech capabilities | Feature parity, market share claims, invented pricing |
 
+## Flagship 5 (buyer-facing sales bundle)
+
+Marketing homepage `#flagship-features`, admin hub `/{orgSlug}/flagship`, and five per-feature hubs. Registry: `lib/flagship-features.ts`. Copy: `lib/flagship-marketing.ts`.
+
+| Buyer name | Hub route | Demo routes | Marketing label | Safe to claim | Do not claim |
+|------------|-----------|-------------|-----------------|---------------|--------------|
+| Executive Command Center | `/{orgSlug}/flagship/executive` | `/command-center`, `/leadership` | **Live** | One-screen CEO briefing, leadership loop script | Unattended executive email digests |
+| Membership Intelligence | `/{orgSlug}/flagship/membership` | `/members/analytics`, `/members/pulse` | **Demo preview** | Board KPIs, rule-based tiers, at-risk list | ML scoring, warehouse-fed exports as Live |
+| Advocacy on One Roster | `/{orgSlug}/flagship/advocacy` | `/enterprise/advocacy`, public issue pages | **Alpha** | Hospital roster linkage, issue hub, take-action | Legislative auto-feed, FEC workflows |
+| Board Briefing Pack | `/{orgSlug}/flagship/board` | `/insights/board-pack`, `/insights` | **Demo preview** | Printable HTML board export, manual snapshots | Power BI embed, unattended scheduled email |
+| Migration Without Rip-and-Replace | `/{orgSlug}/flagship/migration` | `/members/imports`, `/compare-protech` | **Demo preview** | CSV staging, honest compare matrix | Nightly Protech sync, feature parity, invented pricing |
+
+Top 20 showcase at `/{orgSlug}/showcase` remains the internal depth catalog — not a substitute for Flagship 5 labels above.
+
 ## Forbidden on “available” marketing blocks
 
 Phrases that must **not** appear in `status: "available"` copy unless the same sentence says **roadmap** or **demo preview**:

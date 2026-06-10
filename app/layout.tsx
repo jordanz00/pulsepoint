@@ -7,11 +7,15 @@ import "./globals.css";
 import "./pulse-surfaces.css";
 import "./admin-surfaces.css";
 import "./design-system.css";
+import "./flagship-features.css";
 import "./liquid-glass-overhaul.css";
 import "./why-pulsepoint-flagship.css";
+import "./marketing-showcases.css";
+import "./marketing-sell.css";
+import "./enterprise-foundation.css";
 
 export const metadata: Metadata = {
-  title: `PulsePoint — ${MARKETING_HERO.headline}`,
+  title: `${MARKETING_HERO.headline} — ${MARKETING_HERO.metaTitle}`,
   description: MARKETING_HERO.subhead,
 };
 
