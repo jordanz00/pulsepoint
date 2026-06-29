@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-22T13:36:05.912Z",
+  "updatedAt": "2026-06-29T12:36:15.362Z",
   "entries": [
     {
       "id": "req-mq7fa9qm-n36xf9",
@@ -848,7 +848,7 @@
       "id": "BL-009",
       "category": "tasks",
       "title": "Hospital association full AMS — executive data + liquid glass",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-hospital-association",
@@ -861,7 +861,7 @@
       "id": "BL-010",
       "category": "tasks",
       "title": "All modules polish — P1 UI + global liquid glass Pass 4",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "pulse-glass-ui",
@@ -873,7 +873,7 @@
       "id": "BL-011",
       "category": "tasks",
       "title": "Demo DB schema drift guard",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-backend",
@@ -884,7 +884,7 @@
       "id": "BL-012",
       "category": "tasks",
       "title": "Protech 1k import stress fixture",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-ams-specialist",
@@ -895,7 +895,7 @@
       "id": "BL-013",
       "category": "tasks",
       "title": "Staging preflight script (Sprint A prep)",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-coo",
@@ -906,7 +906,7 @@
       "id": "BL-014",
       "category": "tasks",
       "title": "Communities document library demo seed",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-frontend"
@@ -916,7 +916,7 @@
       "id": "BL-015",
       "category": "tasks",
       "title": "Advocacy take-action Playwright E2E (submit path)",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-qa",
@@ -927,7 +927,7 @@
       "id": "BL-016",
       "category": "tasks",
       "title": "Supportability gate rows — Commerce, Giving, Engage",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-coo",
@@ -938,7 +938,7 @@
       "id": "BL-017",
       "category": "tasks",
       "title": "Stripe webhook local replay doc",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-backend",
@@ -949,7 +949,7 @@
       "id": "BL-018",
       "category": "tasks",
       "title": "E2E required CI check documentation",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-qa"
@@ -959,7 +959,7 @@
       "id": "BL-019",
       "category": "tasks",
       "title": "Quake OS KG + research stale task cleanup",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-continuous-runner"
@@ -969,7 +969,7 @@
       "id": "BL-020",
       "category": "tasks",
       "title": "Learn enrollment + CE transcript export",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-ams-specialist",
@@ -980,7 +980,7 @@
       "id": "BL-021",
       "category": "tasks",
       "title": "Engage audience tag filter + send failure exceptions",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-backend",
@@ -991,7 +991,7 @@
       "id": "BL-022",
       "category": "tasks",
       "title": "Commerce finance CSV export parity tests",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-qa",
@@ -1002,7 +1002,7 @@
       "id": "BL-023",
       "category": "tasks",
       "title": "Insights snapshot metric parity guard",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-analytics",
@@ -1013,7 +1013,7 @@
       "id": "BL-025",
       "category": "tasks",
       "title": "Healthcare AMS Wave 1 — advocacy issue hub + learn workforce",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-orchestrator",
@@ -1025,7 +1025,7 @@
       "id": "BL-026",
       "category": "tasks",
       "title": "Wave 2 — virtual career fair booths + hosted video",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-frontend",
@@ -1036,7 +1036,7 @@
       "id": "BL-027",
       "category": "tasks",
       "title": "Wave 3 — legislative feed + Protech GL parity slice",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-integrations",
@@ -1047,7 +1047,7 @@
       "id": "BL-028",
       "category": "tasks",
       "title": "Member profile CE transcript download",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-frontend",
@@ -1058,7 +1058,7 @@
       "id": "BL-029",
       "category": "tasks",
       "title": "Giving export parity helpers + tests",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-qa",
@@ -1069,7 +1069,7 @@
       "id": "BL-030",
       "category": "tasks",
       "title": "Commerce webhook idempotency guard",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-security",
@@ -1080,7 +1080,7 @@
       "id": "BL-031",
       "category": "tasks",
       "title": "Renewals pulse + CSV export + cron gate label",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-frontend",
@@ -1091,7 +1091,7 @@
       "id": "BL-032",
       "category": "tasks",
       "title": "Commerce mark-paid helper + webhook refactor",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-backend",
@@ -1102,7 +1102,7 @@
       "id": "BL-033",
       "category": "tasks",
       "title": "Communities document link MVP",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-backend",
@@ -1113,7 +1113,7 @@
       "id": "BL-034",
       "category": "tasks",
       "title": "Executive KPI number — marketing previews",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "pulse-glass-ui",
@@ -1124,7 +1124,7 @@
       "id": "BL-035",
       "category": "tasks",
       "title": "Quake Execute full ship workflow",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-continuous-runner",
@@ -1135,7 +1135,7 @@
       "id": "BL-036",
       "category": "tasks",
       "title": "Portfolio closure wave — walkthrough, board pack, public routes",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-orchestrator",
@@ -1147,7 +1147,7 @@
       "id": "BL-037",
       "category": "tasks",
       "title": "Portal self-service CE transcript",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-frontend",
@@ -1158,7 +1158,7 @@
       "id": "BL-038",
       "category": "tasks",
       "title": "Board pack leadership loop follow-up",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-product-manager",
@@ -1169,7 +1169,7 @@
       "id": "BL-039",
       "category": "tasks",
       "title": "Why PulsePoint flagship layout + Recharts container polish",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "pulse-glass-ui",
@@ -1180,7 +1180,7 @@
       "id": "BL-040",
       "category": "tasks",
       "title": "Giving campaign detail export parity (DB integration)",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-qa",
@@ -1191,7 +1191,7 @@
       "id": "BL-041",
       "category": "tasks",
       "title": "Portal transcript export unit tests",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-qa",
@@ -1202,7 +1202,7 @@
       "id": "BL-042",
       "category": "tasks",
       "title": "Communities post form on admin space detail",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-frontend",
@@ -1213,7 +1213,7 @@
       "id": "BL-043",
       "category": "tasks",
       "title": "Giving campaign-scoped CSV export action",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-revenue",
@@ -1224,7 +1224,7 @@
       "id": "BL-044",
       "category": "tasks",
       "title": "Learn supportability sign-off rows",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-qa",
@@ -1235,7 +1235,7 @@
       "id": "BL-045",
       "category": "tasks",
       "title": "Quake automation gate timeout fix",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-continuous-runner",
@@ -1246,7 +1246,7 @@
       "id": "BL-046",
       "category": "tasks",
       "title": "Enterprise health system governance — hierarchy + rollups",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-hospital-association",
@@ -1259,7 +1259,7 @@
       "id": "BL-047",
       "category": "tasks",
       "title": "Quake OS corporation — GitHub Action + handoff CLI",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-orchestrator",
@@ -1270,7 +1270,7 @@
       "id": "BL-048",
       "category": "tasks",
       "title": "Top 20 feature showcase hub",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-product-manager",
@@ -1282,7 +1282,7 @@
       "id": "BL-049",
       "category": "tasks",
       "title": "Flagship 5 hub + marketing + claims",
-      "createdAt": "2026-06-22T13:36:05.206Z",
+      "createdAt": "2026-06-29T12:36:14.744Z",
       "path": "knowledge/tasks.db",
       "tags": [
         "quake-os-product-manager",
@@ -3380,6 +3380,1033 @@
       "category": "lessons",
       "title": "Corporation cycle corp-mqp9dt06-m9gkmk",
       "createdAt": "2026-06-22T13:36:05.912Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "corporation-cycle",
+        "revise"
+      ]
+    },
+    {
+      "id": "dec-mqz7bssv-bkvi95",
+      "category": "decisions",
+      "title": "Quake OS bootstrap",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-29T12:36:14.863Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "task-mqz7bst3-21t4pl",
+      "category": "tasks",
+      "title": "Advance Emergency Management to alpha",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:14.871Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "ams-roadmap",
+        "auto-backlog",
+        "emergency_management"
+      ]
+    },
+    {
+      "id": "msg-mqz7bst5-svy2mf",
+      "category": "messages",
+      "title": "New task: Advance Emergency Management to alpha",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.873Z",
+      "path": "quake-os/memory/messages/msg-mqz7bst5-svy2mf.json"
+    },
+    {
+      "id": "task-mqz7bst6-pu3rg8",
+      "category": "tasks",
+      "title": "Advance Workforce & Clinical Affairs to alpha",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:14.874Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "ams-roadmap",
+        "auto-backlog",
+        "workforce_clinical"
+      ]
+    },
+    {
+      "id": "msg-mqz7bst8-l00h9u",
+      "category": "messages",
+      "title": "New task: Advance Workforce & Clinical Affairs to alpha",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.876Z",
+      "path": "quake-os/memory/messages/msg-mqz7bst8-l00h9u.json"
+    },
+    {
+      "id": "task-mqz7bsta-29hoyh",
+      "category": "tasks",
+      "title": "Advance Security, Compliance & Governance to alpha",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:14.878Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "ams-roadmap",
+        "auto-backlog",
+        "security_governance"
+      ]
+    },
+    {
+      "id": "msg-mqz7bstc-5jae16",
+      "category": "messages",
+      "title": "New task: Advance Security, Compliance & Governance to alpha",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.880Z",
+      "path": "quake-os/memory/messages/msg-mqz7bstc-5jae16.json"
+    },
+    {
+      "id": "task-mqz7bstd-qthq71",
+      "category": "tasks",
+      "title": "Advance Integrations to alpha",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:14.881Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "ams-roadmap",
+        "auto-backlog",
+        "integrations"
+      ]
+    },
+    {
+      "id": "msg-mqz7bstf-blcdeh",
+      "category": "messages",
+      "title": "New task: Advance Integrations to alpha",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.883Z",
+      "path": "quake-os/memory/messages/msg-mqz7bstf-blcdeh.json"
+    },
+    {
+      "id": "task-mqz7bsth-olnju5",
+      "category": "tasks",
+      "title": "Advance Automation & AI to alpha",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:14.885Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "ams-roadmap",
+        "auto-backlog",
+        "automation_ai"
+      ]
+    },
+    {
+      "id": "msg-mqz7bstk-8j5tjc",
+      "category": "messages",
+      "title": "New task: Advance Automation & AI to alpha",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.888Z",
+      "path": "quake-os/memory/messages/msg-mqz7bstk-8j5tjc.json"
+    },
+    {
+      "id": "task-mqz7bstl-61btti",
+      "category": "tasks",
+      "title": "Roadmap: Finance & Accounting",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:14.889Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "ams-roadmap",
+        "roadmap",
+        "finance_accounting"
+      ]
+    },
+    {
+      "id": "msg-mqz7bstn-vhhv0r",
+      "category": "messages",
+      "title": "New task: Roadmap: Finance & Accounting",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.891Z",
+      "path": "quake-os/memory/messages/msg-mqz7bstn-vhhv0r.json"
+    },
+    {
+      "id": "task-mqz7bstp-0dzcmq",
+      "category": "tasks",
+      "title": "Maintain honest Live/Alpha/Roadmap labels per docs/PRODUCT-CLAIMS.md",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:14.893Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002c-3zzkwb"
+      ]
+    },
+    {
+      "id": "msg-mqz7bstr-40bqpt",
+      "category": "messages",
+      "title": "New task: Maintain honest Live/Alpha/Roadmap labels per docs/PRODUCT-CLAIMS.md",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.895Z",
+      "path": "quake-os/memory/messages/msg-mqz7bstr-40bqpt.json"
+    },
+    {
+      "id": "task-mqz7bstt-vnml84",
+      "category": "tasks",
+      "title": "Ship public take-action form with validation",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:14.897Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002e-yi540s"
+      ]
+    },
+    {
+      "id": "msg-mqz7bstv-3ci04d",
+      "category": "messages",
+      "title": "New task: Ship public take-action form with validation",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.899Z",
+      "path": "quake-os/memory/messages/msg-mqz7bstv-3ci04d.json"
+    },
+    {
+      "id": "task-mqz7bstw-pxie00",
+      "category": "tasks",
+      "title": "Define CE credit schema in requirements registry",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:14.900Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002f-ixlccp"
+      ]
+    },
+    {
+      "id": "msg-mqz7bsty-6h6g59",
+      "category": "messages",
+      "title": "New task: Define CE credit schema in requirements registry",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.902Z",
+      "path": "quake-os/memory/messages/msg-mqz7bsty-6h6g59.json"
+    },
+    {
+      "id": "task-mqz7bsu1-zy43bp",
+      "category": "tasks",
+      "title": "Bulk member→hospital assignment (BL-006)",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:14.905Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002j-ic10bf"
+      ]
+    },
+    {
+      "id": "msg-mqz7bsu3-hqbszz",
+      "category": "messages",
+      "title": "New task: Bulk member→hospital assignment (BL-006)",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.907Z",
+      "path": "quake-os/memory/messages/msg-mqz7bsu3-hqbszz.json"
+    },
+    {
+      "id": "task-mqz7bsu4-c2nlpp",
+      "category": "tasks",
+      "title": "Keep PAC marketing labeled illustrative",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:14.908Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002o-lbi00z"
+      ]
+    },
+    {
+      "id": "msg-mqz7bsu6-m74h1m",
+      "category": "messages",
+      "title": "New task: Keep PAC marketing labeled illustrative",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.910Z",
+      "path": "quake-os/memory/messages/msg-mqz7bsu6-m74h1m.json"
+    },
+    {
+      "id": "task-mqz7bsu8-0ljb1f",
+      "category": "tasks",
+      "title": "Extend AI helpers modularly",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:14.912Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "research",
+        "res-mq1o002w-skoyom"
+      ]
+    },
+    {
+      "id": "msg-mqz7bsub-ppfys8",
+      "category": "messages",
+      "title": "New task: Extend AI helpers modularly",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:14.915Z",
+      "path": "quake-os/memory/messages/msg-mqz7bsub-ppfys8.json"
+    },
+    {
+      "id": "task-mqz7bszw-2k3d53",
+      "category": "tasks",
+      "title": "risk: Hospital association advocacy",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.116Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mqp9dstq-ev6wpb"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt01-zml429",
+      "category": "messages",
+      "title": "New task: risk: Hospital association advocacy",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.121Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt01-zml429.json"
+    },
+    {
+      "id": "task-mqz7bt04-qa3i05",
+      "category": "tasks",
+      "title": "risk: Membership scale and security",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.124Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mqp9dstv-9icvp4"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt06-8md9rq",
+      "category": "messages",
+      "title": "New task: risk: Membership scale and security",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.126Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt06-8md9rq.json"
+    },
+    {
+      "id": "task-mqz7bt08-c1m4zo",
+      "category": "tasks",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.128Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mqp9dsu0-ebuevy"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt0a-i60fkj",
+      "category": "messages",
+      "title": "New task: risk: Healthcare CE and education",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.130Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt0a-i60fkj.json"
+    },
+    {
+      "id": "task-mqz7bt0c-2svazz",
+      "category": "tasks",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.132Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mqp9dsu2-gl6rwi"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt0e-gltu1i",
+      "category": "messages",
+      "title": "New task: gap: Healthcare CE and education",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.134Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt0e-gltu1i.json"
+    },
+    {
+      "id": "task-mqz7bt0f-dj62pn",
+      "category": "tasks",
+      "title": "opportunity: Enterprise health system governance",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.135Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mqp9dsua-0a4s11"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt0h-e6uxfd",
+      "category": "messages",
+      "title": "New task: opportunity: Enterprise health system governance",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.137Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt0h-e6uxfd.json"
+    },
+    {
+      "id": "task-mqz7bt0j-vprjbu",
+      "category": "tasks",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.139Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mqz7bt0l-dj9z8u",
+      "category": "messages",
+      "title": "New task: risk: Fundraising and nonprofit surfaces",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.141Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt0l-dj9z8u.json"
+    },
+    {
+      "id": "task-mqz7bt0n-n4bfuo",
+      "category": "tasks",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:15.143Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mqz7bt0p-yq05t1",
+      "category": "messages",
+      "title": "New task: gap: AMS competitor landscape",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.145Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt0p-yq05t1.json"
+    },
+    {
+      "id": "task-mqz7bt0r-omef9w",
+      "category": "tasks",
+      "title": "opportunity: AMS competitor landscape",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:15.147Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-backlog",
+        "recommendation",
+        "rec-mqp9dsuz-u52wkr"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt0t-ihm0wx",
+      "category": "messages",
+      "title": "New task: opportunity: AMS competitor landscape",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.149Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt0t-ihm0wx.json"
+    },
+    {
+      "id": "task-mqz7bt0v-bexvky",
+      "category": "tasks",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.151Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mqz7bt0x-3p5czf",
+      "category": "messages",
+      "title": "New task: gap: Hospital association advocacy",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.153Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt0x-3p5czf.json"
+    },
+    {
+      "id": "backlog-mqz7bt14-xfhip8",
+      "category": "lessons",
+      "title": "Backlog refresh: 21 new tasks",
+      "createdAt": "2026-06-29T12:36:15.163Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "backlog",
+        "auto-generated"
+      ]
+    },
+    {
+      "id": "res-mqz7bt1b-b3duqp",
+      "category": "research",
+      "title": "AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-29T12:36:15.167Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "competitor",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt1e-vtu4fw",
+      "category": "recommendations",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-29T12:36:15.170Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt1e-vtu4fw.json"
+    },
+    {
+      "id": "rec-mqz7bt1g-pp7at3",
+      "category": "recommendations",
+      "title": "opportunity: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-29T12:36:15.172Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt1g-pp7at3.json"
+    },
+    {
+      "id": "res-mqz7bt1k-d828lw",
+      "category": "research",
+      "title": "Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-29T12:36:15.176Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "hospital_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt1m-f74sfo",
+      "category": "recommendations",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-29T12:36:15.178Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt1m-f74sfo.json"
+    },
+    {
+      "id": "rec-mqz7bt1o-eg7vbx",
+      "category": "recommendations",
+      "title": "risk: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-29T12:36:15.180Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt1o-eg7vbx.json"
+    },
+    {
+      "id": "res-mqz7bt1r-jamjg3",
+      "category": "research",
+      "title": "Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-29T12:36:15.183Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "membership",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt1u-ro3esq",
+      "category": "recommendations",
+      "title": "risk: Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-29T12:36:15.186Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt1u-ro3esq.json"
+    },
+    {
+      "id": "res-mqz7bt1x-zkg2s1",
+      "category": "research",
+      "title": "Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-29T12:36:15.189Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "healthcare_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt20-kt9ggl",
+      "category": "recommendations",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-29T12:36:15.192Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt20-kt9ggl.json"
+    },
+    {
+      "id": "rec-mqz7bt22-wd3xyr",
+      "category": "recommendations",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-29T12:36:15.194Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt22-wd3xyr.json"
+    },
+    {
+      "id": "res-mqz7bt27-je39be",
+      "category": "research",
+      "title": "Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-29T12:36:15.199Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "health_system",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt2b-vlh65o",
+      "category": "recommendations",
+      "title": "opportunity: Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-29T12:36:15.203Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt2b-vlh65o.json"
+    },
+    {
+      "id": "res-mqz7bt2f-3gn5s7",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-29T12:36:15.207Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt2i-0i4oba",
+      "category": "recommendations",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-29T12:36:15.210Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt2i-0i4oba.json"
+    },
+    {
+      "id": "msg-mqz7bt2k-1t0h94",
+      "category": "messages",
+      "title": "Research pipeline complete",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-29T12:36:15.212Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt2k-1t0h94.json"
+    },
+    {
+      "id": "audit-mqz7bt2m-rasg4s",
+      "category": "audits",
+      "title": "Scheduled compliance sweep",
+      "agentId": "compliance-agent",
+      "createdAt": "2026-06-29T12:36:15.214Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mqz7bt2o-ffl21i",
+      "category": "messages",
+      "title": "Compliance sweep: APPROVED",
+      "agentId": "compliance-agent",
+      "createdAt": "2026-06-29T12:36:15.216Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt2o-ffl21i.json"
+    },
+    {
+      "id": "audit-mqz7bt2q-tqruh6",
+      "category": "audits",
+      "title": "Healthcare SME critique: gap: Hospital association advocacy",
+      "agentId": "healthcare-sme-agent",
+      "createdAt": "2026-06-29T12:36:15.218Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mqz7bt2s-4epb3u",
+      "category": "messages",
+      "title": "SME critique: APPROVED",
+      "agentId": "healthcare-sme-agent",
+      "createdAt": "2026-06-29T12:36:15.220Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt2s-4epb3u.json"
+    },
+    {
+      "id": "res-mqz7bt2v-cjedxv",
+      "category": "research",
+      "title": "AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-29T12:36:15.223Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "competitor",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt2y-c5s43s",
+      "category": "recommendations",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-29T12:36:15.226Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt2y-c5s43s.json"
+    },
+    {
+      "id": "rec-mqz7bt30-8mwjk0",
+      "category": "recommendations",
+      "title": "opportunity: AMS competitor landscape",
+      "agentId": "research-agent",
+      "createdAt": "2026-06-29T12:36:15.228Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt30-8mwjk0.json"
+    },
+    {
+      "id": "res-mqz7bt33-ouir2d",
+      "category": "research",
+      "title": "Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-29T12:36:15.231Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "hospital_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt37-4kkvs7",
+      "category": "recommendations",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-29T12:36:15.235Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt37-4kkvs7.json"
+    },
+    {
+      "id": "rec-mqz7bt3b-y1xbk4",
+      "category": "recommendations",
+      "title": "risk: Hospital association advocacy",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-29T12:36:15.239Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt3b-y1xbk4.json"
+    },
+    {
+      "id": "res-mqz7bt3g-eqnu12",
+      "category": "research",
+      "title": "Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-29T12:36:15.244Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "membership",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt3j-szp7ux",
+      "category": "recommendations",
+      "title": "risk: Membership scale and security",
+      "agentId": "security-agent",
+      "createdAt": "2026-06-29T12:36:15.247Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt3j-szp7ux.json"
+    },
+    {
+      "id": "res-mqz7bt3m-im5mbn",
+      "category": "research",
+      "title": "Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-29T12:36:15.250Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "healthcare_association",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt3p-2rx97e",
+      "category": "recommendations",
+      "title": "risk: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-29T12:36:15.253Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt3p-2rx97e.json"
+    },
+    {
+      "id": "rec-mqz7bt3r-ed9z0x",
+      "category": "recommendations",
+      "title": "gap: Healthcare CE and education",
+      "agentId": "healthcare-association-agent",
+      "createdAt": "2026-06-29T12:36:15.255Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt3r-ed9z0x.json"
+    },
+    {
+      "id": "res-mqz7bt3z-9r7bql",
+      "category": "research",
+      "title": "Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-29T12:36:15.263Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "health_system",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt42-9ob6j2",
+      "category": "recommendations",
+      "title": "opportunity: Enterprise health system governance",
+      "agentId": "health-system-agent",
+      "createdAt": "2026-06-29T12:36:15.266Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt42-9ob6j2.json"
+    },
+    {
+      "id": "res-mqz7bt45-5z3244",
+      "category": "research",
+      "title": "Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-29T12:36:15.269Z",
+      "path": "knowledge/research.db",
+      "tags": [
+        "nonprofit",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "rec-mqz7bt47-s08ppg",
+      "category": "recommendations",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "nonprofit-agent",
+      "createdAt": "2026-06-29T12:36:15.271Z",
+      "path": "quake-os/memory/recommendations/rec-mqz7bt47-s08ppg.json"
+    },
+    {
+      "id": "task-mqz7bt49-dgtqnc",
+      "category": "tasks",
+      "title": "Advocacy: Hospital association advocacy",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.273Z",
+      "path": "knowledge/tasks.db",
+      "tags": [
+        "auto-from-research"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt4b-p5cot8",
+      "category": "messages",
+      "title": "New task: Advocacy: Hospital association advocacy",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.275Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt4b-p5cot8.json"
+    },
+    {
+      "id": "msg-mqz7bt4d-zjr92k",
+      "category": "messages",
+      "title": "Hospital association advocacy review",
+      "agentId": "hospital-association-agent",
+      "createdAt": "2026-06-29T12:36:15.277Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt4d-zjr92k.json"
+    },
+    {
+      "id": "dec-mqz7bt4g-tj3xau",
+      "category": "decisions",
+      "title": "CTO daily health check",
+      "agentId": "cto-agent",
+      "createdAt": "2026-06-29T12:36:15.280Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mqz7bt4i-81udw0",
+      "category": "messages",
+      "title": "CTO health check complete",
+      "agentId": "cto-agent",
+      "createdAt": "2026-06-29T12:36:15.282Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt4i-81udw0.json"
+    },
+    {
+      "id": "dec-mqz7bt4k-k7x6pd",
+      "category": "decisions",
+      "title": "Daily architecture review",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-29T12:36:15.284Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mqz7bt4m-y8rd7q",
+      "category": "messages",
+      "title": "Architecture review complete",
+      "agentId": "architecture-agent",
+      "createdAt": "2026-06-29T12:36:15.286Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt4m-y8rd7q.json"
+    },
+    {
+      "id": "task-mqz7bt4q-6byg9w",
+      "category": "tasks",
+      "title": "[gap] gap signals for AMS competitor landscape (high confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.290Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mqz7bt4s-bur8b6",
+      "category": "messages",
+      "title": "New task: [gap] gap signals for AMS competitor landscape (high confidence)",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.292Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt4s-bur8b6.json"
+    },
+    {
+      "id": "task-mqz7bt4u-li8l3p",
+      "category": "tasks",
+      "title": "[opportunity] opportunity signals for AMS competitor landscape (high confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.294Z",
+      "path": "knowledge/tasks.db"
+    },
+    {
+      "id": "msg-mqz7bt4w-82qtdr",
+      "category": "messages",
+      "title": "New task: [opportunity] opportunity signals for AMS competitor landscape (high confidence)",
+      "agentId": "orchestrator",
+      "createdAt": "2026-06-29T12:36:15.297Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt4w-82qtdr.json"
+    },
+    {
+      "id": "msg-mqz7bt59-dz4gkz",
+      "category": "messages",
+      "title": "Daily tasks ready for build",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:15.309Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt59-dz4gkz.json"
+    },
+    {
+      "id": "req-mqz7bt5b-elpk3d",
+      "category": "requirements",
+      "title": "gap: Hospital association advocacy",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.311Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mqz7bt5d-a1gh07",
+      "category": "requirements",
+      "title": "gap: AMS competitor landscape",
+      "agentId": "product-agent",
+      "createdAt": "2026-06-29T12:36:15.313Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mqz7bt5f-ba5akb",
+      "category": "requirements",
+      "title": "risk: Fundraising and nonprofit surfaces",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.315Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mqz7bt5i-u0glai",
+      "category": "requirements",
+      "title": "[gap] gap signals for AMS competitor landscape (high confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.318Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "req-mqz7bt5k-6e0mjy",
+      "category": "requirements",
+      "title": "[opportunity] opportunity signals for AMS competitor landscape (high confidence)",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.320Z",
+      "path": "knowledge/requirements.db",
+      "tags": [
+        "build-plan",
+        "daily-cycle"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt5m-s75bwp",
+      "category": "messages",
+      "title": "Build plans dispatched",
+      "agentId": "developer-agent",
+      "createdAt": "2026-06-29T12:36:15.322Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt5m-s75bwp.json"
+    },
+    {
+      "id": "msg-mqz7bt5o-c9mfh0",
+      "category": "messages",
+      "title": "QA checklist ready",
+      "agentId": "qa-agent",
+      "createdAt": "2026-06-29T12:36:15.324Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt5o-c9mfh0.json"
+    },
+    {
+      "id": "audit-mqz7bt5q-2gr38r",
+      "category": "audits",
+      "title": "Daily cycle QA — 5 tasks",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-29T12:36:15.326Z",
+      "path": "knowledge/audits.db"
+    },
+    {
+      "id": "msg-mqz7bt5t-jvqwzk",
+      "category": "messages",
+      "title": "Daily audit: NEEDS_REVISION",
+      "agentId": "auditor-agent",
+      "createdAt": "2026-06-29T12:36:15.329Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt5t-jvqwzk.json"
+    },
+    {
+      "id": "doc-mqz7bt5x-ft2r7x",
+      "category": "lessons",
+      "title": "Documentation sync",
+      "agentId": "documentation-agent",
+      "createdAt": "2026-06-29T12:36:15.337Z",
+      "path": "knowledge/lessons.db",
+      "tags": [
+        "documentation",
+        "sync"
+      ]
+    },
+    {
+      "id": "msg-mqz7bt62-ju5nsh",
+      "category": "messages",
+      "title": "Documentation sync complete",
+      "agentId": "documentation-agent",
+      "createdAt": "2026-06-29T12:36:15.338Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt62-ju5nsh.json"
+    },
+    {
+      "id": "dec-mqz7bt6c-l4n9xx",
+      "category": "decisions",
+      "title": "CTO daily health check",
+      "agentId": "cto-agent",
+      "createdAt": "2026-06-29T12:36:15.348Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mqz7bt6f-r1wlyg",
+      "category": "messages",
+      "title": "CTO health check complete",
+      "agentId": "cto-agent",
+      "createdAt": "2026-06-29T12:36:15.351Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt6f-r1wlyg.json"
+    },
+    {
+      "id": "dec-mqz7bt6i-6wh2a5",
+      "category": "decisions",
+      "title": "Corporation board REVISE",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-29T12:36:15.354Z",
+      "path": "knowledge/decisions.db"
+    },
+    {
+      "id": "msg-mqz7bt6l-hi4z78",
+      "category": "messages",
+      "title": "Board REVISE: corporation cycle",
+      "agentId": "ceo-agent",
+      "createdAt": "2026-06-29T12:36:15.357Z",
+      "path": "quake-os/memory/messages/msg-mqz7bt6l-hi4z78.json"
+    },
+    {
+      "id": "corp-mqz7bt6o-4ke3kx",
+      "category": "lessons",
+      "title": "Corporation cycle corp-mqz7bt6o-4ke3kx",
+      "createdAt": "2026-06-29T12:36:15.362Z",
       "path": "knowledge/lessons.db",
       "tags": [
         "corporation-cycle",
