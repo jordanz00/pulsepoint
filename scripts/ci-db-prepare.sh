@@ -12,4 +12,5 @@ fi
 
 echo "ci-db-prepare: SQLite at ${DATABASE_URL}"
 pnpm db:generate
-pnpm exec prisma migrate deploy
+# Migrations on disk are legacy Postgres SQL; push current schema for SQLite CI.
+pnpm exec prisma db push --skip-generate
