@@ -11,23 +11,9 @@ on:
 jobs:
   playwright:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_USER: pulsepoint
-          POSTGRES_PASSWORD: pulsepoint
-          POSTGRES_DB: pulsepoint
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     env:
-      DATABASE_URL: postgresql://pulsepoint:pulsepoint@localhost:5432/pulsepoint?schema=public
+      DATABASE_URL: file:./prisma/ci.db
       DEMO_MODE: "true"
       DEMO_SESSION_SECRET: ci-e2e-demo-secret-must-be-32-chars-minimum
       PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
@@ -42,8 +28,7 @@ jobs:
           node-version: "22"
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec prisma generate
-      - run: pnpm exec prisma migrate deploy
+      - run: bash scripts/ci-db-prepare.sh
       - run: pnpm db:seed:demo
       - run: pnpm exec playwright install chromium --with-deps
       - name: Start dev server (demo mode requires non-production NODE_ENV)
