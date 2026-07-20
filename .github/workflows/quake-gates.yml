@@ -13,28 +13,17 @@ on:
       - "prisma/**"
       - "docs/PRODUCT-CLAIMS.md"
       - "scripts/ten-member-leak-checks.sh"
+      - "scripts/ci-db-prepare.sh"
+      - "scripts/quake-gates.sh"
       - "quake-os/**"
       - "data/quake-os/**"
 
 jobs:
   quake:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_USER: pulsepoint
-          POSTGRES_PASSWORD: pulsepoint
-          POSTGRES_DB: pulsepoint
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+    # Prisma schema provider is sqlite — do not attach Postgres (adapter mismatch).
     env:
-      DATABASE_URL: postgresql://pulsepoint:pulsepoint@localhost:5432/pulsepoint?schema=public
+      DATABASE_URL: file:./prisma/ci.db
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
       CLERK_SECRET_KEY: sk_test_ci_placeholder
     steps:

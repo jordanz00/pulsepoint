@@ -14,22 +14,8 @@ jobs:
   automation:
     name: Gates → backlog → wave → report
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_USER: pulsepoint
-          POSTGRES_PASSWORD: pulsepoint
-          POSTGRES_DB: pulsepoint
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     env:
-      DATABASE_URL: postgresql://pulsepoint:pulsepoint@localhost:5432/pulsepoint?schema=public
+      DATABASE_URL: file:./prisma/ci.db
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
       CLERK_SECRET_KEY: sk_test_ci_placeholder
       QUAKE_OS_RUN_GATES: "1"
@@ -43,6 +29,8 @@ jobs:
           node-version: "22"
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Prepare SQLite for gates
+        run: bash scripts/ci-db-prepare.sh
       - name: Run full automation pipeline
         run: pnpm quake:automation:run
       - name: Commit wave report

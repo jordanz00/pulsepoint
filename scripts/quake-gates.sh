@@ -4,6 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 echo "== Quake OS gates =="
+bash scripts/ci-db-prepare.sh
 pnpm claims:validate
 pnpm leak:checks
 pnpm test

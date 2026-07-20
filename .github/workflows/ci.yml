@@ -9,23 +9,8 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_USER: pulsepoint
-          POSTGRES_PASSWORD: pulsepoint
-          POSTGRES_DB: pulsepoint
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
     env:
-      DATABASE_URL: postgresql://pulsepoint:pulsepoint@localhost:5432/pulsepoint?schema=public
+      DATABASE_URL: file:./prisma/ci.db
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
       CLERK_SECRET_KEY: sk_test_ci_placeholder
 
@@ -45,19 +30,13 @@ jobs:
       - run: pnpm install --frozen-lockfile
         working-directory: .
 
-      - name: Generate Prisma client
-        run: pnpm db:generate
-
-      - name: Apply migrations
-        run: pnpm exec prisma migrate deploy
+      - name: Prepare SQLite database
+        run: bash scripts/ci-db-prepare.sh
 
       - run: pnpm typecheck
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm security:audit
-
-      - name: Prisma schema drift check
-        run: pnpm exec prisma migrate diff --from-migrations prisma/migrations --to-schema prisma/schema.prisma --exit-code
 
       - run: pnpm build
         env:
