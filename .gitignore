@@ -31,6 +31,7 @@
 /knowledge/*.db-shm
 quake-os/memory/*.corrupt*.bak
 quake-os/memory/index.json.corrupt-*.bak
+quake-os/agi/mcp/servers.local.json
 
 # misc
 .DS_Store
@@ -61,3 +62,8 @@ next-env.d.ts
 
 # clerk configuration (can include secrets)
 /.clerk/
+
+# CI / local prisma sqlite
+prisma/ci.db
+prisma/ci.db-journal
+prisma/*.db-journal
