@@ -39,13 +39,11 @@ After code changes: `pnpm test` · `pnpm test:e2e` (demo mode) · `pnpm security
 | **Package / repo folder** | `pulsepoint` (`/Users/jordanzabady/Desktop/pulse`) |
 | **Stack** | Next.js 16 · Postgres · Prisma · Clerk/Demo · Stripe · Resend (all behind adapters — see [docs/VENDOR-PORTABILITY.md](docs/VENDOR-PORTABILITY.md)) |
 | **MVP data** | PII only (no PHI) |
-| **Enterprise** | **Deferred** — demo only; future Azure + [haponline.org](https://www.haponline.org) per [docs/ENTERPRISE-INTEGRATION.md](docs/ENTERPRISE-INTEGRATION.md) |
+| **Enterprise** | **Deferred** — demo only; optional Azure enterprise profile per [docs/ENTERPRISE-INTEGRATION.md](docs/ENTERPRISE-INTEGRATION.md) |
 
-## Product mode: standalone demo (not HAP-integrated)
+## Product mode: standalone demo
 
-PulsePoint is a **demo AMS** today. Do not connect to HAP production systems or embed in www.haponline.org until `INTEGRATION_PROFILE=hap-azure` is approved and documented in `docs/ENTERPRISE-INTEGRATION.md`.
-
-Default env: `INTEGRATION_PROFILE=demo` (PulsePoint branding, optional demo auth — no enterprise SSO required).
+PulsePoint is a **demo AMS** today. Default env: `INTEGRATION_PROFILE=demo` (PulsePoint branding, optional demo auth — no enterprise SSO required). Enterprise integration profiles are documented in `docs/ENTERPRISE-INTEGRATION.md` when approved.
 
 **Realization (18-month):** [docs/REALIZATION-PLAN.md](docs/REALIZATION-PLAN.md) · **UI bar:** [docs/UI-QUALITY-BAR.md](docs/UI-QUALITY-BAR.md) · **Ops gates:** [docs/SUPPORTABILITY-GATES.md](docs/SUPPORTABILITY-GATES.md) · [docs/GO-TO-MARKET-6MONTH.md](docs/GO-TO-MARKET-6MONTH.md)
 
@@ -125,7 +123,7 @@ lib/adapters/           Vendor portability — auth, payments, email, storage
                         (every external dependency goes through here)
 prisma/                 Schema + migrations
 tests/                  Vitest + Playwright
-themes/                 hap-enterprise.css (loaded only when INTEGRATION_PROFILE=hap-azure)
+themes/                 optional enterprise theme CSS (integration profiles)
 ```
 
 ## Scripts
