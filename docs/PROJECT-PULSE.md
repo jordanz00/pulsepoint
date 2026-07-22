@@ -24,7 +24,7 @@
 
 ## Do NOT touch this week
 
-- HAP `state-data.js` / 340B print pipeline (separate product)
+- 340B `state-data.js` / print pipeline (separate product)
 - **BL-003** staging pilot (Entra + Stripe) — IT/human only
 
 ---

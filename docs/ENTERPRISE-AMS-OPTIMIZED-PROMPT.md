@@ -6,7 +6,7 @@
 
 ## Context (one paragraph)
 
-Design and deliver an **enterprise-grade, multi-tenant AMS** for a **statewide hospital and health system association** with 16 operational departments (Executive Office through HAPevolve). Serve hospitals, health systems, executives, policy staff, workforce leaders, emergency teams, and business partners. Optimize for **advocacy-heavy operations**, **cross-department collaboration**, **MemberPulse engagement**, **healthcare-adjacent compliance** (HIPAA-aware, SOC 2–aligned architecture), and **Azure/Microsoft readiness** without claiming live Entra or warehouse integration until IT approves.
+Design and deliver an **enterprise-grade, multi-tenant AMS** for a **statewide hospital and health system association** with 16 operational departments (Executive Office through Evolve). Serve hospitals, health systems, executives, policy staff, workforce leaders, emergency teams, and business partners. Optimize for **advocacy-heavy operations**, **cross-department collaboration**, **MemberPulse engagement**, **healthcare-adjacent compliance** (HIPAA-aware, SOC 2–aligned architecture), and **Azure/Microsoft readiness** without claiming live Entra or warehouse integration until IT approves.
 
 **Default profile:** `INTEGRATION_PROFILE=demo`. **Enterprise profile (future):** `INTEGRATION_PROFILE=hap-azure`.
 
@@ -31,7 +31,7 @@ Design and deliver an **enterprise-grade, multi-tenant AMS** for a **statewide h
 | `quality_initiatives` | Quality Initiatives |
 | `strategic_analytics` | Strategic Analytics |
 | `workforce_clinical` | Workforce & Clinical Affairs |
-| `hapevolve` | HAPevolve |
+| `hapevolve` | Evolve |
 
 **Code:** `lib/association/departments.ts` · **UI:** `/[orgSlug]/enterprise`
 

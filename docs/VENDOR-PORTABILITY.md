@@ -175,7 +175,7 @@ When you add a feature that touches an external service:
 
 ## Related docs
 
-- `docs/ENTERPRISE-INTEGRATION.md` — HAP / Azure swap profile.
+- `docs/ENTERPRISE-INTEGRATION.md` — enterprise Azure swap profile.
 - `docs/GO-TO-MARKET-6MONTH.md` — phased delivery aligned with these vendors.
 - `docs/ROADMAP-MODULES.md` — which adapters each module needs.
 - `lib/adapters/types.ts` — the source-of-truth interfaces.
