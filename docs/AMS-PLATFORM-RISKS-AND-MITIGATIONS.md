@@ -133,7 +133,7 @@
 
 | | |
 |---|---|
-| **Issue** | haponline.org vs PulsePoint app—cookies, SSO, brand, “embedded AMS” |
+| **Issue** | Employer marketing site vs PulsePoint app—cookies, SSO, brand, “embedded AMS” |
 | **Industry norm** | Same domain via reverse proxy or vendor-hosted portal |
 | **Gap** | Link-out only today |
 | **Primary fix** | Pattern **A link-out** first; env `NEXT_PUBLIC_MARKETING_SITE_URL` |
@@ -147,7 +147,7 @@
 | **Issue** | IT expects Gold tables, semantic layer, refresh schedules—not app DB direct |
 | **Industry norm** | ETL to warehouse; PBI datasets; certified measures |
 | **Gap** | Insights alpha; no nightly ETL to customer warehouse yet |
-| **Primary fix** | **Phase 1:** CSV exports + stable `metricKey` registry (align with HAP dashboard semantic discipline) |
+| **Primary fix** | **Phase 1:** CSV exports + stable `metricKey` registry (align with 340B dashboard semantic discipline) |
 | **Backup fix** | **Phase 2:** Read-only replica + `pg_dump`/Fivetran/Airbyte to Azure Synapse or Fabric |
 | **Backup 2** | Power BI **import mode** from scheduled CSV until embed approved |
 | **RTO** | Reporting degrades to exports; core AMS still runs |
@@ -232,7 +232,7 @@
 
 - [BUSINESS-CONTINUITY.md](./BUSINESS-CONTINUITY.md) — failover tiers, DNS, drills  
 - [VENDOR-PORTABILITY.md](./VENDOR-PORTABILITY.md) — adapter swap  
-- [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md) — Microsoft + haponline.org  
+- [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md) — Microsoft + employer marketing site  
 - [SECURITY-PARANOID.md](./SECURITY-PARANOID.md) — controls  
 - [REALIZATION-PLAN.md](./REALIZATION-PLAN.md) — wedge before parity  
 

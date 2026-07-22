@@ -1,8 +1,8 @@
-# Enterprise integration (future) — Microsoft Azure + HAP web
+# Enterprise integration (future) — Microsoft Azure + employer web
 
 **Status:** Not started. PulsePoint today is a **standalone demo product**.
 
-Do **not** wire this repo to HAP production systems, `www.haponline.org`, or Azure tenants until the AMS wedge is complete and stakeholders sign off on integration.
+Do **not** wire this repo to employer production systems, employer marketing sites, or Azure tenants until the AMS wedge is complete and stakeholders sign off on integration.
 
 This document is the **swap map** so that work is a configuration + adapter pass, not a rewrite.
 
@@ -10,10 +10,10 @@ This document is the **swap map** so that work is a configuration + adapter pass
 
 ## Principles
 
-1. **Demo profile now** — `INTEGRATION_PROFILE=demo` (default): PulsePoint branding, demo auth, no HAP SSO, no Azure resources required.
+1. **Demo profile now** — `INTEGRATION_PROFILE=demo` (default): PulsePoint branding, demo auth, no employer SSO, no Azure resources required.
 2. **One boundary per concern** — auth, database, hosting, email, payments, public marketing, and brand theme each have a single integration point in code.
-3. **Env-driven** — production HAP/Azure values live in host secret stores (Azure Key Vault, App Service settings), never committed.
-4. **Honest product scope** — MemberCore + Events first; haponline.org links are navigation only until IT defines CMS/embed contracts.
+3. **Env-driven** — production employer/Azure values live in host secret stores (Azure Key Vault, App Service settings), never committed.
+4. **Honest product scope** — MemberCore + Events first; employer marketing-site links are navigation only until IT defines CMS/embed contracts.
 
 ---
 
@@ -22,7 +22,7 @@ This document is the **swap map** so that work is a configuration + adapter pass
 | Profile | When | Brand | Auth | Typical host |
 | --- | --- | --- | --- | --- |
 | `demo` | **Now** | PulsePoint | Demo cookie and/or Clerk (optional) | Local, Vercel preview, any Node host |
-| `hap-azure` | **Later** | HAP + PulsePoint co-brand | Microsoft Entra ID / Azure AD B2C | Azure App Service or Container Apps + Azure Database for PostgreSQL |
+| `hap-azure` | **Later** | Employer + PulsePoint co-brand | Microsoft Entra ID / Azure AD B2C | Azure App Service or Container Apps + Azure Database for PostgreSQL |
 
 Set in `.env.local` (see `.env.local.example`):
 
@@ -34,16 +34,16 @@ Future:
 
 ```env
 INTEGRATION_PROFILE=hap-azure
-# Plus Azure-specific vars documented in the hap-azure section below.
+# Plus Azure-specific vars documented in the enterprise Azure section below.
 ```
 
 Code entry: `lib/integration-profile.ts`, `components/brand-logo.tsx`.
 
 ---
 
-## Swap map: today → Azure / HAP
+## Swap map: today → Azure / employer enterprise
 
-| Concern | Today (demo / prototype) | Future (HAP + Azure) | Touch files |
+| Concern | Today (demo / prototype) | Future (employer + Azure) | Touch files |
 | --- | --- | --- | --- |
 | **Staff auth** | Demo mode (`lib/demo-mode.ts`) or Clerk | **Microsoft Entra ID** (workforce) or **Azure AD B2C** (external) | `lib/auth.ts`, `middleware.ts`, `components/app-providers.tsx` |
 | **Member portal auth** | Clerk user ↔ `Member.clerkUserId` | Entra/B2C subject ID column + mapping table | `prisma/schema.prisma`, `app/actions/portal.ts` |
@@ -54,28 +54,28 @@ Code entry: `lib/integration-profile.ts`, `components/brand-logo.tsx`.
 | **Email** | Resend (optional) | **Azure Communication Services Email** or org SMTP relay | `lib/email.ts` (create adapter) |
 | **Payments** | Stripe (optional) | Stripe and/or org finance system — **business decision**, not forced by Azure | `lib/stripe.ts`, webhooks |
 | **Errors / APM** | Vercel logs / optional Sentry | **Azure Application Insights** | `instrumentation.ts`, Sentry swap |
-| **Public marketing** | In-app `(marketing)/` routes | **haponline.org** CMS pages deep-linking to PulsePoint app URL | Marketing routes + env `NEXT_PUBLIC_MARKETING_SITE_URL` |
-| **Brand / theme** | PulsePoint demo palette | HAP April 2025 tokens + official logo | `themes/hap-enterprise.css` (future), `components/brand-logo.tsx` |
-| **SSO from HAP site** | None | Entra app registration redirect URIs → PulsePoint `/sign-in` callback | Entra app reg + `lib/auth.ts` adapter |
+| **Public marketing** | In-app `(marketing)/` routes | Employer CMS pages deep-linking to PulsePoint app URL | Marketing routes + env `NEXT_PUBLIC_MARKETING_SITE_URL` |
+| **Brand / theme** | PulsePoint demo palette | Employer enterprise tokens + official logo | `themes/hap-enterprise.css` (future), `components/brand-logo.tsx` |
+| **SSO from employer site** | None | Entra app registration redirect URIs → PulsePoint `/sign-in` callback | Entra app reg + `lib/auth.ts` adapter |
 
 ---
 
-## www.haponline.org (website) — how it should connect later
+## Employer marketing site — how it should connect later
 
-**Today:** No embed, no shared cookies, no API calls to HAP infrastructure.
+**Today:** No embed, no shared cookies, no API calls to employer infrastructure.
 
 **Later (typical patterns — pick one with IT):**
 
 | Pattern | Description |
 | --- | --- |
-| **A. Link-out** | HAP site menus link to `https://ams.haponline.org` (or similar) — simplest, lowest risk |
+| **A. Link-out** | Employer site menus link to the AMS origin (e.g. `https://ams.example.org`) — simplest, lowest risk |
 | **B. Reverse proxy** | Azure Front Door / App Gateway path `/pulsepoint/*` → app origin — single domain, IT-managed |
 | **C. iframe embed** | Only if IT + security approve CSP and session model — usually avoided for admin apps |
 
 PulsePoint should expose:
 
-- `NEXT_PUBLIC_MARKETING_SITE_URL=https://www.haponline.org` for “Back to HAP” chrome in `hap-azure` profile
-- `NEXT_PUBLIC_APP_URL` for the AMS origin (never hardcode haponline.org as the app host unless proxy pattern B is final)
+- `NEXT_PUBLIC_MARKETING_SITE_URL` for “Back to marketing site” chrome in the enterprise Azure profile
+- `NEXT_PUBLIC_APP_URL` for the AMS origin (never hardcode the marketing host as the app host unless proxy pattern B is final)
 
 ---
 
@@ -85,7 +85,7 @@ PulsePoint should expose:
 
 High-level steps:
 
-1. Register app in **Microsoft Entra ID** (single tenant for HAP staff) or **B2C** if members self-serve.
+1. Register app in **Microsoft Entra ID** (single tenant for employer staff) or **B2C** if members self-serve.
 2. Replace `clerkAuth()` in `lib/auth.ts` with `entraAuth()` that returns the same `StaffSession` shape (`userId`, `orgId`, `orgSlug`, `role`).
 3. Map Entra groups → `OrgRole` (`OWNER` / `ADMIN` / `STAFF`) via `OrgMembership` or group claims.
 4. Remove or gate `ClerkProvider` in `components/app-providers.tsx` when `INTEGRATION_PROFILE=hap-azure`.
@@ -104,14 +104,14 @@ Member-facing portal may stay on B2C while staff uses Entra — two app registra
 
 ---
 
-## Brand swap (demo → HAP)
+## Brand swap (demo → employer enterprise)
 
 1. Set `INTEGRATION_PROFILE=hap-azure`.
-2. Import `themes/hap-enterprise.css` in `app/globals.css` (file added when HAP approves — not used in demo).
-3. `BrandLogo` renders HAP mark; co-brand “PulsePoint” text per HAP guidelines PDF.
+2. Import `themes/hap-enterprise.css` in `app/globals.css` (file added when employer branding is approved — not used in demo).
+3. `BrandLogo` renders the employer mark; co-brand “PulsePoint” text per approved brand guidelines.
 4. Re-run marketing claim validation (`pnpm claims:validate`).
 
-Assets for HAP live in `public/` but are **inactive** until `hap-azure` profile is enabled.
+Employer brand assets in `public/` are **inactive** until the enterprise Azure profile is enabled.
 
 ---
 
@@ -126,14 +126,14 @@ Assets for HAP live in `public/` but are **inactive** until `hap-azure` profile 
 
 ---
 
-## Checklist before flipping `hap-azure`
+## Checklist before flipping the enterprise Azure profile
 
 - [ ] MemberCore + Events pass operator checklist (`docs/OPERATOR-CHECKLIST.md`)
 - [ ] Production Stripe/Entra runbooks owned by named staff
 - [ ] Counsel-approved privacy + subprocessors include Microsoft/Azure rows
 - [ ] Entra app registration + redirect URLs on non-production first
 - [ ] IT security review for tenant isolation + export paths
-- [ ] haponline.org link/proxy pattern signed off by HAP web team
+- [ ] Employer marketing-site link/proxy pattern signed off by employer web team
 - [ ] `DEMO_MODE` disabled in production
 
 ---
@@ -142,7 +142,7 @@ Assets for HAP live in `public/` but are **inactive** until `hap-azure` profile 
 
 | Doc | Purpose |
 | --- | --- |
-| `docs/DEMO-MODE.md` | Standalone demo (no HAP, no Clerk required) |
+| `docs/DEMO-MODE.md` | Standalone demo (no employer SSO, no Clerk required) |
 | `docs/FREE-STACK.md` | $0 prototype hosting |
 | `docs/SUBPROCESSORS.md` | Vendor table — update when Azure replaces Clerk/Neon/Vercel |
 | `docs/DEPLOY.md` | Current deploy path — add Azure sibling when ready |

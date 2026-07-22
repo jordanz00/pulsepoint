@@ -66,7 +66,7 @@ See [POSITIONING.md](./POSITIONING.md).
 |---------|-------------------|---------------|
 | **A — Production wedge** | MemberCore + Events + Work are **GA**: prod deploy, legal pages, runbook owners, Stripe drill, pilot on real (sanitized) data | First association pilot; leadership can claim **only** these modules |
 | **B — Full modular suite** | Learn, Commerce, Giving, Engage, Insights each pass the **same go-live gates** as the wedge | “Full AMS” story vs Protech—modular, not monolithic |
-| **C — Enterprise** | `INTEGRATION_PROFILE=hap-azure`: Entra, Azure Postgres, HAP co-brand, optional haponline.org | Employer integration—**separate decision** after A/B |
+| **C — Enterprise** | `INTEGRATION_PROFILE=hap-azure`: Entra, Azure Postgres, employer co-brand, optional employer marketing site | Employer integration—**separate decision** after A/B |
 
 **Polish target:** Enforced via [UI-QUALITY-BAR.md](./UI-QUALITY-BAR.md)—not aspirational adjectives.
 
@@ -113,7 +113,7 @@ Source of truth for 🟢/🟡/🔴: [OPERATOR-CHECKLIST.md](./OPERATOR-CHECKLIST
 | **Member experience** | Public events 🟢; portal preview exists | Clerk-linked member portal (Phase 3 in README) |
 | **Renewals** | Field on `Member`; automation roadmap | Renewal rules + staff workflow (or honest “roadmap” until shipped) |
 | **Insights** | Alpha snapshots | Numbers match exports; board-ready packet |
-| **Enterprise** | Documented only | Not required for “real AMS” unless HAP path chosen — [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md) |
+| **Enterprise** | Documented only | Not required for “real AMS” unless enterprise Azure path chosen — [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md) |
 
 ---
 
@@ -331,7 +331,7 @@ Say **no** to these until Block 1 is green:
 - Protech parity: complex sponsorships, exhibit halls, multi-chapter billing trees
 - Power BI embed (semantic layer first, embed when IT ready)
 - Full automated GDPR DSAR portal
-- HAP production SSO / haponline embed
+- Enterprise production SSO / employer marketing site embed
 - Rebuilding auth without Clerk unless security review demands it
 
 See [SCOPE.md](./SCOPE.md) and [SELECT-STAR-DEBT.md](./SELECT-STAR-DEBT.md).
@@ -404,7 +404,7 @@ Also: [ ] Domain → staging URL (pulsepointams.com or chosen)
 |-------|---------|
 | **Now → Month 6** | Production-grade **wedge** — polished admin UX, prod deploy, legal, pilot, honest unveil |
 | **Month 7–12** | **Module GA ladder** — Commerce → Learn → Engage → Giving → Insights, each with full workflows |
-| **Month 13–18** | **Association-complete** — portal, renewals, committees; optional HAP/Azure |
+| **Month 13–18** | **Association-complete** — portal, renewals, committees; optional enterprise Azure |
 
 **Full AMS ≠ all features on day one.** It means: **operational trust**, consistent UX, ops that don’t lie, and modules promoted only when supportability + claims checklists are green.
 

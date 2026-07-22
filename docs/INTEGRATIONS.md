@@ -1,6 +1,6 @@
 # PulsePoint integrations
 
-**Enterprise (HAP + Azure + haponline.org):** deferred — see [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md). Demo profile uses no HAP production APIs.
+**Enterprise (employer + Azure + employer marketing site):** deferred — see [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md). Demo profile uses no employer production APIs.
 
 ## Standard endpoints (v0.1)
 

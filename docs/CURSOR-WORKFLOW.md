@@ -43,10 +43,10 @@ pnpm dev:check     # verify homepage returns PulsePoint HTML
 ```
 Read @docs/PROJECT-PULSE.md first.
 
-Scope: [pulse | hap-340b | pa-media-arts] — [one sentence outcome]
+Scope: [pulse | 340b-dashboard | pa-media-arts] — [one sentence outcome]
 Files: @[exact files]
 Do NOT touch: [shared assets / other products]
-Verify: pnpm quake:gates (or python3 dashboard-audit.py for HAP)
+Verify: pnpm quake:gates (or python3 dashboard-audit.py for the 340B dashboard)
 Done when: [measurable result]
 ```
 
@@ -77,7 +77,7 @@ pnpm quake:automation:install
 | Product | Path | Deploy |
 |---------|------|--------|
 | **PulsePoint AMS** | `/Users/jordanzabady/Desktop/pulse` | GitHub / staging |
-| **HAP 340B** | `Cursor Projects/` (340b*, state-data.js) | GitHub Pages |
+| **340B dashboard** | `Cursor Projects/` (340b*, state-data.js) | GitHub Pages |
 | **PA Media Arts** | `Cursor Projects/PA-Media-Arts-*` | PDF/email only |
 
 Never mix products in one commit.

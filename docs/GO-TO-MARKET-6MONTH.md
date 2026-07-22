@@ -3,7 +3,7 @@
 **Project type:** Background build — standalone demo today, Protech-class competitor at unveil (Month 6).  
 **Positioning:** Cheaper, clearer, more intuitive AMS for healthcare associations. User-centric, modern UI.  
 **18-month master plan:** [REALIZATION-PLAN.md](./REALIZATION-PLAN.md) (this doc = Months 1–6 detail).  
-**Not in scope until post-unveil:** Employer (HAP) production integration — see [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md).
+**Not in scope until post-unveil:** Employer production integration — see [ENTERPRISE-INTEGRATION.md](./ENTERPRISE-INTEGRATION.md).
 
 ---
 
@@ -179,7 +179,7 @@
 | **Email** | Resend free → later ACS | Simple API | $0 |
 | **Monitoring** | Vercel logs → App Insights later | Skip Sentry until pilot | $0 |
 
-**Avoid for Months 1–5:** Azure full migration, employer SSO, haponline.org embed — keeps focus and swap path clean.
+**Avoid for Months 1–5:** Azure full migration, employer SSO, employer marketing site embed — keeps focus and swap path clean.
 
 ---
 
