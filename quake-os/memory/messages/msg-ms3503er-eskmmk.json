@@ -1,0 +1,11 @@
+{
+  "id": "msg-ms3503er-eskmmk",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Advance Emergency Management to alpha",
+  "body": "Emergency rosters, readiness reports, alerting via Engage sequences.",
+  "refs": [
+    "task-ms3503en-kng4n8"
+  ],
+  "createdAt": "2026-07-27T11:21:56.547Z"
+}
