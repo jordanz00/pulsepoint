@@ -36,13 +36,13 @@ if [[ -f middleware.ts ]]; then
   mv middleware.ts "$STASH_DIR/middleware/middleware.ts"
 fi
 
-# Routes that need a Node server / dynamic segments — exclude from export
+# Routes that need a Node server / dynamic segments — exclude from export.
+# Keep `demo` + `demo-healthcare` (client-side static demo with sessionStorage).
 EXCLUDE=(
   "[orgSlug]"
   "actions"
   "api"
   "dashboard"
-  "demo"
   "forms"
   "onboarding"
   "platform"
@@ -55,65 +55,6 @@ for name in "${EXCLUDE[@]}"; do
     mv "app/$name" "$STASH_DIR/app/$name"
   fi
 done
-
-# Static demo stub (CTAs on the marketing page still point at /demo)
-mkdir -p app/demo
-cat > app/demo/page.tsx <<'EOF'
-import Link from "next/link";
-import { MarketingHeader } from "@/components/marketing/marketing-header";
-import { MarketingFooterPremium } from "@/components/marketing/marketing-footer-premium";
-import { SkipToMain } from "@/components/skip-to-main";
-
-export const metadata = {
-  title: "Try the demo — PulsePoint",
-  description: "Run the full PulsePoint AMS demo on your machine.",
-};
-
-export default function GitHubPagesDemoStub() {
-  return (
-    <div className="pp-canvas pp-marketing-canvas min-h-screen">
-      <SkipToMain />
-      <MarketingHeader userId={null} standalone />
-      <main id="main-content" className="mk-section">
-        <div className="mk-container max-w-2xl text-center">
-          <p className="mk-section-eyebrow">Full AMS demo</p>
-          <h1 className="mk-section-title mt-2">Run PulsePoint locally</h1>
-          <p className="mk-section-lead mt-4">
-            This GitHub Pages site is the same marketing experience as{" "}
-            <code className="text-sm">localhost:3000</code>. The interactive AMS
-            (roster, events, Stripe, demo walkthrough) needs the Next.js app on
-            your machine.
-          </p>
-          <pre className="mt-8 overflow-x-auto rounded-xl border border-[var(--pc-border)] bg-[var(--pc-bg-elevated)] p-4 text-left text-sm text-[var(--pc-text)]">
-{`git clone https://github.com/jordanz00/pulsepoint.git
-cd pulsepoint
-pnpm install
-pnpm demo:setup
-pnpm dev`}
-          </pre>
-          <p className="mt-4 text-sm text-[var(--pc-text-secondary)]">
-            Then open <strong>http://localhost:3000/demo</strong>
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link href="/" className="pc-btn-primary min-h-[3rem] px-8">
-              Back to homepage
-            </Link>
-            <a
-              href="https://github.com/jordanz00/pulsepoint"
-              className="pc-btn-secondary min-h-[3rem]"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub
-            </a>
-          </div>
-        </div>
-      </main>
-      <MarketingFooterPremium />
-    </div>
-  );
-}
-EOF
 
 echo "▶ Building static export (basePath=/pulsepoint)…"
 export GITHUB_PAGES=true
@@ -142,6 +83,7 @@ elif [[ -f "$NEXT_DIST_DIR/index.html" ]]; then
     "$NEXT_DIST_DIR"/_next \
     "$NEXT_DIST_DIR"/_not-found \
     "$NEXT_DIST_DIR"/demo \
+    "$NEXT_DIST_DIR"/demo-healthcare \
     "$NEXT_DIST_DIR"/privacy \
     "$NEXT_DIST_DIR"/terms \
     "$NEXT_DIST_DIR"/whats-new \
@@ -170,8 +112,14 @@ if [[ ! -f out/index.html ]]; then
   exit 1
 fi
 
+if [[ ! -d out/demo-healthcare ]]; then
+  echo "❌ out/demo-healthcare missing — static demo failed to export" >&2
+  exit 1
+fi
+
 # Ensure .nojekyll for GitHub Pages
 touch out/.nojekyll
 
 echo "✅ Static site ready in out/ ($(du -sh out | cut -f1))"
-echo "   Smoke: open out/index.html — should match localhost marketing (basePath /pulsepoint)."
+echo "   Marketing: out/index.html"
+echo "   Demo:      out/demo/ + out/demo-healthcare/"

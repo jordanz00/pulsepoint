@@ -6,8 +6,10 @@ import { DEMO_CTA, LEADERSHIP_STATS } from "@/lib/marketing-home";
 import { SALES_CTAS } from "@/lib/marketing-catalog";
 import { AnimatedNumber } from "@/components/motion/animated-number";
 import { moduleCssVars } from "@/lib/module-colors";
+import { enterStaticDemo } from "@/lib/static-demo/session";
 
 const isGhPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true";
+const basePath = isGhPages ? "/pulsepoint" : "";
 
 function DemoCtaStats() {
   const featured = LEADERSHIP_STATS.slice(0, 3);
@@ -75,12 +77,16 @@ export function DemoCtaPremium({ standalone = false }: { standalone?: boolean })
       <p className="mk-demo-cta-card-title">{DEMO_CTA.walkthrough}</p>
       <p className="mk-demo-cta-card-lead">Guided tour with Next bar.</p>
       {isGhPages ? (
-        <Link
-          href="/demo/"
-          className="pc-btn-primary mk-hero-cta-primary mt-7 min-h-[3rem] w-full inline-flex items-center justify-center"
+        <button
+          type="button"
+          className="pc-btn-primary mk-hero-cta-primary mt-7 min-h-[3rem] w-full"
+          onClick={() => {
+            enterStaticDemo("walkthrough");
+            window.location.href = `${basePath}/demo-healthcare/walkthrough/?step=0`;
+          }}
         >
           Start walkthrough
-        </Link>
+        </button>
       ) : (
         <button type="submit" className="pc-btn-primary mk-hero-cta-primary mt-7 min-h-[3rem] w-full">
           Start walkthrough
@@ -94,12 +100,16 @@ export function DemoCtaPremium({ standalone = false }: { standalone?: boolean })
       <p className="mk-demo-cta-card-title">{DEMO_CTA.suite}</p>
       <p className="mk-demo-cta-card-lead">Explore every module freely.</p>
       {isGhPages ? (
-        <Link
-          href="/demo/"
-          className="pc-btn-secondary mt-7 min-h-[3rem] w-full inline-flex items-center justify-center"
+        <button
+          type="button"
+          className="pc-btn-secondary mt-7 min-h-[3rem] w-full"
+          onClick={() => {
+            enterStaticDemo("suite");
+            window.location.href = `${basePath}/demo-healthcare/suite/`;
+          }}
         >
           Open full suite
-        </Link>
+        </button>
       ) : (
         <button type="submit" className="pc-btn-secondary mt-7 min-h-[3rem] w-full">
           Open full suite
