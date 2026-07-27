@@ -3,8 +3,12 @@
  */
 
 import { getDemoSession } from "@/lib/demo-mode";
+import { isGitHubPagesBuild } from "@/lib/github-pages";
 
 export async function DemoBanner() {
+  // Static export cannot call cookies(); GitHub Pages has no demo session.
+  if (isGitHubPagesBuild()) return null;
+
   const demo = await getDemoSession();
   if (!demo) return null;
 

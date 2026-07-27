@@ -67,3 +67,6 @@ next-env.d.ts
 prisma/ci.db
 prisma/ci.db-journal
 prisma/*.db-journal
+
+# GitHub Pages static export build cache
+.next-gh-pages/

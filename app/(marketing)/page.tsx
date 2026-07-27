@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getDemoSession } from "@/lib/demo-mode";
 import { isStandalonePrototype } from "@/lib/standalone-prototype";
 import { MARKETING_HERO } from "@/lib/marketing-home";
 import { MarketingHeader } from "@/components/marketing/marketing-header";
@@ -17,8 +16,6 @@ import { DemoCtaPremium } from "@/components/marketing/demo-cta-premium";
 import { MarketingFooterPremium } from "@/components/marketing/marketing-footer-premium";
 import { SkipToMain } from "@/components/skip-to-main";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: `${MARKETING_HERO.headline} — ${MARKETING_HERO.metaTitle}`,
   description: `${MARKETING_HERO.subhead} Microsoft 365, EasyDNN, and board-ready KPIs for hospital associations.`,
@@ -29,19 +26,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function MarketingPage() {
+export default function MarketingPage() {
+  // Marketing homepage is statically rendered (GitHub Pages + local).
+  // Auth/demo session only affects admin shells — CTAs stay “Try demo” here.
   const standalone = isStandalonePrototype();
-  let resolvedUserId: string | null = null;
-  try {
-    if (standalone) {
-      resolvedUserId = (await getDemoSession())?.userId ?? null;
-    } else {
-      const { auth } = await import("@clerk/nextjs/server");
-      resolvedUserId = (await auth()).userId ?? null;
-    }
-  } catch {
-    resolvedUserId = null;
-  }
+  const resolvedUserId: string | null = null;
 
   return (
     <div className="pp-canvas pp-marketing-canvas min-h-screen">
