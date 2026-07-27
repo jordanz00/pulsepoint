@@ -1,38 +1,31 @@
 # GitHub Pages and PulsePoint
 
-## Live static demo (same marketing UI as localhost)
-
-GitHub Pages deploys a **static export of the real Next.js marketing site** via `scripts/gh-pages-build.sh` → `out/`.
+## Live site (matches localhost marketing + runnable demo)
 
 | URL | What you get |
 | --- | --- |
-| **https://jordanz00.github.io/pulsepoint/** | Same marketing homepage as `http://localhost:3000/` |
-| **https://jordanz00.github.io/pulsepoint/demo/** | Instructions to run the full AMS demo locally |
-| **https://jordanz00.github.io/pulsepoint/compare-protech/** | vs Protech page |
-| **https://jordanz00.github.io/pulsepoint/whats-new/** | What's new |
+| **https://jordanz00.github.io/pulsepoint/** | Same marketing homepage as `localhost:3000` |
+| **https://jordanz00.github.io/pulsepoint/demo/** | Enter demo (guided / suite / overview) |
+| **https://jordanz00.github.io/pulsepoint/demo-healthcare/** | Interactive admin chrome + module previews |
+
+**How the demo runs on static Pages:** `sessionStorage` gate (no cookies/API). Module UIs reuse the same marketing preview components as localhost. Data is **illustrative** — labeled Demo preview.
 
 **Enable once:** GitHub → **Settings** → **Pages** → Build source: **GitHub Actions**.
 
-**Private repo:** GitHub Pages on private repos requires a paid plan; make the repo **public** for free Pages.
-
-### Static vs full Next.js app
-
-| Feature | GitHub Pages (`out/` from marketing export) | Local / Node host (`pnpm dev`) |
-| --- | --- | --- |
-| Marketing homepage | Yes — same React + CSS as localhost | Yes |
-| Interactive marketing modules | Yes (client components) | Yes |
-| One-click AMS demo / SQLite / Stripe | No — `/demo` explains local setup | Yes |
-| Clerk / Entra | No | Optional |
-
-### Local build
+### Build locally
 
 ```bash
 pnpm build:gh-pages
-# inspect ./out (basePath /pulsepoint)
+# out/index.html + out/demo/ + out/demo-healthcare/
 ```
 
-CI: `.github/workflows/github-pages.yml` runs on marketing-related pushes to `main` and `workflow_dispatch`.
+CI: `.github/workflows/github-pages.yml`
 
-### Legacy folder
+### Honest scope
 
-`gh-pages-site/` is the old hand-written HTML landing. It is **no longer deployed**. Prefer deleting it in a follow-up once Pages parity is confirmed.
+| On GitHub Pages | Localhost only (`pnpm demo:setup && pnpm dev`) |
+| --- | --- |
+| Marketing homepage (identical) | Same |
+| Enter demo → admin shell | Cookie + SQLite demo |
+| Members / events / insights / suite / walkthrough (interactive) | Full Prisma CRUD, Stripe, imports |
+| Catch-all module routes (previews) | Full `[orgSlug]` admin tree |
