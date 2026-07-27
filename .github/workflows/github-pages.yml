@@ -1,12 +1,25 @@
-# Static marketing + interactive demo for GitHub Pages (no Vercel, no Node server).
-# Live URL (public repo): https://jordanz00.github.io/pulsepoint/
+# Static marketing site for GitHub Pages — same Next.js marketing UI as localhost:3000.
+# Live URL: https://jordanz00.github.io/pulsepoint/
 name: Deploy GitHub Pages demo
 
 on:
   push:
     branches: [main]
     paths:
-      - "gh-pages-site/**"
+      - "app/(marketing)/**"
+      - "app/layout.tsx"
+      - "app/*.css"
+      - "components/marketing/**"
+      - "lib/marketing*.ts"
+      - "lib/flagship*.ts"
+      - "lib/suite-explorer.ts"
+      - "lib/why-pulsepoint-flagship.ts"
+      - "lib/github-pages.ts"
+      - "lib/standalone-prototype.ts"
+      - "next.config.ts"
+      - "scripts/gh-pages-build.sh"
+      - "package.json"
+      - "pnpm-lock.yaml"
       - ".github/workflows/github-pages.yml"
   workflow_dispatch:
 
@@ -28,10 +41,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static marketing export
+        run: bash scripts/gh-pages-build.sh
+        env:
+          GITHUB_PAGES: "true"
+          NEXT_PUBLIC_GITHUB_PAGES: "true"
+          DEMO_MODE: "true"
+          DEMO_SESSION_SECRET: "gh-pages-ci-static-build-secret-32c"
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: gh-pages-site
+          path: out
 
       - name: Deploy to GitHub Pages
         id: deployment

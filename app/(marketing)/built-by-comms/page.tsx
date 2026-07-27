@@ -5,7 +5,6 @@ import { MarketingHeader } from "@/components/marketing/marketing-header";
 import { MarketingFooterPremium } from "@/components/marketing/marketing-footer-premium";
 import { SkipToMain } from "@/components/skip-to-main";
 import { isStandalonePrototype } from "@/lib/standalone-prototype";
-import { getDemoSession } from "@/lib/demo-mode";
 
 export const metadata: Metadata = {
   title: "Built by comms — PulsePoint portfolio story",
@@ -20,19 +19,9 @@ function statusBadge(status: "alpha" | "preview") {
   );
 }
 
-export default async function BuiltByCommsPage() {
+export default function BuiltByCommsPage() {
   const standalone = isStandalonePrototype();
-  let resolvedUserId: string | null = null;
-  try {
-    if (standalone) {
-      resolvedUserId = (await getDemoSession())?.userId ?? null;
-    } else {
-      const { auth } = await import("@clerk/nextjs/server");
-      resolvedUserId = (await auth()).userId ?? null;
-    }
-  } catch {
-    resolvedUserId = null;
-  }
+  const resolvedUserId: string | null = null;
 
   const c = BUILT_BY_COMMS;
 

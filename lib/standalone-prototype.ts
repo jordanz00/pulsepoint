@@ -5,9 +5,10 @@
  */
 
 import { isDemoModeEnabled } from "@/lib/demo-mode-gates";
+import { isGitHubPagesBuild } from "@/lib/github-pages";
 
 export function isStandalonePrototype(): boolean {
-  return isDemoModeEnabled();
+  return isDemoModeEnabled() || isGitHubPagesBuild();
 }
 
 export function authRedirectPath(): string {

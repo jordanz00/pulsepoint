@@ -11,6 +11,7 @@
     "dev:stop": "bash scripts/dev-stop.sh",
     "dev:check": "bash scripts/check-local-homepage.sh",
     "build": "prisma generate && next build",
+    "build:gh-pages": "bash scripts/gh-pages-build.sh",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

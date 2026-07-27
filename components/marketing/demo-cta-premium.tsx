@@ -7,6 +7,8 @@ import { SALES_CTAS } from "@/lib/marketing-catalog";
 import { AnimatedNumber } from "@/components/motion/animated-number";
 import { moduleCssVars } from "@/lib/module-colors";
 
+const isGhPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true";
+
 function DemoCtaStats() {
   const featured = LEADERSHIP_STATS.slice(0, 3);
   return (
@@ -68,6 +70,44 @@ export function DemoCtaPremium({ standalone = false }: { standalone?: boolean })
     );
   }
 
+  const walkthroughInner = (
+    <>
+      <p className="mk-demo-cta-card-title">{DEMO_CTA.walkthrough}</p>
+      <p className="mk-demo-cta-card-lead">Guided tour with Next bar.</p>
+      {isGhPages ? (
+        <Link
+          href="/demo/"
+          className="pc-btn-primary mk-hero-cta-primary mt-7 min-h-[3rem] w-full inline-flex items-center justify-center"
+        >
+          Start walkthrough
+        </Link>
+      ) : (
+        <button type="submit" className="pc-btn-primary mk-hero-cta-primary mt-7 min-h-[3rem] w-full">
+          Start walkthrough
+        </button>
+      )}
+    </>
+  );
+
+  const suiteInner = (
+    <>
+      <p className="mk-demo-cta-card-title">{DEMO_CTA.suite}</p>
+      <p className="mk-demo-cta-card-lead">Explore every module freely.</p>
+      {isGhPages ? (
+        <Link
+          href="/demo/"
+          className="pc-btn-secondary mt-7 min-h-[3rem] w-full inline-flex items-center justify-center"
+        >
+          Open full suite
+        </Link>
+      ) : (
+        <button type="submit" className="pc-btn-secondary mt-7 min-h-[3rem] w-full">
+          Open full suite
+        </button>
+      )}
+    </>
+  );
+
   return (
     <section id="demo" className="mk-section">
       <div className="mk-container">
@@ -80,22 +120,22 @@ export function DemoCtaPremium({ standalone = false }: { standalone?: boolean })
             <p className="mk-demo-cta-lead mt-4 text-[15px] leading-relaxed">{DEMO_CTA.lead}</p>
           </div>
           <div className="mx-auto mt-8 grid max-w-2xl gap-4 sm:grid-cols-2">
-            <form action="/api/demo/enter" method="post" className="mk-demo-cta-card pp-glass-surface glass">
-              <input type="hidden" name="mode" value="walkthrough" />
-              <p className="mk-demo-cta-card-title">{DEMO_CTA.walkthrough}</p>
-              <p className="mk-demo-cta-card-lead">Guided tour with Next bar.</p>
-              <button type="submit" className="pc-btn-primary mk-hero-cta-primary mt-7 min-h-[3rem] w-full">
-                Start walkthrough
-              </button>
-            </form>
-            <form action="/api/demo/enter" method="post" className="mk-demo-cta-card pp-glass-surface glass">
-              <input type="hidden" name="mode" value="suite" />
-              <p className="mk-demo-cta-card-title">{DEMO_CTA.suite}</p>
-              <p className="mk-demo-cta-card-lead">Explore every module freely.</p>
-              <button type="submit" className="pc-btn-secondary mt-7 min-h-[3rem] w-full">
-                Open full suite
-              </button>
-            </form>
+            {isGhPages ? (
+              <div className="mk-demo-cta-card pp-glass-surface glass">{walkthroughInner}</div>
+            ) : (
+              <form action="/api/demo/enter" method="post" className="mk-demo-cta-card pp-glass-surface glass">
+                <input type="hidden" name="mode" value="walkthrough" />
+                {walkthroughInner}
+              </form>
+            )}
+            {isGhPages ? (
+              <div className="mk-demo-cta-card pp-glass-surface glass">{suiteInner}</div>
+            ) : (
+              <form action="/api/demo/enter" method="post" className="mk-demo-cta-card pp-glass-surface glass">
+                <input type="hidden" name="mode" value="suite" />
+                {suiteInner}
+              </form>
+            )}
           </div>
         </DemoCtaShell>
       </div>
