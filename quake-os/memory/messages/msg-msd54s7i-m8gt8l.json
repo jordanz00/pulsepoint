@@ -1,0 +1,11 @@
+{
+  "id": "msg-msd54s7i-m8gt8l",
+  "from": "orchestrator",
+  "to": "developer-agent",
+  "subject": "New task: Advocacy: Hospital association advocacy",
+  "body": "Topic: Hospital association advocacy. Analyzed 24 source hits across 3 paths. 1 gap signal(s) identified. 1 risk signal(s) require compliance review.",
+  "refs": [
+    "task-msd54s7e-0dz29s"
+  ],
+  "createdAt": "2026-08-03T11:23:17.070Z"
+}
