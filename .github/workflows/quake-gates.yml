@@ -2,9 +2,8 @@ name: Quake OS gates
 
 on:
   workflow_dispatch:
-  schedule:
-    # Weekly Monday 12:00 UTC — continuous improvement signal
-    - cron: "0 12 * * 1"
+  # Schedule removed — weekly Quake OS automation already runs gates.
+  # Scheduled failures were emailing SQLITE_BUSY flakes; run on PR + manual only.
   pull_request:
     paths:
       - "app/**"
@@ -17,6 +16,8 @@ on:
       - "scripts/quake-gates.sh"
       - "quake-os/**"
       - "data/quake-os/**"
+      - "tests/**"
+      - "vitest.config.ts"
 
 jobs:
   quake:
