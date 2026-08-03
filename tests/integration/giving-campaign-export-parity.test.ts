@@ -11,6 +11,7 @@ import {
 import { sumRaisedCents } from "@/lib/giving/campaign-stats";
 import { loadCampaignDetail } from "@/lib/giving/load-giving";
 import { prisma } from "@/lib/prisma";
+import { withSqliteBusyRetry } from "@/tests/helpers/sqlite-busy-retry";
 
 const run = process.env.DATABASE_URL ? describe : describe.skip;
 
@@ -20,59 +21,67 @@ run("giving campaign export parity (integration)", () => {
   let campaignId: string;
 
   beforeAll(async () => {
-    const org = await prisma.organization.create({
-      data: {
-        id: `test_giving_${ts}`,
-        slug: `test-giving-${ts}`,
-        name: "Giving Parity Test Org",
-      },
-    });
+    const org = await withSqliteBusyRetry("giving.org", () =>
+      prisma.organization.create({
+        data: {
+          id: `test_giving_${ts}`,
+          slug: `test-giving-${ts}`,
+          name: "Giving Parity Test Org",
+        },
+      }),
+    );
     orgId = org.id;
     const db = getOrgDb(orgId);
 
-    const campaign = await db.campaign.create({
-      data: {
-        orgId,
-        name: "Annual Fund 2026",
-        goalCents: 100_000,
-        status: "ACTIVE",
-      },
-    });
+    const campaign = await withSqliteBusyRetry("giving.campaign", () =>
+      db.campaign.create({
+        data: {
+          orgId,
+          name: "Annual Fund 2026",
+          goalCents: 100_000,
+          status: "ACTIVE",
+        },
+      }),
+    );
     campaignId = campaign.id;
 
-    await db.donation.createMany({
-      data: [
-        {
-          orgId,
-          campaignId,
-          donorName: "Paid Donor A",
-          amountCents: 5000,
-          paidAt: new Date("2026-06-01T12:00:00.000Z"),
-        },
-        {
-          orgId,
-          campaignId,
-          donorName: "Paid Donor B",
-          amountCents: 2500,
-          paidAt: new Date("2026-06-02T12:00:00.000Z"),
-        },
-        {
-          orgId,
-          campaignId,
-          donorName: "Pending Pledge",
-          amountCents: 10_000,
-          paidAt: null,
-        },
-      ],
-    });
+    await withSqliteBusyRetry("giving.donations", () =>
+      db.donation.createMany({
+        data: [
+          {
+            orgId,
+            campaignId,
+            donorName: "Paid Donor A",
+            amountCents: 5000,
+            paidAt: new Date("2026-06-01T12:00:00.000Z"),
+          },
+          {
+            orgId,
+            campaignId,
+            donorName: "Paid Donor B",
+            amountCents: 2500,
+            paidAt: new Date("2026-06-02T12:00:00.000Z"),
+          },
+          {
+            orgId,
+            campaignId,
+            donorName: "Pending Pledge",
+            amountCents: 10_000,
+            paidAt: null,
+          },
+        ],
+      }),
+    );
   });
 
   afterAll(async () => {
     if (!orgId) return;
     const db = getOrgDb(orgId);
-    await db.donation.deleteMany({ where: { orgId } });
-    await db.campaign.deleteMany({ where: { orgId } });
-    await prisma.organization.delete({ where: { id: orgId } }).catch(() => undefined);
+    await withSqliteBusyRetry("giving.cleanup", async () => {
+      await db.donation.deleteMany({ where: { orgId } });
+      await db.campaign.deleteMany({ where: { orgId } });
+      await prisma.organization.delete({ where: { id: orgId } }).catch(() => undefined);
+    });
   });
 
   it("loadCampaignDetail raisedCents matches paid export row sum", async () => {

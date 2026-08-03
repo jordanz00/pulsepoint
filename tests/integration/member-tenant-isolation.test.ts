@@ -6,6 +6,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { getOrgDb } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 import { assertAllRowsBelongToOrg } from "@/lib/tenant-guards";
+import { withSqliteBusyRetry } from "@/tests/helpers/sqlite-busy-retry";
 
 const run = process.env.DATABASE_URL ? describe : describe.skip;
 
@@ -16,52 +17,62 @@ run("member tenant isolation (integration)", () => {
   const secretEmail = `leak-guard-b-${ts}@pulsepoint.test`;
 
   beforeAll(async () => {
-    const orgA = await prisma.organization.create({
-      data: {
-        id: `test_org_a_${ts}`,
-        slug: `test-iso-a-${ts}`,
-        name: "Isolation Test A",
-      },
-    });
-    const orgB = await prisma.organization.create({
-      data: {
-        id: `test_org_b_${ts}`,
-        slug: `test-iso-b-${ts}`,
-        name: "Isolation Test B",
-      },
-    });
+    const orgA = await withSqliteBusyRetry("orgA.create", () =>
+      prisma.organization.create({
+        data: {
+          id: `test_org_a_${ts}`,
+          slug: `test-iso-a-${ts}`,
+          name: "Isolation Test A",
+        },
+      }),
+    );
+    const orgB = await withSqliteBusyRetry("orgB.create", () =>
+      prisma.organization.create({
+        data: {
+          id: `test_org_b_${ts}`,
+          slug: `test-iso-b-${ts}`,
+          name: "Isolation Test B",
+        },
+      }),
+    );
     orgAId = orgA.id;
     orgBId = orgB.id;
 
-    await getOrgDb(orgBId).member.create({
-      data: {
-        orgId: orgBId,
-        firstName: "Secret",
-        lastName: "Member",
-        email: secretEmail,
-        status: "ACTIVE",
-        tags: [],
-        customFields: {},
-      },
-    });
+    await withSqliteBusyRetry("memberB.create", () =>
+      getOrgDb(orgBId).member.create({
+        data: {
+          orgId: orgBId,
+          firstName: "Secret",
+          lastName: "Member",
+          email: secretEmail,
+          status: "ACTIVE",
+          tags: [],
+          customFields: {},
+        },
+      }),
+    );
 
-    await getOrgDb(orgAId).member.create({
-      data: {
-        orgId: orgAId,
-        firstName: "Visible",
-        lastName: "OnlyInA",
-        email: `leak-guard-a-${ts}@pulsepoint.test`,
-        status: "ACTIVE",
-        tags: [],
-        customFields: {},
-      },
-    });
+    await withSqliteBusyRetry("memberA.create", () =>
+      getOrgDb(orgAId).member.create({
+        data: {
+          orgId: orgAId,
+          firstName: "Visible",
+          lastName: "OnlyInA",
+          email: `leak-guard-a-${ts}@pulsepoint.test`,
+          status: "ACTIVE",
+          tags: [],
+          customFields: {},
+        },
+      }),
+    );
   });
 
   afterAll(async () => {
-    await prisma.organization.deleteMany({
-      where: { id: { in: [orgAId, orgBId] } },
-    });
+    await withSqliteBusyRetry("orgs.delete", () =>
+      prisma.organization.deleteMany({
+        where: { id: { in: [orgAId, orgBId] } },
+      }),
+    );
   });
 
   it("getOrgDb(orgA).member.findMany never returns org B rows", async () => {
