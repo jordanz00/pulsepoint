@@ -1,9 +1,7 @@
 name: Quake OS automation
 
 on:
-  schedule:
-    # Monday 09:00 UTC — weekly continuous improvement (matches Cursor automation cron)
-    - cron: "0 9 * * 1"
+  # Schedule removed — weekly cron emailed gate failures; run manually when you want a wave.
   workflow_dispatch:
 
 permissions:
