@@ -1,0 +1,11 @@
+{
+  "id": "msg-msn0ux70-vmmtil",
+  "from": "compliance-agent",
+  "to": "auditor-agent",
+  "subject": "Compliance sweep: APPROVED",
+  "body": "Proceed to documentation sync\nRun pnpm quake:gates",
+  "refs": [
+    "audit-msn0ux6w-6t79s4"
+  ],
+  "createdAt": "2026-08-10T09:21:20.268Z"
+}

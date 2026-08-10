@@ -1,0 +1,13 @@
+{
+  "id": "rec-msn0ux87-f90mca",
+  "title": "risk: Membership scale and security",
+  "rationale": "knowledge/research.db#res-msn0ux5j-eg8km9: Membership scale and security | knowledge/competitors.db#intel-res-msn0ux5j-eg8km9: Intel: Membership scale and security | scripts/ten-member-leak-checks.sh: bad \"$LEAK_FILES file(s) query member without getOrgDb\" | scripts/ten-member-leak-checks.sh: bad \"$API_LEAK app/api route(s) query member without getOrgDb\" | docs/SCALE-AND-SECURITY.md: | Integration test | `tests/integration/member-tenant-isolation.test.ts` |",
+  "proposedBy": "security-agent",
+  "targetAgents": [
+    "security-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-08-10T09:21:20.311Z"
+}
