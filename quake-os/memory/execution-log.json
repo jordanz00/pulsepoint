@@ -1,5 +1,27 @@
 [
   {
+    "id": "exec-mthf3wnf-ovb34m",
+    "workflowId": "corporation-cycle",
+    "agentIds": [
+      "research-agent",
+      "architecture-agent",
+      "product-agent",
+      "developer-agent",
+      "qa-agent",
+      "auditor-agent",
+      "ceo-agent",
+      "cto-agent",
+      "compliance-agent",
+      "healthcare-sme-agent",
+      "hospital-association-agent",
+      "documentation-agent"
+    ],
+    "taskIds": [],
+    "status": "completed",
+    "startedAt": "2026-08-31T15:53:19.371Z",
+    "completedAt": "2026-08-31T15:53:20.174Z"
+  },
+  {
     "id": "exec-mt6zu8ac-ttafz4",
     "workflowId": "corporation-cycle",
     "agentIds": [
@@ -3160,21 +3182,5 @@
     "taskIds": [],
     "status": "running",
     "startedAt": "2026-06-09T00:00:30.052Z"
-  },
-  {
-    "id": "exec-mq5vitux-qh4cm9",
-    "workflowId": "daily-cycle",
-    "agentIds": [
-      "research-agent",
-      "architecture-agent",
-      "product-agent",
-      "developer-agent",
-      "qa-agent",
-      "auditor-agent"
-    ],
-    "taskIds": [],
-    "status": "completed",
-    "startedAt": "2026-06-09T00:00:28.329Z",
-    "completedAt": "2026-06-09T00:00:34.202Z"
   }
 ]
