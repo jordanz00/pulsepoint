@@ -1,0 +1,13 @@
+{
+  "id": "rec-mtrb6jth-8fma79",
+  "title": "risk: Membership scale and security",
+  "rationale": "knowledge/research.db#res-mtrb6jpy-kksyvw: Membership scale and security | knowledge/competitors.db#intel-res-mtrb6jpy-kksyvw: Intel: Membership scale and security | scripts/ten-member-leak-checks.sh: bad \"$LEAK_FILES file(s) query member without getOrgDb\" | scripts/ten-member-leak-checks.sh: bad \"$API_LEAK app/api route(s) query member without getOrgDb\" | docs/SCALE-AND-SECURITY.md: | Integration test | `tests/integration/member-tenant-isolation.test.ts` |",
+  "proposedBy": "security-agent",
+  "targetAgents": [
+    "security-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-09-07T14:01:06.005Z"
+}

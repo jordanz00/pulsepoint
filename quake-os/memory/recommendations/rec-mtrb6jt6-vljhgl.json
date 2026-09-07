@@ -1,0 +1,13 @@
+{
+  "id": "rec-mtrb6jt6-vljhgl",
+  "title": "risk: Hospital association advocacy",
+  "rationale": "lib/advocacy-dashboard.ts: * Advocacy dashboard stats — hospital-association rollups from MemberCore (real tenant data).",
+  "proposedBy": "hospital-association-agent",
+  "targetAgents": [
+    "security-agent",
+    "product-agent"
+  ],
+  "linkedTaskIds": [],
+  "priority": "P1",
+  "createdAt": "2026-09-07T14:01:05.994Z"
+}
